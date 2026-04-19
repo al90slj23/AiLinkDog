@@ -141,6 +141,8 @@ const CardPro = ({
   };
 
   const headerContent = renderHeader();
+  const normalizedShadows =
+    shadows === 'hover' || shadows === 'always' ? shadows : undefined;
 
   // 渲染分页区域
   const renderFooter = () => {
@@ -163,7 +165,7 @@ const CardPro = ({
       className={`table-scroll-card !rounded-2xl ${className}`}
       title={headerContent}
       footer={footerContent}
-      shadows={shadows}
+      shadows={normalizedShadows}
       bordered={bordered}
       style={style}
       {...props}

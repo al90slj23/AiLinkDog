@@ -97,11 +97,15 @@ type Base64Source struct {
 	baseFileSource
 	Base64Data string
 	MimeType   string
+	FileName   string
 }
 
 func (b *Base64Source) IsURL() bool { return false }
 
 func (b *Base64Source) GetIdentifier() string {
+	if b.FileName != "" {
+		return b.FileName
+	}
 	if len(b.Base64Data) > 50 {
 		return "base64:" + b.Base64Data[:50] + "..."
 	}
@@ -128,6 +132,14 @@ func NewBase64FileSource(base64Data string, mimeType string) *Base64Source {
 	return &Base64Source{
 		Base64Data: base64Data,
 		MimeType:   mimeType,
+	}
+}
+
+func NewNamedBase64FileSource(base64Data string, mimeType string, fileName string) *Base64Source {
+	return &Base64Source{
+		Base64Data: base64Data,
+		MimeType:   mimeType,
+		FileName:   fileName,
 	}
 }
 

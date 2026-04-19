@@ -8,12 +8,16 @@ upload
 build
 *.db-journal
 logs
-web/dist
+web/dist/
+!web/dist/
+!web/dist/index.html
 .env
 one-api
 new-api
 /__debug_bin*
 .DS_Store
+.ai/.DS_Store
+.ai/**/.DS_Store
 tiktoken_cache
 .eslintcache
 .gocache
@@ -22,6 +26,7 @@ tiktoken_cache
 web/bun.lock
 plans
 .claude
+.worktrees/
 
 electron/node_modules
 electron/dist

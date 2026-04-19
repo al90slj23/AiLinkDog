@@ -102,6 +102,9 @@ const ChatArea = ({
             renderChatBoxAction: renderChatBoxAction,
             renderChatBoxTitle: () => null,
           }}
+          uploadProps={{
+            action: '/api/placeholder-upload',
+          }}
           renderInputArea={renderInputArea}
           roleConfig={roleInfo}
           style={{

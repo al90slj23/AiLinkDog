@@ -47,8 +47,6 @@ import Playground from './pages/Playground';
 import Subscription from './pages/Subscription';
 import OAuth2Callback from './components/auth/OAuth2Callback';
 import PersonalSetting from './components/settings/PersonalSetting';
-import Setup from './pages/Setup';
-import SetupCheck from './components/layout/SetupCheck';
 
 const Home = lazy(() => import('./pages/Home'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
@@ -88,8 +86,7 @@ function App() {
   }, [statusState?.status?.HeaderNavModules]);
 
   return (
-    <SetupCheck>
-      <Routes>
+	<Routes>
         <Route
           path='/'
           element={
@@ -98,15 +95,7 @@ function App() {
             </Suspense>
           }
         />
-        <Route
-          path='/setup'
-          element={
-            <Suspense fallback={<Loading></Loading>} key={location.pathname}>
-              <Setup />
-            </Suspense>
-          }
-        />
-        <Route path='/forbidden' element={<Forbidden />} />
+		<Route path='/forbidden' element={<Forbidden />} />
         <Route
           path='/console/models'
           element={
@@ -377,9 +366,8 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </SetupCheck>
+		<Route path='*' element={<NotFound />} />
+	</Routes>
   );
 }
 

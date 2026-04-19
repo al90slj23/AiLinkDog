@@ -1,6 +1,7 @@
 package claude
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -385,6 +386,17 @@ func RequestOpenAI2ClaudeMessage(c *gin.Context, textRequest dto.GeneralOpenAIRe
 						if err != nil {
 							return nil, fmt.Errorf("get file data failed: %s", err.Error())
 						}
+						fallbackMimeType := ""
+						if mimeType == "" && mediaMessage.Type == dto.ContentTypeFile {
+							if file := mediaMessage.GetFile(); file != nil && file.FileName != "" {
+								if dot := strings.LastIndex(file.FileName, "."); dot != -1 && dot+1 < len(file.FileName) {
+									fallbackMimeType = service.GetMimeTypeByExtension(file.FileName[dot+1:])
+									if fallbackMimeType == "application/octet-stream" {
+										fallbackMimeType = ""
+									}
+								}
+							}
+						}
 						claudeMediaMessage := dto.ClaudeMediaMessage{
 							Source: &dto.ClaudeMessageSource{
 								Type: "base64",
@@ -392,6 +404,31 @@ func RequestOpenAI2ClaudeMessage(c *gin.Context, textRequest dto.GeneralOpenAIRe
 						}
 						if strings.HasPrefix(mimeType, "application/pdf") {
 							claudeMediaMessage.Type = "document"
+						} else if mimeType == "" && strings.HasPrefix(fallbackMimeType, "application/pdf") {
+							claudeMediaMessage.Type = "document"
+							mimeType = fallbackMimeType
+						} else if strings.HasPrefix(mimeType, "text/") {
+							decodedText, err := base64.StdEncoding.DecodeString(base64Data)
+							if err != nil {
+								return nil, fmt.Errorf("decode text file data failed: %s", err.Error())
+							}
+							claudeMediaMessages = append(claudeMediaMessages, dto.ClaudeMediaMessage{
+								Type: "text",
+								Text: common.GetPointer(string(decodedText)),
+							})
+							continue
+						} else if mimeType == "" && strings.HasPrefix(fallbackMimeType, "text/") {
+							decodedText, err := base64.StdEncoding.DecodeString(base64Data)
+							if err != nil {
+								return nil, fmt.Errorf("decode text file data failed: %s", err.Error())
+							}
+							claudeMediaMessages = append(claudeMediaMessages, dto.ClaudeMediaMessage{
+								Type: "text",
+								Text: common.GetPointer(string(decodedText)),
+							})
+							continue
+						} else if !strings.HasPrefix(mimeType, "image/") {
+							continue
 						} else {
 							claudeMediaMessage.Type = "image"
 						}

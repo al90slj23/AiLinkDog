@@ -18,9 +18,15 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Tooltip } from '@douyinfe/semi-ui';
+import { Button } from '@douyinfe/semi-ui';
 import { RefreshCw, Copy, Trash2, UserCheck, Edit } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+const ActionButton = ({ title, children }) => (
+  <span title={title} className='inline-flex'>
+    {children}
+  </span>
+);
 
 const MessageActions = ({
   message,
@@ -49,10 +55,7 @@ const MessageActions = ({
   return (
     <div className='flex items-center gap-0.5'>
       {!isLoading && (
-        <Tooltip
-          content={shouldDisableActions ? t('操作暂时被禁用') : t('重试')}
-          position='top'
-        >
+        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('重试')}>
           <Button
             theme='borderless'
             type='tertiary'
@@ -63,11 +66,11 @@ const MessageActions = ({
             className={`!rounded-full ${shouldDisableActions ? '!text-gray-300 !cursor-not-allowed' : '!text-gray-400 hover:!text-blue-600 hover:!bg-blue-50'} ${styleState.isMobile ? '!w-6 !h-6' : '!w-7 !h-7'} !p-0 transition-all`}
             aria-label={t('重试')}
           />
-        </Tooltip>
+        </ActionButton>
       )}
 
       {message.content && (
-        <Tooltip content={t('复制')} position='top'>
+        <ActionButton title={t('复制')}>
           <Button
             theme='borderless'
             type='tertiary'
@@ -77,14 +80,11 @@ const MessageActions = ({
             className={`!rounded-full !text-gray-400 hover:!text-green-600 hover:!bg-green-50 ${styleState.isMobile ? '!w-6 !h-6' : '!w-7 !h-7'} !p-0 transition-all`}
             aria-label={t('复制')}
           />
-        </Tooltip>
+        </ActionButton>
       )}
 
       {canEdit && (
-        <Tooltip
-          content={shouldDisableActions ? t('操作暂时被禁用') : t('编辑')}
-          position='top'
-        >
+        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('编辑')}>
           <Button
             theme='borderless'
             type='tertiary'
@@ -95,19 +95,18 @@ const MessageActions = ({
             className={`!rounded-full ${shouldDisableActions ? '!text-gray-300 !cursor-not-allowed' : '!text-gray-400 hover:!text-yellow-600 hover:!bg-yellow-50'} ${styleState.isMobile ? '!w-6 !h-6' : '!w-7 !h-7'} !p-0 transition-all`}
             aria-label={t('编辑')}
           />
-        </Tooltip>
+        </ActionButton>
       )}
 
       {canToggleRole && !isLoading && (
-        <Tooltip
-          content={
+        <ActionButton
+          title={
             shouldDisableActions
               ? t('操作暂时被禁用')
               : message.role === 'assistant'
                 ? t('切换为System角色')
                 : t('切换为Assistant角色')
           }
-          position='top'
         >
           <Button
             theme='borderless'
@@ -125,14 +124,11 @@ const MessageActions = ({
                 : t('切换为Assistant角色')
             }
           />
-        </Tooltip>
+        </ActionButton>
       )}
 
       {!isLoading && (
-        <Tooltip
-          content={shouldDisableActions ? t('操作暂时被禁用') : t('删除')}
-          position='top'
-        >
+        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('删除')}>
           <Button
             theme='borderless'
             type='tertiary'
@@ -143,7 +139,7 @@ const MessageActions = ({
             className={`!rounded-full ${shouldDisableActions ? '!text-gray-300 !cursor-not-allowed' : '!text-gray-400 hover:!text-red-600 hover:!bg-red-50'} ${styleState.isMobile ? '!w-6 !h-6' : '!w-7 !h-7'} !p-0 transition-all`}
             aria-label={t('删除')}
           />
-        </Tooltip>
+        </ActionButton>
       )}
     </div>
   );

@@ -18,9 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React, { useMemo } from 'react';
-import { Button, Dropdown } from '@douyinfe/semi-ui';
+import { Button } from '@douyinfe/semi-ui';
 import { Sun, Moon, Monitor } from 'lucide-react';
 import { useActualTheme } from '../../../context/Theme';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 
 const ThemeToggle = ({ theme, onThemeToggle, t }) => {
   const actualTheme = useActualTheme();
@@ -52,50 +53,46 @@ const ThemeToggle = ({ theme, onThemeToggle, t }) => {
     [t],
   );
 
-  const getItemClassName = (isSelected) =>
-    isSelected
-      ? '!bg-semi-color-primary-light-default !font-semibold'
-      : 'hover:!bg-semi-color-fill-1';
-
   const currentButtonIcon = useMemo(() => {
     const currentOption = themeOptions.find((option) => option.key === theme);
     return currentOption?.buttonIcon || themeOptions[2].buttonIcon;
   }, [theme, themeOptions]);
 
-  return (
-    <Dropdown
-      position='bottomRight'
-      render={
-        <Dropdown.Menu>
-          {themeOptions.map((option) => (
-            <Dropdown.Item
-              key={option.key}
-              icon={option.icon}
-              onClick={() => onThemeToggle(option.key)}
-              className={getItemClassName(theme === option.key)}
-            >
-              <div className='flex flex-col'>
-                <span>{option.label}</span>
-                <span className='text-xs text-semi-color-text-2'>
-                  {option.description}
-                </span>
-              </div>
-            </Dropdown.Item>
-          ))}
+  const items = themeOptions.map((option) => ({
+    key: option.key,
+    active: theme === option.key,
+    render: () => (
+      <div className='flex items-start gap-2'>
+        <span className='mt-0.5'>{option.icon}</span>
+        <div className='flex flex-col'>
+          <span>{option.label}</span>
+          <span className='text-xs text-semi-color-text-2'>
+            {option.description}
+          </span>
+        </div>
+      </div>
+    ),
+    onClick: () => onThemeToggle(option.key),
+  }));
 
-          {theme === 'auto' && (
-            <>
-              <Dropdown.Divider />
-              <div className='px-3 py-2 text-xs text-semi-color-text-2'>
-                {t('当前跟随系统')}：
-                {actualTheme === 'dark' ? t('深色') : t('浅色')}
-              </div>
-            </>
-          )}
-        </Dropdown.Menu>
+  return (
+    <AppDropdownMenu
+      position='bottomRight'
+      items={items}
+      panel={
+        theme === 'auto'
+          ? () => (
+              <>
+                <div className='my-1 h-px bg-semi-color-border dark:bg-gray-600' />
+                <div className='px-3 py-2 text-xs text-semi-color-text-2'>
+                  {t('当前跟随系统')}：
+                  {actualTheme === 'dark' ? t('深色') : t('浅色')}
+                </div>
+              </>
+            )
+          : null
       }
-    >
-      <span className='inline-flex'>
+      trigger={
         <Button
           icon={currentButtonIcon}
           aria-label={t('切换主题')}
@@ -103,8 +100,8 @@ const ThemeToggle = ({ theme, onThemeToggle, t }) => {
           type='tertiary'
           className='!p-1.5 !text-current focus:!bg-semi-color-fill-1 !rounded-full !bg-semi-color-fill-0 hover:!bg-semi-color-fill-1'
         />
-      </span>
-    </Dropdown>
+      }
+    />
   );
 };
 

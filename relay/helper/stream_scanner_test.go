@@ -629,6 +629,24 @@ func TestStreamScannerHandler_StreamStatus_PreInitialized(t *testing.T) {
 	assert.Equal(t, 1, info.StreamStatus.TotalErrorCount())
 }
 
+func TestStreamScannerHandler_StreamStatus_PreInitializedClearsStaleEndReason(t *testing.T) {
+	t.Parallel()
+
+	body := buildSSEBody(2)
+	c, resp, info := setupStreamTest(t, strings.NewReader(body))
+
+	info.StreamStatus = relaycommon.NewStreamStatus()
+	info.StreamStatus.RecordError("pre-existing error")
+	info.StreamStatus.SetEndReason(relaycommon.StreamEndReasonTimeout, fmt.Errorf("stale terminal state"))
+
+	StreamScannerHandler(c, resp, info, func(data string, sr *StreamResult) {})
+
+	require.NotNil(t, info.StreamStatus)
+	assert.Equal(t, relaycommon.StreamEndReasonDone, info.StreamStatus.EndReason)
+	assert.Nil(t, info.StreamStatus.EndError)
+	assert.Equal(t, 1, info.StreamStatus.TotalErrorCount())
+}
+
 func TestStreamScannerHandler_PingInterleavesWithSlowUpstream(t *testing.T) {
 	t.Parallel()
 

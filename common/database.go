@@ -8,7 +8,7 @@ const (
 
 var UsingSQLite = false
 var UsingPostgreSQL = false
-var LogSqlType = DatabaseTypeSQLite // Default to SQLite for logging SQL queries
+var LogSqlType = DatabaseTypePostgreSQL
 var UsingMySQL = false
 var UsingClickHouse = false
 

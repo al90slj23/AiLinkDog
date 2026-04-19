@@ -42,6 +42,15 @@ func NewStreamStatus() *StreamStatus {
 	return &StreamStatus{}
 }
 
+func (s *StreamStatus) ResetTerminalState() {
+	if s == nil {
+		return
+	}
+	s.EndReason = StreamEndReasonNone
+	s.EndError = nil
+	s.endOnce = sync.Once{}
+}
+
 func (s *StreamStatus) SetEndReason(reason StreamEndReason, err error) {
 	if s == nil {
 		return
