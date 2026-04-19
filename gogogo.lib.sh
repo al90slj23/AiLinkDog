@@ -65,7 +65,6 @@ normalize_choice() {
     4|lint) echo "4" ;;
     5|clean) echo "5" ;;
     6|deploy) echo "6" ;;
-    7|summary|memory) echo "7" ;;
     attach) echo "attach" ;;
     stop) echo "stop" ;;
     0|exit) echo "0" ;;

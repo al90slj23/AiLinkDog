@@ -39,7 +39,6 @@ else
   echo "4. 运行检查"
   echo "5. 清理安全产物"
   echo "6. 部署"
-  echo "7. 总结经验到知识库并纯化规范候选"
   echo "attach. 进入当前开发会话"
   echo "stop. 停止当前开发会话"
   echo "0. 退出"
@@ -94,6 +93,6 @@ if [ -f "$SUB_SCRIPT" ]; then
   fi
 else
   print_error "❌ 无效选择：${choice}"
-  print_warn "💡 可用选项：1/2/3/4/5/6/7、attach、stop 或 dev/build/test/lint/clean/deploy/summary"
+  print_warn "💡 可用选项：1/2/3/4/5/6、attach、stop 或 dev/build/test/lint/clean/deploy"
   exit 1
 fi

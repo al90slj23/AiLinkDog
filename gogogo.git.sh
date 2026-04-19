@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GITHUB_DEPLOY_REMOTE_URL="https://github.com/al90slj23/ailinkdog.git"
+GITHUB_DEPLOY_REMOTE_URL="https://github.com/al90slj23/AiLinkDog.git"
 
 get_commit_status_block() {
   git -C "$SCRIPT_DIR" status --short 2>/dev/null
@@ -216,10 +216,10 @@ confirm_or_edit_commit_summary() {
 get_confirmed_commit_summary() {
   local provider status_block diff_block recent_commit_block commit_context initial_summary confirmed_summary
 
-  provider="$(choose_summary_provider)" || return 1
-  if [ "$provider" = "$SUMMARY_PROVIDER_CLAUDE" ]; then
-    print_warn "Claude Code provider 暂未接入，后续安排"
-    return 2
+  provider="$1"
+  if [ -z "$provider" ]; then
+    print_error "❌ 缺少提交摘要 provider"
+    return 1
   fi
 
   status_block="$(get_commit_status_block)"
@@ -302,12 +302,18 @@ maybe_create_upstream_pr() {
 }
 
 run_github_deploy_flow() {
-  local current_branch continue_choice confirmed_summary commit_title commit_body status_block summary_status
+  local provider current_branch continue_choice confirmed_summary commit_title commit_body status_block summary_status
+
+  provider="$1"
+  if [ -z "$provider" ]; then
+    print_error "❌ 缺少 GitHub 上传流程所需的摘要 provider"
+    return 1
+  fi
 
   current_branch="$(get_current_branch)"
   if [ "$current_branch" != "main" ]; then
     print_warn "⚠️ 当前分支不是 main：${current_branch}"
-    read -r -p "仍然继续执行并推送到 origin(main) -> al90slj23/ailinkdog 吗？[y/N]: " continue_choice
+    read -r -p "仍然继续执行并推送到 origin(main) -> al90slj23/AiLinkDog 吗？[y/N]: " continue_choice
     case "$continue_choice" in
       y|Y|yes|YES)
         ;;
@@ -324,14 +330,10 @@ run_github_deploy_flow() {
     return 0
   fi
 
-  confirmed_summary="$(get_confirmed_commit_summary)"
+  confirmed_summary="$(get_confirmed_commit_summary "$provider")"
   summary_status=$?
   if [ $summary_status -ne 0 ]; then
-    if [ $summary_status -eq 2 ]; then
-      print_info "ℹ️ 已结束 GitHub 上传流程：Claude Code provider 暂未接入"
-    else
-      print_info "ℹ️ 已取消 GitHub 上传流程"
-    fi
+    print_info "ℹ️ 已取消 GitHub 上传流程"
     return 0
   fi
 
@@ -344,8 +346,22 @@ run_github_deploy_flow() {
   print_info "📝 创建提交"
   git -C "$SCRIPT_DIR" commit -m "$commit_title" -m "$commit_body" || return 1
 
-  print_info "🚀 推送到 origin(main) -> al90slj23/ailinkdog"
+  print_info "🚀 推送到 origin(main) -> al90slj23/AiLinkDog"
   git -C "$SCRIPT_DIR" push "$GITHUB_DEPLOY_REMOTE_URL" HEAD:main || return 1
 
   maybe_create_upstream_pr "$confirmed_summary"
+}
+
+run_publish_to_github_flow() {
+  local provider
+
+  provider="$(choose_summary_provider)" || return 1
+  if [ "$provider" = "$SUMMARY_PROVIDER_CLAUDE" ]; then
+    print_warn "Claude Code provider 暂未接入，后续安排"
+    print_info "ℹ️ 已结束上传到 GitHub 流程"
+    return 0
+  fi
+
+  run_memory_sync_flow || return 1
+  run_github_deploy_flow "$provider"
 }

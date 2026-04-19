@@ -14,7 +14,7 @@ case "$deploy_choice" in
     print_info "ℹ️ 该部署方式暂未实现，后续安排"
     ;;
   2)
-    run_github_deploy_flow
+    run_publish_to_github_flow
     ;;
   3)
     print_info "ℹ️ 该部署方式暂未实现，后续安排"
