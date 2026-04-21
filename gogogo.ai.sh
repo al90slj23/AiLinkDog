@@ -47,7 +47,7 @@ require_deepseek_github_key() {
 }
 
 call_deepseek_text() {
-  local system_prompt prompt payload response content
+  local system_prompt prompt payload response content system_prompt_file prompt_file payload_file
 
   system_prompt="$1"
   prompt="$2"
@@ -62,9 +62,27 @@ call_deepseek_text() {
 
   require_deepseek_github_key || return 1
 
+  system_prompt_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-system-prompt.XXXXXX")" || return 1
+  prompt_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-prompt.XXXXXX")" || {
+    rm -f "$system_prompt_file"
+    return 1
+  }
+  payload_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-payload.XXXXXX")" || {
+    rm -f "$system_prompt_file" "$prompt_file"
+    return 1
+  }
+
+  cleanup_call_deepseek_text_temp_files() {
+    rm -f "$system_prompt_file" "$prompt_file" "$payload_file"
+  }
+  trap cleanup_call_deepseek_text_temp_files RETURN
+
+  printf '%s' "$system_prompt" >"$system_prompt_file" || return 1
+  printf '%s' "$prompt" >"$prompt_file" || return 1
+
   payload="$(jq -n \
-    --arg system_prompt "$system_prompt" \
-    --arg prompt "$prompt" \
+    --rawfile system_prompt "$system_prompt_file" \
+    --rawfile prompt "$prompt_file" \
     '{
       model: "deepseek-chat",
       temperature: 0.2,
@@ -74,10 +92,12 @@ call_deepseek_text() {
       ]
     }')" || return 1
 
+  printf '%s' "$payload" >"$payload_file" || return 1
+
   response="$(curl -fsSL "$DEEPSEEK_GITHUB_ENDPOINT" \
     -H "Authorization: Bearer ${DEEPSEEK_APIKEY_GOGOGOSH_GITHUB}" \
     -H "Content-Type: application/json" \
-    -d "$payload")" || return 1
+    --data-binary "@$payload_file")" || return 1
 
   content="$(printf '%s' "$response" | jq -r '.choices[0].message.content // empty')" || return 1
 
