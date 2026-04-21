@@ -46,8 +46,22 @@
 - 安全漏洞不得在公开 issue 中披露，应遵守安全披露流程
 - PR / Issue 描述应由提交者人工整理，不应直接粘贴未经处理的 AI 输出
 - 提交前应查重、聚焦范围，并提供本地验证证据
+- 页面改造前应先判断原页增强、并行新页或完整新页
+- 页面需求升级为独立业务域时，默认优先并行新页再迁移替换
 - 初始化向导不再作为当前项目主路径保留
 - Docker 不再作为当前项目主入口或推荐方案
+
+### 工具与规则同步
+
+- `.ai` 是仓库内长期主记忆
+- 平台规则文件可有格式差异，但不应表达互相冲突的高优先级规则
+- 规则来源、平台承载与跨平台同步约束应分别维护
+
+### AI 记忆与技能
+
+- skill 源文件按 `global/` 与 `project/` 分层归档
+- OpenCode skill 接入由 `./gogogo.sh 9 opencode` 统一管理
+- 长期规则变化完成前，应评估是否需要调用 `standards-sync-on-complete`
 
 ### 长期维护
 
@@ -62,4 +76,4 @@
 - 前端规范：`../L3#Standards/standards/03.frontend-*.md`
 - 质量规范：`../L3#Standards/standards/04.quality-*.md`
 - 工具规范：`../L3#Standards/standards/09.tool-*.md`
-- AI 记忆规范：`../L3#Standards/standards/10.ai-memory-*.md`
+- AI 记忆规范：`../L3#Standards/standards/10.ai-*.md`
