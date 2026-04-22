@@ -11,4 +11,4 @@
 ## 当前内容
 
 - `system-map.md`：当前项目系统关系图文字版
-- `recent-fix-summary.md`：近期主路径收敛、脚本修复、warning 治理与调试规则总结
+- `recent-fix-summary.md`：历史遗留的阶段性修复与调试总结文件；当前 `gogogo.sh 7` 的持续追加型工作日志主路径已收敛到 `L4#Changelog/`

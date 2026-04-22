@@ -27,6 +27,7 @@ web/bun.lock
 plans
 .claude
 .worktrees/
+tmp/
 
 electron/node_modules
 electron/dist

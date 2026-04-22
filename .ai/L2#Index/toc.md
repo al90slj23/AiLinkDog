@@ -49,4 +49,4 @@
 - `../L5#Knowledge/system-map.md`：系统关系图与心智模型
 - `../L5#Knowledge/supplemental-sources.md`：补充知识来源与其价值
 - `../L5#Knowledge/upstream-tracking.md`：上游版本基线与长期跟踪策略
-- `../L5#Knowledge/recent-fix-summary.md`：近期修复与调试模式总结
+- `../L5#Knowledge/recent-fix-summary.md`：历史遗留的近期修复总结文件；当前 `gogogo.sh 7` 工作日志主路径已收敛到 `../L4#Changelog/`
