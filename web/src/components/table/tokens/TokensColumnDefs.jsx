@@ -20,7 +20,6 @@ For commercial licensing, please contact support@quantumnous.com
 import React from 'react';
 import {
   Button,
-  Dropdown,
   Space,
   SplitButtonGroup,
   Tag,
@@ -33,6 +32,7 @@ import {
   Input,
   Modal,
 } from '@douyinfe/semi-ui';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 import {
   timestamp2string,
   renderGroup,
@@ -97,10 +97,12 @@ const renderGroupColumn = (text, record, t, groupRatios = {}) => {
         )}
         position='top'
       >
-        <Tag color='white' shape='circle'>
-          {t('智能熔断')}
-          {record && record.cross_group_retry ? `(${t('跨分组')})` : ''}
-        </Tag>
+        <span className='inline-flex'>
+          <Tag color='white' shape='circle'>
+            {t('智能熔断')}
+            {record && record.cross_group_retry ? `(${t('跨分组')})` : ''}
+          </Tag>
+        </span>
       </Tooltip>
     );
   }
@@ -157,35 +159,34 @@ const renderTokenKey = (
                 await toggleTokenVisibility(record);
               }}
             />
-            <Dropdown
-              trigger='click'
+            <AppDropdownMenu
               position='bottomRight'
-              clickToHide
-              menu={[
+              items={[
                 {
-                  node: 'item',
-                  name: t('复制密钥'),
+                  key: 'copy-key',
+                  label: t('复制密钥'),
                   onClick: () => copyTokenKey(record),
                 },
                 {
-                  node: 'item',
-                  name: t('复制连接信息'),
+                  key: 'copy-conn',
+                  label: t('复制连接信息'),
                   onClick: () => copyTokenConnectionString(record),
                 },
               ]}
-            >
-              <Button
-                theme='borderless'
-                size='small'
-                type='tertiary'
-                icon={<IconCopy />}
-                loading={loading}
-                aria-label='copy token key'
-                onClick={async (e) => {
-                  e.stopPropagation();
-                }}
-              />
-            </Dropdown>
+              trigger={
+                <Button
+                  theme='borderless'
+                  size='small'
+                  type='tertiary'
+                  icon={<IconCopy />}
+                  loading={loading}
+                  aria-label='copy token key'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
+                />
+              }
+            />
           </div>
         }
       />
@@ -215,13 +216,15 @@ const renderModelLimits = (text, record, t) => {
             position='top'
             showArrow
           >
-            <Avatar
-              size='extra-extra-small'
-              alt={category.label}
-              color='transparent'
-            >
-              {category.icon}
-            </Avatar>
+            <span className='inline-flex'>
+              <Avatar
+                size='extra-extra-small'
+                alt={category.label}
+                color='transparent'
+              >
+                {category.icon}
+              </Avatar>
+            </span>
           </Tooltip>,
         );
         vendorModels.forEach((m) => matchedModels.add(m));
@@ -237,9 +240,11 @@ const renderModelLimits = (text, record, t) => {
           position='top'
           showArrow
         >
-          <Avatar size='extra-extra-small' alt='unknown'>
-            {t('其他')}
-          </Avatar>
+          <span className='inline-flex'>
+            <Avatar size='extra-extra-small' alt='unknown'>
+              {t('其他')}
+            </Avatar>
+          </span>
         </Tooltip>,
       );
     }
@@ -286,7 +291,9 @@ const renderAllowIps = (text, t) => {
         position='top'
         showArrow
       >
-        <Tag shape='circle'>{'+' + extraCount}</Tag>
+        <span className='inline-flex'>
+          <Tag shape='circle'>{'+' + extraCount}</Tag>
+        </span>
       </Tooltip>,
     );
   }
@@ -301,19 +308,10 @@ const renderQuotaUsage = (text, record, t) => {
   const remain = parseInt(record.remain_quota) || 0;
   const total = used + remain;
   if (record.unlimited_quota) {
-    const popoverContent = (
-      <div className='text-xs p-2'>
-        <Paragraph copyable={{ content: renderQuota(used) }}>
-          {t('已用额度')}: {renderQuota(used)}
-        </Paragraph>
-      </div>
-    );
     return (
-      <Popover content={popoverContent} position='top'>
-        <Tag color='white' shape='circle'>
-          {t('无限额度')}
-        </Tag>
-      </Popover>
+      <Tag color='white' shape='circle'>
+        {t('无限额度')}
+      </Tag>
     );
   }
   const percent = total > 0 ? (remain / total) * 100 : 0;
@@ -332,18 +330,20 @@ const renderQuotaUsage = (text, record, t) => {
   );
   return (
     <Popover content={popoverContent} position='top'>
-      <Tag color='white' shape='circle'>
-        <div className='flex flex-col items-end'>
-          <span className='text-xs leading-none'>{`${renderQuota(remain)} / ${renderQuota(total)}`}</span>
-          <Progress
-            percent={percent}
-            stroke={getProgressColor(percent)}
-            aria-label='quota usage'
-            format={() => `${percent.toFixed(0)}%`}
-            style={{ width: '100%', marginTop: '1px', marginBottom: 0 }}
-          />
-        </div>
-      </Tag>
+      <span className='inline-flex'>
+        <Tag color='white' shape='circle'>
+          <div className='flex flex-col items-end'>
+            <span className='text-xs leading-none'>{`${renderQuota(remain)} / ${renderQuota(total)}`}</span>
+            <Progress
+              percent={percent}
+              stroke={getProgressColor(percent)}
+              aria-label='quota usage'
+              format={() => `${percent.toFixed(0)}%`}
+              style={{ width: '100%', marginTop: '1px', marginBottom: 0 }}
+            />
+          </div>
+        </Tag>
+      </span>
     </Popover>
   );
 };
@@ -401,13 +401,21 @@ const renderOperations = (
         >
           {t('聊天')}
         </Button>
-        <Dropdown trigger='click' position='bottomRight' menu={chatsArray}>
-          <Button
-            type='tertiary'
-            icon={<IconTreeTriangleDown />}
-            size='small'
-          ></Button>
-        </Dropdown>
+        <AppDropdownMenu
+          position='bottomRight'
+          items={chatsArray.map((item) => ({
+            key: String(item.key),
+            label: item.name,
+            onClick: item.onClick,
+          }))}
+          trigger={
+            <Button
+              type='tertiary'
+              icon={<IconTreeTriangleDown />}
+              size='small'
+            ></Button>
+          }
+        />
       </SplitButtonGroup>
 
       {record.status === 1 ? (

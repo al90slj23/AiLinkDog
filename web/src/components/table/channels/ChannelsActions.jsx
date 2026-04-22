@@ -20,13 +20,13 @@ For commercial licensing, please contact support@quantumnous.com
 import React from 'react';
 import {
   Button,
-  Dropdown,
   Modal,
   Switch,
   Typography,
   Select,
 } from '@douyinfe/semi-ui';
 import CompactModeToggle from '../../common/ui/CompactModeToggle';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 
 const ChannelsActions = ({
   enableBatchDelete,
@@ -90,138 +90,100 @@ const ChannelsActions = ({
             {t('批量设置标签')}
           </Button>
 
-          <Dropdown
-            size='small'
-            trigger='click'
-            render={
-              <Dropdown.Menu>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    type='tertiary'
-                    className='w-full'
-                    loading={detectAllUpstreamUpdatesLoading}
-                    disabled={detectAllUpstreamUpdatesLoading}
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定？'),
-                        content: t('确定要测试所有未手动禁用渠道吗？'),
-                        onOk: () => testAllChannels(),
-                        size: 'small',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('测试所有未手动禁用渠道')}
-                  </Button>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    className='w-full'
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定是否要修复数据库一致性？'),
-                        content: t(
-                          '进行该操作时，可能导致渠道访问错误，请仅在数据库出现问题时使用',
-                        ),
-                        onOk: () => fixChannelsAbilities(),
-                        size: 'sm',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('修复数据库一致性')}
-                  </Button>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    type='secondary'
-                    className='w-full'
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定？'),
-                        content: t('确定要更新所有已启用通道余额吗？'),
-                        onOk: () => updateAllChannelsBalance(),
-                        size: 'sm',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('更新所有已启用通道余额')}
-                  </Button>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    type='tertiary'
-                    className='w-full'
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定？'),
-                        content: t(
-                          '确定要仅检测全部渠道上游模型更新吗？（不执行新增/删除）',
-                        ),
-                        onOk: () => detectAllUpstreamUpdates(),
-                        size: 'sm',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('检测全部渠道上游更新')}
-                  </Button>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    type='primary'
-                    className='w-full'
-                    loading={applyAllUpstreamUpdatesLoading}
-                    disabled={applyAllUpstreamUpdatesLoading}
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定？'),
-                        content: t('确定要对全部渠道执行上游模型更新吗？'),
-                        onOk: () => applyAllUpstreamUpdates(),
-                        size: 'sm',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('处理全部渠道上游更新')}
-                  </Button>
-                </Dropdown.Item>
-                <Dropdown.Item>
-                  <Button
-                    size='small'
-                    type='danger'
-                    className='w-full'
-                    onClick={() => {
-                      Modal.confirm({
-                        title: t('确定是否要删除禁用通道？'),
-                        content: t('此修改将不可逆'),
-                        onOk: () => deleteAllDisabledChannels(),
-                        size: 'sm',
-                        centered: true,
-                      });
-                    }}
-                  >
-                    {t('删除禁用通道')}
-                  </Button>
-                </Dropdown.Item>
-              </Dropdown.Menu>
+          <AppDropdownMenu
+            position='bottomRight'
+            menuClassName='min-w-[220px]'
+            items={[
+              {
+                key: 'test-all',
+                label: t('测试所有未手动禁用渠道'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定？'),
+                    content: t('确定要测试所有未手动禁用渠道吗？'),
+                    onOk: () => testAllChannels(),
+                    size: 'small',
+                    centered: true,
+                  });
+                },
+              },
+              {
+                key: 'fix-abilities',
+                label: t('修复数据库一致性'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定是否要修复数据库一致性？'),
+                    content: t('进行该操作时，可能导致渠道访问错误，请仅在数据库出现问题时使用'),
+                    onOk: () => fixChannelsAbilities(),
+                    size: 'sm',
+                    centered: true,
+                  });
+                },
+              },
+              {
+                key: 'update-balance',
+                label: t('更新所有已启用通道余额'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定？'),
+                    content: t('确定要更新所有已启用通道余额吗？'),
+                    onOk: () => updateAllChannelsBalance(),
+                    size: 'sm',
+                    centered: true,
+                  });
+                },
+              },
+              {
+                key: 'detect-upstream',
+                label: t('检测全部渠道上游更新'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定？'),
+                    content: t('确定要仅检测全部渠道上游模型更新吗？（不执行新增/删除）'),
+                    onOk: () => detectAllUpstreamUpdates(),
+                    size: 'sm',
+                    centered: true,
+                  });
+                },
+              },
+              {
+                key: 'apply-upstream',
+                label: t('处理全部渠道上游更新'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定？'),
+                    content: t('确定要对全部渠道执行上游模型更新吗？'),
+                    onOk: () => applyAllUpstreamUpdates(),
+                    size: 'sm',
+                    centered: true,
+                  });
+                },
+              },
+              {
+                key: 'delete-disabled',
+                label: t('删除禁用通道'),
+                onClick: () => {
+                  Modal.confirm({
+                    title: t('确定是否要删除禁用通道？'),
+                    content: t('此修改将不可逆'),
+                    onOk: () => deleteAllDisabledChannels(),
+                    size: 'sm',
+                    centered: true,
+                  });
+                },
+              },
+            ]}
+            trigger={
+              <Button
+                size='small'
+                theme='light'
+                type='tertiary'
+                className='w-full md:w-auto'
+              >
+                {t('批量操作')}
+              </Button>
             }
-          >
-            <Button
-              size='small'
-              theme='light'
-              type='tertiary'
-              className='w-full md:w-auto'
-            >
-              {t('批量操作')}
-            </Button>
-          </Dropdown>
+          />
 
           <CompactModeToggle
             compactMode={compactMode}

@@ -182,13 +182,18 @@ func migrateDB() error {
 		return err
 	}
 
-	err := DB.AutoMigrate(
-		&Channel{},
-		&Token{},
-		&User{},
-		&PasskeyCredential{},
-		&Option{},
-		&Redemption{},
+		err := DB.AutoMigrate(
+			&Channel{},
+			&Token{},
+			&User{},
+			&ReferralPlan{},
+			&ReferralAccount{},
+			&ReferralLink{},
+			&ReferralCommission{},
+			&ReferralWithdrawal{},
+			&PasskeyCredential{},
+			&Option{},
+			&Redemption{},
 		&Ability{},
 		&Log{},
 		&Midjourney{},
@@ -228,6 +233,11 @@ func migrateDBFast() error {
 		{&Channel{}, "Channel"},
 		{&Token{}, "Token"},
 		{&User{}, "User"},
+		{&ReferralPlan{}, "ReferralPlan"},
+		{&ReferralAccount{}, "ReferralAccount"},
+		{&ReferralLink{}, "ReferralLink"},
+		{&ReferralCommission{}, "ReferralCommission"},
+		{&ReferralWithdrawal{}, "ReferralWithdrawal"},
 		{&PasskeyCredential{}, "PasskeyCredential"},
 		{&Option{}, "Option"},
 		{&Redemption{}, "Redemption"},

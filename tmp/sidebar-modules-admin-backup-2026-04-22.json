@@ -1,0 +1,1 @@
+{"chat":{"enabled":false,"playground":false,"chat":true},"console":{"enabled":true,"detail":true,"token":true,"log":true,"midjourney":false,"task":false},"personal":{"enabled":true,"topup":true,"personal":true},"admin":{"enabled":true,"channel":true,"models":true,"deployment":false,"redemption":true,"user":true,"subscription":true,"setting":true}}

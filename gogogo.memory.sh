@@ -1,7 +1,12 @@
 #!/bin/bash
 
+if [ -z "${SCRIPT_DIR:-}" ]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+fi
+
 MEMORY_CHANGELOG_DIR="${SCRIPT_DIR}/.ai/L4#Changelog"
-MEMORY_RECENT_FIX_SUMMARY="${SCRIPT_DIR}/.ai/L5#Knowledge/recent-fix-summary.md"
+MEMORY_L4_WORK_LOG_FILE="${SCRIPT_DIR}/.ai/L4#Changelog/2026-04-20-1045-opencode-skill-接入与记忆同步规则收敛.md"
+MEMORY_GIT_DIFF_BYTE_LIMIT=32768
 
 collect_memory_changed_files() {
   git -C "$SCRIPT_DIR" status --short 2>/dev/null | while IFS= read -r line; do
@@ -12,27 +17,39 @@ collect_memory_changed_files() {
   done
 }
 
+collect_memory_git_diff_block() {
+  local block_name tmp_file captured_bytes
+
+  block_name="$1"
+  shift
+  tmp_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-memory-diff.XXXXXX")" || return 1
+
+  git -C "$SCRIPT_DIR" diff "$@" 2>/dev/null | dd bs=1 count="$((MEMORY_GIT_DIFF_BYTE_LIMIT + 1))" of="$tmp_file" 2>/dev/null
+  captured_bytes="$(wc -c < "$tmp_file" | tr -d ' ')"
+
+  if [ "$captured_bytes" -le "$MEMORY_GIT_DIFF_BYTE_LIMIT" ]; then
+    cat "$tmp_file"
+    rm -f "$tmp_file"
+    return 0
+  fi
+
+  dd if="$tmp_file" bs=1 count="$MEMORY_GIT_DIFF_BYTE_LIMIT" 2>/dev/null | iconv -f UTF-8 -t UTF-8 -c 2>/dev/null
+  printf '\n\n[当前 %s 已截断，仅保留前 %s 字节]' "$block_name" "$MEMORY_GIT_DIFF_BYTE_LIMIT"
+  rm -f "$tmp_file"
+}
+
 collect_memory_git_context() {
-  local status_block cached_diff_block working_diff_block branch_name
+  local status_block branch_name
 
   status_block="$(git -C "$SCRIPT_DIR" status --short 2>/dev/null)"
-  cached_diff_block="$(git -C "$SCRIPT_DIR" diff --cached 2>/dev/null)"
-  working_diff_block="$(git -C "$SCRIPT_DIR" diff 2>/dev/null)"
   branch_name="$(get_current_branch)"
 
-  cat <<EOF
-[当前分支]
-${branch_name}
-
-[git status --short]
-${status_block}
-
-[git diff --cached]
-${cached_diff_block}
-
-[git diff]
-${working_diff_block}
-EOF
+  printf '[当前分支]\n%s\n\n' "$branch_name"
+  printf '[git status --short]\n%s\n\n' "$status_block"
+  printf '[git diff --cached]\n'
+  collect_memory_git_diff_block 'git diff --cached' --cached
+  printf '\n\n[git diff]\n'
+  collect_memory_git_diff_block 'git diff'
 }
 
 collect_memory_navigation_context() {
@@ -72,7 +89,7 @@ build_memory_pre_summary_prompt() {
   git_context="$1"
 
   cat <<EOF
-请根据以下仓库改动信息，生成一份中文“最近工作总结”。
+请根据以下仓库改动信息，生成一份中文“工作日志摘要”。
 
 要求：
 1. 输出 Markdown。
@@ -102,6 +119,10 @@ build_memory_file_selection_prompt() {
 
 目标：
 基于当前改动，判断 .ai/L0、.ai/L1、.ai/L2、.ai/L3 中哪些文件需要进一步详细阅读，才能产出“纯化建议与冲突说明”。
+
+注意：
+- 当前项目中的“近期工作总结”按工作日志理解，默认归入 \`L4#Changelog\`
+- \`L5\` 当前不作为这条记忆同步流程的输出目标
 
 输出要求：
 1. 只输出需要详细阅读的目标文件。
@@ -214,22 +235,27 @@ extract_summary_section() {
   '
 }
 
-update_recent_fix_summary_file() {
+update_l4_work_log_file() {
   local title summary_section tmp_file
 
   title="$1"
   summary_section="$2"
   tmp_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-memory.XXXXXX")" || return 1
 
+  mkdir -p "$(dirname "$MEMORY_L4_WORK_LOG_FILE")"
+  if [ ! -f "$MEMORY_L4_WORK_LOG_FILE" ]; then
+    printf '# L4 工作日志\n' >"$MEMORY_L4_WORK_LOG_FILE"
+  fi
+
   {
-    sed -n '1p' "$MEMORY_RECENT_FIX_SUMMARY"
+    sed -n '1p' "$MEMORY_L4_WORK_LOG_FILE"
     printf '\n## %s\n\n' "$title"
     printf '%s\n\n' "$summary_section"
     printf '### 来源\n\n- 本条由 `gogogo.sh 7` 更新。\n\n'
-    tail -n +2 "$MEMORY_RECENT_FIX_SUMMARY"
+    tail -n +2 "$MEMORY_L4_WORK_LOG_FILE"
   } >"$tmp_file"
 
-  mv "$tmp_file" "$MEMORY_RECENT_FIX_SUMMARY"
+  mv "$tmp_file" "$MEMORY_L4_WORK_LOG_FILE"
 }
 
 extract_purification_target_files() {
@@ -409,10 +435,10 @@ run_memory_sync_flow() {
 
   printf '%s\n' "$final_report" >"$report_file"
   summary_section="$(extract_summary_section "$final_report")"
-  update_recent_fix_summary_file "$title" "$summary_section"
+  update_l4_work_log_file "$title" "$summary_section"
 
-  print_success "✅ 已更新工作日志：$report_file"
-  print_success "✅ 已更新近期修复总结：$MEMORY_RECENT_FIX_SUMMARY"
-
-  run_purification_followup "$report_file" "$final_report"
+  print_success "✅ 已更新 L4 工作日志：$report_file"
+  print_success "✅ 已更新 L4 工作日志文件：$MEMORY_L4_WORK_LOG_FILE"
+  print_info "ℹ️ 已记录总结与纯化计划，当前流程结束"
+  return 0
 }

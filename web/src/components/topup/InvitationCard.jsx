@@ -38,20 +38,32 @@ const InvitationCard = ({
   setOpenTransfer,
   affLink,
   handleAffLinkClick,
+  onGoReferralCenter,
 }) => {
   return (
     <Card className='!rounded-2xl shadow-sm border-0'>
       {/* 卡片头部 */}
-      <div className='flex items-center mb-4'>
-        <Avatar size='small' color='green' className='mr-3 shadow-md'>
-          <Gift size={16} />
-        </Avatar>
-        <div>
-          <Typography.Text className='text-lg font-medium'>
-            {t('邀请奖励')}
-          </Typography.Text>
-          <div className='text-xs'>{t('邀请好友获得额外奖励')}</div>
+      <div className='flex items-start justify-between gap-3 mb-4'>
+        <div className='flex items-center min-w-0'>
+          <Avatar size='small' color='green' className='mr-3 shadow-md'>
+            <Gift size={16} />
+          </Avatar>
+          <div>
+            <Typography.Text className='text-lg font-medium'>
+              {t('邀请奖励')}
+            </Typography.Text>
+            <div className='text-xs'>{t('邀请好友获得额外奖励')}</div>
+          </div>
         </div>
+        <Button
+          theme='borderless'
+          type='primary'
+          size='small'
+          onClick={onGoReferralCenter}
+          className='!rounded-lg !px-0 shrink-0'
+        >
+          {t('前往邀请中心')}
+        </Button>
       </div>
 
       {/* 收益展示区域 */}

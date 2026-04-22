@@ -49,6 +49,8 @@ const routerMap = {
   deployment: '/console/deployment',
   playground: '/console/playground',
   personal: '/console/personal',
+  referralcenter: '/console/referralcenter',
+  referralmanage: '/console/referralmanage',
 };
 
 const SiderBar = ({ onNavigate = () => {} }) => {
@@ -134,6 +136,11 @@ const SiderBar = ({ onNavigate = () => {} }) => {
         itemKey: 'personal',
         to: '/personal',
       },
+      {
+        text: t('邀请返利中心'),
+        itemKey: 'referralcenter',
+        to: '/referralcenter',
+      },
     ];
 
     // 根据配置过滤项目
@@ -181,6 +188,12 @@ const SiderBar = ({ onNavigate = () => {} }) => {
         text: t('用户管理'),
         itemKey: 'user',
         to: '/user',
+        className: isAdmin() ? '' : 'tableHiddle',
+      },
+      {
+        text: t('邀请返利管理'),
+        itemKey: 'referralmanage',
+        to: '/referralmanage',
         className: isAdmin() ? '' : 'tableHiddle',
       },
       {

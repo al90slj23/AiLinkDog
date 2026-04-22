@@ -1,6 +1,8 @@
 package model
 
 import (
+	"encoding/json"
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -27,7 +29,13 @@ func AllOption() ([]*Option, error) {
 }
 
 func InitOptionMap() {
+	initOptionMapDefaults()
+	loadOptionsFromDatabase()
+}
+
+func initOptionMapDefaults() {
 	common.OptionMapRWMutex.Lock()
+	defer common.OptionMapRWMutex.Unlock()
 	common.OptionMap = make(map[string]string)
 
 	// 添加原有的系统配置
@@ -135,6 +143,15 @@ func InitOptionMap() {
 	common.OptionMap["QuotaForNewUser"] = strconv.Itoa(common.QuotaForNewUser)
 	common.OptionMap["QuotaForInviter"] = strconv.Itoa(common.QuotaForInviter)
 	common.OptionMap["QuotaForInvitee"] = strconv.Itoa(common.QuotaForInvitee)
+	common.OptionMap["ReferralEnabled"] = strconv.FormatBool(common.ReferralEnabled)
+	common.OptionMap["ReferralDefaultLinkValidityDays"] = strconv.Itoa(common.ReferralDefaultLinkValidityDays)
+	common.OptionMap["ReferralAllowCustomLinkValidity"] = strconv.FormatBool(common.ReferralAllowCustomLinkValidity)
+	common.OptionMap["ReferralMinWithdrawalAmount"] = strconv.Itoa(common.ReferralMinWithdrawalAmount)
+	common.OptionMap["ReferralWithdrawalFeePercent"] = strconv.FormatFloat(common.ReferralWithdrawalFeePercent, 'f', -1, 64)
+	common.OptionMap["ReferralWithdrawalFeeFixed"] = strconv.Itoa(common.ReferralWithdrawalFeeFixed)
+	common.OptionMap["ReferralAutoApproveWithdrawal"] = strconv.FormatBool(common.ReferralAutoApproveWithdrawal)
+	common.OptionMap["ReferralCommissionCapEnabled"] = strconv.FormatBool(common.ReferralCommissionCapEnabled)
+	common.OptionMap["ReferralMonthlyCommissionCap"] = strconv.Itoa(common.ReferralMonthlyCommissionCap)
 	common.OptionMap["QuotaRemindThreshold"] = strconv.Itoa(common.QuotaRemindThreshold)
 	common.OptionMap["PreConsumedQuota"] = strconv.Itoa(common.PreConsumedQuota)
 	common.OptionMap["ModelRequestRateLimitCount"] = strconv.Itoa(setting.ModelRequestRateLimitCount)
@@ -184,18 +201,86 @@ func InitOptionMap() {
 		common.OptionMap[k] = v
 	}
 
-	common.OptionMapRWMutex.Unlock()
-	loadOptionsFromDatabase()
 }
 
 func loadOptionsFromDatabase() {
 	options, _ := AllOption()
 	for _, option := range options {
+		if option.Key == "SidebarModulesAdmin" {
+			option.Value = normalizeSidebarModulesAdminOption(option.Value)
+		}
 		err := updateOptionMap(option.Key, option.Value)
 		if err != nil {
 			common.SysLog("failed to update option map: " + err.Error())
 		}
 	}
+}
+
+func normalizeSidebarModulesAdminOption(raw string) string {
+	type section map[string]bool
+	type config struct {
+		Chat     section `json:"chat"`
+		Console  section `json:"console"`
+		Personal section `json:"personal"`
+		Admin    section `json:"admin"`
+	}
+
+	defaultValue := config{
+		Chat: section{"enabled": true, "playground": true, "chat": true},
+		Console: section{
+			"enabled": true,
+			"detail": true,
+			"token": true,
+			"log": true,
+			"midjourney": true,
+			"task": true,
+		},
+		Personal: section{
+			"enabled": true,
+			"topup": true,
+			"personal": true,
+			"referralcenter": true,
+		},
+		Admin: section{
+			"enabled": true,
+			"channel": true,
+			"models": true,
+			"deployment": true,
+			"redemption": true,
+			"user": true,
+			"subscription": true,
+			"referralmanage": true,
+			"setting": true,
+		},
+	}
+
+	if strings.TrimSpace(raw) == "" {
+		bytes, _ := json.Marshal(defaultValue)
+		return string(bytes)
+	}
+
+	merged := defaultValue
+	var saved config
+	if err := json.Unmarshal([]byte(raw), &saved); err != nil {
+		bytes, _ := json.Marshal(defaultValue)
+		return string(bytes)
+	}
+
+	for key, value := range saved.Chat {
+		merged.Chat[key] = value
+	}
+	for key, value := range saved.Console {
+		merged.Console[key] = value
+	}
+	for key, value := range saved.Personal {
+		merged.Personal[key] = value
+	}
+	for key, value := range saved.Admin {
+		merged.Admin[key] = value
+	}
+
+	bytes, _ := json.Marshal(merged)
+	return string(bytes)
 }
 
 func SyncOptions(frequency int) {
@@ -277,6 +362,14 @@ func updateOptionMap(key string, value string) (err error) {
 			common.AutomaticEnableChannelEnabled = boolValue
 		case "LogConsumeEnabled":
 			common.LogConsumeEnabled = boolValue
+		case "ReferralEnabled":
+			common.ReferralEnabled = boolValue
+		case "ReferralAllowCustomLinkValidity":
+			common.ReferralAllowCustomLinkValidity = boolValue
+		case "ReferralAutoApproveWithdrawal":
+			common.ReferralAutoApproveWithdrawal = boolValue
+		case "ReferralCommissionCapEnabled":
+			common.ReferralCommissionCapEnabled = boolValue
 		case "DisplayInCurrencyEnabled":
 			// 兼容旧字段：同步到新配置 general_setting.quota_display_type（运行时生效）
 			// true -> USD, false -> TOKENS
@@ -481,6 +574,36 @@ func updateOptionMap(key string, value string) (err error) {
 		common.QuotaForInviter, _ = strconv.Atoi(value)
 	case "QuotaForInvitee":
 		common.QuotaForInvitee, _ = strconv.Atoi(value)
+	case "ReferralDefaultLinkValidityDays":
+		parsedValue, parseErr := strconv.Atoi(value)
+		if parseErr != nil {
+			return fmt.Errorf("parse %s: %w", key, parseErr)
+		}
+		common.ReferralDefaultLinkValidityDays = parsedValue
+	case "ReferralMinWithdrawalAmount":
+		parsedValue, parseErr := strconv.Atoi(value)
+		if parseErr != nil {
+			return fmt.Errorf("parse %s: %w", key, parseErr)
+		}
+		common.ReferralMinWithdrawalAmount = parsedValue
+	case "ReferralWithdrawalFeePercent":
+		parsedValue, parseErr := strconv.ParseFloat(value, 64)
+		if parseErr != nil {
+			return fmt.Errorf("parse %s: %w", key, parseErr)
+		}
+		common.ReferralWithdrawalFeePercent = parsedValue
+	case "ReferralWithdrawalFeeFixed":
+		parsedValue, parseErr := strconv.Atoi(value)
+		if parseErr != nil {
+			return fmt.Errorf("parse %s: %w", key, parseErr)
+		}
+		common.ReferralWithdrawalFeeFixed = parsedValue
+	case "ReferralMonthlyCommissionCap":
+		parsedValue, parseErr := strconv.Atoi(value)
+		if parseErr != nil {
+			return fmt.Errorf("parse %s: %w", key, parseErr)
+		}
+		common.ReferralMonthlyCommissionCap = parsedValue
 	case "QuotaRemindThreshold":
 		common.QuotaRemindThreshold, _ = strconv.Atoi(value)
 	case "PreConsumedQuota":

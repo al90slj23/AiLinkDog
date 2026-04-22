@@ -12,7 +12,7 @@ import (
 
 var StartTime = time.Now().Unix() // unit: second
 var Version = "v0.0.0"            // this hard coding will be replaced automatically when building, no need to manually change
-var SystemName = "New API"
+var SystemName = "AiLink.Dog"
 var Footer = ""
 var Logo = ""
 var TopUpLink = ""
@@ -104,6 +104,15 @@ var TelegramBotName = ""
 var QuotaForNewUser = 0
 var QuotaForInviter = 0
 var QuotaForInvitee = 0
+var ReferralEnabled = false                         // false: referral 功能默认关闭
+var ReferralDefaultLinkValidityDays = 0            // 0: 使用系统默认或不限制默认有效期
+var ReferralAllowCustomLinkValidity = true         // true: 允许按当前设计自定义链接有效期
+var ReferralMinWithdrawalAmount = 0                // 0: 不设置最低提现门槛
+var ReferralWithdrawalFeePercent = 0.0             // 0: 不收取百分比手续费
+var ReferralWithdrawalFeeFixed = 0                 // 0: 不收取固定手续费
+var ReferralAutoApproveWithdrawal = false          // false: 提现默认需要人工审核
+var ReferralCommissionCapEnabled = false           // false: 默认不启用佣金封顶
+var ReferralMonthlyCommissionCap = 0               // 0: 不限制月度佣金上限
 var ChannelDisableThreshold = 5.0
 var AutomaticDisableChannelEnabled = false
 var AutomaticEnableChannelEnabled = false

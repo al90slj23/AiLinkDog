@@ -1,0 +1,3297 @@
+[warning] build.bin is deprecated; set build.entrypoint instead
+
+  __    _   ___  
+ / /\  | | | |_) 
+/_/--\ |_| |_| \_ v1.65.1, built with Go go1.25.9
+
+[04:50:47] watching .
+[04:50:47] watching bin
+[04:50:47] watching common
+[04:50:47] watching common/limiter
+[04:50:47] watching common/limiter/lua
+[04:50:47] watching constant
+[04:50:47] watching controller
+[04:50:47] !exclude docs
+[04:50:47] watching dto
+[04:50:47] watching electron
+[04:50:47] watching i18n
+[04:50:47] watching i18n/locales
+[04:50:47] watching logger
+[04:50:47] watching logs
+[04:50:47] watching middleware
+[04:50:47] watching model
+[04:50:47] watching oauth
+[04:50:47] watching pkg
+[04:50:47] watching pkg/cachex
+[04:50:47] watching pkg/ionet
+[04:50:47] watching relay
+[04:50:47] watching relay/channel
+[04:50:47] watching relay/channel/ai360
+[04:50:47] watching relay/channel/ali
+[04:50:47] watching relay/channel/aws
+[04:50:47] watching relay/channel/baidu
+[04:50:47] watching relay/channel/baidu_v2
+[04:50:47] watching relay/channel/claude
+[04:50:47] watching relay/channel/cloudflare
+[04:50:47] watching relay/channel/codex
+[04:50:47] watching relay/channel/cohere
+[04:50:47] watching relay/channel/coze
+[04:50:47] watching relay/channel/deepseek
+[04:50:47] watching relay/channel/dify
+[04:50:47] watching relay/channel/gemini
+[04:50:47] watching relay/channel/jimeng
+[04:50:47] watching relay/channel/jina
+[04:50:47] watching relay/channel/lingyiwanwu
+[04:50:47] watching relay/channel/minimax
+[04:50:47] watching relay/channel/mistral
+[04:50:47] watching relay/channel/mokaai
+[04:50:47] watching relay/channel/moonshot
+[04:50:47] watching relay/channel/ollama
+[04:50:47] watching relay/channel/openai
+[04:50:47] watching relay/channel/openrouter
+[04:50:47] watching relay/channel/palm
+[04:50:47] watching relay/channel/perplexity
+[04:50:47] watching relay/channel/replicate
+[04:50:47] watching relay/channel/siliconflow
+[04:50:47] watching relay/channel/submodel
+[04:50:47] watching relay/channel/task
+[04:50:47] watching relay/channel/task/ali
+[04:50:47] watching relay/channel/task/doubao
+[04:50:47] watching relay/channel/task/gemini
+[04:50:47] watching relay/channel/task/hailuo
+[04:50:47] watching relay/channel/task/jimeng
+[04:50:47] watching relay/channel/task/kling
+[04:50:47] watching relay/channel/task/sora
+[04:50:47] watching relay/channel/task/suno
+[04:50:47] watching relay/channel/task/taskcommon
+[04:50:47] watching relay/channel/task/vertex
+[04:50:47] watching relay/channel/task/vidu
+[04:50:47] watching relay/channel/tencent
+[04:50:47] watching relay/channel/vertex
+[04:50:47] watching relay/channel/volcengine
+[04:50:47] watching relay/channel/xai
+[04:50:47] watching relay/channel/xinference
+[04:50:47] watching relay/channel/xunfei
+[04:50:47] watching relay/channel/zhipu
+[04:50:47] watching relay/channel/zhipu_4v
+[04:50:47] watching relay/common
+[04:50:47] watching relay/common_handler
+[04:50:47] watching relay/constant
+[04:50:47] watching relay/helper
+[04:50:47] watching relay/reasonmap
+[04:50:47] watching router
+[04:50:47] watching scripts
+[04:50:47] watching scripts/migration
+[04:50:47] watching service
+[04:50:47] watching service/openaicompat
+[04:50:47] watching service/passkey
+[04:50:47] watching setting
+[04:50:47] watching setting/config
+[04:50:47] watching setting/console_setting
+[04:50:47] watching setting/model_setting
+[04:50:47] watching setting/operation_setting
+[04:50:47] watching setting/performance_setting
+[04:50:47] watching setting/ratio_setting
+[04:50:47] watching setting/reasoning
+[04:50:47] watching setting/system_setting
+[04:50:47] watching tests
+[04:50:47] !exclude tmp
+[04:50:47] watching types
+[04:50:47] !exclude web
+[04:50:47] building...
+[04:50:47] running...
+[SYS] 2026/04/22 - 04:50:48 | initializing token encoders 
+[SYS] 2026/04/22 - 04:50:48 | token encoders initialized 
+[SYS] 2026/04/22 - 04:50:48 | using PostgreSQL as database 
+[SYS] 2026/04/22 - 04:50:48 | database migration started 
+[SYS] 2026/04/22 - 04:50:50 | system is already initialized at: 2026-04-10 21:59:43 +0800 CST 
+[SYS] 2026/04/22 - 04:50:50 | REDIS_CONN_STRING not set, Redis is not enabled 
+[SYS] 2026/04/22 - 04:50:50 | i18n initialized with languages: zh-CN, zh-TW, en 
+[SYS] 2026/04/22 - 04:50:50 | Loaded 0 custom OAuth providers 
+[SYS] 2026/04/22 - 04:50:50 | New API v0.0.0 started 
+[INFO] 2026/04/22 - 04:50:50 | SYSTEM | codex credential auto-refresh task started: tick=10m0s threshold=24h0m0s 
+[SYS] 2026/04/22 - 04:50:50 | upstream model update task started: interval=30m0s 
+[INFO] 2026/04/22 - 04:50:50 | SYSTEM | subscription quota reset task started: tick=1m0s 
+[SYS] 2026/04/22 - 04:50:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 04:50:50 | 保存数据看板数据成功，共保存0条数据 
+
+  [32mAiLinkDog v0.0.0[0m  ready in 1850 ms
+
+  ➜  [1mLocal:[0m   http://localhost:3000/
+  ➜  [1mNetwork:[0m http://192.168.1.236:3000/
+  ➜  [1mNetwork:[0m http://192.168.1.142:3000/
+
+[GIN] 2026/04/22 - 04:51:00 | api | 202604212051006367740009AvInXJRp6OVMwxt | 200 |    5.208791ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 04:51:00 | api | 202604212051006299600009AvInXJRJC4MQRkd | 200 |   32.440791ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 04:51:00 | api | 202604212051006294350009AvInXJR2TfT2ywv | 200 |   38.459833ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 04:51:00 | api | 202604212051006299330009AvInXJRluL2luUi | 200 |    46.77075ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:51:00 | api | 202604212051006295390009AvInXJRtBePCtIu | 200 |   80.347708ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 04:51:01 | api | 202604212051013509520009AvInXJRZXoc595M | 200 |    1.888958ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 04:51:05 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:51:05 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:51:20 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:51:20 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:51:35 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:51:35 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:51:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:51:50 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:51:50 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:52:05 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:52:05 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:52:20 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:52:20 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:52:35 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:52:35 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:52:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:52:50 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:52:50 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:53:05 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:53:05 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:53:20 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:53:20 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:53:35 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:53:35 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:53:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:53:50 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:53:50 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:54:05 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:54:05 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:54:20 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:54:20 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:54:35 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:54:35 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:54:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:54:50 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:54:50 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:55:05 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:55:05 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 04:55:08 | api | 202604212055084661300009AvInXJRBZ9s7KEd | 200 |    2.962416ms |             ::1 |     GET /api/user/logout
+[SYS] 2026/04/22 - 04:55:20 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:55:20 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:55:35 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:55:35 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 04:55:43 | api | 202604212055432622740009AvInXJRaZOFFnqv | 401 |    7.446167ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:55:43 | api | 202604212055432679320009AvInXJRsvqImRFe | 200 |    9.602041ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 04:55:43 | api | 202604212055435083360009AvInXJRkFB6TIGf | 401 |     135.833µs |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:55:44 | api | 202604212055444152300009AvInXJRr1pm8WAy | 200 |    1.116834ms |             ::1 |     GET /api/status
+[SYS] 2026/04/22 - 04:55:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 04:55:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 04:55:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:55:50 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:55:51 | 任务进度轮询完成 
+
+2026/04/22 04:56:05 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[2.579ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 04:56:06 | api | 202604212056059044730009AvInXJRSPfwqZ49 | 200 |   96.459584ms |             ::1 |    POST /api/user/login?turnstile=
+[SYS] 2026/04/22 - 04:56:06 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:56:06 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 04:56:06 | api | 202604212056064030850009AvInXJRJEZlQi06 | 200 |    1.584167ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:56:07 | api | 202604212056071760250009AvInXJRMT1lxLVM | 200 |    2.804375ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:56:07 | api | 202604212056071801110009AvInXJRAOHW4GI8 | 200 |   23.937042ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776718567&end_timestamp=1776808567&default_time=hour
+[GIN] 2026/04/22 - 04:56:07 | api | 202604212056072853070009AvInXJRCeQ6bSYL | 200 |    5.014916ms |             ::1 |     GET /api/data/users?start_timestamp=1776718567&end_timestamp=1776808567
+[GIN] 2026/04/22 - 04:56:07 | api | 202604212056074110510009AvInXJRjkBJxze7 | 200 |      2.2735ms |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 04:56:11 | api | 202604212056114900460009AvInXJRnQU8xJGg | 200 |    2.498584ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:56:11 | api | 202604212056114929260009AvInXJRE2CWXHio | 200 |    1.061084ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 04:56:12 | api | 202604212056122306970009AvInXJRmfIlBRPD | 200 |   32.836917ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:56:12 | api | 202604212056125436910009AvInXJRUrsL4GYO | 200 |      8.5365ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776718572&end_timestamp=1776808572&default_time=hour
+[GIN] 2026/04/22 - 04:56:12 | api | 202604212056125436670009AvInXJR9yHDQu5L | 200 |   25.668709ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:56:12 | api | 202604212056126344820009AvInXJR33UGrGRt | 200 |   10.812375ms |             ::1 |     GET /api/data/users?start_timestamp=1776718572&end_timestamp=1776808572
+[GIN] 2026/04/22 - 04:56:12 | api | 202604212056127386850009AvInXJRrPd085pF | 200 |      78.375µs |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 04:56:14 | api | 202604212056146314220009AvInXJRfpsx4913 | 200 |   99.512792ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 04:56:14 | api | 202604212056146285710009AvInXJRR2yvNIV2 | 200 |  117.683042ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 04:56:14 | api | 202604212056146288970009AvInXJRx82uozoN | 200 |  121.943917ms |             ::1 |     GET /api/token/?p=1&size=10
+[SYS] 2026/04/22 - 04:56:21 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:56:21 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:56:36 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:56:36 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:56:50 | syncing options from database 
+[SYS] 2026/04/22 - 04:56:51 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:56:51 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:57:06 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:57:06 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:57:21 | 任务进度轮询开始 
+
+2026/04/22 04:57:21 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[771.256ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 04:57:21 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[598.254ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776718641 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 04:57:21 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225271280009AvInXJRTVvFzNJO | 200 |   22.808541ms |             ::1 |     GET /api/user/topup/info
+
+2026/04/22 04:57:22 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:868 [33mSLOW SQL >= 200ms
+[0m[31;1m[203.936ms] [33m[rows:1][35m SELECT "setting" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL[0m
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225845690009AvInXJRsSgz70sL | 200 |  189.355292ms |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225841370009AvInXJRXeFEVq2P | 200 |  190.642333ms |             ::1 |    POST /api/user/amount
+
+2026/04/22 04:57:22 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/controller/subscription.go:28 [33mSLOW SQL >= 200ms
+[0m[31;1m[206.194ms] [33m[rows:0][35m SELECT * FROM "subscription_plans" WHERE enabled = true ORDER BY sort_order desc, id desc[0m
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225671690009AvInXJRt6Ryp9fv | 200 |  210.022375ms |             ::1 |     GET /api/subscription/plans
+
+2026/04/22 04:57:22 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[236.539ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225244280009AvInXJR3ZztXVfM | 200 |  252.634125ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225678270009AvInXJRKVb05RbM | 200 |  234.099375ms |             ::1 |     GET /api/subscription/self
+
+2026/04/22 04:57:22 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[278.967ms] [33m[rows:1][35m SELECT * FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 04:57:22 | api | 202604212057225255970009AvInXJRl5sKbaD1 | 200 |  293.225333ms |             ::1 |     GET /api/user/aff
+[SYS] 2026/04/22 - 04:57:36 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:57:36 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:57:50 | syncing options from database 
+
+2026/04/22 04:57:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[647.116ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+
+2026/04/22 04:57:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/option.go:27 [33mSLOW SQL >= 200ms
+[0m[31;1m[622.999ms] [33m[rows:36][35m SELECT * FROM "options"[0m
+[SYS] 2026/04/22 - 04:57:51 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:57:51 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:58:06 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:58:06 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:58:21 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:58:21 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:58:36 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:58:36 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:58:51 | syncing options from database 
+[SYS] 2026/04/22 - 04:58:51 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:58:51 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:59:06 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:59:06 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:59:21 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:59:21 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:59:36 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:59:36 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 04:59:51 | syncing options from database 
+[SYS] 2026/04/22 - 04:59:51 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 04:59:51 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:00:06 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:00:06 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:00:21 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:00:21 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:00:36 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:00:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:00:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:00:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:00:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:00:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:00:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:01:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:01:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:01:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:01:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:01:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:01:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:01:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:01:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:01:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:02:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:02:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:02:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:02:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:02:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:02:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:02:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:02:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:02:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:03:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:03:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:03:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:03:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:03:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:03:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:03:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:03:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:03:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:04:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:04:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:04:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:04:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:04:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:04:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:04:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:04:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:04:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:05:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:05:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:05:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:05:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:05:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:05:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:05:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:05:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:05:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:05:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:05:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:06:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:06:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:06:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:06:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:06:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:06:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:06:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:06:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:06:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:07:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:07:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:07:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:07:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:07:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:07:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:07:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:07:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:07:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:08:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:08:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:08:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:08:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:08:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:08:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:08:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:08:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:08:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:09:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:09:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:09:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:09:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:09:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:09:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:09:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:09:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:09:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:10:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:10:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:10:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:10:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:10:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:10:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:10:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:10:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:10:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:10:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:10:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:11:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:11:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:11:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:11:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:11:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:11:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:11:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:11:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:11:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:12:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:12:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:12:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:12:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:12:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:12:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:12:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:12:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:12:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:13:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:13:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:13:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:13:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:13:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:13:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:13:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:13:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:13:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:14:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:14:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:14:22 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:14:22 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:14:37 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:14:37 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:14:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:14:52 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:14:52 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:15:07 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:15:07 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:15:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:15:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:15:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:15:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:15:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:15:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:15:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:15:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:15:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:16:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:16:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:16:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:16:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:16:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:16:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:16:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:16:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:16:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:17:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:17:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:17:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:17:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:17:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:17:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:17:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:17:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:17:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:18:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:18:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:18:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:18:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:18:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:18:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:18:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:18:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:18:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:19:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:19:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:19:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:19:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:19:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:19:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:19:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:19:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:19:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:20:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:20:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:20:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:20:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:20:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:20:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:20:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:20:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:20:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:20:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:20:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:21:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:21:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:21:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:21:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:21:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:21:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:21:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:21:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:21:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:22:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:22:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:22:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:22:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:22:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:22:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:22:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:22:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:22:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:23:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:23:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:23:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:23:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:23:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:23:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:23:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:23:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:23:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:24:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:24:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:24:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:24:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:24:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:24:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:24:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:24:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:24:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:25:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:25:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:25:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:25:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:25:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:25:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:25:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:25:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:25:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:25:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:25:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:26:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:26:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:26:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:26:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:26:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:26:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:26:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:26:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:26:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:27:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:27:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:27:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:27:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:27:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:27:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:27:51 | syncing options from database 
+[SYS] 2026/04/22 - 05:27:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:27:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:28:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:28:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:28:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:28:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:28:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:28:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:28:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:28:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:28:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:29:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:29:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:29:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:29:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:29:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:29:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:29:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:29:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:29:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:30:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:30:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:30:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:30:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:30:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:30:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:30:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:30:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:30:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:30:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:30:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:31:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:31:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:31:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:31:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:31:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:31:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:31:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:31:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:31:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:32:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:32:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:32:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:32:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:32:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:32:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:32:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:32:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:32:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:33:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:33:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:33:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:33:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:33:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:33:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:33:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:33:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:33:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:34:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:34:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:34:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:34:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:34:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:34:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:34:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:34:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:34:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:35:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:35:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:35:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:35:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:35:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:35:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:35:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:35:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:35:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:35:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:35:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:36:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:36:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:36:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:36:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:36:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:36:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:36:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:36:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:36:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:37:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:37:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:37:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:37:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:37:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:37:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:37:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:37:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:37:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:38:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:38:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:38:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:38:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:38:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:38:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:38:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:38:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:38:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:39:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:39:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:39:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:39:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:39:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:39:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:39:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:39:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:39:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:40:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:40:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:40:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:40:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:40:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:40:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:40:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:40:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:40:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:40:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:40:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:41:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:41:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:41:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:41:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:41:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:41:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:41:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:41:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:41:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:42:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:42:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:42:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:42:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:42:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:42:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:42:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:42:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:42:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:43:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:43:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:43:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:43:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:43:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:43:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:43:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:43:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:43:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:44:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:44:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:44:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:44:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:44:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:44:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:44:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:44:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:44:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:45:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:45:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:45:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:45:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:45:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:45:38 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:45:48 | api | 202604212145484515700009AvInXJRtegboT3J | 200 |   24.580292ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 05:45:48 | api | 202604212145484495030009AvInXJRC9il7xuJ | 200 |  220.713625ms |             ::1 |     GET /api/user/topup/info
+
+2026/04/22 05:45:48 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/controller/subscription.go:28 [33mSLOW SQL >= 200ms
+[0m[31;1m[280.607ms] [33m[rows:0][35m SELECT * FROM "subscription_plans" WHERE enabled = true ORDER BY sort_order desc, id desc[0m
+[GIN] 2026/04/22 - 05:45:48 | api | 202604212145484523350009AvInXJR8DOt7blI | 200 |  309.707833ms |             ::1 |     GET /api/subscription/plans
+[GIN] 2026/04/22 - 05:45:49 | api | 202604212145491804890009AvInXJReSgQZ0JZ | 200 |   39.173959ms |             ::1 |    POST /api/user/amount
+
+2026/04/22 05:45:49 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:868 [33mSLOW SQL >= 200ms
+[0m[31;1m[735.364ms] [33m[rows:1][35m SELECT "setting" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL[0m
+
+2026/04/22 05:45:49 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[738.129ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 05:45:49 | api | 202604212145484494890009AvInXJRxNyLZ8BQ | 200 |   777.48125ms |             ::1 |     GET /api/user/self
+
+2026/04/22 05:45:49 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[775.285ms] [33m[rows:1][35m SELECT * FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 05:45:49 | api | 202604212145484494910009AvInXJRFt9ZkGu6 | 200 |  809.812833ms |             ::1 |     GET /api/user/aff
+[GIN] 2026/04/22 - 05:45:49 | api | 202604212145484544070009AvInXJRRdmLSQa2 | 200 |    817.0705ms |             ::1 |     GET /api/subscription/self
+[GIN] 2026/04/22 - 05:45:49 | api | 202604212145491727730009AvInXJRUpxQmocz | 200 |  118.407583ms |             ::1 |    POST /api/user/amount
+[SYS] 2026/04/22 - 05:45:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:45:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:45:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:45:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:45:53 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:45:54 | api | 202604212145542942590009AvInXJR3IYTDopp | 200 |    1.348167ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 05:45:54 | api | 202604212145542943560009AvInXJRAaAY81cy | 200 |    3.756416ms |             ::1 |     GET /api/user/self
+
+2026/04/22 05:45:54 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[33.492ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 05:45:54 | api | 202604212145542920700009AvInXJRj7HbKhiT | 200 |   45.672083ms |             ::1 |     GET /api/user/2fa/status
+[GIN] 2026/04/22 - 05:45:54 | api | 202604212145542938640009AvInXJReMrx61Gy | 200 |   54.380083ms |             ::1 |     GET /api/user/oauth/bindings
+
+2026/04/22 05:45:54 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[26.440ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 05:45:54 | api | 202604212145544102310009AvInXJR1ZPYRBh1 | 200 |   41.131917ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553843960009AvInXJRJ0pgLpeF | 200 |   15.189791ms |             ::1 |     GET /api/referral/links
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553854310009AvInXJRgkhirj8A | 200 |    17.31175ms |             ::1 |     GET /api/referral/commissions
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553862100009AvInXJRc5j8ykay | 200 |   18.134917ms |             ::1 |     GET /api/referral/withdrawals
+
+2026/04/22 05:45:55 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/referral_account.go:21 [35;1mrecord not found
+[0m[33m[2.032ms] [34;1m[rows:0][0m SELECT * FROM "referral_accounts" WHERE user_id = 1 ORDER BY "referral_accounts"."id" LIMIT 1
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553824380009AvInXJRZDCRnIBE | 200 |   22.510208ms |             ::1 |     GET /api/referral/statistics
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553854930009AvInXJRhGJddUsu | 200 |      22.422ms |             ::1 |     GET /api/referral/invitees
+[GIN] 2026/04/22 - 05:45:55 | api | 202604212145553843100009AvInXJRFbzrxAtj | 200 |   25.840042ms |             ::1 |     GET /api/referral/plans
+[SYS] 2026/04/22 - 05:46:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:46:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:46:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:46:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:46:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:46:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:46:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:46:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:46:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:47:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:47:08 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:47:13 | api | 202604212147138877990009AvInXJRyRzIEWdt | 200 |   24.201875ms |             ::1 |     GET /api/group/
+[GIN] 2026/04/22 - 05:47:13 | api | 202604212147138594550009AvInXJRgFn1BpEX | 200 |   58.207958ms |             ::1 |     GET /api/channel/models
+[GIN] 2026/04/22 - 05:47:13 | api | 202604212147139697350009AvInXJR61AJPiTH | 200 |       4.497ms |             ::1 |     GET /api/models
+[GIN] 2026/04/22 - 05:47:13 | api | 202604212147139729580009AvInXJRt7EsyAtd | 200 |    8.686292ms |             ::1 |     GET /api/option/
+
+2026/04/22 05:47:13 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[76.424ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 05:47:13 | api | 202604212147138879510009AvInXJRV40vH8am | 200 |  107.552958ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 05:47:14 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[6.729ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 05:47:14 | api | 202604212147139419840009AvInXJRE1VEdwRN | 200 |   112.76175ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 05:47:14 | api | 202604212147139606970009AvInXJRCcNAD0AD | 200 |    174.3295ms |             ::1 |     GET /api/channel/?p=1&page_size=10&id_sort=false&tag_mode=false
+[SYS] 2026/04/22 - 05:47:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:47:23 | 任务进度轮询完成 
+
+2026/04/22 05:47:33 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/controller/subscription.go:93 [33mSLOW SQL >= 200ms
+[0m[31;1m[694.130ms] [33m[rows:0][35m SELECT * FROM "subscription_plans" ORDER BY sort_order desc, id desc[0m
+[GIN] 2026/04/22 - 05:47:33 | api | 202604212147329083080009AvInXJRTodZUTBg | 200 |  709.505125ms |             ::1 |     GET /api/subscription/admin/plans
+[GIN] 2026/04/22 - 05:47:37 | api | 202604212147375263360009AvInXJRltLjhYkX | 200 |       4.368ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 05:47:37 | api | 202604212147375258860009AvInXJR1oezYFmC | 200 |    5.442125ms |             ::1 |     GET /api/subscription/admin/plans
+[GIN] 2026/04/22 - 05:47:37 | api | 202604212147375263720009AvInXJRcM9FDaWL | 200 |  150.702792ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 05:47:38 | api | 202604212147381845760009AvInXJRJyg0wolB | 200 |    1.753042ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 05:47:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:47:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:47:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:47:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:47:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:48:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:48:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:48:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:48:23 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:48:27 | api | 202604212148274478060009AvInXJRLS2MsTM8 | 200 |    47.20275ms |             ::1 |     GET /api/vendors/?page_size=1000
+[GIN] 2026/04/22 - 05:48:27 | api | 202604212148274466210009AvInXJR365PNTj3 | 200 |   65.199208ms |             ::1 |     GET /api/models/?p=1&page_size=10
+[GIN] 2026/04/22 - 05:48:28 | api | 202604212148289589870009AvInXJRVc75etDx | 200 |   21.993542ms |             ::1 |     GET /api/redemption/?p=1&page_size=10
+[GIN] 2026/04/22 - 05:48:29 | api | 202604212148297590060009AvInXJRbVfwUuze | 200 |    1.946458ms |             ::1 |     GET /api/vendors/?page_size=1000
+[GIN] 2026/04/22 - 05:48:29 | api | 202604212148297590070009AvInXJRDeN5r38I | 200 |    2.087458ms |             ::1 |     GET /api/models/?p=1&page_size=10
+[GIN] 2026/04/22 - 05:48:36 | api | 202604212148367303910009AvInXJRGywQjwpJ | 200 |    2.030583ms |             ::1 |     GET /api/redemption/?p=1&page_size=10
+[GIN] 2026/04/22 - 05:48:37 | api | 202604212148376844400009AvInXJRPIyXNy7f | 200 |     643.042µs |             ::1 |     GET /api/group/
+[GIN] 2026/04/22 - 05:48:37 | api | 202604212148376838500009AvInXJR4YPAjyHK | 200 |    5.141709ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 05:48:37 | api | 202604212148376844420009AvInXJR6s0cVdMZ | 200 |    6.813375ms |             ::1 |     GET /api/user/?p=0&page_size=10
+[SYS] 2026/04/22 - 05:48:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:48:38 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:48:40 | api | 202604212148402207740009AvInXJRqMUxwecJ | 200 |     499.458µs |             ::1 |     GET /api/referral/admin/setting
+[GIN] 2026/04/22 - 05:48:40 | api | 202604212148402209110009AvInXJRBpjYlN1H | 200 |   15.569375ms |             ::1 |     GET /api/referral/admin/withdrawals
+[GIN] 2026/04/22 - 05:48:40 | api | 202604212148402194380009AvInXJRtZ2XyVdQ | 200 |   19.697458ms |             ::1 |     GET /api/referral/admin/plans
+[GIN] 2026/04/22 - 05:48:40 | api | 202604212148402185810009AvInXJRhRxHh0vT | 200 |   28.421625ms |             ::1 |     GET /api/referral/admin/statistics
+[GIN] 2026/04/22 - 05:48:43 | api | 202604212148432885350009AvInXJRgrkLiRSF | 200 |    2.458125ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 05:48:45 | api | 202604212148456747760009AvInXJRLZjCBJvk | 200 |    3.268417ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 05:48:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:48:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:48:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:49:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:49:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:49:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:49:23 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:49:37 | api | 202604212149373141740009AvInXJRQnxCPsYJ | 200 |    4.328584ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 05:49:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:49:38 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:49:41 | api | 202604212149413604600009AvInXJRvL2nObum | 200 |    2.709542ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 05:49:41 | api | 202604212149413600050009AvInXJR3HjNIjXX | 200 |    4.678584ms |             ::1 |     GET /api/option/channel_affinity_cache
+[GIN] 2026/04/22 - 05:49:41 | api | 202604212149413857420009AvInXJRVXF425fl | 200 |    2.878666ms |             ::1 |     GET /api/option/channel_affinity_cache
+[GIN] 2026/04/22 - 05:49:41 | api | 202604212149415069220009AvInXJRYsNdZ622 | 200 |     765.542µs |             ::1 |     GET /api/option/channel_affinity_cache
+[GIN] 2026/04/22 - 05:49:42 | api | 202604212149423565390009AvInXJRtaHgRBTu | 200 |     9.86675ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 05:49:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:49:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:49:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:50:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:50:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:50:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:50:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:50:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:50:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:50:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:50:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:50:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:50:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:50:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:51:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:51:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:51:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:51:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:51:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:51:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:51:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:51:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:51:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:52:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:52:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:52:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:52:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:52:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:52:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:52:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:52:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:52:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:53:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:53:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:53:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:53:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:53:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:53:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:53:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:53:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:53:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:54:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:54:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:54:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:54:23 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 05:54:35 | api | 2026042121543579850009AvInXJRosTdUhJD | 200 |   19.454041ms |             ::1 |     GET /api/status
+
+2026/04/22 05:54:35 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[536.766ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 05:54:35 | api | 2026042121543579790009AvInXJRcYgvh4fc | 200 |  591.435375ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 05:54:35 | api | 202604212154357789400009AvInXJRZ9cMC16a | 200 |    43.33225ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 05:54:35 | api | 202604212154359014350009AvInXJRICdmgX8i | 200 |     951.916µs |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 05:54:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:54:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:54:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:54:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:54:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:55:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:55:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:55:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:55:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:55:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:55:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:55:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 05:55:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 05:55:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:55:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:55:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:56:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:56:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:56:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:56:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:56:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:56:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:56:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:56:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:56:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:57:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:57:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:57:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:57:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:57:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:57:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:57:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:57:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:57:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:58:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:58:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:58:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:58:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:58:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:58:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:58:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:58:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:58:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:59:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:59:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:59:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:59:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:59:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:59:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 05:59:52 | syncing options from database 
+[SYS] 2026/04/22 - 05:59:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 05:59:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:00:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:00:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:00:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:00:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:00:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:00:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:00:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:00:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:00:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:00:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:00:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:01:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:01:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:01:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:01:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:01:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:01:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:01:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:01:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:01:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:02:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:02:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:02:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:02:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:02:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:02:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:02:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:02:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:02:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:03:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:03:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:03:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:03:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:03:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:03:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:03:52 | syncing options from database 
+[GIN] 2026/04/22 - 06:03:53 | api | 202604212203531223480009AvInXJRky05qxvo | 200 |   20.238625ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:03:53 | api | 202604212203531223440009AvInXJRotBlXfpK | 200 |  151.523542ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 06:03:53 | 任务进度轮询开始 
+[GIN] 2026/04/22 - 06:03:53 | api | 202604212203537896210009AvInXJRILp3zpfW | 200 |    13.51425ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 06:03:53 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:03:53 | api | 202604212203538956290009AvInXJRrnJGX98R | 200 |    1.425041ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 06:04:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:04:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:04:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:04:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:04:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:04:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:04:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:04:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:04:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:05:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:05:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:05:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:05:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:05:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:05:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:05:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:05:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:05:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:05:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:05:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:06:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:06:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:06:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:06:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:06:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:06:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:06:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:06:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:06:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:07:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:07:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:07:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:07:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:07:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:07:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:07:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:07:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:07:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:08:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:08:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:08:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:08:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:08:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:08:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:08:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:08:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:08:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:09:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:09:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:09:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:09:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:09:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:09:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:09:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:09:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:09:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:10:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:10:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:10:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:10:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:10:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:10:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:10:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:10:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:10:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:10:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:10:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:11:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:11:08 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:11:23 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:11:23 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:11:38 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:11:38 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:11:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:11:53 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:11:53 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:12:08 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:12:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:12:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:12:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:12:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:12:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:12:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:12:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:12:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:13:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:13:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:13:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:13:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:13:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:13:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:13:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:13:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:13:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:14:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:14:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:14:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:14:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:14:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:14:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:14:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:14:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:14:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:15:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:15:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:15:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:15:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:15:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:15:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:15:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:15:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:15:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:15:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:15:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:16:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:16:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:16:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:16:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:16:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:16:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:16:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:16:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:16:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:17:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:17:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:17:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:17:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:17:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:17:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:17:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:17:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:17:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:18:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:18:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:18:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:18:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:18:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:18:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:18:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:18:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:18:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:19:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:19:09 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:19:15 | api | 202604212219151073570009AvInXJRk0ar8Urq | 200 |   38.692833ms |             ::1 |     GET /api/status
+
+2026/04/22 06:19:15 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[411.542ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 06:19:15 | api | 202604212219151073570009AvInXJRKfx5YIY4 | 200 |  459.084625ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:16 | api | 20260421221916383660009AvInXJRAHA3rZ5Z | 200 |      24.065ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 06:19:16 | api | 202604212219162625150009AvInXJRFSCXahYF | 200 |    5.994542ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:18 | api | 202604212219181367360009AvInXJRcuaSjzFT | 200 |       7.141ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 06:19:18 | api | 202604212219181367360009AvInXJRAp4c9sTt | 200 |    94.76675ms |             ::1 |     GET /api/channel/models_enabled
+[GIN] 2026/04/22 - 06:19:19 | api | 202604212219194359400009AvInXJRSX3sHyc4 | 200 |    7.812417ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 06:19:20 | api | 202604212219202454190009AvInXJRp3sNOtRz | 200 |    5.086709ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 06:19:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:19:24 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:19:29 | api | 202604212219293062110009AvInXJRruCrTQmx | 200 |    1.436334ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:19:29 | api | 202604212219293062030009AvInXJRSafgeG90 | 200 |    4.359709ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:29 | api | 202604212219296782270009AvInXJRXKPCw7v3 | 200 |    2.105791ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 06:19:29 | api | 202604212219297753460009AvInXJRdM49kqun | 200 |     3.09775ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:31 | api | 202604212219314003400009AvInXJRsxiNz0dE | 200 |    1.490417ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:31 | api | 202604212219314003340009AvInXJRI6HvceZF | 200 |   13.716333ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776723571&end_timestamp=1776813571&default_time=hour
+[GIN] 2026/04/22 - 06:19:31 | api | 202604212219314666730009AvInXJRtpXY86AI | 200 |    3.371959ms |             ::1 |     GET /api/data/users?start_timestamp=1776723571&end_timestamp=1776813571
+[GIN] 2026/04/22 - 06:19:31 | api | 202604212219315590610009AvInXJRe3eqUmlX | 200 |      64.583µs |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 06:19:32 | api | 202604212219326381870009AvInXJR8cMwchyt | 200 |      5.7565ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:19:32 | api | 202604212219326402900009AvInXJRe5WG50hn | 200 |   17.338042ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 06:19:32 | api | 202604212219326380910009AvInXJRMlWmndqd | 200 |   64.691958ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:19:33 | api | 202604212219335295150009AvInXJRjnq8Voag | 200 |    9.602625ms |             ::1 |     GET /api/log/?p=1&page_size=10&type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776813573&channel=&group=&request_id=
+[GIN] 2026/04/22 - 06:19:33 | api | 202604212219336048330009AvInXJRzaSoJWGQ | 200 |    6.387083ms |             ::1 |     GET /api/log/stat?type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776813573&channel=&group=
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346419520009AvInXJRecZXNCCp | 200 |     1.38625ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346426870009AvInXJR7z6GRgvm | 200 |    1.316125ms |             ::1 |     GET /api/user/topup/info
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346427460009AvInXJRaw7Z3HHY | 200 |    4.224292ms |             ::1 |     GET /api/subscription/self
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346424070009AvInXJRTI58XUx5 | 200 |   12.892167ms |             ::1 |     GET /api/user/aff
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346430900009AvInXJRFkQo7Gsc | 200 |   25.206917ms |             ::1 |     GET /api/subscription/plans
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346676250009AvInXJR1pJBsinp | 200 |    6.851875ms |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 06:19:34 | api | 202604212219346674090009AvInXJRd8oDQu0S | 200 |   10.201625ms |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 06:19:36 | api | 202604212219368362750009AvInXJRmkT6WOkn | 200 |     655.083µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:19:36 | api | 202604212219368364680009AvInXJRz2jyAcsj | 200 |    1.560958ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:36 | api | 202604212219368360120009AvInXJRakGtv8eq | 200 |    5.028791ms |             ::1 |     GET /api/user/oauth/bindings
+
+2026/04/22 06:19:36 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[6.438ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:19:36 | api | 202604212219368359550009AvInXJRk0jf7VQA | 200 |    8.102208ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 06:19:36 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[8.426ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:19:36 | api | 202604212219368558950009AvInXJRuKfML2rm | 200 |    11.34275ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219386968720009AvInXJRGCcvRuBq | 200 |   18.062334ms |             ::1 |     GET /api/referral/links
+
+2026/04/22 06:19:38 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/referral_account.go:21 [35;1mrecord not found
+[0m[33m[4.132ms] [34;1m[rows:0][0m SELECT * FROM "referral_accounts" WHERE user_id = 1 ORDER BY "referral_accounts"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219386930850009AvInXJRytvzZzFa | 200 |   24.724792ms |             ::1 |     GET /api/referral/statistics
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219386964150009AvInXJRadQZKrVM | 200 |   26.663042ms |             ::1 |     GET /api/referral/plans
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219387033920009AvInXJRv9JinLlV | 200 |   22.303583ms |             ::1 |     GET /api/referral/withdrawals
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219386997140009AvInXJRGgFS7cJc | 200 |   26.216583ms |             ::1 |     GET /api/referral/invitees
+[GIN] 2026/04/22 - 06:19:38 | api | 202604212219386970450009AvInXJRWnZ4Dq94 | 200 |   31.359625ms |             ::1 |     GET /api/referral/commissions
+[SYS] 2026/04/22 - 06:19:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:19:39 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:19:40 | api | 202604212219407378040009AvInXJRWzuVyhTR | 200 |    2.834375ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:40 | api | 202604212219407381650009AvInXJRFzyv4c3n | 200 |    5.369167ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776723580&end_timestamp=1776813580&default_time=hour
+[GIN] 2026/04/22 - 06:19:40 | api | 202604212219407761370009AvInXJRVOUg69VO | 200 |    5.969834ms |             ::1 |     GET /api/data/users?start_timestamp=1776723580&end_timestamp=1776813580
+[GIN] 2026/04/22 - 06:19:40 | api | 202604212219408440180009AvInXJRr2C9BXBj | 200 |      95.291µs |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 06:19:42 | api | 202604212219425412000009AvInXJRyPlceaGT | 200 |   37.569792ms |             ::1 |     GET /api/pricing
+[GIN] 2026/04/22 - 06:19:45 | api | 202604212219454550200009AvInXJRyaPkvBaJ | 200 |    1.713125ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:19:45 | api | 202604212219454550200009AvInXJRESVnBXkK | 200 |    2.564584ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776723585&end_timestamp=1776813585&default_time=hour
+[GIN] 2026/04/22 - 06:19:45 | api | 202604212219454875210009AvInXJR3SKw006g | 200 |    2.036458ms |             ::1 |     GET /api/data/users?start_timestamp=1776723585&end_timestamp=1776813585
+[GIN] 2026/04/22 - 06:19:45 | api | 202604212219455445820009AvInXJRCwevc7Ye | 200 |      80.958µs |             ::1 |     GET /api/uptime/status
+[SYS] 2026/04/22 - 06:19:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:19:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:19:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:20:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:20:09 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:20:12 | api | 202604212220123666980009AvInXJRtjrCUaOz | 200 |    1.899333ms |             ::1 |     GET /api/user/logout
+
+2026/04/22 06:20:16 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:603 [35;1mrecord not found
+[0m[33m[7.376ms] [34;1m[rows:0][0m SELECT * FROM "users" WHERE (username = 'al90slj23' OR email = 'al90slj23') AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:16 | api | 202604212220163695680009AvInXJR3HhAOoIa | 200 |    13.62925ms |             ::1 |    POST /api/user/login?turnstile=
+
+2026/04/22 06:20:21 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:603 [35;1mrecord not found
+[0m[33m[0.801ms] [34;1m[rows:0][0m SELECT * FROM "users" WHERE (username = 'al90slj23' OR email = 'al90slj23') AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:21 | api | 202604212220218805560009AvInXJR9J9eoW9F | 200 |    1.136041ms |             ::1 |    POST /api/user/login?turnstile=
+[SYS] 2026/04/22 - 06:20:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:20:24 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:20:33 | api | 202604212220335853430009AvInXJRbIeKblnE | 200 |   76.280541ms |             ::1 |    POST /api/user/login?turnstile=
+
+2026/04/22 06:20:38 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[2.426ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 11 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:38 | api | 202604212220381875260009AvInXJRzd8eJvxb | 200 |   67.495042ms |             ::1 |    POST /api/user/login?turnstile=
+[GIN] 2026/04/22 - 06:20:38 | api | 202604212220383469830009AvInXJRhRHWRJOT | 200 |    2.506042ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:20:38 | api | 202604212220384387260009AvInXJRxzGq6uGt | 200 |    47.05375ms |             ::1 |     GET /api/data/self?start_timestamp=1776723638&end_timestamp=1776813638&default_time=hour
+[GIN] 2026/04/22 - 06:20:38 | api | 202604212220384984080009AvInXJRM5xY8tyP | 200 |      74.375µs |             ::1 |     GET /api/uptime/status
+[SYS] 2026/04/22 - 06:20:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:20:39 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:20:40 | api | 202604212220406102490009AvInXJRHxUcsp82 | 200 |    5.196208ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:20:40 | api | 202604212220406104350009AvInXJRlei771La | 200 |   10.257167ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 06:20:40 | api | 202604212220406094700009AvInXJR0POG5KI2 | 200 |   16.710583ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:20:41 | api | 202604212220415075660009AvInXJRNaxHFOGL | 200 |    3.520541ms |             ::1 |     GET /api/pricing
+[GIN] 2026/04/22 - 06:20:43 | api | 202604212220432216510009AvInXJR5qyGx2ib | 200 |    2.020125ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:20:43 | api | 202604212220432442280009AvInXJRIzy6OxI7 | 200 |   30.907708ms |             ::1 |     GET /api/data/self?start_timestamp=1776723643&end_timestamp=1776813643&default_time=hour
+[GIN] 2026/04/22 - 06:20:43 | api | 202604212220432991280009AvInXJRxXlZG1hT | 200 |      99.625µs |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 06:20:44 | api | 202604212220445328170009AvInXJReWL7nzqt | 200 |     718.333µs |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:20:44 | api | 202604212220445328240009AvInXJRn7eIg2OD | 200 |    1.696709ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 06:20:44 | api | 202604212220445328340009AvInXJR8jVuO6D4 | 200 |    6.382666ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:20:46 | api | 20260421222046566410009AvInXJRFozA5YQ7 | 200 |    5.758125ms |             ::1 |     GET /api/log/self?p=1&page_size=10&type=0&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776813646&group=&request_id=
+[GIN] 2026/04/22 - 06:20:46 | api | 20260421222046737490009AvInXJRDsyDq0gi | 200 |    2.558709ms |             ::1 |     GET /api/log/self/stat?type=0&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776813646&group=
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465186430009AvInXJRcWqbtLaR | 200 |     560.625µs |             ::1 |     GET /api/user/topup/info
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465181440009AvInXJREvY71sZt | 200 |    1.316041ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465187070009AvInXJRL8gTvSEM | 200 |    3.639375ms |             ::1 |     GET /api/subscription/plans
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465184930009AvInXJRxuJcYhZR | 200 |    8.110084ms |             ::1 |     GET /api/user/aff
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465312450009AvInXJRknt6ub3n | 200 |     800.833µs |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465313830009AvInXJR3Sf7r6aN | 200 |     946.917µs |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220465187690009AvInXJRq604PPG3 | 200 |   14.686209ms |             ::1 |     GET /api/subscription/self
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220469523680009AvInXJRSQ7bihNq | 200 |     182.083µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220469522690009AvInXJRwh6MibIw | 200 |       959.5µs |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220469523240009AvInXJRNEO4D3bD | 200 |    1.090083ms |             ::1 |     GET /api/user/oauth/bindings
+
+2026/04/22 06:20:46 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[1.365ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 11 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220469522490009AvInXJRJYRiYicr | 200 |    1.607125ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 06:20:46 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[1.651ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 11 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:46 | api | 202604212220469676400009AvInXJRotkoCCOn | 200 |    2.424125ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473631620009AvInXJRPTyiMB9H | 200 |    3.930459ms |             ::1 |     GET /api/referral/plans
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473653980009AvInXJRLtYuurSh | 200 |    2.082834ms |             ::1 |     GET /api/referral/commissions
+
+2026/04/22 06:20:47 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/referral_account.go:21 [35;1mrecord not found
+[0m[33m[1.605ms] [34;1m[rows:0][0m SELECT * FROM "referral_accounts" WHERE user_id = 11 ORDER BY "referral_accounts"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473622830009AvInXJRV2GMPSnA | 200 |    5.814792ms |             ::1 |     GET /api/referral/statistics
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473653330009AvInXJRnrFHzHEk | 200 |      2.9225ms |             ::1 |     GET /api/referral/links
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473658220009AvInXJRvaEECdj3 | 200 |    6.523167ms |             ::1 |     GET /api/referral/withdrawals
+[GIN] 2026/04/22 - 06:20:47 | api | 202604212220473657420009AvInXJR9OvnlubB | 200 |    8.505541ms |             ::1 |     GET /api/referral/invitees
+[GIN] 2026/04/22 - 06:20:48 | api | 20260421222048827860009AvInXJRpGPMXHvV | 200 |      245.25µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:20:48 | api | 20260421222048827140009AvInXJRRyyk2dHI | 200 |       913.5µs |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:20:48 | api | 20260421222048826590009AvInXJRMMt1VzPi | 200 |    1.740959ms |             ::1 |     GET /api/user/oauth/bindings
+
+2026/04/22 06:20:48 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[1.889ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 11 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:48 | api | 20260421222048825040009AvInXJRUWQ6IIAl | 200 |    2.173625ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 06:20:48 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[0.803ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 11 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:48 | api | 20260421222048968850009AvInXJRRUgypQMI | 200 |       1.874ms |             ::1 |     GET /api/user/passkey
+[SYS] 2026/04/22 - 06:20:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:20:50 | 保存数据看板数据成功，共保存0条数据 
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528767300009AvInXJRyJ16oSu4 | 200 |    2.770375ms |             ::1 |     GET /api/referral/links
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528775320009AvInXJR2XIzhex1 | 200 |    4.690084ms |             ::1 |     GET /api/referral/withdrawals
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528770920009AvInXJRv1oqn0qB | 200 |    5.362208ms |             ::1 |     GET /api/referral/commissions
+
+2026/04/22 06:20:52 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/referral_account.go:21 [35;1mrecord not found
+[0m[33m[3.238ms] [34;1m[rows:0][0m SELECT * FROM "referral_accounts" WHERE user_id = 11 ORDER BY "referral_accounts"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528737050009AvInXJRnQ6unCaa | 200 |    9.826959ms |             ::1 |     GET /api/referral/statistics
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528774910009AvInXJRrmsibUHr | 200 |    7.355791ms |             ::1 |     GET /api/referral/invitees
+[GIN] 2026/04/22 - 06:20:52 | api | 202604212220528745800009AvInXJRfKq9mkNr | 200 |    11.48875ms |             ::1 |     GET /api/referral/plans
+[SYS] 2026/04/22 - 06:20:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:20:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:20:54 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:20:56 | api | 202604212220565428670009AvInXJRKhZgEwvd | 200 |     1.23025ms |             ::1 |     GET /api/user/logout
+
+2026/04/22 06:21:03 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[1.581ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 06:21:03 | api | 202604212221032236350009AvInXJRYxSRKTDy | 200 |   70.509458ms |             ::1 |    POST /api/user/login?turnstile=
+[GIN] 2026/04/22 - 06:21:03 | api | 202604212221033301640009AvInXJR73gkZhsz | 200 |    1.142291ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:21:03 | api | 202604212221033302900009AvInXJRTR93txNw | 200 |      5.6415ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776723663&end_timestamp=1776813663&default_time=hour
+[GIN] 2026/04/22 - 06:21:03 | api | 202604212221033773670009AvInXJRKU23I1Hq | 200 |    1.538833ms |             ::1 |     GET /api/data/users?start_timestamp=1776723663&end_timestamp=1776813663
+[GIN] 2026/04/22 - 06:21:03 | api | 202604212221035217120009AvInXJRTtoEtkTq | 200 |     278.959µs |             ::1 |     GET /api/uptime/status
+[SYS] 2026/04/22 - 06:21:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:21:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:21:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:21:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:21:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:21:39 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:21:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:21:54 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:21:54 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:22:09 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:22:09 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:22:24 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:22:24 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:22:39 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:22:39 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:22:46 | api | 202604212222466523190009AvInXJRx1GaijxT | 200 |   15.864125ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 06:22:52 | syncing options from database 
+[SYS] 2026/04/22 - 06:22:54 | 任务进度轮询开始 
+
+2026/04/22 06:22:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[1684.126ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 06:22:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/option.go:27 [33mSLOW SQL >= 200ms
+[0m[31;1m[2280.502ms] [33m[rows:36][35m SELECT * FROM "options"[0m
+
+2026/04/22 06:22:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[791.026ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776723774 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 06:22:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:23:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:23:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:23:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:23:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:23:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:23:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:23:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:23:55 | 任务进度轮询开始 
+
+2026/04/22 06:23:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/option.go:27 [33mSLOW SQL >= 200ms
+[0m[31;1m[273.818ms] [33m[rows:36][35m SELECT * FROM "options"[0m
+
+2026/04/22 06:23:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[258.491ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776723835 ORDER BY submit_time LIMIT 100[0m
+
+2026/04/22 06:23:55 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[260.966ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+[SYS] 2026/04/22 - 06:23:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:24:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:24:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:24:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:24:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:24:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:24:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:24:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:24:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:24:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:25:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:25:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:25:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:25:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:25:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:25:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:25:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:25:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:25:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:25:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:25:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:26:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:26:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:26:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:26:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:26:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:26:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:26:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:26:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:26:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:27:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:27:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:27:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:27:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:27:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:27:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:27:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:27:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:27:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:28:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:28:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:28:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:28:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:28:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:28:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:28:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:28:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:28:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:29:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:29:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:29:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:29:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:29:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:29:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:29:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:29:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:29:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:30:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:30:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:30:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:30:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:30:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:30:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:30:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:30:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:30:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:30:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:30:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:31:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:31:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:31:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:31:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:31:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:31:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:31:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:31:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:31:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:32:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:32:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:32:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:32:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:32:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:32:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:32:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:32:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:32:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:33:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:33:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:33:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:33:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:33:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:33:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:33:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:33:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:33:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:34:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:34:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:34:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:34:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:34:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:34:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:34:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:34:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:34:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:35:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:35:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:35:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:35:25 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:35:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:35:40 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:35:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:35:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:35:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:35:55 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:35:55 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:36:10 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:36:10 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:36:25 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:36:25 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:36:36 | api | 202604212236363595660009AvInXJROrBcHlsQ | 200 |   18.563542ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 06:36:40 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:36:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:36:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:36:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:36:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:37:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:37:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:37:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:37:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:37:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:37:41 | 任务进度轮询完成 
+
+2026/04/22 06:37:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[646.150ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+[GIN] 2026/04/22 - 06:37:54 | api | 202604212237543776580009AvInXJRyFDFLr2f | 200 |   25.083416ms |             ::1 |     GET /api/status
+
+2026/04/22 06:37:54 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[581.643ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 06:37:55 | api | 202604212237543779950009AvInXJRf8WzNiO5 | 200 |  613.666833ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 06:37:55 | syncing options from database 
+
+2026/04/22 06:37:56 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/usedata.go:136 [33mSLOW SQL >= 200ms
+[0m[31;1m[338.582ms] [33m[rows:106][35m SELECT model_name, sum(count) as count, sum(quota) as quota, sum(token_used) as token_used, created_at FROM "quota_data" WHERE created_at >= 1776724675 and created_at <= 1776814675 GROUP BY model_name, created_at[0m
+[GIN] 2026/04/22 - 06:37:56 | api | 202604212237556981290009AvInXJRUc73moWk | 200 |  339.566417ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776724675&end_timestamp=1776814675&default_time=hour
+[SYS] 2026/04/22 - 06:37:56 | 任务进度轮询开始 
+
+2026/04/22 06:37:56 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[380.686ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 06:37:56 | api | 202604212237557001800009AvInXJR8xIJsGQz | 200 |  382.442917ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:37:56 | api | 20260421223756524880009AvInXJR5UXeV40L | 200 |    31.48725ms |             ::1 |     GET /api/data/users?start_timestamp=1776724675&end_timestamp=1776814675
+[GIN] 2026/04/22 - 06:37:56 | api | 202604212237561161650009AvInXJREYB43r8V | 200 |      89.625µs |             ::1 |     GET /api/uptime/status
+[SYS] 2026/04/22 - 06:37:56 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:38:00 | api | 20260421223800854540009AvInXJRrTQRh7Uy | 200 |   88.764542ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:38:00 | api | 20260421223800852100009AvInXJRhxXiblHD | 200 |  103.318542ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 06:38:00 | api | 20260421223800851800009AvInXJRjaHggbED | 200 |  131.403833ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:38:01 | api | 202604212238018401650009AvInXJRjnjvToEh | 200 |    5.910625ms |             ::1 |     GET /api/log/?p=1&page_size=10&type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776814681&channel=&group=&request_id=
+[GIN] 2026/04/22 - 06:38:01 | api | 202604212238018940230009AvInXJRazeOKRQS | 200 |    1.794916ms |             ::1 |     GET /api/log/stat?type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776814681&channel=&group=
+[GIN] 2026/04/22 - 06:38:02 | api | 202604212238029005480009AvInXJR4M1uo66X | 200 |    1.179291ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:38:02 | api | 202604212238029630770009AvInXJRu9o3totU | 200 |    1.105458ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:38:02 | api | 202604212238029005480009AvInXJRTAzzQ6A2 | 200 |   71.399584ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:38:03 | api | 2026042122380366720009AvInXJRoTStCbER | 200 |    1.210666ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:38:03 | api | 2026042122380365830009AvInXJRXVEud7s8 | 200 |    2.757292ms |             ::1 |     GET /api/user/models
+[SYS] 2026/04/22 - 06:38:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:38:11 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:38:11 | api | 202604212238119840510009AvInXJRAPdz5o4f | 200 |     538.208µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 06:38:11 | api | 202604212238119838840009AvInXJRw76GELBC | 200 |    6.822833ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:38:12 | api | 202604212238123467820009AvInXJRXTUf26x1 | 200 |    3.829708ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 06:38:12 | api | 202604212238123471840009AvInXJR7Snn1uQL | 200 |    4.480208ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 06:38:12 | api | 202604212238123465170009AvInXJRgiFTSytZ | 200 |   16.096084ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 06:38:15 | api | 202604212238156570690009AvInXJRCaYqXNq1 | 200 |   58.733625ms |             ::1 |     GET /api/log/?p=1&page_size=10&type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776814695&channel=&group=&request_id=
+[GIN] 2026/04/22 - 06:38:15 | api | 202604212238157526820009AvInXJR9M4YmtIZ | 200 |    3.835209ms |             ::1 |     GET /api/log/stat?type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776814695&channel=&group=
+[GIN] 2026/04/22 - 06:38:16 | api | 202604212238162026950009AvInXJRJPkBtlEW | 200 |   14.890084ms |             ::1 |     GET /api/task/?p=1&page_size=10&channel_id=&task_id=&start_timestamp=1776787200&end_timestamp=1776814696
+[SYS] 2026/04/22 - 06:38:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:38:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:38:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:38:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:38:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:38:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:38:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:39:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:39:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:39:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:39:26 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:39:26 | api | 202604212239265136490009AvInXJRfagSNpXy | 200 |   17.894791ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 06:39:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:39:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:39:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:39:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:39:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:40:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:40:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:40:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:40:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:40:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:40:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:40:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:40:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:40:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:40:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:40:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:41:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:41:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:41:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:41:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:41:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:41:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:41:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:41:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:41:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:42:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:42:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:42:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:42:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:42:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:42:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:42:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:42:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:42:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:43:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:43:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:43:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:43:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:43:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:43:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:43:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:43:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:43:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:44:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:44:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:44:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:44:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:44:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:44:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:44:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:44:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:44:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:45:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:45:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:45:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:45:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:45:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:45:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:45:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:45:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:45:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:45:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:45:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:46:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:46:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:46:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:46:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:46:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:46:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:46:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:46:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:46:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:47:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:47:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:47:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:47:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:47:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:47:41 | 任务进度轮询完成 
+
+2026/04/22 06:47:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[337.044ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+[SYS] 2026/04/22 - 06:47:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:47:56 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:47:56 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:48:11 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:48:11 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:48:26 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:48:26 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:48:41 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:48:41 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:48:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:48:56 | 任务进度轮询开始 
+
+2026/04/22 06:48:57 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[269.466ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 06:48:57 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[275.052ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776725336 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 06:48:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:49:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:49:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:49:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:49:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:49:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:49:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:49:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:49:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:49:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:50:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:50:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:50:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:50:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:50:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:50:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:50:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:50:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:50:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:50:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:50:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:51:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:51:12 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 06:51:12 | api | 202604212251122157880009AvInXJRRnlaqMak | 200 |   14.062917ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 06:51:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:51:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:51:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:51:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:51:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:51:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:51:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:52:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:52:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:52:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:52:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:52:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:52:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:52:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:52:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:52:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:53:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:53:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:53:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:53:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:53:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:53:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:53:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:53:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:53:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:54:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:54:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:54:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:54:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:54:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:54:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:54:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:54:57 | 任务进度轮询开始 
+
+2026/04/22 06:54:57 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[244.691ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 06:54:57 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[240.149ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776725697 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 06:54:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:55:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:55:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:55:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:55:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:55:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:55:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:55:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 06:55:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 06:55:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:55:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:55:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:56:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:56:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:56:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:56:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:56:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:56:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:56:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:56:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:56:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:57:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:57:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:57:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:57:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:57:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:57:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:57:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:57:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:57:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:58:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:58:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:58:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:58:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:58:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:58:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:58:55 | syncing options from database 
+[SYS] 2026/04/22 - 06:58:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:58:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:59:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:59:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:59:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:59:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:59:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:59:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 06:59:56 | syncing options from database 
+[SYS] 2026/04/22 - 06:59:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 06:59:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:00:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:00:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:00:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:00:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:00:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:00:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:00:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:00:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:00:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:00:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:00:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:01:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:01:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:01:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:01:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:01:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:01:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:01:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:01:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:01:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:02:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:02:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:02:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:02:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:02:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:02:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:02:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:02:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:02:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:03:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:03:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:03:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:03:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:03:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:03:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:03:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:03:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:03:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:04:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:04:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:04:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:04:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:04:42 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:04:42 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:04:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:04:57 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:04:57 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:05:12 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:05:12 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:05:27 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:05:27 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:05:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:05:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:05:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:05:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:05:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:05:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:05:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:06:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:06:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:06:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:06:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:06:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:06:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:06:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:06:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:06:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:07:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:07:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:07:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:07:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:07:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:07:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:07:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:07:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:07:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:08:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:08:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:08:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:08:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:08:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:08:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:08:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:08:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:08:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:09:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:09:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:09:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:09:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:09:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:09:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:09:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:09:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:09:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:10:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:10:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:10:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:10:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:10:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:10:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:10:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:10:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:10:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:10:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:10:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:11:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:11:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:11:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:11:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:11:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:11:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:11:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:11:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:11:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:12:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:12:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:12:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:12:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:12:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:12:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:12:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:12:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:12:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:13:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:13:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:13:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:13:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:13:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:13:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:13:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:13:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:13:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:14:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:14:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:14:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:14:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:14:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:14:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:14:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:14:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:14:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:15:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:15:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:15:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:15:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:15:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:15:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:15:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:15:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:15:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:15:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:15:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:16:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:16:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:16:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:16:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:16:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:16:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:16:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:16:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:16:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:17:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:17:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:17:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:17:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:17:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:17:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:17:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:17:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:17:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:18:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:18:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:18:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:18:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:18:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:18:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:18:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:18:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:18:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:19:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:19:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:19:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:19:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:19:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:19:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:19:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:19:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:19:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:20:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:20:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:20:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:20:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:20:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:20:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:20:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:20:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:20:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:20:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:20:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:21:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:21:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:21:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:21:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:21:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:21:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:21:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:21:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:21:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:22:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:22:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:22:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:22:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:22:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:22:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:22:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:22:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:22:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:23:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:23:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:23:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:23:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:23:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:23:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:23:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:23:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:23:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:24:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:24:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:24:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:24:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:24:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:24:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:24:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:24:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:24:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:25:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:25:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:25:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:25:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:25:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:25:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:25:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:25:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:25:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:25:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:25:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:26:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:26:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:26:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:26:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:26:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:26:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:26:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:26:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:26:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:27:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:27:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:27:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:27:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:27:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:27:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:27:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:27:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:27:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:28:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:28:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:28:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:28:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:28:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:28:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:28:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:28:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:28:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:29:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:29:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:29:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:29:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:29:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:29:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:29:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:29:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:29:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:30:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:30:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:30:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:30:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:30:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:30:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:30:50 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:30:50 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:30:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:30:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:30:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:31:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:31:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:31:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:31:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:31:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:31:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:31:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:31:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:31:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:32:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:32:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:32:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:32:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:32:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:32:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:32:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:32:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:32:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:33:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:33:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:33:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:33:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:33:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:33:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:33:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:33:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:33:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:34:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:34:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:34:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:34:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:34:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:34:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:34:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:34:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:34:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:35:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:35:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:35:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:35:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:35:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:35:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:35:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:35:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:35:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:35:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:35:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:36:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:36:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:36:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:36:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:36:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:36:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:36:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:36:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:36:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:37:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:37:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:37:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:37:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:37:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:37:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:37:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:37:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:37:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:38:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:38:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:38:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:38:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:38:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:38:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:38:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:38:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:38:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:39:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:39:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:39:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:39:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:39:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:39:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:39:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:39:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:39:58 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:40:13 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:40:13 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:40:28 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:40:28 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:40:43 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:40:43 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:40:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:40:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:40:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:40:58 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:40:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:41:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:41:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:41:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:41:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:41:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:41:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:41:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:41:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:41:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:42:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:42:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:42:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:42:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:42:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:42:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:42:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:42:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:42:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:43:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:43:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:43:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:43:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:43:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:43:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:43:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:43:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:43:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:44:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:44:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:44:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:44:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:44:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:44:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:44:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:44:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:44:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:45:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:45:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:45:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:45:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:45:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:45:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:45:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:45:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:45:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:45:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:45:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:46:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:46:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:46:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:46:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:46:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:46:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:46:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:46:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:46:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:47:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:47:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:47:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:47:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:47:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:47:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:47:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:47:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:47:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:48:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:48:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:48:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:48:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:48:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:48:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:48:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:48:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:48:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:49:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:49:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:49:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:49:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:49:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:49:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:49:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:49:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:49:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:50:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:50:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:50:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:50:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:50:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:50:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:50:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:50:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:50:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:50:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:50:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:51:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:51:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:51:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:51:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:51:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:51:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:51:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:51:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:51:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:52:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:52:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:52:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:52:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:52:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:52:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:52:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:52:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:52:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:53:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:53:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:53:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:53:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:53:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:53:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:53:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:53:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:53:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:54:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:54:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:54:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:54:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:54:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:54:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:54:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:54:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:54:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:55:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:55:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:55:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:55:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:55:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:55:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:55:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 07:55:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 07:55:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:55:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:55:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:56:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:56:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:56:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:56:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:56:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:56:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:56:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:56:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:56:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:57:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:57:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:57:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:57:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:57:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:57:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:57:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:57:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:57:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:58:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:58:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:58:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:58:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:58:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:58:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:58:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:58:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:58:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:59:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:59:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:59:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:59:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:59:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:59:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 07:59:56 | syncing options from database 
+[SYS] 2026/04/22 - 07:59:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 07:59:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:00:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:00:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:00:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:00:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:00:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:00:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:00:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:00:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:00:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:00:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:00:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:01:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:01:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:01:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:01:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:01:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:01:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:01:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:01:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:01:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:02:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:02:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:02:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:02:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:02:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:02:44 | 任务进度轮询完成 
+
+2026/04/22 08:02:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[542.301ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+[SYS] 2026/04/22 - 08:02:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:02:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:02:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:03:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:03:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:03:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:03:29 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:03:42 | api | 202604220003427991410009AvInXJR7c6MgQMb | 200 |   22.734916ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 08:03:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:03:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:03:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:03:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:03:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:04:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:04:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:04:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:04:29 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:04:32 | api | 202604220004323273860009AvInXJRAGqc00hY | 200 |    1.252125ms |       127.0.0.1 |     GET /api/status
+[SYS] 2026/04/22 - 08:04:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:04:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:04:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:04:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:04:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:05:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:05:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:05:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:05:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:05:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:05:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:05:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:05:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:05:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:05:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:05:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:06:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:06:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:06:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:06:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:06:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:06:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:06:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:06:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:06:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:07:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:07:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:07:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:07:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:07:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:07:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:07:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:07:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:07:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:08:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:08:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:08:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:08:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:08:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:08:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:08:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:08:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:08:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:09:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:09:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:09:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:09:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:09:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:09:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:09:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:09:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:09:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:10:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:10:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:10:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:10:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:10:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:10:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:10:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:10:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:10:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:10:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:10:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:11:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:11:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:11:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:11:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:11:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:11:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:11:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:11:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:11:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:12:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:12:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:12:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:12:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:12:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:12:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:12:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:12:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:12:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:13:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:13:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:13:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:13:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:13:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:13:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:13:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:13:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:13:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:14:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:14:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:14:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:14:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:14:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:14:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:14:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:14:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:14:59 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:15:14 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:15:14 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:15:29 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:15:29 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:15:44 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:15:44 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:15:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:15:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:15:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:15:59 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:16:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:16:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:16:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:16:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:16:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:16:45 | 任务进度轮询开始 
+
+2026/04/22 08:16:45 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[343.479ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 08:16:45 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[344.885ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776730605 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 08:16:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:16:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:17:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:17:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:17:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:17:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:17:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:17:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:17:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:17:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:17:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:18:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:18:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:18:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:18:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:18:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:18:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:18:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:18:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:18:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:19:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:19:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:19:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:19:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:19:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:19:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:19:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:19:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:19:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:20:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:20:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:20:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:20:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:20:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:20:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:20:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:20:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:20:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:20:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:20:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:21:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:21:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:21:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:21:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:21:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:21:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:21:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:21:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:21:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:22:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:22:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:22:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:22:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:22:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:22:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:22:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:22:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:22:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:23:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:23:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:23:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:23:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:23:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:23:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:23:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:23:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:23:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:24:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:24:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:24:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:24:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:24:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:24:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:24:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:24:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:24:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:25:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:25:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:25:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:25:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:25:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:25:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:25:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:25:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:25:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:25:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:25:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:26:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:26:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:26:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:26:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:26:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:26:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:26:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:26:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:26:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:27:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:27:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:27:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:27:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:27:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:27:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:27:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:27:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:27:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:28:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:28:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:28:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:28:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:28:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:28:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:28:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:28:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:28:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:29:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:29:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:29:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:29:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:29:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:29:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:29:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:29:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:29:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:30:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:30:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:30:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:30:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:30:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:30:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:30:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:30:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:30:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:30:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:30:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:31:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:31:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:31:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:31:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:31:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:31:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:31:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:31:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:31:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:32:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:32:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:32:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:32:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:32:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:32:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:32:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:32:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:32:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:33:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:33:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:33:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:33:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:33:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:33:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:33:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:33:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:33:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:34:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:34:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:34:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:34:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:34:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:34:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:34:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:34:45 | 任务进度轮询完成 
+
+2026/04/22 08:34:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[526.563ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+[SYS] 2026/04/22 - 08:34:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:35:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:35:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:35:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:35:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:35:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:35:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:35:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:35:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:35:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:35:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:35:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:36:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:36:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:36:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:36:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:36:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:36:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:36:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:36:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:36:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:37:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:37:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:37:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:37:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:37:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:37:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:37:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:37:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:37:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:38:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:38:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:38:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:38:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:38:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:38:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:38:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:38:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:38:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:39:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:39:00 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:39:15 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:39:15 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:39:30 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:39:30 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:39:45 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:39:45 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:39:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:40:00 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:40:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:40:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:40:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:40:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:40:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:40:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:40:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:40:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:40:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:40:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:41:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:41:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:41:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:41:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:41:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:41:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:41:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:41:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:41:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:42:01 | 任务进度轮询开始 
+
+2026/04/22 08:42:01 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[486.982ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 08:42:01 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[487.977ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776732121 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 08:42:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:42:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:42:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:42:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:42:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:42:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:42:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:42:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:43:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:43:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:43:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:43:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:43:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:43:31 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:43:37 | api | 202604220043377153510009AvInXJR1UqiMTQG | 200 |   44.689667ms |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 08:43:37 | api | 202604220043377153520009AvInXJRWQjD5izn | 200 |  219.835667ms |             ::1 |     GET /api/task/?p=1&page_size=10&channel_id=&task_id=&start_timestamp=1776787200&end_timestamp=1776822217
+
+2026/04/22 08:43:38 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/user.go:301 [33mSLOW SQL >= 200ms
+[0m[31;1m[371.006ms] [33m[rows:1][35m SELECT "users"."id","users"."username","users"."display_name","users"."role","users"."status","users"."email","users"."github_id","users"."discord_id","users"."oidc_id","users"."wechat_id","users"."telegram_id","users"."access_token","users"."quota","users"."used_quota","users"."request_count","users"."group","users"."aff_code","users"."aff_count","users"."aff_quota","users"."aff_history","users"."inviter_id","users"."deleted_at","users"."linux_do_id","users"."setting","users"."remark","users"."stripe_customer" FROM "users" WHERE id = 1 AND "users"."deleted_at" IS NULL AND "users"."id" = 1 ORDER BY "users"."id" LIMIT 1[0m
+[GIN] 2026/04/22 - 08:43:38 | api | 202604220043377153470009AvInXJREOsoaxsW | 200 |  421.033167ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 08:43:38 | api | 202604220043384963100009AvInXJRVByJjwAq | 200 |    1.626792ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 08:43:40 | api | 202604220043408783170009AvInXJREjBy4QCO | 200 |     6.17925ms |             ::1 |     GET /api/mj/?p=1&page_size=10&channel_id=&mj_id=&start_timestamp=1774226620000&end_timestamp=1776822220000
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426729090009AvInXJRL38bjc2S | 200 |    2.141041ms |             ::1 |     GET /api/user/topup/info
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426319180009AvInXJRFVEHjxZf | 200 |   66.384917ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426719880009AvInXJRqtaOB8P3 | 200 |   33.607584ms |             ::1 |     GET /api/user/aff
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426953470009AvInXJRb3vFJmhq | 200 |   24.341166ms |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426930880009AvInXJRxvO4g0rM | 200 |   26.879708ms |             ::1 |    POST /api/user/amount
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426740210009AvInXJRLTgcGep8 | 200 |   46.927334ms |             ::1 |     GET /api/subscription/plans
+[GIN] 2026/04/22 - 08:43:42 | api | 202604220043426739780009AvInXJRlqabym7s | 200 |   53.426167ms |             ::1 |     GET /api/subscription/self
+[GIN] 2026/04/22 - 08:43:43 | api | 202604220043434282640009AvInXJRNdHeNyfI | 200 |     930.291µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 08:43:43 | api | 202604220043434281690009AvInXJR3XJ2ze8m | 200 |    8.192708ms |             ::1 |     GET /api/user/oauth/bindings
+[GIN] 2026/04/22 - 08:43:43 | api | 202604220043434282620009AvInXJRIu16wetM | 200 |    9.545958ms |             ::1 |     GET /api/user/self
+
+2026/04/22 08:43:43 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[9.665ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:43:43 | api | 202604220043434280960009AvInXJR5hO0Luvw | 200 |     11.6945ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 08:43:43 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[11.016ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:43:43 | api | 202604220043434791860009AvInXJRem9lwbb4 | 200 |   17.214959ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345453040009AvInXJRs772mMja | 200 |    6.227166ms |             ::1 |     GET /api/referral/invitees
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345464710009AvInXJRrXCEPZ9S | 200 |    5.499584ms |             ::1 |     GET /api/referral/commissions
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345445060009AvInXJRb4aPPw8m | 200 |    7.975541ms |             ::1 |     GET /api/referral/links
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345464680009AvInXJRQQr7TLL9 | 200 |    7.014125ms |             ::1 |     GET /api/referral/withdrawals
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345443150009AvInXJRXTbcSDGL | 200 |      16.492ms |             ::1 |     GET /api/referral/plans
+
+2026/04/22 08:43:45 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/referral_account.go:21 [35;1mrecord not found
+[0m[33m[2.529ms] [34;1m[rows:0][0m SELECT * FROM "referral_accounts" WHERE user_id = 1 ORDER BY "referral_accounts"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:43:45 | api | 20260422004345427620009AvInXJRDS5IjSVm | 200 |     21.2745ms |             ::1 |     GET /api/referral/statistics
+[GIN] 2026/04/22 - 08:43:45 | api | 202604220043458531130009AvInXJRDvXWSnqJ | 200 |    3.646666ms |             ::1 |     GET /api/task/?p=1&page_size=10&channel_id=&task_id=&start_timestamp=1776787200&end_timestamp=1776822225
+[GIN] 2026/04/22 - 08:43:46 | api | 202604220043463792940009AvInXJRZta8De5O | 200 |    3.580084ms |             ::1 |     GET /api/mj/?p=1&page_size=10&channel_id=&mj_id=&start_timestamp=1774226626000&end_timestamp=1776822226000
+[SYS] 2026/04/22 - 08:43:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:43:46 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:43:46 | api | 202604220043469667260009AvInXJR0sL1rxmN | 200 |    4.926667ms |             ::1 |     GET /api/log/?p=1&page_size=10&type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776822226&channel=&group=&request_id=
+[GIN] 2026/04/22 - 08:43:47 | api | 20260422004347172760009AvInXJRjx0K9Sw2 | 200 |    4.547959ms |             ::1 |     GET /api/log/stat?type=0&username=&token_name=&model_name=&start_timestamp=1776787200&end_timestamp=1776822226&channel=&group=
+[GIN] 2026/04/22 - 08:43:48 | api | 202604220043489124120009AvInXJRd2105FcE | 200 |    4.841959ms |             ::1 |     GET /api/mj/?p=1&page_size=10&channel_id=&mj_id=&start_timestamp=1774226628000&end_timestamp=1776822228000
+[GIN] 2026/04/22 - 08:43:50 | api | 202604220043504000680009AvInXJROgmzmEBL | 200 |      6.0545ms |             ::1 |     GET /api/user/self/groups
+[GIN] 2026/04/22 - 08:43:50 | api | 202604220043504005250009AvInXJRSV27YQFe | 200 |   19.499625ms |             ::1 |     GET /api/token/?p=1&size=10
+[GIN] 2026/04/22 - 08:43:50 | api | 202604220043504000780009AvInXJRh007qBV6 | 200 |   34.590167ms |             ::1 |     GET /api/user/models
+[GIN] 2026/04/22 - 08:43:51 | api | 202604220043514178350009AvInXJRnTiyVXVD | 200 |    3.264833ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 08:43:51 | api | 202604220043514178480009AvInXJRjnGNqMif | 200 |   17.542375ms |             ::1 |     GET /api/data/?username=&start_timestamp=1776732231&end_timestamp=1776822231&default_time=hour
+[GIN] 2026/04/22 - 08:43:51 | api | 202604220043514725940009AvInXJR8yB3Vpkg | 200 |    7.597208ms |             ::1 |     GET /api/data/users?start_timestamp=1776732231&end_timestamp=1776822231
+[GIN] 2026/04/22 - 08:43:51 | api | 202604220043515474210009AvInXJR58NnnclB | 200 |     164.875µs |             ::1 |     GET /api/uptime/status
+[GIN] 2026/04/22 - 08:43:54 | api | 20260422004354563590009AvInXJR3WnXFF7S | 200 |    7.189083ms |             ::1 |     GET /api/subscription/admin/plans
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545046370009AvInXJRQaJKwckT | 200 |     1.64425ms |             ::1 |     GET /api/group/
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043544998290009AvInXJRjgwaTEuW | 200 |    7.187625ms |             ::1 |     GET /api/channel/models
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545046420009AvInXJRUzT9yIpS | 200 |     2.70675ms |             ::1 |     GET /api/models
+
+2026/04/22 08:43:54 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[3.424ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545031050009AvInXJR0kElECfu | 200 |    5.836166ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 08:43:54 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[2.741ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545048240009AvInXJR6C4C8Nyi | 200 |    8.018458ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545047570009AvInXJRVWtcxvPL | 200 |    9.030917ms |             ::1 |     GET /api/channel/?p=1&page_size=10&id_sort=false&tag_mode=false
+[GIN] 2026/04/22 - 08:43:54 | api | 202604220043545328070009AvInXJRchYzmTqL | 200 |    4.254584ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 08:43:55 | api | 202604220043557411820009AvInXJRjrMuxZMo | 200 |    1.343875ms |             ::1 |     GET /api/subscription/admin/plans
+[GIN] 2026/04/22 - 08:43:56 | api | 202604220043567140220009AvInXJRmp21x2ZG | 200 |    6.724667ms |             ::1 |     GET /api/vendors/?page_size=1000
+[GIN] 2026/04/22 - 08:43:56 | api | 202604220043567139120009AvInXJRC4JfTjOL | 200 |    19.13725ms |             ::1 |     GET /api/models/?p=1&page_size=10
+[SYS] 2026/04/22 - 08:43:56 | syncing options from database 
+[GIN] 2026/04/22 - 08:44:00 | api | 202604220044007105910009AvInXJRoWnuoQ8o | 200 |         845µs |             ::1 |     GET /api/status
+[GIN] 2026/04/22 - 08:44:00 | api | 202604220044007096080009AvInXJRM8dkFNc2 | 200 |        2.29ms |             ::1 |     GET /api/user/self
+[GIN] 2026/04/22 - 08:44:00 | api | 202604220044007095760009AvInXJRyvl2a9OL | 200 |    4.430125ms |             ::1 |     GET /api/models/?p=1&page_size=10
+[GIN] 2026/04/22 - 08:44:00 | api | 202604220044007105900009AvInXJR5X10BYrK | 200 |    4.752083ms |             ::1 |     GET /api/vendors/?page_size=1000
+[GIN] 2026/04/22 - 08:44:01 | api | 20260422004401544800009AvInXJRhJT4SeRv | 200 |    2.472166ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 08:44:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:44:01 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025504310009AvInXJRVcOA9DCp | 200 |     661.041µs |             ::1 |     GET /api/group/
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025492030009AvInXJRXb9k4nCt | 200 |    2.671708ms |             ::1 |     GET /api/channel/models
+
+2026/04/22 08:44:02 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[1.396ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025506290009AvInXJRtANstirC | 200 |    2.111709ms |             ::1 |     GET /api/user/2fa/status
+
+2026/04/22 08:44:02 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[0.616ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025513040009AvInXJRfRAl5bLD | 200 |       3.314ms |             ::1 |     GET /api/user/passkey
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025538040009AvInXJRE5FgMEGC | 200 |    1.372083ms |             ::1 |     GET /api/models
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025512620009AvInXJRlawvBwZq | 200 |    6.126291ms |             ::1 |     GET /api/channel/?p=1&page_size=10&id_sort=false&tag_mode=false
+[GIN] 2026/04/22 - 08:44:02 | api | 202604220044025549240009AvInXJRcXqQK8wL | 200 |    3.128791ms |             ::1 |     GET /api/option/
+[SYS] 2026/04/22 - 08:44:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:44:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:44:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:44:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:44:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:44:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:44:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:45:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:45:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:45:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:45:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:45:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:45:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:45:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:45:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:45:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:45:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:45:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:46:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:46:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:46:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:46:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:46:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:46:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:46:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:46:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:46:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:47:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:47:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:47:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:47:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:47:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:47:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:47:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:47:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:47:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:48:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:48:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:48:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:48:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:48:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:48:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:48:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:48:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:48:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:49:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:49:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:49:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:49:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:49:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:49:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:49:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:49:46 | 任务进度轮询完成 
+
+2026/04/22 08:49:52 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/db_time.go:12 [33mSLOW SQL >= 200ms
+[0m[31;1m[1402.904ms] [33m[rows:1][35m SELECT EXTRACT(EPOCH FROM NOW())::bigint[0m
+[SYS] 2026/04/22 - 08:49:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:50:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:50:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:50:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:50:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:50:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:50:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:50:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:50:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:50:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:50:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:50:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:51:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:51:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:51:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:51:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:51:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:51:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:51:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:51:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:51:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:52:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:52:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:52:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:52:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:52:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:52:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:52:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:52:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:52:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:53:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:53:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:53:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:53:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:53:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:53:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:53:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:53:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:53:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:54:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:54:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:54:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:54:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:54:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:54:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:54:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:54:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:54:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:55:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:55:01 | 任务进度轮询完成 
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161530070009AvInXJRcXEBbEQr | 200 |   30.614667ms |             ::1 |     GET /api/group/
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161530130009AvInXJRHYX6zPGU | 200 |   31.481208ms |             ::1 |     GET /api/channel/models
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161907400009AvInXJRRWr3ILI1 | 200 |    2.210375ms |             ::1 |     GET /api/models
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161907230009AvInXJRli9o95nQ | 200 |     4.08225ms |             ::1 |     GET /api/option/
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161972420009AvInXJR0cr9Fwke | 200 |     3.98925ms |             ::1 |     GET /api/status
+
+2026/04/22 08:55:16 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/twofa.go:45 [35;1mrecord not found
+[0m[33m[90.088ms] [34;1m[rows:0][0m SELECT * FROM "two_fas" WHERE user_id = 1 AND "two_fas"."deleted_at" IS NULL ORDER BY "two_fas"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161533400009AvInXJRM005dsrd | 200 |  119.970666ms |             ::1 |     GET /api/user/2fa/status
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161529960009AvInXJRFelpmU3U | 200 |  165.099125ms |             ::1 |     GET /api/channel/?p=1&page_size=10&id_sort=false&tag_mode=false
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161536020009AvInXJRJ9uTuOwS | 200 |  177.266208ms |             ::1 |     GET /api/user/self
+
+2026/04/22 08:55:16 [31;1m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/passkey.go:148 [35;1mrecord not found
+[0m[33m[3.005ms] [34;1m[rows:0][0m SELECT * FROM "passkey_credentials" WHERE user_id = 1 AND "passkey_credentials"."deleted_at" IS NULL ORDER BY "passkey_credentials"."id" LIMIT 1
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055161530080009AvInXJRJ8JaUiZg | 200 |  178.523541ms |             ::1 |     GET /api/user/passkey
+[SYS] 2026/04/22 - 08:55:16 | 任务进度轮询开始 
+[GIN] 2026/04/22 - 08:55:16 | api | 202604220055168346270009AvInXJRibfyFqTA | 200 |       9.977ms |             ::1 |     GET /api/user/self
+[SYS] 2026/04/22 - 08:55:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:55:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:55:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:55:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:55:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:55:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 08:55:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 08:55:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:56:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:56:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:56:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:56:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:56:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:56:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:56:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:56:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:56:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:57:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:57:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:57:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:57:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:57:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:57:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:57:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:57:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:57:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:58:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:58:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:58:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:58:16 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:58:31 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:58:31 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:58:46 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:58:46 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:58:56 | syncing options from database 
+[SYS] 2026/04/22 - 08:59:01 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:59:01 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:59:16 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:59:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:59:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:59:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:59:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 08:59:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 08:59:56 | syncing options from database 
+[SYS] 2026/04/22 - 09:00:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:00:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:00:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:00:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:00:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:00:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:00:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:00:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:00:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:00:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:00:56 | syncing options from database 
+[SYS] 2026/04/22 - 09:01:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:01:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:01:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:01:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:01:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:01:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:01:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:01:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:01:56 | syncing options from database 
+[SYS] 2026/04/22 - 09:02:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:02:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:02:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:02:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:02:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:02:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:02:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:02:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:02:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:03:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:03:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:03:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:03:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:03:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:03:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:03:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:03:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:03:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:04:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:04:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:04:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:04:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:04:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:04:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:04:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:04:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:04:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:05:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:05:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:05:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:05:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:05:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:05:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:05:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:05:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:05:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:05:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:05:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:06:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:06:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:06:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:06:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:06:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:06:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:06:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:06:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:06:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:07:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:07:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:07:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:07:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:07:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:07:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:07:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:07:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:07:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:08:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:08:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:08:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:08:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:08:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:08:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:08:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:08:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:08:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:09:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:09:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:09:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:09:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:09:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:09:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:09:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:09:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:09:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:10:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:10:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:10:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:10:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:10:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:10:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:10:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:10:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:10:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:10:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:10:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:11:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:11:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:11:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:11:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:11:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:11:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:11:47 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:11:47 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:11:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:12:02 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:12:02 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:12:17 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:12:17 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:12:32 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:12:32 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:12:47 | 任务进度轮询开始 
+
+2026/04/22 09:12:47 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/midjourney.go:97 [33mSLOW SQL >= 200ms
+[0m[31;1m[550.702ms] [33m[rows:0][35m SELECT * FROM "midjourneys" WHERE progress != '100%'[0m
+
+2026/04/22 09:12:48 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/task.go:299 [33mSLOW SQL >= 200ms
+[0m[31;1m[904.047ms] [33m[rows:0][35m SELECT * FROM "tasks" WHERE progress != '100%' AND status NOT IN ('FAILURE','SUCCESS') AND submit_time < 1776733967 ORDER BY submit_time LIMIT 100[0m
+[SYS] 2026/04/22 - 09:12:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:12:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:13:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:13:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:13:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:13:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:13:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:13:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:13:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:13:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:13:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:14:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:14:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:14:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:14:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:14:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:14:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:14:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:14:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:14:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:15:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:15:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:15:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:15:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:15:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:15:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:15:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:15:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:15:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:15:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:15:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:16:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:16:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:16:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:16:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:16:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:16:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:16:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:16:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:16:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:17:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:17:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:17:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:17:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:17:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:17:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:17:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:17:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:17:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:18:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:18:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:18:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:18:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:18:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:18:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:18:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:18:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:18:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:19:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:19:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:19:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:19:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:19:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:19:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:19:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:19:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:19:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:20:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:20:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:20:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:20:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:20:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:20:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:20:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:20:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:20:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:20:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:20:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:21:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:21:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:21:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:21:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:21:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:21:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:21:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:21:48 | 任务进度轮询完成 
+
+2026/04/22 09:21:51 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/subscription.go:826 [33mSLOW SQL >= 200ms
+[0m[31;1m[243.993ms] [33m[rows:0][35m SELECT * FROM "user_subscriptions" WHERE status = 'active' AND end_time > 0 AND end_time <= 1776820911 ORDER BY end_time asc, id asc LIMIT 300[0m
+[SYS] 2026/04/22 - 09:21:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:22:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:22:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:22:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:22:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:22:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:22:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:22:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:22:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:22:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:23:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:23:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:23:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:23:18 | 任务进度轮询完成 
+
+2026/04/22 09:23:20 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/controller/subscription.go:93 [33mSLOW SQL >= 200ms
+[0m[31;1m[362.921ms] [33m[rows:0][35m SELECT * FROM "subscription_plans" ORDER BY sort_order desc, id desc[0m
+[GIN] 2026/04/22 - 09:23:20 | api | 202604220123197417760009AvInXJR8xjIooB9 | 200 |   433.79425ms |             ::1 |     GET /api/subscription/admin/plans
+[SYS] 2026/04/22 - 09:23:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:23:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:23:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:23:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:23:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:24:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:24:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:24:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:24:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:24:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:24:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:24:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:24:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:24:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:25:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:25:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:25:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:25:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:25:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:25:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:25:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:25:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:25:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:25:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:25:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:26:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:26:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:26:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:26:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:26:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:26:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:26:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:26:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:26:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:27:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:27:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:27:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:27:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:27:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:27:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:27:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:27:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:27:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:28:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:28:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:28:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:28:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:28:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:28:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:28:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:28:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:28:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:29:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:29:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:29:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:29:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:29:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:29:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:29:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:29:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:29:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:30:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:30:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:30:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:30:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:30:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:30:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:30:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:30:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:30:52 | 正在更新数据看板数据... 
+[SYS] 2026/04/22 - 09:30:52 | 保存数据看板数据成功，共保存0条数据 
+[SYS] 2026/04/22 - 09:30:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:31:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:31:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:31:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:31:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:31:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:31:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:31:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:31:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:31:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:32:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:32:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:32:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:32:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:32:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:32:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:32:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:32:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:32:57 | syncing options from database 
+
+2026/04/22 09:32:57 [32m/Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/model/option.go:27 [33mSLOW SQL >= 200ms
+[0m[31;1m[275.342ms] [33m[rows:36][35m SELECT * FROM "options"[0m
+[SYS] 2026/04/22 - 09:33:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:33:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:33:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:33:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:33:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:33:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:33:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:33:48 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:33:57 | syncing options from database 
+[SYS] 2026/04/22 - 09:34:03 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:34:03 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:34:18 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:34:18 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:34:33 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:34:33 | 任务进度轮询完成 
+[SYS] 2026/04/22 - 09:34:48 | 任务进度轮询开始 
+[SYS] 2026/04/22 - 09:34:48 | 任务进度轮询完成 

@@ -39,6 +39,7 @@ else
   echo "4. 运行检查"
   echo "5. 清理安全产物"
   echo "6. 部署"
+  echo "9. AI 开发平台切换与 Symlink 管理"
   echo "attach. 进入当前开发会话"
   echo "stop. 停止当前开发会话"
   echo "0. 退出"
@@ -71,10 +72,14 @@ if [ "$choice" = "stop" ]; then
   session_name="$(get_dev_session_name)"
   if tmux has-session -t "$session_name" 2>/dev/null; then
     tmux kill-session -t "$session_name"
+    kill_dev_processes_for_workspace
+    cleanup_dev_runtime_dir
     print_success "✅ 已停止当前开发会话：$session_name"
     exit 0
   fi
   print_warn "ℹ️ 当前工作区没有运行中的开发会话：$session_name"
+  kill_dev_processes_for_workspace
+  cleanup_dev_runtime_dir
   exit 0
 fi
 
@@ -83,7 +88,7 @@ export START_TIME
 
 SUB_SCRIPT="$SCRIPT_DIR/gogogo.${choice}.sh"
 if [ -f "$SUB_SCRIPT" ]; then
-  source "$SUB_SCRIPT"
+  source "$SUB_SCRIPT" "$@"
   sub_status=$?
   if [ "$sub_status" -ne 0 ]; then
     exit "$sub_status"
@@ -93,6 +98,6 @@ if [ -f "$SUB_SCRIPT" ]; then
   fi
 else
   print_error "❌ 无效选择：${choice}"
-  print_warn "💡 可用选项：1/2/3/4/5/6、attach、stop 或 dev/build/test/lint/clean/deploy"
+  print_warn "💡 可用选项：1/2/3/4/5/6/9、attach、stop 或 dev/build/test/lint/clean/deploy/platform"
   exit 1
 fi

@@ -126,14 +126,16 @@ const renderType = (type, record = {}, t) => {
         }
       >
         <span>
-          <Tag
-            color='purple'
-            type='light'
-            className='cursor-pointer'
+          <span
+            className='inline-flex cursor-pointer rounded-full border px-2 py-[2px] text-xs text-purple-600'
+            style={{
+              background: 'rgba(var(--semi-purple-0), 1)',
+              borderColor: 'var(--semi-color-border)',
+            }}
             onClick={handleNavigate}
           >
             IO.NET
-          </Tag>
+          </span>
         </span>
       </Tooltip>
     </Space>
@@ -409,46 +411,50 @@ export const getChannelsColumns = ({
               <Space spacing={4} align='center'>
                 {pendingAddCount > 0 ? (
                   <Tooltip content={t('点击处理新增模型')} position='top'>
-                    <Tag
-                      color='green'
-                      type='light'
-                      size='small'
-                      shape='circle'
-                      className='cursor-pointer transition-all duration-150 hover:opacity-85 hover:-translate-y-px active:scale-95'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openUpstreamUpdateModal(
-                          record,
-                          upstreamUpdateMeta.pendingAddModels,
-                          upstreamUpdateMeta.pendingRemoveModels,
-                          'add',
-                        );
-                      }}
-                    >
-                      +{pendingAddCount}
-                    </Tag>
+                    <span className='inline-flex'>
+                      <Tag
+                        color='green'
+                        type='light'
+                        size='small'
+                        shape='circle'
+                        className='cursor-pointer transition-all duration-150 hover:opacity-85 hover:-translate-y-px active:scale-95'
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openUpstreamUpdateModal(
+                            record,
+                            upstreamUpdateMeta.pendingAddModels,
+                            upstreamUpdateMeta.pendingRemoveModels,
+                            'add',
+                          );
+                        }}
+                      >
+                        +{pendingAddCount}
+                      </Tag>
+                    </span>
                   </Tooltip>
                 ) : null}
                 {pendingRemoveCount > 0 ? (
                   <Tooltip content={t('点击处理删除模型')} position='top'>
-                    <Tag
-                      color='red'
-                      type='light'
-                      size='small'
-                      shape='circle'
-                      className='cursor-pointer transition-all duration-150 hover:opacity-85 hover:-translate-y-px active:scale-95'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openUpstreamUpdateModal(
-                          record,
-                          upstreamUpdateMeta.pendingAddModels,
-                          upstreamUpdateMeta.pendingRemoveModels,
-                          'remove',
-                        );
-                      }}
-                    >
-                      -{pendingRemoveCount}
-                    </Tag>
+                    <span className='inline-flex'>
+                      <Tag
+                        color='red'
+                        type='light'
+                        size='small'
+                        shape='circle'
+                        className='cursor-pointer transition-all duration-150 hover:opacity-85 hover:-translate-y-px active:scale-95'
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openUpstreamUpdateModal(
+                            record,
+                            upstreamUpdateMeta.pendingAddModels,
+                            upstreamUpdateMeta.pendingRemoveModels,
+                            'remove',
+                          );
+                        }}
+                      >
+                        -{pendingRemoveCount}
+                      </Tag>
+                    </span>
                   </Tooltip>
                 ) : null}
               </Space>
@@ -507,7 +513,9 @@ export const getChannelsColumns = ({
                   t('原因：') + reason + t('，时间：') + timestamp2string(time)
                 }
               >
-                {renderStatus(text, record.channel_info, t)}
+                <span className='inline-flex'>
+                  {renderStatus(text, record.channel_info, t)}
+                </span>
               </Tooltip>
             </div>
           );
@@ -532,9 +540,11 @@ export const getChannelsColumns = ({
             <div>
               <Space spacing={1}>
                 <Tooltip content={t('已用额度')}>
-                  <Tag color='white' type='ghost' shape='circle'>
-                    {renderQuota(record.used_quota)}
-                  </Tag>
+                  <span className='inline-flex'>
+                    <Tag color='white' type='ghost' shape='circle'>
+                      {renderQuota(record.used_quota)}
+                    </Tag>
+                  </span>
                 </Tooltip>
                 <Tooltip
                   content={
@@ -546,17 +556,19 @@ export const getChannelsColumns = ({
                         t('，点击更新')
                   }
                 >
-                  <Tag
-                    color={record.type === 57 ? 'light-blue' : 'white'}
-                    type={record.type === 57 ? 'light' : 'ghost'}
-                    shape='circle'
-                    className={record.type === 57 ? 'cursor-pointer' : ''}
-                    onClick={() => updateChannelBalance(record)}
-                  >
-                    {record.type === 57
-                      ? t('帐号信息')
-                      : renderQuotaWithAmount(record.balance)}
-                  </Tag>
+                  <span className='inline-flex'>
+                    <Tag
+                      color={record.type === 57 ? 'light-blue' : 'white'}
+                      type={record.type === 57 ? 'light' : 'ghost'}
+                      shape='circle'
+                      className={record.type === 57 ? 'cursor-pointer' : ''}
+                      onClick={() => updateChannelBalance(record)}
+                    >
+                      {record.type === 57
+                        ? t('帐号信息')
+                        : renderQuotaWithAmount(record.balance)}
+                    </Tag>
+                  </span>
                 </Tooltip>
               </Space>
             </div>
@@ -564,9 +576,11 @@ export const getChannelsColumns = ({
         } else {
           return (
             <Tooltip content={t('已用额度')}>
-              <Tag color='white' type='ghost' shape='circle'>
-                {renderQuota(record.used_quota)}
-              </Tag>
+              <span className='inline-flex'>
+                <Tag color='white' type='ghost' shape='circle'>
+                  {renderQuota(record.used_quota)}
+                </Tag>
+              </span>
             </Tooltip>
           );
         }

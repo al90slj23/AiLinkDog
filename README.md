@@ -76,6 +76,8 @@ export SQL_DSN="postgres://user:password@127.0.0.1:5432/newapi?sslmode=disable"
 
 启动完成后，访问 `http://localhost:3000` 即可使用。
 
+本地开发模式依赖 `air` 做后端自动重载，可先执行 `go install github.com/air-verse/air@latest` 安装。前端仍然使用 Vite，大多数改动会热更新或自动刷新；后端会由 `air` 监听 `.go` 文件变化后自动重新编译并重启。若后端编译失败，旧服务会继续运行，错误信息会显示在 tmux 的后端 pane 中。
+
 ### 常用命令
 
 ```bash

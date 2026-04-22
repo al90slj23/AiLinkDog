@@ -43,6 +43,7 @@ export const DEFAULT_ADMIN_CONFIG = {
     enabled: true,
     topup: true,
     personal: true,
+    referralcenter: true,
   },
   admin: {
     enabled: true,
@@ -52,6 +53,7 @@ export const DEFAULT_ADMIN_CONFIG = {
     redemption: true,
     user: true,
     subscription: true,
+    referralmanage: true,
     setting: true,
   },
 };

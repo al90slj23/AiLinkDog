@@ -240,7 +240,8 @@ export default function SettingModelDeployment(props) {
                     />
                     <div style={{ display: 'flex', gap: '12px' }}>
                       <Button
-                        type='outline'
+                        type='tertiary'
+                        theme='outline'
                         size='small'
                         icon={<Zap size={16} />}
                         onClick={testApiKey}

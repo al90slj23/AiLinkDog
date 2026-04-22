@@ -3,6 +3,7 @@
 require_command tmux
 require_command go
 require_command bun
+require_command air
 
 SESSION_NAME="$(get_dev_session_name)"
 
@@ -58,6 +59,8 @@ EOF
       if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
         tmux kill-session -t "$SESSION_NAME"
       fi
+      kill_dev_processes_for_workspace
+      wait_for_port_release 3000 || print_warn "⚠️ 等待 3000 端口释放超时，继续尝试重启"
       ;;
     3)
       while IFS= read -r session_name; do
@@ -65,6 +68,8 @@ EOF
       done <<EOF
 $DEV_SESSIONS
 EOF
+      kill_dev_processes_for_workspace
+      wait_for_port_release 3000 || print_warn "⚠️ 等待 3000 端口释放超时，继续尝试重启"
       ;;
     0)
       print_warn "ℹ️ 已取消进入开发模式"
@@ -82,13 +87,29 @@ elif tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
   exec tmux attach-session -t "$SESSION_NAME"
 fi
 
+kill_dev_processes_for_workspace
+wait_for_port_release 3000 || print_warn "⚠️ 等待 3000 端口释放超时，继续尝试启动"
+reset_dev_runtime_dir
+
+BACKEND_LOG_PATH="$(get_backend_log_path)"
+FRONTEND_LOG_PATH="$(get_frontend_log_path)"
+MONITOR_STATE_PATH="$(get_monitor_state_path)"
+MONITOR_EVENTS_LOG_PATH="$(get_monitor_events_log_path)"
+
+: >"$BACKEND_LOG_PATH"
+: >"$FRONTEND_LOG_PATH"
+: >"$MONITOR_STATE_PATH"
+: >"$MONITOR_EVENTS_LOG_PATH"
+
 print_info "🚀 创建 tmux session：$SESSION_NAME"
 tmux new-session -d -s "$SESSION_NAME" -c "$SCRIPT_DIR"
-tmux send-keys -t "$SESSION_NAME":0.0 'go run main.go' C-m
 tmux rename-window -t "$SESSION_NAME":0 'dev'
 tmux split-window -h -t "$SESSION_NAME":0 -c "$SCRIPT_DIR/web"
-tmux send-keys -t "$SESSION_NAME":0.1 'bun install && bun run dev' C-m
-tmux select-layout -t "$SESSION_NAME":0 even-horizontal
+tmux split-window -v -t "$SESSION_NAME":0 -c "$SCRIPT_DIR"
+tmux send-keys -t "$SESSION_NAME":0.0 "air -c .air.toml 2>&1 | tee \"$BACKEND_LOG_PATH\"" C-m
+tmux send-keys -t "$SESSION_NAME":0.1 "bun install && bun run dev 2>&1 | tee \"$FRONTEND_LOG_PATH\"" C-m
+tmux send-keys -t "$SESSION_NAME":0.2 "bash \"$SCRIPT_DIR/gogogo.dev.monitor.sh\"" C-m
+tmux select-layout -t "$SESSION_NAME":0 tiled
 tmux select-pane -t "$SESSION_NAME":0.0
 
 SUPPRESS_ELAPSED_TIME=1

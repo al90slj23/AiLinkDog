@@ -41,6 +41,11 @@ if (typeof window !== 'undefined') {
     'color: #10b981; font-weight: bold; font-size: 24px;',
     'color: inherit; font-size: 14px;',
   );
+  console.log(
+    '%cALD AiLinkDog%c Originated from NEWAPI, AiLinkDog is our long-term maintenance and evolution track, continuously iterated and refined around real-world operational needs.',
+    'color: #34d399; font-weight: 600; font-size: 16px;',
+    'color: inherit; font-size: 13px;',
+  );
 }
 
 function SemiLocaleWrapper({ children }) {

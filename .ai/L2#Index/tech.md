@@ -41,5 +41,6 @@
 
 - Go：后端编译与测试
 - Bun：前端依赖、构建、lint
-- Vite：前端构建
-- `gogogo.sh`：统一入口脚本
+- Vite：前端开发服务器与前端构建
+- Air：后端本地开发自动编译重启
+- `gogogo.sh`：统一入口脚本，本地开发主路径为 `./gogogo.sh dev`

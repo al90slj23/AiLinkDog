@@ -257,7 +257,7 @@ call_deepseek_for_commit_summary() {
 }
 
 call_opencode_for_commit_summary() {
-  local status_block diff_block recent_commit_block extra_guidance prompt content
+  local status_block diff_block recent_commit_block extra_guidance prompt content prompt_file
 
   status_block="$1"
   diff_block="$2"
@@ -269,7 +269,10 @@ call_opencode_for_commit_summary() {
   fi
 
   prompt="$(build_commit_summary_prompt "$status_block" "$diff_block" "$recent_commit_block" "$extra_guidance")"
-  content="$(opencode run "$prompt" </dev/null)" || return 1
+  prompt_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-opencode-prompt.XXXXXX")" || return 1
+  trap 'rm -f "$prompt_file"' RETURN
+  printf '%s' "$prompt" >"$prompt_file" || return 1
+  content="$(opencode run <"$prompt_file")" || return 1
 
   if [ -z "$content" ]; then
     return 1

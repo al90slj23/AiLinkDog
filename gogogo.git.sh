@@ -1,6 +1,7 @@
 #!/bin/bash
 
 GITHUB_DEPLOY_REMOTE_URL="https://github.com/al90slj23/AiLinkDog.git"
+COMMIT_SUMMARY_DIFF_BYTE_LIMIT=32768
 
 get_commit_status_block() {
   git -C "$SCRIPT_DIR" status --short 2>/dev/null
@@ -14,23 +15,36 @@ get_commit_working_diff_block() {
   git -C "$SCRIPT_DIR" diff 2>/dev/null
 }
 
+collect_commit_diff_summary_block() {
+  local block_name tmp_file captured_bytes
+
+  block_name="$1"
+  shift
+  tmp_file="$(mktemp "${TMPDIR:-/tmp}/gogogo-commit-diff.XXXXXX")" || return 1
+
+  git -C "$SCRIPT_DIR" diff "$@" 2>/dev/null | dd bs=1 count="$((COMMIT_SUMMARY_DIFF_BYTE_LIMIT + 1))" of="$tmp_file" 2>/dev/null
+  captured_bytes="$(wc -c < "$tmp_file" | tr -d ' ')"
+
+  if [ "$captured_bytes" -le "$COMMIT_SUMMARY_DIFF_BYTE_LIMIT" ]; then
+    cat "$tmp_file"
+    rm -f "$tmp_file"
+    return 0
+  fi
+
+  dd if="$tmp_file" bs=1 count="$COMMIT_SUMMARY_DIFF_BYTE_LIMIT" 2>/dev/null | iconv -f UTF-8 -t UTF-8 -c 2>/dev/null
+  printf '\n\n[当前 %s 已截断，仅保留前 %s 字节]' "$block_name" "$COMMIT_SUMMARY_DIFF_BYTE_LIMIT"
+  rm -f "$tmp_file"
+}
+
 get_recent_commit_block() {
   git -C "$SCRIPT_DIR" log -5 --pretty=format:'%h %s' 2>/dev/null
 }
 
 get_commit_diff_block() {
-  local cached_diff_block working_diff_block
-
-  cached_diff_block="$(get_commit_cached_diff_block)"
-  working_diff_block="$(get_commit_working_diff_block)"
-
-  cat <<EOF
-[git diff --cached]
-${cached_diff_block}
-
-[git diff]
-${working_diff_block}
-EOF
+  printf '[git diff --cached]\n'
+  collect_commit_diff_summary_block 'git diff --cached' --cached
+  printf '\n\n[git diff]\n'
+  collect_commit_diff_summary_block 'git diff'
 }
 
 collect_commit_context() {
@@ -227,6 +241,10 @@ get_confirmed_commit_summary() {
   recent_commit_block="$(get_recent_commit_block)"
   commit_context="$(collect_commit_context)"
   initial_summary="$(generate_commit_summary_text "$provider" "$status_block" "$diff_block" "$recent_commit_block" "")"
+  if [ -z "$initial_summary" ]; then
+    print_error "❌ 提交摘要生成失败"
+    return 1
+  fi
   confirmed_summary="$(confirm_or_edit_commit_summary "$provider" "$commit_context" "$status_block" "$diff_block" "$recent_commit_block" "$initial_summary")" || return 1
   printf '%s\n' "$confirmed_summary"
 }

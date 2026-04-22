@@ -6,7 +6,7 @@
 
 - 存放后续协作中的 `specs/`
 - 存放执行计划 `plans/`
-- 预留 `hooks/`、`templates/`、`workflows/` 等执行相关目录
+- 存放 `skills/`、`hooks/`、`templates/`、`workflows/` 等执行相关目录
 - 为后续自动化或规范落地提供结构化落点
 
 ## 本层不负责
@@ -20,6 +20,7 @@
 - `specs/`：项目内 specs 的长期存放目录
 - `plans/`：项目内执行计划目录
 - `hooks/`：预留给本地或 IDE 侧自动化钩子
+- `skills/`：项目内 skill 源文件目录，按 `global/` 与 `project/` 分层
 - `templates/`：预留给模板
 - `workflows/`：预留给执行流程说明
 
