@@ -5,9 +5,21 @@ set -euo pipefail
 repo_root="$(cd "$(dirname "$0")/.." && pwd)"
 dev_script="$repo_root/gogogo.1.sh"
 monitor_script="$repo_root/gogogo.dev.monitor.sh"
+dashboard_script="$repo_root/gogogo.dev.dashboard.sh"
+eventstream_script="$repo_root/gogogo.dev.eventstream.sh"
 
 grep -q 'gogogo.dev.monitor.sh' "$dev_script" || {
-  echo 'FAIL: gogogo.1.sh should start gogogo.dev.monitor.sh in the monitor pane'
+  echo 'FAIL: gogogo.1.sh should start gogogo.dev.monitor.sh as the monitor collector'
+  exit 1
+}
+
+grep -q 'gogogo.dev.dashboard.sh' "$dev_script" || {
+  echo 'FAIL: gogogo.1.sh should start gogogo.dev.dashboard.sh in a fixed dashboard pane'
+  exit 1
+}
+
+grep -q 'gogogo.dev.eventstream.sh' "$dev_script" || {
+  echo 'FAIL: gogogo.1.sh should start gogogo.dev.eventstream.sh in an event stream pane'
   exit 1
 }
 
@@ -18,6 +30,16 @@ grep -q 'get_monitor_state_path' "$dev_script" || {
 
 [ -f "$monitor_script" ] || {
   echo 'FAIL: gogogo.dev.monitor.sh should exist'
+  exit 1
+}
+
+[ -f "$dashboard_script" ] || {
+  echo 'FAIL: gogogo.dev.dashboard.sh should exist'
+  exit 1
+}
+
+[ -f "$eventstream_script" ] || {
+  echo 'FAIL: gogogo.dev.eventstream.sh should exist'
   exit 1
 }
 
@@ -93,6 +115,16 @@ grep -Eq 'Process Exit with Code|\[FATAL\]|panic|failed' "$monitor_script" || {
 
 grep -q 'BACKEND_READY_EVENT_KEY' "$monitor_script" || {
   echo 'FAIL: monitor script should track backend ready event refresh state'
+  exit 1
+}
+
+grep -q 'refresh_backend_ready_event' "$monitor_script" || {
+  echo 'FAIL: monitor script should refresh backend ready event when backend url becomes confirmed'
+  exit 1
+}
+
+grep -q 'confirmed_backend_url' "$monitor_script" || {
+  echo 'FAIL: monitor script should preserve confirmed backend url without downgrading to derived url'
   exit 1
 }
 

@@ -104,12 +104,15 @@ MONITOR_EVENTS_LOG_PATH="$(get_monitor_events_log_path)"
 print_info "🚀 创建 tmux session：$SESSION_NAME"
 tmux new-session -d -s "$SESSION_NAME" -c "$SCRIPT_DIR"
 tmux rename-window -t "$SESSION_NAME":0 'dev'
-tmux split-window -h -t "$SESSION_NAME":0 -c "$SCRIPT_DIR/web"
-tmux split-window -v -t "$SESSION_NAME":0 -c "$SCRIPT_DIR"
-tmux send-keys -t "$SESSION_NAME":0.0 "air -c .air.toml 2>&1 | tee \"$BACKEND_LOG_PATH\"" C-m
-tmux send-keys -t "$SESSION_NAME":0.1 "bun install && bun run dev 2>&1 | tee \"$FRONTEND_LOG_PATH\"" C-m
-tmux send-keys -t "$SESSION_NAME":0.2 "bash \"$SCRIPT_DIR/gogogo.dev.monitor.sh\"" C-m
-tmux select-layout -t "$SESSION_NAME":0 tiled
+dashboard_pane="$(tmux split-window -v -f -l 17 -t "$SESSION_NAME":0.0 -c "$SCRIPT_DIR" -P -F '#{pane_id}')"
+eventstream_pane="$(tmux split-window -v -l 5 -t "$dashboard_pane" -c "$SCRIPT_DIR" -P -F '#{pane_id}')"
+frontend_pane="$(tmux split-window -h -t "$SESSION_NAME":0.0 -c "$SCRIPT_DIR/web" -P -F '#{pane_id}')"
+backend_pane="$(tmux display-message -p -t "$SESSION_NAME":0.0 '#{pane_id}')"
+
+tmux send-keys -t "$backend_pane" "air -c .air.toml 2>&1 | tee \"$BACKEND_LOG_PATH\"" C-m
+tmux send-keys -t "$frontend_pane" "bun install && bun run dev 2>&1 | tee \"$FRONTEND_LOG_PATH\"" C-m
+tmux send-keys -t "$dashboard_pane" "bash \"$SCRIPT_DIR/gogogo.dev.monitor.sh\" >/dev/null 2>&1 & bash \"$SCRIPT_DIR/gogogo.dev.dashboard.sh\"" C-m
+tmux send-keys -t "$eventstream_pane" "bash \"$SCRIPT_DIR/gogogo.dev.eventstream.sh\"" C-m
 tmux select-pane -t "$SESSION_NAME":0.0
 
 SUPPRESS_ELAPSED_TIME=1

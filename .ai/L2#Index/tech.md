@@ -44,3 +44,4 @@
 - Vite：前端开发服务器与前端构建
 - Air：后端本地开发自动编译重启
 - `gogogo.sh`：统一入口脚本，本地开发主路径为 `./gogogo.sh dev`
+- `gogogo.sh dev`：当前默认使用四 pane 本地开发工作台，详细规范见 `L3#Standards/standards/09.tool-01.gogogo.md`
