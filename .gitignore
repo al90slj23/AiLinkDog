@@ -8,9 +8,6 @@ upload
 build
 *.db-journal
 logs
-web/dist/
-!web/dist/
-!web/dist/index.html
 .env
 one-api
 new-api
@@ -27,6 +24,7 @@ web/bun.lock
 plans
 .claude
 .worktrees/
+.tmp/
 tmp/
 
 electron/node_modules

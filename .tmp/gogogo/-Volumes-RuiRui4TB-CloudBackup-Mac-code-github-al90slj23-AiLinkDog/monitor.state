@@ -1,8 +1,0 @@
-frontend_status=已就绪
-frontend_url=http://localhost:5173/
-backend_status=已就绪
-backend_url=http://localhost:3000
-backend_url_confirmed=0
-warnings=0
-errors=0
-last_event=后端已就绪，推断地址 http://localhost:3000，耗时 5s
