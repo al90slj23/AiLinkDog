@@ -6,9 +6,9 @@
   --ald-card: #fdfdfd;
   --ald-surface: #f5f5f5;
   --ald-accent: #fff4d6;
-  --ald-border: #e7e7ee;
+  --ald-border: #e5e7eb;
   --ald-text: #000000;
-  --ald-muted: #525252;
+  --ald-muted: #6b7280;
   --ald-primary: #f5b301;
   --ald-orange: #ff7a18;
   --ald-green: #22c55e;
@@ -26,9 +26,9 @@
   --ald-card: #181a20;
   --ald-surface: #141720;
   --ald-accent: #2a2112;
-  --ald-border: #2f323a;
+  --ald-border: #374151;
   --ald-text: #eaeaf0;
-  --ald-muted: #a1a1aa;
+  --ald-muted: #9ca3af;
   --ald-primary: #f5b301;
   --ald-orange: #ff7a18;
   --ald-green: #22c55e;
@@ -37,6 +37,16 @@
   --ald-code-line: #22242b;
   --ald-code-text: #eaeaf0;
   --ald-shadow: 0 28px 70px -34px rgba(245, 179, 1, 0.3);
+}
+
+/* Add generic interactive classes */
+.ald-lift {
+  transition: transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s, border-color .25s;
+}
+.ald-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -18px rgba(245,179,1,0.35);
+  border-color: var(--ald-primary) !important;
 }
 
 [data-ald-reveal] {
@@ -185,6 +195,15 @@
   gap: 24px;
   color: var(--ald-muted);
   font-size: 14px;
+}
+
+.ald-home-nav__links a,
+.ald-home-nav__login {
+  transition: color 0.2s;
+}
+.ald-home-nav__links a:hover,
+.ald-home-nav__login:hover {
+  color: var(--ald-primary);
 }
 
 .ald-home-nav__right {
@@ -1409,6 +1428,7 @@
   text-align: left;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
+  transition: background 0.15s;
 }
 
 .ald-home-models__row.is-active {
@@ -1417,7 +1437,7 @@
 }
 
 .ald-home-models__row:hover {
-  background: color-mix(in srgb, var(--ald-primary) 6%, transparent);
+  background: rgba(245, 179, 1, 0.06);
 }
 
 .ald-home-models__row span:not(:first-child),
