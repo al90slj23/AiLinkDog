@@ -648,23 +648,31 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 45%;
   z-index: 0;
   pointer-events: auto;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ald-home-hero__robot-vendors {
   position: absolute;
-  top: 64px;
-  left: 66%;
-  right: 36px;
-  bottom: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 700px;
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, minmax(96px, 1fr));
   gap: 12px;
   align-content: start;
+  align-items: center;
+  justify-items: center;
   pointer-events: none;
 }
 
