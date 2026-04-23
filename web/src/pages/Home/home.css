@@ -379,6 +379,7 @@
 .ald-home-hero__primary-copy {
   max-width: 620px;
   padding-right: 0;
+  margin: 0 auto; /* Added margin: 0 auto to center it horizontally inside the grid cell */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -645,10 +646,7 @@
 
 .ald-home-hero__robot-layer {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 45%;
+  inset: -100px -100px -100px -100px;
   z-index: 0;
   pointer-events: auto;
   overflow: hidden;
@@ -912,20 +910,20 @@
   z-index: 2;
   display: flex;
   align-items: stretch;
-  justify-content: flex-end;
+  justify-content: center;
   pointer-events: auto;
   transform-style: preserve-3d;
   will-change: transform;
 }
 
+.ald-home-robot-bg__canvas,
 .ald-home-robot-bg__placeholder {
-  position: relative;
-  flex: 0 0 68%;
-  min-width: 600px;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
   min-height: 560px;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
+  pointer-events: auto;
+  transform: none;
 }
 
 .ald-home-robot-bg__orb,
@@ -964,15 +962,6 @@
   border-radius: 999px;
   background: radial-gradient(circle at center, rgba(245, 179, 1, 0.28), transparent 72%);
   filter: blur(24px);
-}
-
-.ald-home-robot-bg__canvas {
-  flex: 0 0 68%;
-  min-width: 600px;
-  height: 100%;
-  min-height: 560px;
-  pointer-events: auto;
-  transform: none;
 }
 
 .ald-ui-spline-fallback {
@@ -1191,11 +1180,6 @@
   .ald-home-hero__row--primary,
   .ald-home-hero__row--secondary {
     grid-template-columns: 1fr;
-  }
-
-  .ald-home-hero__robot-layer {
-    left: -32px;
-    right: -32px;
   }
 
   .ald-home-hero__row--primary {
