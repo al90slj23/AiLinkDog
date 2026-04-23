@@ -19,10 +19,10 @@ function LandingHeroCodeBlock({ lang, onChangeLang, snippets, t }) {
           </div>
           <span>OpenAI 兼容 · /v1/chat/completions</span>
         </div>
-        <pre>{snippets[lang].join('\n')}</pre>
+        <pre>{snippets[lang] ? snippets[lang].join('\n') : ''}</pre>
         <div className='ald-home-code__log'>
           <div className='ald-home-code__log-header'>
-            <span>{t('路由日志')} · {t('实时')}</span>
+            <span>{t ? t('路由日志') : '路由日志'} · {t ? t('实时') : '实时'}</span>
             <span className='ald-home-code__ok'>
               <span className="ald-pulse" style={{ width: 6, height: 6, borderRadius: 3, background: 'var(--ald-green)' }}/>
               200 · 1.12s
@@ -30,7 +30,7 @@ function LandingHeroCodeBlock({ lang, onChangeLang, snippets, t }) {
           </div>
           <div>→ upstream-a · 429 rate-limited</div>
           <div>→ upstream-b · 200 · 346ms</div>
-          <div className='ald-home-code__reroute'>✓ {t('已自动回源，用户侧无感知')}</div>
+          <div className='ald-home-code__reroute'>✓ {t ? t('已自动回源，用户侧无感知') : '已自动回源，用户侧无感知'}</div>
         </div>
       </div>
     </div>
