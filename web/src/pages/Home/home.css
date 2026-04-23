@@ -314,7 +314,7 @@
 }
 
 .ald-home-hero__row--primary {
-  grid-template-columns: minmax(520px, 0.92fr) minmax(620px, 1.08fr);
+  grid-template-columns: minmax(520px, 1fr) minmax(520px, 1fr);
   position: relative;
   overflow: visible;
   padding-top: 110px;
@@ -379,12 +379,12 @@
 .ald-home-hero__primary-copy {
   max-width: 620px;
   padding-right: 0;
-  margin: 0 auto; /* Added margin: 0 auto to center it horizontally inside the grid cell */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+  margin: 0 auto;
 }
 
 .ald-home-hero__row--metrics .ald-home-stats--stacked {
@@ -500,6 +500,13 @@
 .ald-home-final__actions {
   gap: 14px;
   margin-bottom: 48px;
+}
+
+.ald-home-hero__actions {
+  justify-content: flex-start;
+}
+
+.ald-home-final__actions {
   justify-content: center;
 }
 
@@ -922,6 +929,8 @@
   width: 100%;
   height: 100%;
   min-height: 560px;
+  display: grid;
+  place-items: center;
   pointer-events: auto;
   transform: none;
 }
