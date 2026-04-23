@@ -668,9 +668,8 @@
   max-height: 700px;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(96px, 1fr));
-  gap: 12px;
-  align-content: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   align-items: center;
   justify-items: center;
   pointer-events: none;
