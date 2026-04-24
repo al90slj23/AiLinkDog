@@ -8,26 +8,12 @@ import LandingHeroCodeBlock from './LandingHeroCodeBlock';
 const HeroRobotScene = lazy(() => import('./HeroRobotScene'));
 
 const providerItems = [
-  'OpenAI',
-  'Qwen',
-  'Llama',
-  'Claude',
-  'Grok',
-  'Mistral',
-  'Gemini',
-  'Moonshot',
-  'Cohere',
-  'DeepSeek',
-  'GLM',
-  'Anthropic',
-  'Azure AI',
-  'Hunyuan',
-  'Minimax',
-  'Zhipu',
-  'Wenxin',
-  'Spark',
-  'Xinference',
-  '128+',
+  'OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'Qwen', 'Moonshot', 'GLM', 'Llama',
+  'Mistral', 'Cohere', 'Anthropic', 'Azure AI', 'Hunyuan', 'Minimax', 'Zhipu',
+  'Wenxin', 'Spark', 'Xinference', 'Grok', 'Perplexity', '01.AI', 'Baichuan',
+  'SenseTime', 'StepFun', 'Ollama', 'vLLM', 'LocalAI', 'Together', 'AWS',
+  'Bedrock', 'HuggingFace', 'Replicate', 'Novita', 'Deep Infra', 'SiliconFlow',
+  'Lepton', 'Fireworks', 'Groq', 'SambaNova', 'xAI'
 ];
 
 const snippets = {
@@ -73,12 +59,25 @@ const snippets = {
 };
 
 function RobotVendorLayer() {
+  const columns = [
+    providerItems.slice(0, 10),
+    providerItems.slice(10, 20),
+    providerItems.slice(20, 30),
+    providerItems.slice(30, 40)
+  ];
+
   return (
     <div className='ald-home-hero__robot-vendors'>
-      {providerItems.map((item, index) => (
-        <span key={item} className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}>
-          {item}
-        </span>
+      {columns.map((col, colIndex) => (
+        <div key={colIndex} className={`ald-home-vendor-col ald-home-vendor-col--${colIndex}`}>
+          <div className='ald-home-vendor-col__track'>
+            {[...col, ...col].map((item, index) => (
+              <span key={`${item}-${index}`} className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   );
