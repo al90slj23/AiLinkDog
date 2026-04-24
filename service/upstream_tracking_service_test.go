@@ -406,3 +406,93 @@ func TestRunUpstreamTrackingAnalysisKeepsCompareFailureInCompletedRecord(t *test
 		t.Fatalf("expected upstream_compare content to stay empty on compare failure, got %q", compareContext.Content)
 	}
 }
+
+func TestRunUpstreamTrackingAnalysisReplacesExistingContextsOnRerun(t *testing.T) {
+	db := setupUpstreamTrackingServiceTestDB(t)
+	originalGitHubBase := upstreamTrackingGitHubAPIBaseURL
+	originalGitHubRawBase := upstreamTrackingGitHubRawBaseURL
+	originalDeepSeekBase := upstreamTrackingDeepSeekAPIBaseURL
+	originalLocalMemoryDirs := upstreamTrackingLocalMemoryBaseDirs
+	defer func() {
+		upstreamTrackingGitHubAPIBaseURL = originalGitHubBase
+		upstreamTrackingGitHubRawBaseURL = originalGitHubRawBase
+		upstreamTrackingDeepSeekAPIBaseURL = originalDeepSeekBase
+		upstreamTrackingLocalMemoryBaseDirs = originalLocalMemoryDirs
+	}()
+
+	var deepSeekResponses int
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch {
+		case strings.Contains(r.URL.Path, "/commits"):
+			w.Header().Set("Content-Type", "application/json")
+			_, _ = w.Write([]byte(`[
+				{"sha":"latest111","html_url":"https://example.com/1","commit":{"message":"latest commit","author":{"name":"bot","date":"2026-04-24T00:00:00Z"}}},
+				{"sha":"base222","html_url":"https://example.com/2","commit":{"message":"base commit","author":{"name":"bot","date":"2026-04-23T00:00:00Z"}}}
+			]`))
+		case strings.Contains(r.URL.Path, "/compare/"):
+			w.Header().Set("Content-Type", "application/json")
+			_, _ = w.Write([]byte(`{"files":[{"filename":"service/upstream_tracking_service.go","status":"modified","patch":"+ new patch"}]}`))
+		case strings.Contains(r.URL.Path, "/chat/completions"):
+			deepSeekResponses++
+			w.Header().Set("Content-Type", "application/json")
+			if deepSeekResponses == 1 {
+				_, _ = w.Write([]byte(`{"choices":[{"message":{"content":"{\"update_summary\":\"first summary\",\"has_similar_local_work\":false,\"local_work_summary\":\"\",\"should_merge\":\"observe\",\"merge_reason\":\"first reason\",\"merge_strategy\":\"observe_only\",\"merge_plan_summary\":\"first plan\",\"target_files\":[\"first.go\"],\"target_areas\":[\"first\"],\"risk_summary\":\"first risk\",\"actions\":[]}"}}]}`))
+			} else {
+				_, _ = w.Write([]byte(`{"choices":[{"message":{"content":"{\"update_summary\":\"second summary\",\"has_similar_local_work\":true,\"local_work_summary\":\"second local\",\"should_merge\":\"merge\",\"merge_reason\":\"second reason\",\"merge_strategy\":\"manual_port\",\"merge_plan_summary\":\"second plan\",\"target_files\":[\"second.go\"],\"target_areas\":[\"second\"],\"risk_summary\":\"second risk\",\"actions\":[]}"}}]}`))
+			}
+		default:
+			w.Header().Set("Content-Type", "text/plain")
+			_, _ = w.Write([]byte("# memory"))
+		}
+	}))
+	defer server.Close()
+
+	upstreamTrackingGitHubAPIBaseURL = server.URL
+	upstreamTrackingGitHubRawBaseURL = server.URL
+	upstreamTrackingDeepSeekAPIBaseURL = server.URL
+	upstreamTrackingLocalMemoryBaseDirs = []string{t.TempDir()}
+	common.OptionMap = map[string]string{
+		"UpstreamTrackingBaseUrl":       server.URL,
+		"UpstreamTrackingAnalysisToken": "sk-test",
+	}
+
+	cycle := &model.UpstreamTrackingCycle{
+		CycleCode:        "cycle-rerun",
+		Status:           "pending",
+		RepoOwner:        "QuantumNous",
+		RepoName:         "new-api",
+		BaseBranch:       "main",
+		AldBaseVersion:   "v0.12.14",
+		AnalysisProvider: "deepseek",
+		AnalysisModel:    "deepseek-chat",
+	}
+	if err := db.Create(cycle).Error; err != nil {
+		t.Fatalf("failed to create cycle: %v", err)
+	}
+
+	if _, err := RunUpstreamTrackingAnalysis(context.Background(), cycle.Id); err != nil {
+		t.Fatalf("first analysis failed: %v", err)
+	}
+	if _, err := RunUpstreamTrackingAnalysis(context.Background(), cycle.Id); err != nil {
+		t.Fatalf("second analysis failed: %v", err)
+	}
+
+	var responseContexts []model.UpstreamTrackingContext
+	if err := db.Where("cycle_id = ? AND context_type = ?", cycle.Id, "analysis_response").Order("id asc").Find(&responseContexts).Error; err != nil {
+		t.Fatalf("failed to query analysis_response contexts: %v", err)
+	}
+	if len(responseContexts) != 1 {
+		t.Fatalf("expected exactly one analysis_response after rerun, got %d", len(responseContexts))
+	}
+	if !strings.Contains(responseContexts[0].Content, "second summary") {
+		t.Fatalf("expected latest analysis_response content, got %s", responseContexts[0].Content)
+	}
+
+	var compareContexts []model.UpstreamTrackingContext
+	if err := db.Where("cycle_id = ? AND context_type = ?", cycle.Id, "upstream_compare").Find(&compareContexts).Error; err != nil {
+		t.Fatalf("failed to query upstream_compare contexts: %v", err)
+	}
+	if len(compareContexts) != 1 {
+		t.Fatalf("expected exactly one upstream_compare after rerun, got %d", len(compareContexts))
+	}
+}

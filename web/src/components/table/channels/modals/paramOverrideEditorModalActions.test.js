@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import {
   buildAddConditionResult,
   buildAddOperationResult,
@@ -29,7 +29,7 @@ import {
 import { createDefaultCondition, createDefaultOperation } from './paramOverrideEditorModalData';
 
 describe('paramOverrideEditorModalActions', () => {
-  test('updates a single operation by id', () => {
+  it('updates a single operation by id', () => {
     const first = createDefaultOperation();
     const second = createDefaultOperation();
     const result = buildOperationPatchResult({
@@ -42,7 +42,7 @@ describe('paramOverrideEditorModalActions', () => {
     expect(result[1].path).toBe('temperature');
   });
 
-  test('adds and removes operations with fallback', () => {
+  it('adds and removes operations with fallback', () => {
     const first = createDefaultOperation();
     const added = buildAddOperationResult({
       operations: [first],
@@ -62,7 +62,7 @@ describe('paramOverrideEditorModalActions', () => {
     expect(removed.operations[0].id).not.toBe(first.id);
   });
 
-  test('adds updates and removes conditions', () => {
+  it('adds updates and removes conditions', () => {
     const operation = createDefaultOperation();
     const added = buildAddConditionResult({
       operations: [operation],

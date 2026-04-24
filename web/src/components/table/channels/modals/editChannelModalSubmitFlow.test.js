@@ -1,8 +1,8 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { buildSubmitInteractionState } from './editChannelModalSubmitFlow';
 
 describe('editChannelModalSubmitFlow', () => {
-  test('builds interaction state', () => {
+  it('builds interaction state', () => {
     const state = buildSubmitInteractionState({
       parsedModelMapping: { 'gpt-4': 'alias' },
       normalizedModels: ['gpt-4o'],

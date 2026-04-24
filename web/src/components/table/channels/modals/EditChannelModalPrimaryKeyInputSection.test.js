@@ -1,8 +1,8 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { existsSync } from 'node:fs';
 
 describe('EditChannelModalPrimaryKeyInputSection file', () => {
-  test('exists for primary key section extraction', () => {
+  it('exists for primary key section extraction', () => {
     expect(
       existsSync(
         new URL('./EditChannelModalPrimaryKeyInputSection.jsx', import.meta.url),

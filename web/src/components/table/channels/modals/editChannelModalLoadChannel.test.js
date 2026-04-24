@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import {
   deriveAdvancedSettingsOpen,
   normalizeLoadedChannelData,
@@ -6,7 +6,7 @@ import {
 } from './editChannelModalLoadChannel';
 
 describe('editChannelModalLoadChannel', () => {
-  test('normalizes loaded channel payload', () => {
+  it('normalizes loaded channel payload', () => {
     const normalized = normalizeLoadedChannelData({
       models: 'gpt-4,gpt-4o',
       group: 'default,vip',
@@ -26,7 +26,7 @@ describe('editChannelModalLoadChannel', () => {
     expect(normalized.allow_service_tier).toBe(true);
   });
 
-  test('parses ionet metadata and advanced flags', () => {
+  it('parses ionet metadata and advanced flags', () => {
     expect(parseIonetMetadata('{"source":"ionet","deployment_id":"1"}')).toEqual(
       {
         source: 'ionet',

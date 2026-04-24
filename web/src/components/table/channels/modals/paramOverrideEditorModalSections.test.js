@@ -18,10 +18,10 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import { existsSync } from 'node:fs';
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 
 describe('paramOverrideEditorModal sections', () => {
-  test('exposes extracted editor section files', () => {
+  it('exposes extracted editor section files', () => {
     expect(
       existsSync(
         new URL('./ParamOverrideEditorModalOperationHeaderSection.jsx', import.meta.url),
