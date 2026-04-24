@@ -251,6 +251,17 @@ function LandingHero({ docsLink, serverAddress, t }) {
       java: snippets.java(serverAddress),
       rust: snippets.rust(serverAddress),
       php: snippets.php(serverAddress),
+      ruby: snippets.ruby(serverAddress),
+      csharp: snippets.csharp(serverAddress),
+      swift: snippets.swift(serverAddress),
+      kotlin: snippets.kotlin(serverAddress),
+      dart: snippets.dart(serverAddress),
+      cpp: snippets.cpp(serverAddress),
+      r: snippets.r(serverAddress),
+      scala: snippets.scala(serverAddress),
+      perl: snippets.perl(serverAddress),
+      elixir: snippets.elixir(serverAddress),
+      bash: snippets.bash(serverAddress),
     };
   }, [serverAddress]);
 

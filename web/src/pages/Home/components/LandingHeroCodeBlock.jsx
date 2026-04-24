@@ -18,7 +18,26 @@ For commercial licensing, please contact support@quantumnous.com
 */
 import React, { useEffect, useRef, useState } from 'react';
 
-const PRIORITY = ['curl', 'python', 'node', 'go', 'java', 'rust', 'php'];
+const PRIORITY = [
+  'curl',
+  'python',
+  'node',
+  'go',
+  'java',
+  'rust',
+  'php',
+  'ruby',
+  'csharp',
+  'swift',
+  'kotlin',
+  'dart',
+  'cpp',
+  'r',
+  'scala',
+  'perl',
+  'elixir',
+  'bash',
+];
 
 function LandingHeroCodeBlock({ lang, onChangeLang, snippets, t }) {
   const containerRef = useRef(null);
