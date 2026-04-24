@@ -193,6 +193,12 @@ func initOptionMapDefaults() {
 	common.OptionMap["MjForwardUrlEnabled"] = strconv.FormatBool(setting.MjForwardUrlEnabled)
 	common.OptionMap["MjActionCheckSuccessEnabled"] = strconv.FormatBool(setting.MjActionCheckSuccessEnabled)
 	common.OptionMap["CheckSensitiveEnabled"] = strconv.FormatBool(setting.CheckSensitiveEnabled)
+	common.OptionMap["HomePageRobotScale"] = "0.79"
+	common.OptionMap["HomePageRobotX"] = "0"
+	common.OptionMap["HomePageRobotY"] = "-129"
+	common.OptionMap["HomePageRobotWidth"] = "68"
+	common.OptionMap["HomePageRobotDebuggerEnabled"] = "false"
+
 	common.OptionMap["DemoSiteEnabled"] = strconv.FormatBool(operation_setting.DemoSiteEnabled)
 	common.OptionMap["SelfUseModeEnabled"] = strconv.FormatBool(operation_setting.SelfUseModeEnabled)
 	common.OptionMap["ModelRequestRateLimitEnabled"] = strconv.FormatBool(setting.ModelRequestRateLimitEnabled)

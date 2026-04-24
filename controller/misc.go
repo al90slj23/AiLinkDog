@@ -85,6 +85,12 @@ func GetStatus(c *gin.Context) {
 		"default_collapse_sidebar":      common.DefaultCollapseSidebar,
 		"mj_notify_enabled":             setting.MjNotifyEnabled,
 		"chats":                         setting.Chats,
+		"home_page_robot_scale":             common.OptionMap["HomePageRobotScale"],
+		"home_page_robot_x":                 common.OptionMap["HomePageRobotX"],
+		"home_page_robot_y":                 common.OptionMap["HomePageRobotY"],
+		"home_page_robot_width":             common.OptionMap["HomePageRobotWidth"],
+		"home_page_robot_debugger_enabled":  common.OptionMap["HomePageRobotDebuggerEnabled"] == "true",
+
 		"demo_site_enabled":             operation_setting.DemoSiteEnabled,
 		"self_use_mode_enabled":         operation_setting.SelfUseModeEnabled,
 		"default_use_auto_group":        setting.DefaultUseAutoGroup,
