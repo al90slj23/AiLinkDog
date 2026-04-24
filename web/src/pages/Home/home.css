@@ -647,8 +647,8 @@
 }
 
 .ald-home-code--hero {
-  width: 100%;
-  max-width: 520px;
+  width: 80%;
+  max-width: 800px;
   margin: 0 auto;
   transform: none;
 }
