@@ -4,7 +4,7 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 
 function SplineFallback({ error = false }) {
   return (
-    <div className='ald-ui-spline-host'>
+    <div className='ald-ui-spline-host' style={{ width: '100%', height: '100%' }}>
       <div className={`ald-ui-spline-shell ${error ? 'is-error' : 'is-loading'}`}>
         <div className='ald-ui-spline-fallback'>
           <span className='ald-ui-loader' />
@@ -117,8 +117,8 @@ export function SplineScene({ scene, className = '' }) {
   return (
     <SplineSceneBoundary>
       <Suspense fallback={<SplineFallback />}>
-        <div ref={containerRef} className='ald-ui-spline-host'>
-          <Spline scene={scene} className={className} />
+        <div ref={containerRef} className={`ald-ui-spline-host ${className}`} style={{ width: '100%', height: '100%' }}>
+          <Spline scene={scene} style={{ width: '100%', height: '100%' }} />
         </div>
       </Suspense>
     </SplineSceneBoundary>
