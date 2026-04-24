@@ -1,4 +1,29 @@
-import React, { Suspense, lazy, useEffect, useMemo, useRef, useState } from 'react';
+/*
+Copyright (C) 2025 QuantumNous
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+For commercial licensing, please contact support@quantumnous.com
+*/
+import React, {
+  Suspense,
+  lazy,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Spotlight } from '../../../components/ui/spotlight';
 import LandingHeroCopy from './LandingHeroCopy';
 import LandingHeroMetrics from './LandingHeroMetrics';
@@ -8,13 +33,55 @@ import LandingHeroCodeBlock from './LandingHeroCodeBlock';
 const HeroRobotScene = lazy(() => import('./HeroRobotScene'));
 
 const providerItems = [
-  'OpenAI', 'Claude', 'Gemini', 'DeepSeek', 'Qwen', 'Moonshot', 'GLM', 'Llama',
-  'Mistral', 'Cohere', 'Anthropic', 'Azure AI', 'Hunyuan', 'Minimax', 'Zhipu',
-  'Wenxin', 'Spark', 'Xinference', 'Grok', 'Perplexity', '01.AI', 'Baichuan',
-  'SenseTime', 'StepFun', 'Ollama', 'vLLM', 'LocalAI', 'Together', 'AWS',
-  'Bedrock', 'HuggingFace', 'Replicate', 'Novita', 'Deep Infra', 'SiliconFlow',
-  'Lepton', 'Fireworks', 'Groq', 'SambaNova', 'xAI', 'Stability AI', 'Baidu',
-  'Alibaba', 'Tencent', 'ByteDance', 'NVIDIA', 'Meta', 'Google', 'Apple'
+  'OpenAI',
+  'Claude',
+  'Gemini',
+  'DeepSeek',
+  'Qwen',
+  'Moonshot',
+  'GLM',
+  'Llama',
+  'Mistral',
+  'Cohere',
+  'Anthropic',
+  'Azure AI',
+  'Hunyuan',
+  'Minimax',
+  'Zhipu',
+  'Wenxin',
+  'Spark',
+  'Xinference',
+  'Grok',
+  'Perplexity',
+  '01.AI',
+  'Baichuan',
+  'SenseTime',
+  'StepFun',
+  'Ollama',
+  'vLLM',
+  'LocalAI',
+  'Together',
+  'AWS',
+  'Bedrock',
+  'HuggingFace',
+  'Replicate',
+  'Novita',
+  'Deep Infra',
+  'SiliconFlow',
+  'Lepton',
+  'Fireworks',
+  'Groq',
+  'SambaNova',
+  'xAI',
+  'Stability AI',
+  'Baidu',
+  'Alibaba',
+  'Tencent',
+  'ByteDance',
+  'NVIDIA',
+  'Meta',
+  'Google',
+  'Apple',
 ];
 
 const snippets = {
@@ -22,7 +89,7 @@ const snippets = {
     '# 改一行 base_url，无需换 SDK',
     `curl ${serverAddress}/v1/chat/completions \\`,
     '  -H "Authorization: Bearer $ALD_KEY" \\',
-    "  -d '{\"model\":\"claude-sonnet-4-5\",\"messages\":[{\"role\":\"user\",\"content\":\"你好\"}]}'",
+    '  -d \'{"model":"claude-sonnet-4-5","messages":[{"role":"user","content":"你好"}]}\'',
   ],
   python: (serverAddress) => [
     '# pip install openai',
@@ -57,6 +124,39 @@ const snippets = {
     '  Model: "deepseek-v3.2",',
     '})',
   ],
+  java: (serverAddress) => [
+    '// add openai-java dependency',
+    'OpenAIClient client = OpenAIClient.builder()',
+    '    .apiKey("sk-ald-•••••")',
+    `    .baseUrl("${serverAddress}/v1")`,
+    '    .build();',
+    '',
+    'ChatCompletionRequest request = ChatCompletionRequest.builder()',
+    '    .model("gpt-4o")',
+    '    .build();',
+  ],
+  rust: (serverAddress) => [
+    '// cargo add async-openai',
+    'let config = OpenAIConfig::new()',
+    '    .with_api_key("sk-ald-•••••")',
+    `    .with_api_base("${serverAddress}/v1");`,
+    '',
+    'let client = Client::with_config(config);',
+    'let request = CreateChatCompletionRequestArgs::default()',
+    '    .model("claude-3-5-sonnet-20240620")',
+    '    .build()?;',
+  ],
+  php: (serverAddress) => [
+    '// composer require openai-php/client',
+    '$client = OpenAI::factory()',
+    "    ->withApiKey('sk-ald-•••••')",
+    `    ->withBaseUri('${serverAddress}/v1')`,
+    '    ->make();',
+    '',
+    '$response = $client->chat()->create([',
+    "    'model' => 'gemini-1.5-pro',",
+    ']);',
+  ],
 };
 
 function RobotVendorLayer() {
@@ -70,16 +170,16 @@ function RobotVendorLayer() {
       // Column width: 220px + 32px gap = 252px
       const colWidth = 252;
       const numCols = Math.max(1, Math.floor(width / colWidth));
-      
+
       const newCols = Array.from({ length: numCols }, (_, colIndex) => {
         // Randomly pick a subset of items to loop
         const shuffled = [...providerItems].sort(() => Math.random() - 0.5);
         // Take 8 items per column
         const subset = shuffled.slice(0, 8);
         // Pre-calculate fixed indices for consistent coloring during scroll
-        return subset.map(item => ({
+        return subset.map((item) => ({
           name: item,
-          colorIndex: Math.floor(Math.random() * 3)
+          colorIndex: Math.floor(Math.random() * 3),
         }));
       });
       setColumns(newCols);
@@ -89,7 +189,7 @@ function RobotVendorLayer() {
     // Use a ResizeObserver for better responsiveness than window 'resize'
     const observer = new ResizeObserver(updateColumns);
     observer.observe(containerRef.current);
-    
+
     return () => {
       window.removeEventListener('resize', updateColumns);
       observer.disconnect();
@@ -99,10 +199,16 @@ function RobotVendorLayer() {
   return (
     <div className='ald-home-hero__robot-vendors' ref={containerRef}>
       {columns.map((col, colIndex) => (
-        <div key={colIndex} className={`ald-home-vendor-col ald-home-vendor-col--${colIndex % 7}`}>
+        <div
+          key={colIndex}
+          className={`ald-home-vendor-col ald-home-vendor-col--${colIndex % 7}`}
+        >
           <div className='ald-home-vendor-col__track'>
             {[...col, ...col].map((item, index) => (
-              <span key={`${item.name}-${index}`} className={`ald-home-proof__item ald-home-proof__item--${item.colorIndex}`}>
+              <span
+                key={`${item.name}-${index}`}
+                className={`ald-home-proof__item ald-home-proof__item--${item.colorIndex}`}
+              >
                 {item.name}
               </span>
             ))}
@@ -142,6 +248,9 @@ function LandingHero({ docsLink, serverAddress, t }) {
       python: snippets.python(serverAddress),
       node: snippets.node(serverAddress),
       go: snippets.go(serverAddress),
+      java: snippets.java(serverAddress),
+      rust: snippets.rust(serverAddress),
+      php: snippets.php(serverAddress),
     };
   }, [serverAddress]);
 
@@ -186,7 +295,10 @@ function LandingHero({ docsLink, serverAddress, t }) {
           <div className='ald-home-hero__robot-layer'>
             {isDesktop && shouldLoadScene ? (
               <Suspense fallback={<RobotPlaceholder />}>
-                <HeroRobotScene isDesktop={isDesktop} shouldLoadScene={shouldLoadScene}>
+                <HeroRobotScene
+                  isDesktop={isDesktop}
+                  shouldLoadScene={shouldLoadScene}
+                >
                   <RobotVendorLayer />
                 </HeroRobotScene>
               </Suspense>
