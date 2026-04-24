@@ -18,9 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Space, Tag, Typography, Popover } from '@douyinfe/semi-ui';
-
-const { Text } = Typography;
+import { Space, Tag, Popover } from '@douyinfe/semi-ui';
 
 // 通用渲染函数：限制项目数量显示，支持popover展开
 export function renderLimitedItems({ items, renderItem, maxDisplay = 3 }) {
@@ -52,9 +50,20 @@ export function renderLimitedItems({ items, renderItem, maxDisplay = 3 }) {
 
 // 渲染描述字段，长文本支持tooltip
 export const renderDescription = (text, maxWidth = 200) => {
+  const content = text || '-';
   return (
-    <Text ellipsis={{ showTooltip: true }} style={{ maxWidth }}>
-      {text || '-'}
-    </Text>
+    <span
+      title={content}
+      style={{
+        display: 'inline-block',
+        maxWidth,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        verticalAlign: 'bottom',
+      }}
+    >
+      {content}
+    </span>
   );
 };

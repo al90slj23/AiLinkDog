@@ -25,11 +25,10 @@ import {
   Tooltip,
   Progress,
   Popover,
-  Typography,
-  Dropdown,
 } from '@douyinfe/semi-ui';
 import { IconMore } from '@douyinfe/semi-icons';
-import { renderGroup, renderNumber, renderQuota } from '../../../helpers';
+import { copy, renderGroup, renderNumber, renderQuota } from '../../../helpers';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 
 /**
  * Render user role
@@ -78,15 +77,17 @@ const renderUsername = (text, record) => {
     <Space spacing={2}>
       <span>{text}</span>
       <Tooltip content={remark} position='top' showArrow>
-        <Tag color='white' shape='circle' className='!text-xs'>
-          <div className='flex items-center gap-1'>
-            <div
-              className='w-2 h-2 flex-shrink-0 rounded-full'
-              style={{ backgroundColor: '#10b981' }}
-            />
-            {displayRemark}
-          </div>
-        </Tag>
+        <span className='inline-flex'>
+          <Tag color='white' shape='circle' className='!text-xs'>
+            <div className='flex items-center gap-1'>
+              <div
+                className='w-2 h-2 flex-shrink-0 rounded-full'
+                style={{ backgroundColor: '#10b981' }}
+              />
+              {displayRemark}
+            </div>
+          </Tag>
+        </span>
       </Tooltip>
     </Space>
   );
@@ -128,44 +129,50 @@ const renderStatistics = (text, record, showEnableDisableModal, t) => {
 
   return (
     <Tooltip content={tooltipContent} position='top'>
-      {content}
+      <span className='inline-flex'>{content}</span>
     </Tooltip>
   );
 };
 
 // Render separate quota usage column
 const renderQuotaUsage = (text, record, t) => {
-  const { Paragraph } = Typography;
   const used = parseInt(record.used_quota) || 0;
   const remain = parseInt(record.quota) || 0;
   const total = used + remain;
   const percent = total > 0 ? (remain / total) * 100 : 0;
+  const renderCopyRow = (label, value, extra = '') => {
+    const content = extra ? `${label}: ${value} ${extra}` : `${label}: ${value}`;
+    return (
+      <div
+        className='cursor-pointer hover:underline'
+        onClick={() => copy(content)}
+      >
+        {content}
+      </div>
+    );
+  };
   const popoverContent = (
     <div className='text-xs p-2'>
-      <Paragraph copyable={{ content: renderQuota(used) }}>
-        {t('已用额度')}: {renderQuota(used)}
-      </Paragraph>
-      <Paragraph copyable={{ content: renderQuota(remain) }}>
-        {t('剩余额度')}: {renderQuota(remain)} ({percent.toFixed(0)}%)
-      </Paragraph>
-      <Paragraph copyable={{ content: renderQuota(total) }}>
-        {t('总额度')}: {renderQuota(total)}
-      </Paragraph>
+      {renderCopyRow(t('已用额度'), renderQuota(used))}
+      {renderCopyRow(t('剩余额度'), renderQuota(remain), `(${percent.toFixed(0)}%)`)}
+      {renderCopyRow(t('总额度'), renderQuota(total))}
     </div>
   );
   return (
     <Popover content={popoverContent} position='top'>
-      <Tag color='white' shape='circle'>
-        <div className='flex flex-col items-end'>
-          <span className='text-xs leading-none'>{`${renderQuota(remain)} / ${renderQuota(total)}`}</span>
-          <Progress
-            percent={percent}
-            aria-label='quota usage'
-            format={() => `${percent.toFixed(0)}%`}
-            style={{ width: '100%', marginTop: '1px', marginBottom: 0 }}
-          />
-        </div>
-      </Tag>
+      <span className='inline-flex'>
+        <Tag color='white' shape='circle'>
+          <div className='flex flex-col items-end'>
+            <span className='text-xs leading-none'>{`${renderQuota(remain)} / ${renderQuota(total)}`}</span>
+            <Progress
+              percent={percent}
+              aria-label='quota usage'
+              format={() => `${percent.toFixed(0)}%`}
+              style={{ width: '100%', marginTop: '1px', marginBottom: 0 }}
+            />
+          </div>
+        </Tag>
+      </span>
     </Popover>
   );
 };
@@ -288,9 +295,19 @@ const renderOperations = (
       >
         {t('降级')}
       </Button>
-      <Dropdown menu={moreMenu} trigger='click' position='bottomRight'>
-        <Button type='tertiary' size='small' icon={<IconMore />} />
-      </Dropdown>
+      <AppDropdownMenu
+        position='bottomRight'
+        items={moreMenu
+          .filter((item) => item.node !== 'divider')
+          .map((item, idx) => ({
+            key: `${item.name}-${idx}`,
+            label: item.name,
+            onClick: item.onClick,
+          }))}
+        trigger={
+          <Button type='tertiary' size='small' icon={<IconMore />} />
+        }
+      />
     </Space>
   );
 };

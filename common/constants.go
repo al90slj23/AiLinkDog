@@ -29,6 +29,18 @@ var DataExportEnabled = true
 var DataExportInterval = 5         // unit: minute
 var DataExportDefaultTime = "hour" // unit: minute
 var DefaultCollapseSidebar = false // default value of collapse sidebar
+var UpstreamTrackingEnabled = false
+var UpstreamTrackingRepoOwner = "Calcium-Ion"
+var UpstreamTrackingRepoName = "new-api"
+var UpstreamTrackingBaseBranch = "main"
+var UpstreamTrackingProvider = "DeepSeek"
+var UpstreamTrackingModel = ""
+var UpstreamTrackingBaseURL = ""
+var UpstreamTrackingStartVersion = "v0.12.14"
+var UpstreamTrackingLastSyncedVersion = "v0.12.14-5-gf995a868"
+var UpstreamTrackingIntervalDays = 1
+var UpstreamTrackingScheduleMode = "manual"
+var UpstreamTrackingAnalysisScope = "commits-memory-code"
 
 // Any options with "Secret", "Token" in its key won't be return by GetOptions
 

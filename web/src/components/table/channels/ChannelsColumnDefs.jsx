@@ -20,7 +20,6 @@ For commercial licensing, please contact support@quantumnous.com
 import React from 'react';
 import {
   Button,
-  Dropdown,
   InputNumber,
   Modal,
   Space,
@@ -29,6 +28,7 @@ import {
   Tooltip,
   Typography,
 } from '@douyinfe/semi-ui';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 import {
   timestamp2string,
   renderGroup,
@@ -840,26 +840,26 @@ export const getChannelsColumns = ({
                   >
                     {t('编辑')}
                   </Button>
-                  <Dropdown
-                    trigger='click'
+                  <AppDropdownMenu
                     position='bottomRight'
-                    menu={[
+                    items={[
                       {
-                        node: 'item',
-                        name: t('多密钥管理'),
+                        key: 'multi-key-manage',
+                        label: t('多密钥管理'),
                         onClick: () => {
                           setCurrentMultiKeyChannel(record);
                           setShowMultiKeyManageModal(true);
                         },
                       },
                     ]}
-                  >
-                    <Button
-                      type='tertiary'
-                      size='small'
-                      icon={<IconTreeTriangleDown />}
-                    />
-                  </Dropdown>
+                    trigger={
+                      <Button
+                        type='tertiary'
+                        size='small'
+                        icon={<IconTreeTriangleDown />}
+                      />
+                    }
+                  />
                 </SplitButtonGroup>
               ) : (
                 <Button
@@ -874,13 +874,17 @@ export const getChannelsColumns = ({
                 </Button>
               )}
 
-              <Dropdown
-                trigger='click'
+              <AppDropdownMenu
                 position='bottomRight'
-                menu={moreMenuItems}
-              >
-                <Button icon={<IconMore />} type='tertiary' size='small' />
-              </Dropdown>
+                items={moreMenuItems.map((item, idx) => ({
+                  key: `${item.name}-${idx}`,
+                  label: item.name,
+                  onClick: item.onClick,
+                }))}
+                trigger={
+                  <Button icon={<IconMore />} type='tertiary' size='small' />
+                }
+              />
             </Space>
           );
         } else {

@@ -18,6 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
+import { Button } from '@douyinfe/semi-ui';
 import NewYearButton from './NewYearButton';
 import NotificationButton from './NotificationButton';
 import ThemeToggle from './ThemeToggle';
@@ -57,6 +58,15 @@ const ActionButtons = ({
         onLanguageChange={onLanguageChange}
         t={t}
       />
+
+      <Button
+        theme='outline'
+        type='tertiary'
+        size='small'
+        onClick={() => window.location.reload()}
+      >
+        {t('强制刷新')}
+      </Button>
 
       <UserArea
         userState={userState}

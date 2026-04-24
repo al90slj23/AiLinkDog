@@ -149,18 +149,20 @@ const ModelsActions = ({
             </div>
           }
         >
-          <Button
-            type='secondary'
-            className='flex-1 md:flex-initial'
-            size='small'
-            loading={syncing || previewing}
-            onClick={() => {
-              setSyncLocale('zh');
-              setShowSyncModal(true);
-            }}
-          >
-            {t('同步')}
-          </Button>
+          <span className='inline-flex'>
+            <Button
+              type='secondary'
+              className='flex-1 md:flex-initial'
+              size='small'
+              loading={syncing || previewing}
+              onClick={() => {
+                setSyncLocale('zh');
+                setShowSyncModal(true);
+              }}
+            >
+              {t('同步')}
+            </Button>
+          </span>
         </Popover>
 
         <Button

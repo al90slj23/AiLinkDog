@@ -30,6 +30,9 @@ import {
   timestamp2string,
   getLobeHubIcon,
   stringToColor,
+  copy,
+  showError,
+  showSuccess,
 } from '../../../helpers';
 import {
   renderLimitedItems,
@@ -268,7 +271,7 @@ const renderNameRule = (rule, record, t) => {
 
   return (
     <Tooltip content={record.matched_models.join(', ')} showArrow>
-      {tagElement}
+      <span className='inline-flex'>{tagElement}</span>
     </Tooltip>
   );
 };
@@ -293,9 +296,20 @@ export const getModelsColumns = ({
       title: t('模型名称'),
       dataIndex: 'model_name',
       render: (text) => (
-        <Text copyable onClick={(e) => e.stopPropagation()}>
+        <span
+          className='cursor-pointer underline-offset-2 hover:underline'
+          onClick={async (e) => {
+            e.stopPropagation();
+            const ok = await copy(text);
+            if (ok) {
+              showSuccess(t('复制成功'));
+            } else {
+              showError(t('复制失败'));
+            }
+          }}
+        >
           {text}
-        </Text>
+        </span>
       ),
     },
     {

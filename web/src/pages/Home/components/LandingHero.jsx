@@ -67,8 +67,8 @@ function RobotVendorLayer() {
     const updateColumns = () => {
       if (!containerRef.current) return;
       const width = containerRef.current.clientWidth;
-      // Assume each column is roughly 260px wide + 32px gap = 292px
-      const colWidth = 292;
+      // Column width: 220px + 32px gap = 252px
+      const colWidth = 252;
       const numCols = Math.max(1, Math.floor(width / colWidth));
       
       const newCols = Array.from({ length: numCols }, (_, colIndex) => {

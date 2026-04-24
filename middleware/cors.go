@@ -1,6 +1,8 @@
 package middleware
 
 import (
+	"strings"
+
 	"github.com/QuantumNous/new-api/common"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -8,10 +10,12 @@ import (
 
 func CORS() gin.HandlerFunc {
 	config := cors.DefaultConfig()
-	config.AllowAllOrigins = true
+	config.AllowOriginFunc = func(origin string) bool {
+		return strings.HasPrefix(origin, "http://localhost:") || strings.HasPrefix(origin, "http://127.0.0.1:")
+	}
 	config.AllowCredentials = true
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
-	config.AllowHeaders = []string{"*"}
+	config.AllowHeaders = []string{"Authorization", "Content-Type", "New-API-User", "Cache-Control"}
 	return cors.New(config)
 }
 

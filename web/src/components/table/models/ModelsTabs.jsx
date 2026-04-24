@@ -18,10 +18,11 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Tabs, TabPane, Tag, Button, Dropdown, Modal } from '@douyinfe/semi-ui';
+import { Tabs, TabPane, Tag, Button, Modal } from '@douyinfe/semi-ui';
 import { IconEdit, IconDelete } from '@douyinfe/semi-icons';
 import { getLobeHubIcon, showError, showSuccess } from '../../../helpers';
 import { API } from '../../../helpers';
+import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 
 const ModelsTabs = ({
   activeVendorKey,
@@ -121,51 +122,54 @@ const ModelsTabs = ({
                 >
                   {count}
                 </Tag>
-                <Dropdown
-                  trigger='click'
+                <AppDropdownMenu
                   position='bottomRight'
-                  render={
-                    <Dropdown.Menu>
-                      <Dropdown.Item
-                        icon={<IconEdit />}
-                        onClick={(e) => handleEditVendor(vendor, e)}
-                      >
-                        {t('编辑')}
-                      </Dropdown.Item>
-                      <Dropdown.Item
-                        type='danger'
-                        icon={<IconDelete />}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          Modal.confirm({
-                            title: t('确认删除'),
-                            content: t(
-                              '确定要删除供应商 "{{name}}" 吗？此操作不可撤销。',
-                              { name: vendor.name },
-                            ),
-                            onOk: () => handleDeleteVendor(vendor, e),
-                            okText: t('删除'),
-                            cancelText: t('取消'),
-                            type: 'warning',
-                            okType: 'danger',
-                          });
-                        }}
-                      >
-                        {t('删除')}
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
+                  items={[
+                    {
+                      key: `edit-${vendor.id}`,
+                      label: (
+                        <span className='inline-flex items-center gap-2'>
+                          <IconEdit />
+                          {t('编辑')}
+                        </span>
+                      ),
+                      onClick: () => handleEditVendor(vendor, { stopPropagation: () => {} }),
+                    },
+                    {
+                      key: `delete-${vendor.id}`,
+                      label: (
+                        <span className='inline-flex items-center gap-2 text-red-500'>
+                          <IconDelete />
+                          {t('删除')}
+                        </span>
+                      ),
+                      onClick: () => {
+                        Modal.confirm({
+                          title: t('确认删除'),
+                          content: t(
+                            '确定要删除供应商 "{{name}}" 吗？此操作不可撤销。',
+                            { name: vendor.name },
+                          ),
+                          onOk: () => handleDeleteVendor(vendor, { stopPropagation: () => {} }),
+                          okText: t('删除'),
+                          cancelText: t('取消'),
+                          type: 'warning',
+                          okType: 'danger',
+                        });
+                      },
+                    },
+                  ]}
+                  trigger={
+                    <Button
+                      size='small'
+                      type='tertiary'
+                      theme='outline'
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {t('操作')}
+                    </Button>
                   }
-                  onClickOutSide={(e) => e.stopPropagation()}
-                >
-                  <Button
-                    size='small'
-                    type='tertiary'
-                    theme='outline'
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {t('操作')}
-                  </Button>
-                </Dropdown>
+                />
               </span>
             }
           />

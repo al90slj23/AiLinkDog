@@ -1,0 +1,53 @@
+--- /Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/web/src/pages/Home/home.css
++++ /Volumes/RuiRui4TB/CloudBackup/Mac/code/github/al90slj23/AiLinkDog/web/src/pages/Home/home.css
+@@ -379,6 +379,7 @@
+ .ald-home-hero__primary-copy {
+   max-width: 620px;
+   padding-right: 0;
++  margin: 0 auto; /* Added margin: 0 auto to center it horizontally inside the grid cell */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+@@ -645,10 +646,7 @@
+ 
+ .ald-home-hero__robot-layer {
+   position: absolute;
+-  top: 0;
+-  right: 0;
+-  bottom: 0;
+-  left: 45%;
++  inset: -100px -100px -100px -100px;
+   z-index: 0;
+   pointer-events: auto;
+   overflow: hidden;
+@@ -912,7 +910,7 @@
+   z-index: 2;
+   display: flex;
+   align-items: stretch;
+-  justify-content: flex-end;
++  justify-content: center; /* Center the canvas inside the robot bg container */
+   pointer-events: auto;
+   transform-style: preserve-3d;
+   will-change: transform;
+@@ -920,8 +918,8 @@
+ 
+ .ald-home-robot-bg__placeholder {
+   position: relative;
+-  flex: 0 0 68%;
+-  min-width: 600px;
++  flex: 1 1 auto;
++  width: 100%;
+   min-height: 560px;
+   display: grid;
+   place-items: center;
+@@ -967,8 +965,8 @@
+ }
+ 
+ .ald-home-robot-bg__canvas {
+-  flex: 0 0 68%;
+-  min-width: 600px;
++  flex: 1 1 auto;
++  width: 100%;
+   height: 100%;
+   min-height: 560px;
+   pointer-events: auto;
