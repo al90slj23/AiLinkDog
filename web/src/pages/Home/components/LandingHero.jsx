@@ -60,24 +60,50 @@ const snippets = {
 };
 
 function RobotVendorLayer() {
-  const columns = [
-    providerItems.slice(0, 7),
-    providerItems.slice(7, 14),
-    providerItems.slice(14, 21),
-    providerItems.slice(21, 28),
-    providerItems.slice(28, 35),
-    providerItems.slice(35, 42),
-    providerItems.slice(42, 49)
-  ];
+  const containerRef = useRef(null);
+  const [columns, setColumns] = useState([]);
+
+  useEffect(() => {
+    const updateColumns = () => {
+      if (!containerRef.current) return;
+      const width = containerRef.current.clientWidth;
+      // Assume each column is roughly 130px wide + 16px gap
+      const colWidth = 146;
+      const numCols = Math.max(1, Math.floor(width / colWidth));
+      
+      const newCols = Array.from({ length: numCols }, (_, colIndex) => {
+        // Randomly pick a subset of items to loop
+        const shuffled = [...providerItems].sort(() => Math.random() - 0.5);
+        // Take around 10-15 items per column
+        const subset = shuffled.slice(0, 12);
+        // Pre-calculate fixed indices for consistent coloring during scroll
+        return subset.map(item => ({
+          name: item,
+          colorIndex: Math.floor(Math.random() * 3)
+        }));
+      });
+      setColumns(newCols);
+    };
+
+    updateColumns();
+    // Use a ResizeObserver for better responsiveness than window 'resize'
+    const observer = new ResizeObserver(updateColumns);
+    observer.observe(containerRef.current);
+    
+    return () => {
+      window.removeEventListener('resize', updateColumns);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <div className='ald-home-hero__robot-vendors'>
+    <div className='ald-home-hero__robot-vendors' ref={containerRef}>
       {columns.map((col, colIndex) => (
-        <div key={colIndex} className={`ald-home-vendor-col ald-home-vendor-col--${colIndex}`}>
+        <div key={colIndex} className={`ald-home-vendor-col ald-home-vendor-col--${colIndex % 7}`}>
           <div className='ald-home-vendor-col__track'>
             {[...col, ...col].map((item, index) => (
-              <span key={`${item}-${index}`} className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}>
-                {item}
+              <span key={`${item.name}-${index}`} className={`ald-home-proof__item ald-home-proof__item--${item.colorIndex}`}>
+                {item.name}
               </span>
             ))}
           </div>

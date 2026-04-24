@@ -664,15 +664,12 @@
 
 .ald-home-hero__robot-vendors {
   position: absolute;
-  top: 50%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  width: 150%;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  max-width: 1200px;
-  max-height: 700px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 16px;
   pointer-events: none;
   overflow: hidden;
@@ -681,6 +678,7 @@
 }
 
 .ald-home-vendor-col {
+  flex: 0 0 130px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
