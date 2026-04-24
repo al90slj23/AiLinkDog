@@ -674,15 +674,54 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  align-items: center;
-  justify-items: center;
   pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+}
+
+.ald-home-vendor-col {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.ald-home-vendor-col__track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: aldVendorScroll linear infinite;
+  will-change: transform;
+}
+
+@keyframes aldVendorScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.ald-home-vendor-col--0 .ald-home-vendor-col__track {
+  animation-duration: 35s;
+}
+
+.ald-home-vendor-col--1 .ald-home-vendor-col__track {
+  animation-duration: 45s;
+  animation-direction: reverse;
+}
+
+.ald-home-vendor-col--2 .ald-home-vendor-col__track {
+  animation-duration: 30s;
+}
+
+.ald-home-vendor-col--3 .ald-home-vendor-col__track {
+  animation-duration: 50s;
 }
 
 .ald-home-hero__robot-vendors .ald-home-proof__item {
   position: relative;
   min-height: 56px;
   min-width: 0;
+  flex-shrink: 0; /* Add this line */
   padding: 12px 16px;
   display: inline-flex;
   align-items: center;
