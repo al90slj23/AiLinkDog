@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import {
   buildParamOverrideMeta,
   buildRedirectModelList,
@@ -7,21 +7,21 @@ import {
 } from './editChannelModalDerived';
 
 describe('editChannelModalDerived', () => {
-  test('builds redirect model list from mapping json', () => {
+  it('builds redirect model list from mapping json', () => {
     expect(
       buildRedirectModelList('{"a":"x","b":"x","c":"y"}'),
     ).toEqual(['x', 'y']);
     expect(buildRedirectModelList('')).toEqual([]);
   });
 
-  test('deduplicates upstream detected models', () => {
+  it('deduplicates upstream detected models', () => {
     expect(buildUpstreamDetectedModels(['a', ' a ', '', null, 'b', 'a'])).toEqual([
       'a',
       'b',
     ]);
   });
 
-  test('builds param override meta', () => {
+  it('builds param override meta', () => {
     const t = (key) => key;
     expect(buildParamOverrideMeta('', t).tagLabel).toBe('不更改');
     expect(buildParamOverrideMeta('{bad', t).tagLabel).toBe('JSON格式错误');
@@ -31,7 +31,7 @@ describe('editChannelModalDerived', () => {
     ).toContain('新格式模板');
   });
 
-  test('formats unix time values', () => {
+  it('formats unix time values', () => {
     const t = (key) => key;
     expect(formatUnixTimeValue(0, t)).toBe('暂无');
     expect(typeof formatUnixTimeValue(1710000000, t)).toBe('string');

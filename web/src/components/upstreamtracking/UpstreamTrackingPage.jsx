@@ -1367,7 +1367,7 @@ export default function UpstreamTrackingPage() {
                   pagination={false}
                   empty={
                     <Text type='tertiary'>
-                      {t('当前执行记录暂无可跟进事项，后续分析建议会在这里集中展示。')}
+                      {t('暂无从属事项，后续分析建议产出的处理项会在这里集中展示。')}
                     </Text>
                   }
                 />
@@ -1395,7 +1395,7 @@ export default function UpstreamTrackingPage() {
                   pagination={false}
                   empty={
                     <Text type='tertiary'>
-                      {t('尚未加载分析证据链，点击上方“加载上下文”后可查看本次 upstream 提交、compare、知识库和分析输出。')}
+                      {t('暂无已加载证据链，点击上方“加载上下文”后可查看本次 upstream 提交、compare、知识库和分析输出。')}
                     </Text>
                   }
                 />
@@ -1587,6 +1587,9 @@ export default function UpstreamTrackingPage() {
                     setConfig((prev) => ({ ...prev, enabled: value }))
                   }
                 />
+                <Text type='tertiary'>
+                  {t('关闭后会停止新的上游分析，但不会删除已有执行记录与历史结论。')}
+                </Text>
                 <Form.Input
                   field='repoOwner'
                   label={t('仓库 Owner')}
@@ -1647,6 +1650,9 @@ export default function UpstreamTrackingPage() {
                     setConfig((prev) => ({ ...prev, baseUrl: value }))
                   }
                 />
+                <Text type='tertiary'>
+                  {t('只有在你使用自定义 DeepSeek 兼容地址时才需要填写；留空则使用系统默认地址。')}
+                </Text>
                 <Form.Input
                   field='analysisToken'
                   label={t('分析 Token')}
@@ -1658,6 +1664,9 @@ export default function UpstreamTrackingPage() {
                   value={analysisToken}
                   onChange={setAnalysisToken}
                 />
+                <Text type='tertiary'>
+                  {t('留空表示保持当前 Token 不变；只有输入新的完整 Token 时才会覆盖旧值。')}
+                </Text>
                 <Form.Select
                   field='analysisScope'
                   label={t('分析范围')}
@@ -1678,6 +1687,9 @@ export default function UpstreamTrackingPage() {
                     setConfig((prev) => ({ ...prev, analysisScope: value }))
                   }
                 />
+                <Text type='tertiary'>
+                  {t('范围越大，分析更完整，但会消耗更多上下文与执行时间。')}
+                </Text>
               </Space>
             </Collapse.Panel>
           </Collapse>

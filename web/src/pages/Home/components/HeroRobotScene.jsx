@@ -73,11 +73,14 @@ function HeroRobotScene({
       ) : null}
       <div className='ald-home-robot-bg__scene'>
         {showScene ? (
-          <SplineScene
-            scene='/ald-robot.scene.splinecode'
+          <div
             className='ald-home-robot-bg__canvas'
             style={styleOverride}
-          />
+          >
+            <SplineScene
+              scene='/ald-robot.scene.splinecode'
+            />
+          </div>
         ) : (
           <div
             className='ald-home-robot-bg__placeholder'
@@ -118,7 +121,7 @@ function HeroRobotScene({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
               <span>缩放比例 (Scale)</span>
-              <span style={{ color: 'var(--ald-fg)' }}>{localTransform.scale}</span>
+              <span style={{ color: 'var(--ald-text)' }}>{localTransform.scale}</span>
             </div>
             <Slider
               step={0.01}
@@ -132,7 +135,7 @@ function HeroRobotScene({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
               <span>水平偏移 (X px)</span>
-              <span style={{ color: 'var(--ald-fg)' }}>{localTransform.x}</span>
+              <span style={{ color: 'var(--ald-text)' }}>{localTransform.x}</span>
             </div>
             <Slider
               step={1}
@@ -146,7 +149,7 @@ function HeroRobotScene({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
               <span>垂直偏移 (Y px)</span>
-              <span style={{ color: 'var(--ald-fg)' }}>{localTransform.y}</span>
+              <span style={{ color: 'var(--ald-text)' }}>{localTransform.y}</span>
             </div>
             <Slider
               step={1}
@@ -160,7 +163,7 @@ function HeroRobotScene({
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
               <span>宽度占比 (Width %)</span>
-              <span style={{ color: 'var(--ald-fg)' }}>{localTransform.width}</span>
+              <span style={{ color: 'var(--ald-text)' }}>{localTransform.width}</span>
             </div>
             <Slider
               step={1}
