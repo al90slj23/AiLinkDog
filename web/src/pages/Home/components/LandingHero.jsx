@@ -67,15 +67,15 @@ function RobotVendorLayer() {
     const updateColumns = () => {
       if (!containerRef.current) return;
       const width = containerRef.current.clientWidth;
-      // Assume each column is roughly 130px wide + 16px gap
-      const colWidth = 146;
+      // Assume each column is roughly 260px wide + 32px gap = 292px
+      const colWidth = 292;
       const numCols = Math.max(1, Math.floor(width / colWidth));
       
       const newCols = Array.from({ length: numCols }, (_, colIndex) => {
         // Randomly pick a subset of items to loop
         const shuffled = [...providerItems].sort(() => Math.random() - 0.5);
-        // Take around 10-15 items per column
-        const subset = shuffled.slice(0, 12);
+        // Take 8 items per column
+        const subset = shuffled.slice(0, 8);
         // Pre-calculate fixed indices for consistent coloring during scroll
         return subset.map(item => ({
           name: item,
