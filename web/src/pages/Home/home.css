@@ -648,7 +648,7 @@
 
 .ald-home-code--hero {
   width: 95%;
-  max-width: 900px;
+  max-width: none;
   margin: 0 auto;
   transform: none;
 }
@@ -894,9 +894,13 @@
 }
 
 .ald-home-hero__secondary-left,
-.ald-home-hero__secondary-info,
+.ald-home-hero__secondary-info {
+  min-height: 420px;
+}
+
 .ald-home-hero__secondary-code {
   min-height: 420px;
+  width: 100%;
 }
 
 .ald-home-hero__secondary-left {
