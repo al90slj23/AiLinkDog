@@ -981,7 +981,7 @@
   min-width: 600px;
   position: relative;
   pointer-events: auto;
-  transform: translateZ(50px) scale(0.95);
+  transform: translate3d(0px, -129px, 50px) scale(0.79);
 }
 
 .ald-home-robot-bg__orb,
