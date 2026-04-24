@@ -1,8 +1,8 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { existsSync } from 'node:fs';
 
 describe('useEditChannelModalState file', () => {
-  test('exists for modal state extraction', () => {
+  it('exists for modal state extraction', () => {
     expect(
       existsSync(new URL('./useEditChannelModalState.js', import.meta.url)),
     ).toBe(true);

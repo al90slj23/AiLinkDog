@@ -1,8 +1,8 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { existsSync } from 'node:fs';
 
 describe('useEditChannelModalEffects file', () => {
-  test('exists for modal effects extraction', () => {
+  it('exists for modal effects extraction', () => {
     expect(
       existsSync(new URL('./useEditChannelModalEffects.jsx', import.meta.url)),
     ).toBe(true);

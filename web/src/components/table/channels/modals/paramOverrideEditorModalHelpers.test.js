@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 For commercial licensing, please contact support@quantumnous.com
 */
 
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import {
   CONDITION_MODE_OPTIONS,
   HEADER_VALUE_JSONC_EXAMPLE,
@@ -46,7 +46,7 @@ import {
 import { validateOperations } from './paramOverrideEditorModalValidation';
 
 describe('paramOverrideEditorModal constants', () => {
-  test('exposes stable option sets and examples', () => {
+  it('exposes stable option sets and examples', () => {
     expect(OPERATION_MODE_OPTIONS.some((item) => item.value === 'set_header')).toBe(true);
     expect(CONDITION_MODE_OPTIONS.some((item) => item.value === 'prefix')).toBe(true);
     expect(MODE_DESCRIPTIONS.pass_headers).toContain('透传');
@@ -55,7 +55,7 @@ describe('paramOverrideEditorModal constants', () => {
 });
 
 describe('paramOverrideEditorModal derived helpers', () => {
-  test('returns mode-specific labels and summaries', () => {
+  it('returns mode-specific labels and summaries', () => {
     expect(getModePathPlaceholder('set_header')).toBe('Authorization');
     expect(getModeFromLabel('copy_header')).toBe('来源请求头');
     expect(getModeToPlaceholder('regex_replace')).toBe('openai/gpt-');
@@ -67,7 +67,7 @@ describe('paramOverrideEditorModal derived helpers', () => {
 });
 
 describe('paramOverrideEditorModal data helpers', () => {
-  test('creates default operation and parses initial operations state', () => {
+  it('creates default operation and parses initial operations state', () => {
     const operation = createDefaultOperation();
     expect(operation.mode).toBe('set');
     expect(typeof operation.id).toBe('string');
@@ -80,7 +80,7 @@ describe('paramOverrideEditorModal data helpers', () => {
     expect(parsed.operations[0].path).toBe('temperature');
   });
 
-  test('parses and serializes structured drafts', () => {
+  it('parses and serializes structured drafts', () => {
     expect(parsePassHeaderNames('Authorization, X-Request-Id')).toEqual([
       'Authorization',
       'X-Request-Id',
@@ -106,7 +106,7 @@ describe('paramOverrideEditorModal data helpers', () => {
     expect(buildPruneObjectsValueText(pruneDraft)).toContain('redacted_thinking');
   });
 
-  test('normalizes operations and builds condition payloads', () => {
+  it('normalizes operations and builds condition payloads', () => {
     const normalized = normalizeOperation({
       mode: 'copy_header',
       description: 'copy auth',
@@ -124,7 +124,7 @@ describe('paramOverrideEditorModal data helpers', () => {
 });
 
 describe('paramOverrideEditorModal validation', () => {
-  test('validates required operation fields', () => {
+  it('validates required operation fields', () => {
     const t = (key, params) => key.replace('{{line}}', String(params?.line ?? ''));
     expect(
       validateOperations([

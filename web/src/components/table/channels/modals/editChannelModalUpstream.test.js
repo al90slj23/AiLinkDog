@@ -1,18 +1,18 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import {
   normalizeFetchedModels,
   prepareModelMappingModalState,
 } from './editChannelModalUpstream';
 
 describe('editChannelModalUpstream', () => {
-  test('normalizes fetched models', () => {
+  it('normalizes fetched models', () => {
     expect(normalizeFetchedModels(['a', ' a ', '', null, 'b', 'a'])).toEqual([
       'a',
       'b',
     ]);
   });
 
-  test('prepares model mapping modal state', () => {
+  it('prepares model mapping modal state', () => {
     expect(
       prepareModelMappingModalState({
         pairKey: 'gpt-4',
