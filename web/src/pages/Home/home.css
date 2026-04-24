@@ -1811,3 +1811,5 @@
     padding-bottom: 72px;
   }
 }
+
+/* Override className style when inline style is applied */
