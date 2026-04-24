@@ -186,6 +186,11 @@ func migrateDB() error {
 			&Channel{},
 			&Token{},
 			&User{},
+			&MonitorTarget{},
+			&MonitorBillingRecord{},
+			&MonitorRun{},
+			&MonitorStatusSnapshot{},
+			&MonitorEvent{},
 			&ReferralPlan{},
 			&ReferralAccount{},
 			&ReferralLink{},
@@ -212,6 +217,9 @@ func migrateDB() error {
 		&SubscriptionPreConsumeRecord{},
 		&CustomOAuthProvider{},
 		&UserOAuthBinding{},
+		&UpstreamTrackingCycle{},
+		&UpstreamTrackingContext{},
+		&UpstreamTrackingAction{},
 	)
 	if err != nil {
 		return err
@@ -233,6 +241,11 @@ func migrateDBFast() error {
 		{&Channel{}, "Channel"},
 		{&Token{}, "Token"},
 		{&User{}, "User"},
+		{&MonitorTarget{}, "MonitorTarget"},
+		{&MonitorBillingRecord{}, "MonitorBillingRecord"},
+		{&MonitorRun{}, "MonitorRun"},
+		{&MonitorStatusSnapshot{}, "MonitorStatusSnapshot"},
+		{&MonitorEvent{}, "MonitorEvent"},
 		{&ReferralPlan{}, "ReferralPlan"},
 		{&ReferralAccount{}, "ReferralAccount"},
 		{&ReferralLink{}, "ReferralLink"},

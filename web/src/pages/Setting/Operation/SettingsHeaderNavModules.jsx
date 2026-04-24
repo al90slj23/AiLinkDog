@@ -42,6 +42,7 @@ export default function SettingsHeaderNavModules(props) {
   const [headerNavModules, setHeaderNavModules] = useState({
     home: true,
     console: true,
+    status: true,
     pricing: {
       enabled: true,
       requireAuth: false, // 默认不需要登录鉴权
@@ -82,6 +83,7 @@ export default function SettingsHeaderNavModules(props) {
     const defaultModules = {
       home: true,
       console: true,
+      status: true,
       pricing: {
         enabled: true,
         requireAuth: false,
@@ -148,6 +150,7 @@ export default function SettingsHeaderNavModules(props) {
         const defaultModules = {
           home: true,
           console: true,
+          status: true,
           pricing: {
             enabled: true,
             requireAuth: false,
@@ -171,6 +174,11 @@ export default function SettingsHeaderNavModules(props) {
       key: 'console',
       title: t('控制台'),
       description: t('用户控制面板，管理账户'),
+    },
+    {
+      key: 'status',
+      title: t('服务状态'),
+      description: t('公开服务状态页面入口'),
     },
     {
       key: 'pricing',
@@ -208,7 +216,6 @@ export default function SettingsHeaderNavModules(props) {
                   minHeight: '80px',
                 }}
                 bodyStyle={{ padding: '16px' }}
-                hoverable
               >
                 <div
                   style={{

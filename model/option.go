@@ -170,6 +170,16 @@ func initOptionMapDefaults() {
 	common.OptionMap["AudioRatio"] = ratio_setting.AudioRatio2JSONString()
 	common.OptionMap["AudioCompletionRatio"] = ratio_setting.AudioCompletionRatio2JSONString()
 	common.OptionMap["TopUpLink"] = common.TopUpLink
+	common.OptionMap["UpstreamTrackingEnabled"] = strconv.FormatBool(common.UpstreamTrackingEnabled)
+	common.OptionMap["UpstreamTrackingRepoOwner"] = common.UpstreamTrackingRepoOwner
+	common.OptionMap["UpstreamTrackingRepoName"] = common.UpstreamTrackingRepoName
+	common.OptionMap["UpstreamTrackingBaseBranch"] = common.UpstreamTrackingBaseBranch
+	common.OptionMap["UpstreamTrackingProvider"] = common.UpstreamTrackingProvider
+	common.OptionMap["UpstreamTrackingModel"] = common.UpstreamTrackingModel
+	common.OptionMap["UpstreamTrackingBaseUrl"] = common.UpstreamTrackingBaseURL
+	common.OptionMap["UpstreamTrackingAnalysisToken"] = ""
+	common.OptionMap["UpstreamTrackingScheduleMode"] = common.UpstreamTrackingScheduleMode
+	common.OptionMap["UpstreamTrackingAnalysisScope"] = common.UpstreamTrackingAnalysisScope
 	//common.OptionMap["ChatLink"] = common.ChatLink
 	//common.OptionMap["ChatLink2"] = common.ChatLink2
 	common.OptionMap["QuotaPerUnit"] = strconv.FormatFloat(common.QuotaPerUnit, 'f', -1, 64)
@@ -200,12 +210,16 @@ func initOptionMapDefaults() {
 	for k, v := range modelConfigs {
 		common.OptionMap[k] = v
 	}
+	common.OptionMap["HeaderNavModules"] = `{"home":true,"console":true,"status":true,"pricing":{"enabled":true,"requireAuth":false},"docs":true,"about":true}`
 
 }
 
 func loadOptionsFromDatabase() {
 	options, _ := AllOption()
 	for _, option := range options {
+		if option.Key == "HeaderNavModules" {
+			option.Value = normalizeHeaderNavModulesOption(option.Value)
+		}
 		if option.Key == "SidebarModulesAdmin" {
 			option.Value = normalizeSidebarModulesAdminOption(option.Value)
 		}
@@ -214,6 +228,71 @@ func loadOptionsFromDatabase() {
 			common.SysLog("failed to update option map: " + err.Error())
 		}
 	}
+}
+
+func normalizeHeaderNavModulesOption(raw string) string {
+	type pricingModule struct {
+		Enabled     bool `json:"enabled"`
+		RequireAuth bool `json:"requireAuth"`
+	}
+	type config struct {
+		Home    bool          `json:"home"`
+		Console bool          `json:"console"`
+		Status  bool          `json:"status"`
+		Pricing pricingModule `json:"pricing"`
+		Docs    bool          `json:"docs"`
+		About   bool          `json:"about"`
+	}
+	defaultValue := config{
+		Home:    true,
+		Console: true,
+		Status:  true,
+		Pricing: pricingModule{Enabled: true, RequireAuth: false},
+		Docs:    true,
+		About:   true,
+	}
+	marshalDefault := func() string {
+		bytes, _ := json.Marshal(defaultValue)
+		return string(bytes)
+	}
+	if strings.TrimSpace(raw) == "" {
+		return marshalDefault()
+	}
+	merged := defaultValue
+	var saved map[string]json.RawMessage
+	if err := json.Unmarshal([]byte(raw), &saved); err != nil {
+		return marshalDefault()
+	}
+	if value, ok := saved["home"]; ok {
+		_ = json.Unmarshal(value, &merged.Home)
+	}
+	if value, ok := saved["console"]; ok {
+		_ = json.Unmarshal(value, &merged.Console)
+	}
+	if value, ok := saved["status"]; ok {
+		_ = json.Unmarshal(value, &merged.Status)
+	}
+	if value, ok := saved["docs"]; ok {
+		_ = json.Unmarshal(value, &merged.Docs)
+	}
+	if value, ok := saved["about"]; ok {
+		_ = json.Unmarshal(value, &merged.About)
+	}
+	if value, ok := saved["pricing"]; ok {
+		var enabled bool
+		if err := json.Unmarshal(value, &enabled); err == nil {
+			merged.Pricing = pricingModule{Enabled: enabled, RequireAuth: false}
+		} else {
+			var pricing pricingModule
+			if err := json.Unmarshal(value, &pricing); err == nil {
+				if pricing.Enabled || pricing.RequireAuth {
+					merged.Pricing = pricing
+				}
+			}
+		}
+	}
+	bytes, _ := json.Marshal(merged)
+	return string(bytes)
 }
 
 func normalizeSidebarModulesAdminOption(raw string) string {
@@ -250,7 +329,9 @@ func normalizeSidebarModulesAdminOption(raw string) string {
 			"user": true,
 			"subscription": true,
 			"referralmanage": true,
+			"statuscenter": true,
 			"setting": true,
+			"upstreamtracking": true,
 		},
 	}
 
@@ -292,6 +373,12 @@ func SyncOptions(frequency int) {
 }
 
 func UpdateOption(key string, value string) error {
+	if key == "HeaderNavModules" {
+		value = normalizeHeaderNavModulesOption(value)
+	}
+	if key == "SidebarModulesAdmin" {
+		value = normalizeSidebarModulesAdminOption(value)
+	}
 	// Save to database first
 	option := Option{
 		Key: key,
@@ -646,6 +733,30 @@ func updateOptionMap(key string, value string) (err error) {
 		err = ratio_setting.UpdateAudioCompletionRatioByJSONString(value)
 	case "TopUpLink":
 		common.TopUpLink = value
+	case "UpstreamTrackingEnabled":
+		common.UpstreamTrackingEnabled = strings.EqualFold(value, "true")
+	case "UpstreamTrackingRepoOwner":
+		common.UpstreamTrackingRepoOwner = value
+	case "UpstreamTrackingRepoName":
+		common.UpstreamTrackingRepoName = value
+	case "UpstreamTrackingBaseBranch":
+		common.UpstreamTrackingBaseBranch = value
+	case "UpstreamTrackingProvider":
+		common.UpstreamTrackingProvider = value
+	case "UpstreamTrackingModel":
+		common.UpstreamTrackingModel = value
+	case "UpstreamTrackingBaseUrl":
+		common.UpstreamTrackingBaseURL = value
+	case "UpstreamTrackingStartVersion":
+		common.UpstreamTrackingStartVersion = value
+	case "UpstreamTrackingLastSyncedVersion":
+		common.UpstreamTrackingLastSyncedVersion = value
+	case "UpstreamTrackingIntervalDays":
+		common.UpstreamTrackingIntervalDays, _ = strconv.Atoi(value)
+	case "UpstreamTrackingScheduleMode":
+		common.UpstreamTrackingScheduleMode = value
+	case "UpstreamTrackingAnalysisScope":
+		common.UpstreamTrackingAnalysisScope = value
 	//case "ChatLink":
 	//	common.ChatLink = value
 	//case "ChatLink2":

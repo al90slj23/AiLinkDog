@@ -44,6 +44,7 @@ export const DEFAULT_ADMIN_CONFIG = {
     topup: true,
     personal: true,
     referralcenter: true,
+    monitortargets: true,
   },
   admin: {
     enabled: true,
@@ -54,7 +55,9 @@ export const DEFAULT_ADMIN_CONFIG = {
     user: true,
     subscription: true,
     referralmanage: true,
+    statuscenter: true,
     setting: true,
+    upstreamtracking: true,
   },
 };
 

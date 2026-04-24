@@ -47,10 +47,13 @@ const routerMap = {
   task: '/console/task',
   models: '/console/models',
   deployment: '/console/deployment',
+  statuscenter: '/console/status',
   playground: '/console/playground',
   personal: '/console/personal',
+  monitortargets: '/console/monitor-targets',
   referralcenter: '/console/referralcenter',
   referralmanage: '/console/referralmanage',
+  upstreamtracking: '/console/upstreamtracking',
 };
 
 const SiderBar = ({ onNavigate = () => {} }) => {
@@ -132,6 +135,11 @@ const SiderBar = ({ onNavigate = () => {} }) => {
         to: '/topup',
       },
       {
+        text: t('我的监控'),
+        itemKey: 'monitortargets',
+        to: '/monitor-targets',
+      },
+      {
         text: t('个人设置'),
         itemKey: 'personal',
         to: '/personal',
@@ -197,10 +205,22 @@ const SiderBar = ({ onNavigate = () => {} }) => {
         className: isAdmin() ? '' : 'tableHiddle',
       },
       {
+        text: t('服务状态中心'),
+        itemKey: 'statuscenter',
+        to: '/console/status',
+        className: isAdmin() ? '' : 'tableHiddle',
+      },
+      {
         text: t('系统设置'),
         itemKey: 'setting',
         to: '/setting',
         className: isRoot() ? '' : 'tableHiddle',
+      },
+      {
+        text: t('上游跟踪'),
+        itemKey: 'upstreamtracking',
+        to: '/console/upstreamtracking',
+        className: isAdmin() ? '' : 'tableHiddle',
       },
     ];
 

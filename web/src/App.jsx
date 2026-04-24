@@ -41,12 +41,18 @@ import Chat2Link from './pages/Chat2Link';
 import Midjourney from './pages/Midjourney';
 import ReferralCenter from './pages/ReferralCenter';
 import ReferralManage from './pages/ReferralManage';
+import UpstreamTracking from './pages/UpstreamTracking';
 import Pricing from './pages/Pricing';
 import Task from './pages/Task';
 import ModelPage from './pages/Model';
 import ModelDeploymentPage from './pages/ModelDeployment';
 import Playground from './pages/Playground';
 import Subscription from './pages/Subscription';
+import ServiceStatus from './pages/ServiceStatus';
+import ServiceStatusCenter from './pages/ServiceStatusCenter';
+import MonitorTargets from './pages/MonitorTargets';
+import EditMonitorTarget from './pages/MonitorTargets/EditMonitorTarget';
+import MonitorTargetDetail from './pages/MonitorTargets/MonitorTargetDetail';
 import OAuth2Callback from './components/auth/OAuth2Callback';
 import PersonalSetting from './components/settings/PersonalSetting';
 
@@ -99,6 +105,18 @@ function App() {
         />
 		<Route path='/forbidden' element={<Forbidden />} />
         <Route
+          path='/status'
+          element={<ServiceStatus />}
+        />
+        <Route
+          path='/console/status'
+          element={
+            <AdminRoute>
+              <ServiceStatusCenter />
+            </AdminRoute>
+          }
+        />
+        <Route
           path='/console/models'
           element={
             <AdminRoute>
@@ -128,6 +146,38 @@ function App() {
             <AdminRoute>
               <Channel />
             </AdminRoute>
+          }
+        />
+        <Route
+          path='/console/monitor-targets'
+          element={
+            <PrivateRoute>
+              <MonitorTargets />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/console/monitor-targets/new'
+          element={
+            <PrivateRoute>
+              <EditMonitorTarget />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/console/monitor-targets/:id/edit'
+          element={
+            <PrivateRoute>
+              <EditMonitorTarget />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/console/monitor-targets/:id'
+          element={
+            <PrivateRoute>
+              <MonitorTargetDetail />
+            </PrivateRoute>
           }
         />
         <Route
@@ -289,6 +339,14 @@ function App() {
           element={
             <AdminRoute>
               <ReferralManage />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path='/console/upstreamtracking'
+          element={
+            <AdminRoute>
+              <UpstreamTracking />
             </AdminRoute>
           }
         />

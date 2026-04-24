@@ -123,6 +123,8 @@ func main() {
 
 	// Channel upstream model update check task
 	controller.StartChannelUpstreamModelUpdateTask()
+	_, _ = service.SeedPlatformMonitorTargets(nil)
+	service.StartPlatformMonitorTask()
 
 	if common.IsMasterNode && constant.UpdateTask {
 		gopool.Go(func() {

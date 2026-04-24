@@ -24,6 +24,7 @@ export const useNavigation = (t, docsLink, headerNavModules) => {
     // 默认配置，如果没有传入配置则显示所有模块
     const defaultModules = {
       home: true,
+      status: true,
       console: true,
       pricing: true,
       docs: true,
@@ -38,6 +39,11 @@ export const useNavigation = (t, docsLink, headerNavModules) => {
         text: t('首页'),
         itemKey: 'home',
         to: '/',
+      },
+      {
+        text: t('服务状态'),
+        itemKey: 'status',
+        to: '/status',
       },
       {
         text: t('控制台'),
@@ -70,6 +76,9 @@ export const useNavigation = (t, docsLink, headerNavModules) => {
     return allLinks.filter((link) => {
       if (link.itemKey === 'docs') {
         return docsLink && modules.docs;
+      }
+      if (link.itemKey === 'status') {
+        return modules.status !== false;
       }
       if (link.itemKey === 'pricing') {
         // 支持新的pricing配置格式

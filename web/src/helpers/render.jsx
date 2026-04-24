@@ -143,10 +143,13 @@ export function getLucideIcon(key, selected = false) {
       return <Package {...commonProps} color={iconColor} />;
     case 'deployment':
       return <Server {...commonProps} color={iconColor} />;
-    case 'subscription':
-      return <CalendarClock {...commonProps} color={iconColor} />;
-    case 'setting':
-      return <Settings {...commonProps} color={iconColor} />;
+	case 'subscription':
+		return <CalendarClock {...commonProps} color={iconColor} />;
+	case 'statuscenter':
+	case 'monitortargets':
+		return <BarChart3 {...commonProps} color={iconColor} />;
+	case 'setting':
+		return <Settings {...commonProps} color={iconColor} />;
     default:
       return <CircleUser {...commonProps} color={iconColor} />;
   }

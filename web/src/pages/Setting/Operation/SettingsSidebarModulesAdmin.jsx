@@ -52,6 +52,7 @@ const defaultSidebarModulesAdmin = {
     topup: true,
     personal: true,
     referralcenter: true,
+    monitortargets: true,
   },
   admin: {
     enabled: true,
@@ -62,7 +63,9 @@ const defaultSidebarModulesAdmin = {
     user: true,
     subscription: true,
     referralmanage: true,
+    statuscenter: true,
     setting: true,
+    upstreamtracking: true,
   },
 };
 
@@ -223,6 +226,11 @@ export default function SettingsSidebarModulesAdmin(props) {
           description: t('邀请关系和返利入口'),
         },
         {
+          key: 'monitortargets',
+          title: t('我的监控'),
+          description: t('用户自定义监控入口'),
+        },
+        {
           key: 'personal',
           title: t('个人设置'),
           description: t('个人信息设置'),
@@ -258,9 +266,19 @@ export default function SettingsSidebarModulesAdmin(props) {
         },
         { key: 'user', title: t('用户管理'), description: t('用户账户管理') },
         {
+          key: 'statuscenter',
+          title: t('服务状态中心'),
+          description: t('平台服务状态中心入口'),
+        },
+        {
           key: 'setting',
           title: t('系统设置'),
           description: t('系统参数配置'),
+        },
+        {
+          key: 'upstreamtracking',
+          title: t('上游跟踪'),
+          description: t('上游更新治理与同步评估'),
         },
       ],
     },
@@ -325,7 +343,6 @@ export default function SettingsSidebarModulesAdmin(props) {
                 <Col key={module.key} xs={24} sm={12} md={8} lg={6} xl={6}>
                   <Card
                     bodyStyle={{ padding: '16px' }}
-                    hoverable
                     style={{
                       opacity: sidebarModulesAdmin[section.key]?.enabled
                         ? 1
