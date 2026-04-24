@@ -665,14 +665,14 @@
 .ald-home-hero__robot-vendors {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 35%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 150%;
   height: 100%;
-  max-width: 700px;
+  max-width: 1200px;
   max-height: 700px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 16px;
   pointer-events: none;
   overflow: hidden;
@@ -716,6 +716,19 @@
 
 .ald-home-vendor-col--3 .ald-home-vendor-col__track {
   animation-duration: 50s;
+}
+
+.ald-home-vendor-col--4 .ald-home-vendor-col__track {
+  animation-duration: 42s;
+  animation-direction: reverse;
+}
+
+.ald-home-vendor-col--5 .ald-home-vendor-col__track {
+  animation-duration: 32s;
+}
+
+.ald-home-vendor-col--6 .ald-home-vendor-col__track {
+  animation-duration: 48s;
 }
 
 .ald-home-hero__robot-vendors .ald-home-proof__item {
@@ -1149,7 +1162,8 @@
     left: 46%;
     right: 32px;
     bottom: 64px;
-    grid-template-columns: repeat(3, minmax(88px, 1fr));
+    width: auto;
+    grid-template-columns: repeat(7, minmax(88px, 1fr));
   }
 
   .ald-home-robot-bg__canvas,

@@ -13,7 +13,8 @@ const providerItems = [
   'Wenxin', 'Spark', 'Xinference', 'Grok', 'Perplexity', '01.AI', 'Baichuan',
   'SenseTime', 'StepFun', 'Ollama', 'vLLM', 'LocalAI', 'Together', 'AWS',
   'Bedrock', 'HuggingFace', 'Replicate', 'Novita', 'Deep Infra', 'SiliconFlow',
-  'Lepton', 'Fireworks', 'Groq', 'SambaNova', 'xAI'
+  'Lepton', 'Fireworks', 'Groq', 'SambaNova', 'xAI', 'Stability AI', 'Baidu',
+  'Alibaba', 'Tencent', 'ByteDance', 'NVIDIA', 'Meta', 'Google', 'Apple'
 ];
 
 const snippets = {
@@ -60,10 +61,13 @@ const snippets = {
 
 function RobotVendorLayer() {
   const columns = [
-    providerItems.slice(0, 10),
-    providerItems.slice(10, 20),
-    providerItems.slice(20, 30),
-    providerItems.slice(30, 40)
+    providerItems.slice(0, 7),
+    providerItems.slice(7, 14),
+    providerItems.slice(14, 21),
+    providerItems.slice(21, 28),
+    providerItems.slice(28, 35),
+    providerItems.slice(35, 42),
+    providerItems.slice(42, 49)
   ];
 
   return (
