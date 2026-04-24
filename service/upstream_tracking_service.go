@@ -584,6 +584,10 @@ func persistUpstreamTrackingContexts(cycleId int, commits []upstreamTrackingGitH
 	if err != nil {
 		return err
 	}
+	contextTypes := []string{"upstream_commits", "upstream_compare", "ald_memory_context", "analysis_prompt", "analysis_response"}
+	if err := model.DB.Where("cycle_id = ? AND context_type IN ?", cycleId, contextTypes).Delete(&model.UpstreamTrackingContext{}).Error; err != nil {
+		return err
+	}
 	contexts := []model.UpstreamTrackingContext{{CycleId: cycleId, ContextType: "upstream_commits", Content: string(commitBytes)}, {CycleId: cycleId, ContextType: "upstream_compare", Content: compareSummary}, {CycleId: cycleId, ContextType: "ald_memory_context", Content: string(memoryBytes)}, {CycleId: cycleId, ContextType: "analysis_prompt", Content: prompt}, {CycleId: cycleId, ContextType: "analysis_response", Content: string(resultBytes)}}
 	for _, item := range contexts {
 		contextItem := item
