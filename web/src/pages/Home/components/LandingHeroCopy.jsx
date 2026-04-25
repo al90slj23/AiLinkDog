@@ -34,22 +34,13 @@ function LandingHeroCopy({ docsLink, t }) {
   }, []);
 
   return (
-    <div 
-      className='ald-home-hero__primary-copy-container'
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        width: '100%',
-      }}
-    >
+    <div className='ald-home-hero__primary-copy-container'>
       <div 
         className='ald-home-hero__primary-copy'
         style={{
           transform: `scale(${scale})`,
-          transformOrigin: 'left center',
-          width: '100%',
-          margin: 0 // Reset margin since container handles alignment
+          transformOrigin: 'center center',
+          width: '100%'
         }}
       >
         <div className='ald-home-chip'>
