@@ -1657,6 +1657,23 @@
 .ald-home-code__tabs > span {
   flex-shrink: 0;
   white-space: nowrap;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  opacity: 0.65;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ald-home-code__tabs > span::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ald-green);
+  opacity: 0.8;
 }
 
 .ald-home-code__tab-buttons {
