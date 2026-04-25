@@ -2061,3 +2061,76 @@
   color: var(--ald-muted);
   line-height: 1.6;
 }
+
+/* QuickStart Layout with Metrics */
+.ald-home-hero__quickstart-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  margin-top: 20px;
+}
+
+.ald-home-hero__quickstart-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.ald-home-hero__quickstart-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ald-home-hero__quickstart-metric-item strong {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--ald-text) 0%, color-mix(in srgb, var(--ald-text) 60%, transparent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.ald-home-dark .ald-home-hero__quickstart-metric-item strong {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ald-home-hero__quickstart-metric-item span {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--ald-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ald-home-hero__timeline {
+  margin-top: 0;
+  padding-left: 0;
+  flex: 1;
+}
+
+.ald-home-hero__timeline-line {
+  left: 15px; /* Adjust line position since padding was removed */
+}
+
+@media (max-width: 860px) {
+  .ald-home-hero__quickstart-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .ald-home-hero__quickstart-metrics {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 100%;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--ald-border);
+  }
+}

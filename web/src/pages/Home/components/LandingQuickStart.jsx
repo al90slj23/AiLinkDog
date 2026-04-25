@@ -37,6 +37,12 @@ function LandingQuickStart({ serverAddress, t }) {
     },
   ];
 
+  const metrics = [
+    { value: '99.98%', label: t('30 天可用率') },
+    { value: '128+', label: t('接入模型数') },
+    { value: '< 80ms', label: t('路由转发开销') },
+  ];
+
   return (
     <div className='ald-home-hero__secondary-info'>
       <div className='ald-home-hero__secondary-header'>
@@ -44,20 +50,31 @@ function LandingQuickStart({ serverAddress, t }) {
         <p>{t('3 步完成接入')}</p>
       </div>
 
-      <div className='ald-home-hero__timeline'>
-        <div className='ald-home-hero__timeline-line'>
-          <div className='ald-home-hero__timeline-glow'></div>
+      <div className='ald-home-hero__quickstart-layout'>
+        <div className='ald-home-hero__quickstart-metrics'>
+          {metrics.map((m, i) => (
+            <div key={i} className='ald-home-hero__quickstart-metric-item'>
+              <strong>{m.value}</strong>
+              <span>{m.label}</span>
+            </div>
+          ))}
         </div>
 
-        {steps.map((step, i) => (
-          <div key={i} className='ald-home-hero__timeline-item'>
-            <div className='ald-home-hero__timeline-dot'>{step.num}</div>
-            <div className='ald-home-hero__timeline-content'>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-            </div>
+        <div className='ald-home-hero__timeline'>
+          <div className='ald-home-hero__timeline-line'>
+            <div className='ald-home-hero__timeline-glow'></div>
           </div>
-        ))}
+
+          {steps.map((step, i) => (
+            <div key={i} className='ald-home-hero__timeline-item'>
+              <div className='ald-home-hero__timeline-dot'>{step.num}</div>
+              <div className='ald-home-hero__timeline-content'>
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
