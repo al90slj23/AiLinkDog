@@ -22,17 +22,24 @@ import { useTranslation } from 'react-i18next';
 import { Card, Col, Row, Skeleton, Typography } from '@douyinfe/semi-ui';
 import { renderNumber, renderQuota } from '../../helpers';
 
-export default function ReferralOverviewCards({ statistics = {}, loading = false }) {
+export default function ReferralOverviewCards({
+  statistics = {},
+  loading = false,
+}) {
   const { t } = useTranslation();
 
   const overviewItems = [
     {
       title: t('总收益'),
-      value: renderQuota(statistics.total_earnings ?? statistics.aff_history_quota ?? 0),
+      value: renderQuota(
+        statistics.total_earnings ?? statistics.aff_history_quota ?? 0,
+      ),
     },
     {
       title: t('可提现'),
-      value: renderQuota(statistics.withdrawable_balance ?? statistics.aff_quota ?? 0),
+      value: renderQuota(
+        statistics.withdrawable_balance ?? statistics.aff_quota ?? 0,
+      ),
     },
     {
       title: t('待结算'),
@@ -40,7 +47,12 @@ export default function ReferralOverviewCards({ statistics = {}, loading = false
     },
     {
       title: t('邀请人数'),
-      value: renderNumber(statistics.invitee_count ?? statistics.total_invites ?? statistics.aff_count ?? 0),
+      value: renderNumber(
+        statistics.invitee_count ??
+          statistics.total_invites ??
+          statistics.aff_count ??
+          0,
+      ),
     },
   ];
 
@@ -52,7 +64,9 @@ export default function ReferralOverviewCards({ statistics = {}, loading = false
             <Typography.Text type='tertiary'>{item.title}</Typography.Text>
             <Typography.Title heading={4} style={{ margin: '8px 0 0' }}>
               {loading ? (
-                <Skeleton.Title style={{ width: 96, height: 28, marginTop: 2 }} />
+                <Skeleton.Title
+                  style={{ width: 96, height: 28, marginTop: 2 }}
+                />
               ) : (
                 item.value
               )}

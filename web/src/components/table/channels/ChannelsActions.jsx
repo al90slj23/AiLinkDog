@@ -18,13 +18,7 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import {
-  Button,
-  Modal,
-  Switch,
-  Typography,
-  Select,
-} from '@douyinfe/semi-ui';
+import { Button, Modal, Switch, Typography, Select } from '@douyinfe/semi-ui';
 import CompactModeToggle from '../../common/ui/CompactModeToggle';
 import AppDropdownMenu from '../../common/menu/AppDropdownMenu';
 
@@ -113,7 +107,9 @@ const ChannelsActions = ({
                 onClick: () => {
                   Modal.confirm({
                     title: t('确定是否要修复数据库一致性？'),
-                    content: t('进行该操作时，可能导致渠道访问错误，请仅在数据库出现问题时使用'),
+                    content: t(
+                      '进行该操作时，可能导致渠道访问错误，请仅在数据库出现问题时使用',
+                    ),
                     onOk: () => fixChannelsAbilities(),
                     size: 'sm',
                     centered: true,
@@ -139,7 +135,9 @@ const ChannelsActions = ({
                 onClick: () => {
                   Modal.confirm({
                     title: t('确定？'),
-                    content: t('确定要仅检测全部渠道上游模型更新吗？（不执行新增/删除）'),
+                    content: t(
+                      '确定要仅检测全部渠道上游模型更新吗？（不执行新增/删除）',
+                    ),
                     onOk: () => detectAllUpstreamUpdates(),
                     size: 'sm',
                     centered: true,

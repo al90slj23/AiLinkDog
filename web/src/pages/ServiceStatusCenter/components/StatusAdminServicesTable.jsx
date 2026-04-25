@@ -11,7 +11,10 @@ const StatusAdminServicesTable = ({ rows }) => (
         rows.map((item) => (
           <div key={item.key}>
             <Typography.Text>{item.name}</Typography.Text>
-            <Typography.Text type='secondary'> {item.sourceKey || '--'}</Typography.Text>
+            <Typography.Text type='secondary'>
+              {' '}
+              {item.sourceKey || '--'}
+            </Typography.Text>
             <Tag color={item.statusColor} shape='circle'>
               {item.statusText}
             </Tag>

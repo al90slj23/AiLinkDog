@@ -150,8 +150,8 @@ describe('SettingsHeaderNavModules', () => {
     const { default: SettingsHeaderNavModules } =
       await importModuleWithUseStateMocks([
         (initialValue) => [
-        typeof initialValue === 'function' ? initialValue() : initialValue,
-        setLoading,
+          typeof initialValue === 'function' ? initialValue() : initialValue,
+          setLoading,
         ],
         () => [
           {

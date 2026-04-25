@@ -19,7 +19,17 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Card, Empty, Input, InputNumber, Space, Table, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Card,
+  Empty,
+  Input,
+  InputNumber,
+  Space,
+  Table,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { showError } from '../../helpers';
 import { formatDateTime, formatQuota, getWithdrawalStatusMeta } from './utils';
 
@@ -46,7 +56,8 @@ export default function ReferralWithdrawalPanel({
     {
       title: t('申请金额'),
       dataIndex: 'amount',
-      render: (_, record) => `${formatQuota(record.amount)} / ${formatQuota(record.actual_amount)}`,
+      render: (_, record) =>
+        `${formatQuota(record.amount)} / ${formatQuota(record.actual_amount)}`,
     },
     {
       title: t('手续费'),
@@ -56,14 +67,19 @@ export default function ReferralWithdrawalPanel({
     {
       title: t('收款方式'),
       dataIndex: 'payment_method',
-      render: (_, record) => `${record.payment_method || '--'} / ${record.payment_account || '--'}`,
+      render: (_, record) =>
+        `${record.payment_method || '--'} / ${record.payment_account || '--'}`,
     },
     {
       title: t('状态'),
       dataIndex: 'status',
       render: (value) => {
         const meta = getWithdrawalStatusMeta(value, t);
-        return <Tag color={meta.color} shape='circle'>{meta.label}</Tag>;
+        return (
+          <Tag color={meta.color} shape='circle'>
+            {meta.label}
+          </Tag>
+        );
       },
     },
     {
@@ -119,12 +135,19 @@ export default function ReferralWithdrawalPanel({
       <Card>
         <Typography.Title heading={5}>{t('提现申请')}</Typography.Title>
         <Typography.Text type='tertiary'>
-          {t('当前可提现余额会基于 statistics.withdrawable_balance 展示，提交后会真实写入 referral_withdrawals。')}
+          {t(
+            '当前可提现余额会基于 statistics.withdrawable_balance 展示，提交后会真实写入 referral_withdrawals。',
+          )}
         </Typography.Text>
         <div style={{ marginTop: 12 }}>
           <Typography.Text>{`${t('当前可提现余额')}: ${formatQuota(statistics?.withdrawable_balance ?? 0)}`}</Typography.Text>
         </div>
-        <Space vertical spacing={8} style={{ width: '100%', marginTop: 16 }} align='start'>
+        <Space
+          vertical
+          spacing={8}
+          style={{ width: '100%', marginTop: 16 }}
+          align='start'
+        >
           <InputNumber
             min={0}
             value={amount}
@@ -153,7 +176,12 @@ export default function ReferralWithdrawalPanel({
             placeholder={t('请输入申请备注，可选')}
             maxLength={255}
           />
-          <Button type='primary' theme='light' loading={submitting} onClick={handleSubmit}>
+          <Button
+            type='primary'
+            theme='light'
+            loading={submitting}
+            onClick={handleSubmit}
+          >
             {t('提交提现申请')}
           </Button>
         </Space>
@@ -167,7 +195,12 @@ export default function ReferralWithdrawalPanel({
           dataSource={dataSource}
           pagination={false}
           loading={loading}
-          empty={<Empty imageStyle={{ height: 80 }} description={t('暂无提现记录')} />}
+          empty={
+            <Empty
+              imageStyle={{ height: 80 }}
+              description={t('暂无提现记录')}
+            />
+          }
         />
       </Card>
     </Space>

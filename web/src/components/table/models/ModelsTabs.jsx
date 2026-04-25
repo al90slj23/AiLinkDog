@@ -133,7 +133,8 @@ const ModelsTabs = ({
                           {t('编辑')}
                         </span>
                       ),
-                      onClick: () => handleEditVendor(vendor, { stopPropagation: () => {} }),
+                      onClick: () =>
+                        handleEditVendor(vendor, { stopPropagation: () => {} }),
                     },
                     {
                       key: `delete-${vendor.id}`,
@@ -150,7 +151,10 @@ const ModelsTabs = ({
                             '确定要删除供应商 "{{name}}" 吗？此操作不可撤销。',
                             { name: vendor.name },
                           ),
-                          onOk: () => handleDeleteVendor(vendor, { stopPropagation: () => {} }),
+                          onOk: () =>
+                            handleDeleteVendor(vendor, {
+                              stopPropagation: () => {},
+                            }),
                           okText: t('删除'),
                           cancelText: t('取消'),
                           type: 'warning',

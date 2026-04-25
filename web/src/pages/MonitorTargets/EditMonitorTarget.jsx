@@ -82,9 +82,13 @@ export default function EditMonitorTarget() {
     <div className='px-4 py-6 md:px-6'>
       <Space vertical spacing='large' style={{ width: '100%' }}>
         <div>
-          <Typography.Title heading={3}>{isEdit ? '编辑监控' : '新建监控'}</Typography.Title>
+          <Typography.Title heading={3}>
+            {isEdit ? '编辑监控' : '新建监控'}
+          </Typography.Title>
           <Typography.Paragraph>
-            {isEdit ? '修改监控配置，API Key 不回显，留空表示保持不变。' : '创建一个自定义用户监控目标。'}
+            {isEdit
+              ? '修改监控配置，API Key 不回显，留空表示保持不变。'
+              : '创建一个自定义用户监控目标。'}
           </Typography.Paragraph>
         </div>
         {error ? <Banner type='danger' description={error} /> : null}
@@ -98,7 +102,9 @@ export default function EditMonitorTarget() {
               submitLabel={isEdit ? '保存修改' : '创建监控'}
               onSubmit={handleSubmit}
             />
-            <Button onClick={() => navigate('/console/monitor-targets')}>返回列表</Button>
+            <Button onClick={() => navigate('/console/monitor-targets')}>
+              返回列表
+            </Button>
           </>
         ) : null}
       </Space>

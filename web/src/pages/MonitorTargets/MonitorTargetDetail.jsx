@@ -1,5 +1,15 @@
 import React from 'react';
-import { Banner, Button, Card, Col, Descriptions, Row, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Banner,
+  Button,
+  Card,
+  Col,
+  Descriptions,
+  Row,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import MonitorBillingTable from '../../components/monitor/MonitorBillingTable';
 import MonitorEventsList from '../../components/monitor/MonitorEventsList';
@@ -9,7 +19,8 @@ import useMonitorTargetDetail from '../../hooks/monitor/useMonitorTargetDetail';
 export default function MonitorTargetDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { loading, error, target, runs, events, billing } = useMonitorTargetDetail(id);
+  const { loading, error, target, runs, events, billing } =
+    useMonitorTargetDetail(id);
 
   const descriptionData = [
     { key: 'name', value: target.name },
@@ -31,7 +42,9 @@ export default function MonitorTargetDetail() {
               <Link to={`/console/monitor-targets/${id}/edit`}>
                 <Button theme='solid'>编辑</Button>
               </Link>
-              <Button onClick={() => navigate('/console/monitor-targets')}>返回列表</Button>
+              <Button onClick={() => navigate('/console/monitor-targets')}>
+                返回列表
+              </Button>
             </Space>
           }
         >

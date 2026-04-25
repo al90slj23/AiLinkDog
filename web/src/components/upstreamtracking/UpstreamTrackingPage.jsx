@@ -194,7 +194,8 @@ function buildContextGroups(contexts) {
   });
 
   groups.sort(
-    (left, right) => getContextTypePriority(left.key) - getContextTypePriority(right.key),
+    (left, right) =>
+      getContextTypePriority(left.key) - getContextTypePriority(right.key),
   );
 
   return groups;
@@ -381,11 +382,17 @@ function normalizeSelectedDetail(detail, fallbackItem) {
     status: detail?.status || fallbackItem?.status || '',
     executedAt: detail?.executedAt || fallbackItem?.executedAt || 0,
     updateSummary:
-      detail?.updateSummary || fallbackItem?.updateSummary || fallbackItem?.title || '',
+      detail?.updateSummary ||
+      fallbackItem?.updateSummary ||
+      fallbackItem?.title ||
+      '',
     hasSimilarLocalWork: Boolean(detail?.hasSimilarLocalWork),
     localWorkSummary: detail?.localWorkSummary || '',
     shouldMerge:
-      detail?.shouldMerge || fallbackItem?.shouldMerge || detail?.recommendation_level || 'observe',
+      detail?.shouldMerge ||
+      fallbackItem?.shouldMerge ||
+      detail?.recommendation_level ||
+      'observe',
     mergeReason: detail?.mergeReason || detail?.recommendation_text || '',
     mergeStrategy: detail?.mergeStrategy || '',
     mergePlanSummary: detail?.mergePlanSummary || '',
@@ -393,7 +400,10 @@ function normalizeSelectedDetail(detail, fallbackItem) {
     targetAreas: Array.isArray(detail?.targetAreas) ? detail.targetAreas : [],
     riskSummary: detail?.riskSummary || detail?.risk_summary || '',
     decisionStatus:
-      detail?.decisionStatus || fallbackItem?.decisionStatus || detail?.decision_status || '',
+      detail?.decisionStatus ||
+      fallbackItem?.decisionStatus ||
+      detail?.decision_status ||
+      '',
     decisionNote: detail?.decisionNote || detail?.decision_note || '',
     actions: Array.isArray(detail?.actions)
       ? detail.actions.map(normalizeAction)
@@ -487,7 +497,9 @@ export default function UpstreamTrackingPage() {
 
   const latestHistoryItem = historyItems.length > 0 ? historyItems[0] : null;
   const selectedHistoryItem =
-    historyItems.find((item) => item.id === selectedCycleId) || latestHistoryItem || null;
+    historyItems.find((item) => item.id === selectedCycleId) ||
+    latestHistoryItem ||
+    null;
   const selectedHistorySummary = selectedHistoryItem
     ? `${selectedHistoryItem.title || t('未命名记录')} · ${formatDateTime(selectedHistoryItem.executedAt)}`
     : '';
@@ -542,7 +554,8 @@ export default function UpstreamTrackingPage() {
       return;
     }
 
-    const fallbackItem = historyItems.find((item) => item.id === cycleId) || null;
+    const fallbackItem =
+      historyItems.find((item) => item.id === cycleId) || null;
     const requestId = detailRequestRef.current + 1;
 
     detailRequestRef.current = requestId;
@@ -560,7 +573,10 @@ export default function UpstreamTrackingPage() {
         return showError(detailRes.data.message || t('加载详情失败'));
       }
 
-      const nextDetail = normalizeSelectedDetail(detailRes.data.data, fallbackItem);
+      const nextDetail = normalizeSelectedDetail(
+        detailRes.data.data,
+        fallbackItem,
+      );
 
       if (
         detailRequestRef.current !== requestId ||
@@ -691,7 +707,8 @@ export default function UpstreamTrackingPage() {
         '/api/upstreamtracking/config',
         payload,
       );
-      if (!res.data.success) return showError(res.data.message || t('保存失败'));
+      if (!res.data.success)
+        return showError(res.data.message || t('保存失败'));
       setConfig(normalizeConfigView(res.data.data));
       setAnalysisToken('');
       showSuccess(t('配置已保存'));
@@ -965,19 +982,25 @@ export default function UpstreamTrackingPage() {
     if (authRequired) {
       return {
         title: t('需要管理员权限'),
-        message: t('上游跟踪页面当前仅允许管理员访问。请使用管理员账户后再查看分析配置、周期记录和治理建议。'),
+        message: t(
+          '上游跟踪页面当前仅允许管理员访问。请使用管理员账户后再查看分析配置、周期记录和治理建议。',
+        ),
       };
     }
     if (sessionExpired) {
       return {
         title: t('管理员登录态已失效'),
-        message: t('当前浏览器本地识别到你是管理员，但后端未识别到有效登录态。请重新登录管理员账户后再访问上游跟踪页面。'),
+        message: t(
+          '当前浏览器本地识别到你是管理员，但后端未识别到有效登录态。请重新登录管理员账户后再访问上游跟踪页面。',
+        ),
       };
     }
     if (apiUnavailable) {
       return {
         title: t('后端接口未加载'),
-        message: t('当前前端页面已更新，但后端尚未加载 upstreamtracking 接口。请重启后端开发服务后再刷新本页。'),
+        message: t(
+          '当前前端页面已更新，但后端尚未加载 upstreamtracking 接口。请重启后端开发服务后再刷新本页。',
+        ),
       };
     }
     return null;
@@ -1003,7 +1026,9 @@ export default function UpstreamTrackingPage() {
             {
               key: 'intervalDays',
               label: t('跟踪周期（天）'),
-              value: overview.intervalDays ? String(overview.intervalDays) : '-',
+              value: overview.intervalDays
+                ? String(overview.intervalDays)
+                : '-',
             },
             {
               key: 'repo',
@@ -1021,7 +1046,9 @@ export default function UpstreamTrackingPage() {
       <Card style={{ width: '100%' }}>
         <Title heading={5}>{t('本周期执行')}</Title>
         <Text type='secondary'>
-          {t('创建一个新的跟踪周期后，系统会读取本周期内的 upstream 提交，并结合 ALD 知识库输出是否建议合并及合并方式。')}
+          {t(
+            '创建一个新的跟踪周期后，系统会读取本周期内的 upstream 提交，并结合 ALD 知识库输出是否建议合并及合并方式。',
+          )}
         </Text>
         <div
           style={{
@@ -1051,8 +1078,16 @@ export default function UpstreamTrackingPage() {
       </Card>
       <Card style={{ width: '100%' }}>
         <Title heading={5}>{t('本次更新摘要')}</Title>
-        {overview.updateSummary || overview.riskSummary || overview.shouldMerge || latestHistoryItem ? (
-          <Space vertical align='start' style={{ width: '100%' }} spacing='medium'>
+        {overview.updateSummary ||
+        overview.riskSummary ||
+        overview.shouldMerge ||
+        latestHistoryItem ? (
+          <Space
+            vertical
+            align='start'
+            style={{ width: '100%' }}
+            spacing='medium'
+          >
             <Descriptions
               row
               data={[
@@ -1071,7 +1106,9 @@ export default function UpstreamTrackingPage() {
                 {
                   key: 'localWork',
                   label: t('是否已有类似本地优化'),
-                  value: overview.hasSimilarLocalWork ? t('已有，需要对照现状') : t('暂无明显重复优化'),
+                  value: overview.hasSimilarLocalWork
+                    ? t('已有，需要对照现状')
+                    : t('暂无明显重复优化'),
                 },
                 {
                   key: 'shouldMerge',
@@ -1106,14 +1143,23 @@ export default function UpstreamTrackingPage() {
           </Space>
         ) : (
           <Text type='tertiary'>
-            {t('暂无本周期分析结果，创建并执行分析后会在这里显示是否建议合并及合并方式。')}
+            {t(
+              '暂无本周期分析结果，创建并执行分析后会在这里显示是否建议合并及合并方式。',
+            )}
           </Text>
         )}
       </Card>
       <Card style={{ width: '100%' }}>
         <Title heading={5}>{t('合并建议')}</Title>
-        {overview.mergeReason || overview.mergeStrategy || overview.targetFiles.length > 0 ? (
-          <Space vertical align='start' style={{ width: '100%' }} spacing='medium'>
+        {overview.mergeReason ||
+        overview.mergeStrategy ||
+        overview.targetFiles.length > 0 ? (
+          <Space
+            vertical
+            align='start'
+            style={{ width: '100%' }}
+            spacing='medium'
+          >
             <Descriptions
               row
               data={[
@@ -1150,7 +1196,9 @@ export default function UpstreamTrackingPage() {
           </Space>
         ) : (
           <Text type='tertiary'>
-            {t('暂无合并建议，完成一次分析后会在这里汇总建议方式、理由和预计影响范围。')}
+            {t(
+              '暂无合并建议，完成一次分析后会在这里汇总建议方式、理由和预计影响范围。',
+            )}
           </Text>
         )}
       </Card>
@@ -1174,17 +1222,28 @@ export default function UpstreamTrackingPage() {
         />
       </Card>
       <Card style={{ width: '100%' }}>
-        <Space vertical align='start' spacing={6} style={{ width: '100%', marginBottom: 12 }}>
+        <Space
+          vertical
+          align='start'
+          spacing={6}
+          style={{ width: '100%', marginBottom: 12 }}
+        >
           <Title heading={5} style={{ margin: 0 }}>
             {t('执行记录详情')}
           </Title>
           <Text type='secondary'>
-            {selectedHistorySummary || t('在上方选择一条执行记录后，这里会显示对应的详细结论与证据。')}
+            {selectedHistorySummary ||
+              t('在上方选择一条执行记录后，这里会显示对应的详细结论与证据。')}
           </Text>
         </Space>
         {selectedCycle ? (
           <Spin spinning={detailLoading}>
-            <Space vertical align='start' style={{ width: '100%' }} spacing='large'>
+            <Space
+              vertical
+              align='start'
+              style={{ width: '100%' }}
+              spacing='large'
+            >
               <Descriptions
                 row
                 data={[
@@ -1202,7 +1261,9 @@ export default function UpstreamTrackingPage() {
                     key: 'shouldMerge',
                     label: t('是否建议合并'),
                     value: (
-                      <Tag color={getMergeDecisionColor(selectedCycle.shouldMerge)}>
+                      <Tag
+                        color={getMergeDecisionColor(selectedCycle.shouldMerge)}
+                      >
                         {selectedCycle.shouldMerge || t('待分析')}
                       </Tag>
                     ),
@@ -1216,7 +1277,9 @@ export default function UpstreamTrackingPage() {
               />
               <SectionCard
                 title={t('结论摘要')}
-                description={t('先看这次执行得出了什么判断，再决定是否继续处理。')}
+                description={t(
+                  '先看这次执行得出了什么判断，再决定是否继续处理。',
+                )}
                 tone='muted'
               >
                 <Descriptions
@@ -1231,8 +1294,10 @@ export default function UpstreamTrackingPage() {
                       key: 'localWork',
                       label: t('ALD 是否已有类似优化'),
                       value: selectedCycle.hasSimilarLocalWork
-                        ? selectedCycle.localWorkSummary || t('已有类似优化，需要对照现状处理。')
-                        : selectedCycle.localWorkSummary || t('暂无明显类似优化。'),
+                        ? selectedCycle.localWorkSummary ||
+                          t('已有类似优化，需要对照现状处理。')
+                        : selectedCycle.localWorkSummary ||
+                          t('暂无明显类似优化。'),
                     },
                     {
                       key: 'riskSummary',
@@ -1244,7 +1309,9 @@ export default function UpstreamTrackingPage() {
               </SectionCard>
               <SectionCard
                 title={t('合并建议')}
-                description={t('这里说明为什么建议这样合并，以及预计会影响哪些文件和区域。')}
+                description={t(
+                  '这里说明为什么建议这样合并，以及预计会影响哪些文件和区域。',
+                )}
                 tone='subtle'
               >
                 <Descriptions
@@ -1264,10 +1331,21 @@ export default function UpstreamTrackingPage() {
                       key: 'targets',
                       label: t('建议修改文件/区域'),
                       value:
-                        selectedCycle.targetFiles.length > 0 || selectedCycle.targetAreas.length > 0 ? (
+                        selectedCycle.targetFiles.length > 0 ||
+                        selectedCycle.targetAreas.length > 0 ? (
                           <Space vertical align='start' spacing={6}>
-                            <div>{renderValueList(selectedCycle.targetFiles, t('暂无建议修改文件'))}</div>
-                            <div>{renderValueList(selectedCycle.targetAreas, t('暂无建议修改区域'))}</div>
+                            <div>
+                              {renderValueList(
+                                selectedCycle.targetFiles,
+                                t('暂无建议修改文件'),
+                              )}
+                            </div>
+                            <div>
+                              {renderValueList(
+                                selectedCycle.targetAreas,
+                                t('暂无建议修改区域'),
+                              )}
+                            </div>
                           </Space>
                         ) : (
                           '-'
@@ -1287,8 +1365,13 @@ export default function UpstreamTrackingPage() {
                 <Title heading={6} style={{ marginBottom: 12 }}>
                   {t('决策与操作')}
                 </Title>
-                <Text type='secondary' style={{ display: 'block', marginBottom: 12 }}>
-                  {t('确认建议后，在这里留下当前判断，并决定是否继续查看证据链。')}
+                <Text
+                  type='secondary'
+                  style={{ display: 'block', marginBottom: 12 }}
+                >
+                  {t(
+                    '确认建议后，在这里留下当前判断，并决定是否继续查看证据链。',
+                  )}
                 </Text>
                 <Descriptions
                   row
@@ -1297,10 +1380,13 @@ export default function UpstreamTrackingPage() {
                       key: 'decisionRecord',
                       label: t('当前决策记录'),
                       value:
-                        selectedCycle.decisionStatus || selectedCycle.decisionNote ? (
+                        selectedCycle.decisionStatus ||
+                        selectedCycle.decisionNote ? (
                           <Space vertical align='start' spacing={4}>
                             <Text>{selectedCycle.decisionStatus || '-'}</Text>
-                            <Text type='secondary'>{selectedCycle.decisionNote || t('暂无补充说明')}</Text>
+                            <Text type='secondary'>
+                              {selectedCycle.decisionNote || t('暂无补充说明')}
+                            </Text>
                           </Space>
                         ) : (
                           '-'
@@ -1312,7 +1398,9 @@ export default function UpstreamTrackingPage() {
                   <Input
                     value={decisionNote}
                     onChange={setDecisionNote}
-                    placeholder={t('输入本次决策记录，例如：本次建议只同步 relay 修复，不直接复制上游结构')}
+                    placeholder={t(
+                      '输入本次决策记录，例如：本次建议只同步 relay 修复，不直接复制上游结构',
+                    )}
                     style={{ maxWidth: 520, marginBottom: 12 }}
                   />
                   <Space>
@@ -1357,7 +1445,10 @@ export default function UpstreamTrackingPage() {
                 <Title heading={6} style={{ marginBottom: 12 }}>
                   {t('从属事项')}
                 </Title>
-                <Text type='secondary' style={{ display: 'block', marginBottom: 12 }}>
+                <Text
+                  type='secondary'
+                  style={{ display: 'block', marginBottom: 12 }}
+                >
                   {t('这里集中展示本次执行记录衍生出的后续处理事项。')}
                 </Text>
                 <Table
@@ -1367,7 +1458,9 @@ export default function UpstreamTrackingPage() {
                   pagination={false}
                   empty={
                     <Text type='tertiary'>
-                      {t('暂无从属事项，后续分析建议产出的处理项会在这里集中展示。')}
+                      {t(
+                        '暂无从属事项，后续分析建议产出的处理项会在这里集中展示。',
+                      )}
                     </Text>
                   }
                 />
@@ -1379,14 +1472,23 @@ export default function UpstreamTrackingPage() {
                   borderTop: '1px solid var(--semi-color-border)',
                 }}
               >
-                <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+                <Space
+                  style={{ width: '100%', justifyContent: 'space-between' }}
+                >
                   <Title heading={6} style={{ marginBottom: 12 }}>
                     {t('本次分析证据链')}
                   </Title>
-                  <Text type='secondary'>{t('作为详情从属信息保留，按需展开审阅。')}</Text>
+                  <Text type='secondary'>
+                    {t('作为详情从属信息保留，按需展开审阅。')}
+                  </Text>
                 </Space>
-                <Text type='secondary' style={{ display: 'block', marginBottom: 12 }}>
-                  {t('证据链放在最后，方便按需核对 upstream 提交、compare、知识库和分析输出，不打断前面的结论阅读。')}
+                <Text
+                  type='secondary'
+                  style={{ display: 'block', marginBottom: 12 }}
+                >
+                  {t(
+                    '证据链放在最后，方便按需核对 upstream 提交、compare、知识库和分析输出，不打断前面的结论阅读。',
+                  )}
                 </Text>
                 <Table
                   rowKey='id'
@@ -1395,12 +1497,19 @@ export default function UpstreamTrackingPage() {
                   pagination={false}
                   empty={
                     <Text type='tertiary'>
-                      {t('暂无已加载证据链，点击上方“加载上下文”后可查看本次 upstream 提交、compare、知识库和分析输出。')}
+                      {t(
+                        '暂无已加载证据链，点击上方“加载上下文”后可查看本次 upstream 提交、compare、知识库和分析输出。',
+                      )}
                     </Text>
                   }
                 />
                 {selectedCycleContextGroups.length > 0 && (
-                  <Space vertical align='start' style={{ width: '100%', marginTop: 16 }} spacing='medium'>
+                  <Space
+                    vertical
+                    align='start'
+                    style={{ width: '100%', marginTop: 16 }}
+                    spacing='medium'
+                  >
                     {selectedCycleContextGroups.map((group) => (
                       <SectionCard
                         key={group.key}
@@ -1409,22 +1518,40 @@ export default function UpstreamTrackingPage() {
                         tone='muted'
                       >
                         <Text type='tertiary'>
-                          {t('该分组共 {{count}} 条证据。', { count: group.items.length })}
+                          {t('该分组共 {{count}} 条证据。', {
+                            count: group.items.length,
+                          })}
                         </Text>
                         <Collapse style={{ width: '100%' }}>
                           {group.items.map((item) => {
-                            const formattedContent = formatContextContent(item.content);
+                            const formattedContent = formatContextContent(
+                              item.content,
+                            );
                             return (
                               <Collapse.Panel
                                 key={item.id}
                                 itemKey={String(item.id)}
                                 header={
-                                  <Space vertical align='start' spacing={4} style={{ width: '100%' }}>
+                                  <Space
+                                    vertical
+                                    align='start'
+                                    spacing={4}
+                                    style={{ width: '100%' }}
+                                  >
                                     <Space>
-                                      <Tag color={getContextTypeColor(item.contextType)}>
-                                        {getContextTypeLabel(item.contextType, t)}
+                                      <Tag
+                                        color={getContextTypeColor(
+                                          item.contextType,
+                                        )}
+                                      >
+                                        {getContextTypeLabel(
+                                          item.contextType,
+                                          t,
+                                        )}
                                       </Tag>
-                                      <Text type='tertiary'>{item.contextType}</Text>
+                                      <Text type='tertiary'>
+                                        {item.contextType}
+                                      </Text>
                                     </Space>
                                     <Text type='secondary'>
                                       {formattedContent.length > 80
@@ -1459,7 +1586,9 @@ export default function UpstreamTrackingPage() {
             </Space>
           </Spin>
         ) : (
-          <Text type='tertiary'>{t('暂无历史分析详情，请先在上方选择一个周期')}</Text>
+          <Text type='tertiary'>
+            {t('暂无历史分析详情，请先在上方选择一个周期')}
+          </Text>
         )}
       </Card>
     </Space>
@@ -1578,7 +1707,12 @@ export default function UpstreamTrackingPage() {
 
           <Collapse style={{ marginTop: 16 }}>
             <Collapse.Panel itemKey='advanced' header={t('高级分析配置')}>
-              <Space vertical align='start' style={{ width: '100%' }} spacing='medium'>
+              <Space
+                vertical
+                align='start'
+                style={{ width: '100%' }}
+                spacing='medium'
+              >
                 <Form.Switch
                   field='enabled'
                   label={t('启用上游跟踪')}
@@ -1588,13 +1722,18 @@ export default function UpstreamTrackingPage() {
                   }
                 />
                 <Text type='tertiary'>
-                  {t('关闭后会停止新的上游分析，但不会删除已有执行记录与历史结论。')}
+                  {t(
+                    '关闭后会停止新的上游分析，但不会删除已有执行记录与历史结论。',
+                  )}
                 </Text>
                 <Form.Input
                   field='repoOwner'
                   label={t('仓库 Owner')}
                   value={config.repoOwner}
-                  placeholder={getConfigPlaceholder(config.repoOwner, 'Calcium-Ion')}
+                  placeholder={getConfigPlaceholder(
+                    config.repoOwner,
+                    'Calcium-Ion',
+                  )}
                   onChange={(value) =>
                     setConfig((prev) => ({ ...prev, repoOwner: value }))
                   }
@@ -1621,7 +1760,10 @@ export default function UpstreamTrackingPage() {
                   field='provider'
                   label={t('分析提供商')}
                   value={config.provider}
-                  placeholder={getConfigPlaceholder(config.provider, 'DeepSeek')}
+                  placeholder={getConfigPlaceholder(
+                    config.provider,
+                    'DeepSeek',
+                  )}
                   onChange={(value) =>
                     setConfig((prev) => ({ ...prev, provider: value }))
                   }
@@ -1651,7 +1793,9 @@ export default function UpstreamTrackingPage() {
                   }
                 />
                 <Text type='tertiary'>
-                  {t('只有在你使用自定义 DeepSeek 兼容地址时才需要填写；留空则使用系统默认地址。')}
+                  {t(
+                    '只有在你使用自定义 DeepSeek 兼容地址时才需要填写；留空则使用系统默认地址。',
+                  )}
                 </Text>
                 <Form.Input
                   field='analysisToken'
@@ -1665,7 +1809,9 @@ export default function UpstreamTrackingPage() {
                   onChange={setAnalysisToken}
                 />
                 <Text type='tertiary'>
-                  {t('留空表示保持当前 Token 不变；只有输入新的完整 Token 时才会覆盖旧值。')}
+                  {t(
+                    '留空表示保持当前 Token 不变；只有输入新的完整 Token 时才会覆盖旧值。',
+                  )}
                 </Text>
                 <Form.Select
                   field='analysisScope'
@@ -1705,7 +1851,12 @@ export default function UpstreamTrackingPage() {
   return (
     <div className='mt-[60px] px-2'>
       <Spin spinning={loading}>
-        <Space vertical align='start' style={{ width: '100%' }} spacing='medium'>
+        <Space
+          vertical
+          align='start'
+          style={{ width: '100%' }}
+          spacing='medium'
+        >
           <div style={{ width: '100%' }}>
             <div
               style={{
@@ -1718,7 +1869,9 @@ export default function UpstreamTrackingPage() {
               <div>
                 <Title heading={3}>{t('上游跟踪与同步评估')}</Title>
                 <Text type='secondary'>
-                  {t('该页面用于周期性跟踪 new-api 上游更新，并结合 ALD 本地记忆体系生成同步建议。')}
+                  {t(
+                    '该页面用于周期性跟踪 new-api 上游更新，并结合 ALD 本地记忆体系生成同步建议。',
+                  )}
                 </Text>
               </div>
               <Button
@@ -1733,7 +1886,9 @@ export default function UpstreamTrackingPage() {
           <Banner
             type='info'
             fullMode={false}
-            description={t('系统只做治理分析与决策支持，不会直接自动拷贝或自动合并上游代码。')}
+            description={t(
+              '系统只做治理分析与决策支持，不会直接自动拷贝或自动合并上游代码。',
+            )}
           />
           <Card style={{ width: '100%' }}>
             <Tabs activeKey={activeTab} onChange={setActiveTab} type='line'>

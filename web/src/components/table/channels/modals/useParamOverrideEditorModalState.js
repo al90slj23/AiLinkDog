@@ -18,8 +18,16 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import { useMemo, useState } from 'react';
-import { BUILTIN_FIELD_SECTIONS, TEMPLATE_PRESET_CONFIG } from './paramOverrideEditorModalConstants';
-import { createDefaultOperation, isOperationBlank, parsePruneObjectsDraft, parseReturnErrorDraft } from './paramOverrideEditorModalData';
+import {
+  BUILTIN_FIELD_SECTIONS,
+  TEMPLATE_PRESET_CONFIG,
+} from './paramOverrideEditorModalConstants';
+import {
+  createDefaultOperation,
+  isOperationBlank,
+  parsePruneObjectsDraft,
+  parseReturnErrorDraft,
+} from './paramOverrideEditorModalData';
 
 const useParamOverrideEditorModalState = () => {
   const [editMode, setEditMode] = useState('visual');
@@ -35,8 +43,10 @@ const useParamOverrideEditorModalState = () => {
   const [dragOverOperationId, setDragOverOperationId] = useState('');
   const [dragOverPosition, setDragOverPosition] = useState('before');
   const [templateGroupKey, setTemplateGroupKey] = useState('basic');
-  const [templatePresetKey, setTemplatePresetKey] = useState('operations_default');
-  const [headerValueExampleVisible, setHeaderValueExampleVisible] = useState(false);
+  const [templatePresetKey, setTemplatePresetKey] =
+    useState('operations_default');
+  const [headerValueExampleVisible, setHeaderValueExampleVisible] =
+    useState(false);
   const [fieldGuideVisible, setFieldGuideVisible] = useState(false);
   const [fieldGuideTarget, setFieldGuideTarget] = useState('path');
   const [fieldGuideKeyword, setFieldGuideKeyword] = useState('');
@@ -82,19 +92,26 @@ const useParamOverrideEditorModalState = () => {
   );
 
   const selectedOperationIndex = useMemo(
-    () => operations.findIndex((operation) => operation.id === selectedOperationId),
+    () =>
+      operations.findIndex((operation) => operation.id === selectedOperationId),
     [operations, selectedOperationId],
   );
 
   const returnErrorDraft = useMemo(() => {
-    if (!selectedOperation || (selectedOperation.mode || '') !== 'return_error') {
+    if (
+      !selectedOperation ||
+      (selectedOperation.mode || '') !== 'return_error'
+    ) {
       return null;
     }
     return parseReturnErrorDraft(selectedOperation.value_text);
   }, [selectedOperation]);
 
   const pruneObjectsDraft = useMemo(() => {
-    if (!selectedOperation || (selectedOperation.mode || '') !== 'prune_objects') {
+    if (
+      !selectedOperation ||
+      (selectedOperation.mode || '') !== 'prune_objects'
+    ) {
       return null;
     }
     return parsePruneObjectsDraft(selectedOperation.value_text);

@@ -66,7 +66,9 @@ const ParamOverrideEditorModalValueEditorSection = ({
             mode={mode}
             updateOperation={updateOperation}
             setHeaderValueExampleVisible={setHeaderValueExampleVisible}
-            formatSelectedOperationValueAsJson={formatSelectedOperationValueAsJson}
+            formatSelectedOperationValueAsJson={
+              formatSelectedOperationValueAsJson
+            }
           />
         )
       ) : null}

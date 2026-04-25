@@ -68,7 +68,11 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
       {topOperationModes.length > 0 ? (
         <Space wrap spacing={6}>
           {topOperationModes.map(([mode, count]) => (
-            <Tag key={`mode_stat_${mode}`} size='small' color={getOperationModeTagColor(mode)}>
+            <Tag
+              key={`mode_stat_${mode}`}
+              size='small'
+              color={getOperationModeTagColor(mode)}
+            >
               {`${OPERATION_MODE_LABEL_MAP[mode] || mode} · ${count}`}
             </Tag>
           ))}
@@ -82,7 +86,10 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
         showClear
       />
 
-      <div className='overflow-auto' style={{ flex: 1, minHeight: 320, paddingRight: 2 }}>
+      <div
+        className='overflow-auto'
+        style={{ flex: 1, minHeight: 320, paddingRight: 2 }}
+      >
         {filteredOperations.length === 0 ? (
           <Text type='tertiary' size='small'>
             {t('没有匹配的规则')}
@@ -97,7 +104,9 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
             }}
           >
             {filteredOperations.map((operation) => {
-              const index = operations.findIndex((item) => item.id === operation.id);
+              const index = operations.findIndex(
+                (item) => item.id === operation.id,
+              );
               const isActive = operation.id === selectedOperationId;
               const isDragging = operation.id === draggedOperationId;
               const isDropTarget =
@@ -112,8 +121,12 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
                   tabIndex={0}
                   draggable={operations.length > 1}
                   onClick={() => setSelectedOperationId(operation.id)}
-                  onDragStart={(event) => handleOperationDragStart(event, operation.id)}
-                  onDragOver={(event) => handleOperationDragOver(event, operation.id)}
+                  onDragStart={(event) =>
+                    handleOperationDragStart(event, operation.id)
+                  }
+                  onDragOver={(event) =>
+                    handleOperationDragOver(event, operation.id)
+                  }
                   onDrop={(event) => handleOperationDrop(event, operation.id)}
                   onDragEnd={resetOperationDragState}
                   onKeyDown={(event) => {
@@ -152,7 +165,11 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
                       </div>
                       <div className='min-w-0'>
                         <Text strong>{`#${index + 1}`}</Text>
-                        <Text type='tertiary' size='small' className='block mt-1'>
+                        <Text
+                          type='tertiary'
+                          size='small'
+                          className='block mt-1'
+                        >
                           {getOperationSummary(operation, index)}
                         </Text>
                         {String(operation.description || '').trim() ? (
@@ -179,8 +196,13 @@ const ParamOverrideEditorModalOperationsSidebarSection = ({
                     </Tag>
                   </div>
                   <Space spacing={6} style={{ marginTop: 8 }}>
-                    <Tag size='small' color={getOperationModeTagColor(operation.mode || 'set')}>
-                      {OPERATION_MODE_LABEL_MAP[operation.mode || 'set'] || operation.mode || 'set'}
+                    <Tag
+                      size='small'
+                      color={getOperationModeTagColor(operation.mode || 'set')}
+                    >
+                      {OPERATION_MODE_LABEL_MAP[operation.mode || 'set'] ||
+                        operation.mode ||
+                        'set'}
                     </Tag>
                     <Text type='tertiary' size='small'>
                       {t('条件数')}

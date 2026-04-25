@@ -1,6 +1,8 @@
 export function normalizeFetchedModels(models) {
   return Array.from(
-    new Set((models || []).map((model) => String(model ?? '').trim()).filter(Boolean)),
+    new Set(
+      (models || []).map((model) => String(model ?? '').trim()).filter(Boolean),
+    ),
   );
 }
 

@@ -24,7 +24,10 @@ import { LEGACY_TEMPLATE } from './paramOverrideEditorModalConstants';
 
 const { Text } = Typography;
 
-const ParamOverrideEditorModalLegacySection = ({ legacyValue, setLegacyValue }) => {
+const ParamOverrideEditorModalLegacySection = ({
+  legacyValue,
+  setLegacyValue,
+}) => {
   const { t } = useTranslation();
 
   return (

@@ -1,6 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-function LandingHeroAnimatedMetric({ value, suffix = '', prefix = '', decimals = 0 }) {
+function LandingHeroAnimatedMetric({
+  value,
+  suffix = '',
+  prefix = '',
+  decimals = 0,
+}) {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
 
@@ -41,7 +46,9 @@ function LandingHeroAnimatedMetric({ value, suffix = '', prefix = '', decimals =
   }, [value]);
 
   const formattedValue =
-    decimals > 0 ? displayValue.toFixed(decimals) : Math.round(displayValue).toLocaleString();
+    decimals > 0
+      ? displayValue.toFixed(decimals)
+      : Math.round(displayValue).toLocaleString();
 
   return (
     <span ref={ref}>

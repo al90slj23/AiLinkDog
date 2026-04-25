@@ -15,7 +15,8 @@ let headerNavModules = {
 };
 
 vi.mock('react-router-dom', () => ({
-  Link: ({ children, to, ...props }) => React.createElement('a', { href: to, ...props }, children),
+  Link: ({ children, to, ...props }) =>
+    React.createElement('a', { href: to, ...props }, children),
 }));
 
 vi.mock('../../../hooks/common/useHeaderBar', () => ({

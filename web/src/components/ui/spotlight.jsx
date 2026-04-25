@@ -9,7 +9,11 @@ const defaultSpringOptions = {
   restDelta: 0.001,
 };
 
-export function Spotlight({ className = '', size = 220, springOptions = defaultSpringOptions }) {
+export function Spotlight({
+  className = '',
+  size = 220,
+  springOptions = defaultSpringOptions,
+}) {
   const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [parentElement, setParentElement] = useState(null);
@@ -62,7 +66,12 @@ export function Spotlight({ className = '', size = 220, springOptions = defaultS
     <motion.div
       ref={containerRef}
       className={`ald-ui-spotlight ${isHovered ? 'is-visible' : ''} ${className}`.trim()}
-      style={{ width: size, height: size, left: spotlightLeft, top: spotlightTop }}
+      style={{
+        width: size,
+        height: size,
+        left: spotlightLeft,
+        top: spotlightTop,
+      }}
     />
   );
 }

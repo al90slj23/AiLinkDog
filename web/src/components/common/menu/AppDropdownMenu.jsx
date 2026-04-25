@@ -40,8 +40,7 @@ const getPositionClassName = (position) => {
   }
 };
 
-const mergeClassNames = (...values) =>
-  values.filter(Boolean).join(' ');
+const mergeClassNames = (...values) => values.filter(Boolean).join(' ');
 
 const AppDropdownMenu = ({
   trigger,

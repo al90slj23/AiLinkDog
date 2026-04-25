@@ -44,7 +44,9 @@ function ReferralLinksTabContent({
     <Space vertical spacing={16} style={{ width: '100%' }}>
       <Card>
         <Space vertical spacing={8} align='start'>
-          <Typography.Text>{'查看返利余额、佣金明细、邀请链接和提现状态'}</Typography.Text>
+          <Typography.Text>
+            {'查看返利余额、佣金明细、邀请链接和提现状态'}
+          </Typography.Text>
           <Typography.Text type='tertiary'>
             {
               '返利根据后台配置的方案实时计算。持续返利按后续充值持续结算，一次性买断仅在首次储值时结算。'
@@ -94,7 +96,14 @@ export default function ReferralCenterPage() {
   const loadReferralData = useCallback(async () => {
     setLoading(true);
     try {
-      const [statisticsRes, plansRes, linksRes, commissionsRes, inviteesRes, withdrawalsRes] = await Promise.all([
+      const [
+        statisticsRes,
+        plansRes,
+        linksRes,
+        commissionsRes,
+        inviteesRes,
+        withdrawalsRes,
+      ] = await Promise.all([
         API.get('/api/referral/statistics'),
         API.get('/api/referral/plans'),
         API.get('/api/referral/links'),
@@ -103,7 +112,14 @@ export default function ReferralCenterPage() {
         API.get('/api/referral/withdrawals'),
       ]);
 
-      const responses = [statisticsRes, plansRes, linksRes, commissionsRes, inviteesRes, withdrawalsRes];
+      const responses = [
+        statisticsRes,
+        plansRes,
+        linksRes,
+        commissionsRes,
+        inviteesRes,
+        withdrawalsRes,
+      ];
       const failedResponse = responses.find((res) => !res.data?.success);
       if (failedResponse) {
         showError(failedResponse.data?.message || t('加载邀请返利数据失败'));
@@ -113,9 +129,19 @@ export default function ReferralCenterPage() {
       setStatistics(statisticsRes.data?.data || {});
       setPlans(plansRes.data?.data || []);
       setLinks(linksRes.data?.data || []);
-      setCommissions(Array.isArray(commissionsRes.data?.data) ? commissionsRes.data.data : []);
-      setInvitees(Array.isArray(inviteesRes.data?.data) ? inviteesRes.data.data : []);
-      setWithdrawals(Array.isArray(withdrawalsRes.data?.data) ? withdrawalsRes.data.data : []);
+      setCommissions(
+        Array.isArray(commissionsRes.data?.data)
+          ? commissionsRes.data.data
+          : [],
+      );
+      setInvitees(
+        Array.isArray(inviteesRes.data?.data) ? inviteesRes.data.data : [],
+      );
+      setWithdrawals(
+        Array.isArray(withdrawalsRes.data?.data)
+          ? withdrawalsRes.data.data
+          : [],
+      );
     } catch (error) {
       showError(error?.message || t('加载邀请返利数据失败'));
     } finally {
@@ -128,7 +154,9 @@ export default function ReferralCenterPage() {
   }, [loadReferralData]);
 
   const handleSelectPlan = async (planId) => {
-    const res = await API.post('/api/referral/plans/select', { plan_id: planId });
+    const res = await API.post('/api/referral/plans/select', {
+      plan_id: planId,
+    });
     if (!res.data?.success) {
       showError(res.data?.message || t('锁定返利方案失败'));
       return;
@@ -175,7 +203,11 @@ export default function ReferralCenterPage() {
       <Card bodyStyle={{ paddingTop: 8 }}>
         <Tabs type='line' defaultActiveKey='links'>
           {tabItems.map((item) => (
-            <Tabs.TabPane tab={item.tab} itemKey={item.itemKey} key={item.itemKey}>
+            <Tabs.TabPane
+              tab={item.tab}
+              itemKey={item.itemKey}
+              key={item.itemKey}
+            >
               {item.itemKey === 'links' ? (
                 <ReferralLinksTabContent
                   loading={showLoading}
@@ -186,9 +218,15 @@ export default function ReferralCenterPage() {
                   onCreateLink={handleCreateLink}
                 />
               ) : item.itemKey === 'commissions' ? (
-                <ReferralCommissionTable loading={showLoading} commissions={commissions} />
+                <ReferralCommissionTable
+                  loading={showLoading}
+                  commissions={commissions}
+                />
               ) : item.itemKey === 'invitees' ? (
-                <ReferralInviteeTable loading={showLoading} invitees={invitees} />
+                <ReferralInviteeTable
+                  loading={showLoading}
+                  invitees={invitees}
+                />
               ) : item.itemKey === 'withdrawals' ? (
                 <ReferralWithdrawalPanel
                   loading={showLoading}

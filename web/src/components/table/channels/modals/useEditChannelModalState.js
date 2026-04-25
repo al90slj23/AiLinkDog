@@ -7,7 +7,12 @@ import {
 } from './editChannelModalDerived';
 import { UPSTREAM_DETECTED_MODEL_PREVIEW_LIMIT } from './editChannelModalConstants';
 
-export function useEditChannelModalState({ isEdit, originInputs, t, verifyJSON }) {
+export function useEditChannelModalState({
+  isEdit,
+  originInputs,
+  t,
+  verifyJSON,
+}) {
   const [loading, setLoading] = useState(isEdit);
   const [batch, setBatch] = useState(false);
   const [multiToSingle, setMultiToSingle] = useState(false);
@@ -31,7 +36,8 @@ export function useEditChannelModalState({ isEdit, originInputs, t, verifyJSON }
   const [modelMappingValueModalModels, setModelMappingValueModalModels] =
     useState([]);
   const [modelMappingValueKey, setModelMappingValueKey] = useState('');
-  const [modelMappingValueSelected, setModelMappingValueSelected] = useState('');
+  const [modelMappingValueSelected, setModelMappingValueSelected] =
+    useState('');
   const [ollamaModalVisible, setOllamaModalVisible] = useState(false);
   const [vertexKeys, setVertexKeys] = useState([]);
   const [vertexFileList, setVertexFileList] = useState([]);
@@ -57,7 +63,9 @@ export function useEditChannelModalState({ isEdit, originInputs, t, verifyJSON }
   const [verifyLoading, setVerifyLoading] = useState(false);
   const [statusCodeRiskConfirmVisible, setStatusCodeRiskConfirmVisible] =
     useState(false);
-  const [statusCodeRiskDetailItems, setStatusCodeRiskDetailItems] = useState([]);
+  const [statusCodeRiskDetailItems, setStatusCodeRiskDetailItems] = useState(
+    [],
+  );
   const [clipboardConfig, setClipboardConfig] = useState(null);
   const [advancedSettingsOpen, setAdvancedSettingsOpen] = useState(false);
   const [channelSettings, setChannelSettings] = useState({
@@ -80,7 +88,8 @@ export function useEditChannelModalState({ isEdit, originInputs, t, verifyJSON }
     [inputs.upstream_model_update_last_detected_models],
   );
   const upstreamDetectedModelsPreview = useMemo(
-    () => upstreamDetectedModels.slice(0, UPSTREAM_DETECTED_MODEL_PREVIEW_LIMIT),
+    () =>
+      upstreamDetectedModels.slice(0, UPSTREAM_DETECTED_MODEL_PREVIEW_LIMIT),
     [upstreamDetectedModels],
   );
   const upstreamDetectedModelsOmittedCount =

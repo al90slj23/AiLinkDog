@@ -18,7 +18,18 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Col, Collapse, Input, Row, Select, Space, Switch, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Col,
+  Collapse,
+  Input,
+  Row,
+  Select,
+  Space,
+  Switch,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { IconDelete, IconPlus } from '@douyinfe/semi-icons';
 import { useTranslation } from 'react-i18next';
 import { CONDITION_MODE_OPTIONS } from './paramOverrideEditorModalConstants';
@@ -57,17 +68,31 @@ const ParamOverrideEditorModalConditionsSection = ({
             ]}
             size='small'
             style={{ width: 180 }}
-            onChange={(nextValue) => updateOperation(selectedOperation.id, { logic: nextValue })}
+            onChange={(nextValue) =>
+              updateOperation(selectedOperation.id, { logic: nextValue })
+            }
           />
         </Space>
         <Space spacing={6}>
-          <Button size='small' type='tertiary' onClick={expandAllSelectedConditions}>
+          <Button
+            size='small'
+            type='tertiary'
+            onClick={expandAllSelectedConditions}
+          >
             {t('全部展开')}
           </Button>
-          <Button size='small' type='tertiary' onClick={collapseAllSelectedConditions}>
+          <Button
+            size='small'
+            type='tertiary'
+            onClick={collapseAllSelectedConditions}
+          >
             {t('全部收起')}
           </Button>
-          <Button icon={<IconPlus />} size='small' onClick={() => addCondition(selectedOperation.id)}>
+          <Button
+            icon={<IconPlus />}
+            size='small'
+            onClick={() => addCondition(selectedOperation.id)}
+          >
             {t('新增条件')}
           </Button>
         </Space>
@@ -81,7 +106,9 @@ const ParamOverrideEditorModalConditionsSection = ({
         <Collapse
           keepDOM
           activeKey={selectedConditionKeys}
-          onChange={(activeKeys) => handleConditionCollapseChange(selectedOperation.id, activeKeys)}
+          onChange={(activeKeys) =>
+            handleConditionCollapseChange(selectedOperation.id, activeKeys)
+          }
         >
           {conditions.map((condition, conditionIndex) => (
             <Collapse.Panel
@@ -106,7 +133,9 @@ const ParamOverrideEditorModalConditionsSection = ({
                     type='danger'
                     icon={<IconDelete />}
                     size='small'
-                    onClick={() => removeCondition(selectedOperation.id, condition.id)}
+                    onClick={() =>
+                      removeCondition(selectedOperation.id, condition.id)
+                    }
                   >
                     {t('删除条件')}
                   </Button>
@@ -120,7 +149,9 @@ const ParamOverrideEditorModalConditionsSection = ({
                       value={condition.path}
                       placeholder='model'
                       onChange={(nextValue) =>
-                        updateCondition(selectedOperation.id, condition.id, { path: nextValue })
+                        updateCondition(selectedOperation.id, condition.id, {
+                          path: nextValue,
+                        })
                       }
                     />
                   </Col>
@@ -132,7 +163,9 @@ const ParamOverrideEditorModalConditionsSection = ({
                       value={condition.mode}
                       optionList={CONDITION_MODE_OPTIONS}
                       onChange={(nextValue) =>
-                        updateCondition(selectedOperation.id, condition.id, { mode: nextValue })
+                        updateCondition(selectedOperation.id, condition.id, {
+                          mode: nextValue,
+                        })
                       }
                       style={{ width: '100%' }}
                     />
@@ -145,7 +178,9 @@ const ParamOverrideEditorModalConditionsSection = ({
                       value={condition.value_text}
                       placeholder='gpt'
                       onChange={(nextValue) =>
-                        updateCondition(selectedOperation.id, condition.id, { value_text: nextValue })
+                        updateCondition(selectedOperation.id, condition.id, {
+                          value_text: nextValue,
+                        })
                       }
                     />
                   </Col>
@@ -160,7 +195,9 @@ const ParamOverrideEditorModalConditionsSection = ({
                       checkedText={t('开')}
                       uncheckedText={t('关')}
                       onChange={(nextValue) =>
-                        updateCondition(selectedOperation.id, condition.id, { invert: nextValue })
+                        updateCondition(selectedOperation.id, condition.id, {
+                          invert: nextValue,
+                        })
                       }
                     />
                   </div>

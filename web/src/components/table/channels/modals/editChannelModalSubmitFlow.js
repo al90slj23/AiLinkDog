@@ -18,9 +18,8 @@ export function buildSubmitInteractionState({
     missingModels.length > 0 &&
     hasModelConfigChanged(normalizedModels, modelMappingStr);
 
-  const invalidStatusCodeEntries = collectInvalidStatusCodeEntries(
-    statusCodeMapping,
-  );
+  const invalidStatusCodeEntries =
+    collectInvalidStatusCodeEntries(statusCodeMapping);
 
   const riskyStatusCodeRedirects = collectNewDisallowedStatusCodeRedirects(
     initialStatusCodeMapping,

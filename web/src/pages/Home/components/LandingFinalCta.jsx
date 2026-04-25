@@ -13,7 +13,11 @@ function LandingFinalCta({ docsLink, t }) {
       <small>All AI, One Link — Follow the Dog.</small>
       <div className='ald-home-final__actions'>
         <Link to='/register'>
-          <Button theme='solid' type='primary' className='ald-home-button-primary'>
+          <Button
+            theme='solid'
+            type='primary'
+            className='ald-home-button-primary'
+          >
             {t('开始接入')}
           </Button>
         </Link>

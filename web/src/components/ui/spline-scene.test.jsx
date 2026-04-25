@@ -6,7 +6,10 @@ import { SplineScene } from './spline-scene';
 describe('SplineScene', () => {
   test('renders identifiable fallback shell', () => {
     const html = renderToStaticMarkup(
-      <SplineScene scene='https://example.com/scene.splinecode' className='demo-scene' />,
+      <SplineScene
+        scene='https://example.com/scene.splinecode'
+        className='demo-scene'
+      />,
     );
 
     expect(html).toContain('ald-ui-spline-shell');

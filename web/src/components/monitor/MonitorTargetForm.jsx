@@ -122,7 +122,9 @@ export default function MonitorTargetForm({
             onChange={updateField('api_key')}
             type='password'
             autoComplete='new-password'
-            placeholder={initialValues?.id ? '留空则保持不变' : '请输入监控使用的 Key'}
+            placeholder={
+              initialValues?.id ? '留空则保持不变' : '请输入监控使用的 Key'
+            }
           />
           <Form.Input
             field='model'

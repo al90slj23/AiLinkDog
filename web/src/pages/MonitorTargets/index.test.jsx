@@ -24,14 +24,19 @@ vi.mock('@douyinfe/semi-ui', () => {
       'div',
       null,
       dataSource.map((item, index) =>
-        React.createElement('div', { key: index }, renderItem ? renderItem(item) : JSON.stringify(item)),
+        React.createElement(
+          'div',
+          { key: index },
+          renderItem ? renderItem(item) : JSON.stringify(item),
+        ),
       ),
     );
   List.Item = passthrough;
 
   return {
     Banner: passthrough,
-    Button: ({ children, ...props }) => React.createElement('button', props, children),
+    Button: ({ children, ...props }) =>
+      React.createElement('button', props, children),
     Card: passthrough,
     Col: passthrough,
     Descriptions: passthrough,
@@ -69,13 +74,21 @@ vi.mock('../../components/common/ui/Loading', () => ({
 }));
 
 vi.mock('../../pages/User', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/RegisterForm', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/RegisterForm', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../components/auth/LoginForm', () => ({ default: () => <div /> }));
-vi.mock('../../pages/NotFound', () => ({ default: () => <div>not-found</div> }));
+vi.mock('../../pages/NotFound', () => ({
+  default: () => <div>not-found</div>,
+}));
 vi.mock('../../pages/Forbidden', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Setting', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetForm', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetConfirm', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/PasswordResetForm', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/auth/PasswordResetConfirm', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../pages/Channel', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Token', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Redemption', () => ({ default: () => <div /> }));
@@ -94,8 +107,12 @@ vi.mock('../../pages/Playground', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Subscription', () => ({ default: () => <div /> }));
 vi.mock('../../pages/ServiceStatus', () => ({ default: () => <div /> }));
 vi.mock('../../pages/ServiceStatusCenter', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/OAuth2Callback', () => ({ default: () => <div /> }));
-vi.mock('../../components/settings/PersonalSetting', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/OAuth2Callback', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/settings/PersonalSetting', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../pages/Home', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Dashboard', () => ({ default: () => <div /> }));
 vi.mock('../../pages/About', () => ({ default: () => <div /> }));
@@ -103,8 +120,12 @@ vi.mock('../../pages/UserAgreement', () => ({ default: () => <div /> }));
 vi.mock('../../pages/PrivacyPolicy', () => ({ default: () => <div /> }));
 
 vi.mock('../../helpers', () => ({
-  AuthRedirect: ({ children }) => <div data-guard='auth-redirect'>{children}</div>,
-  PrivateRoute: ({ children }) => <div data-guard='private-route'>{children}</div>,
+  AuthRedirect: ({ children }) => (
+    <div data-guard='auth-redirect'>{children}</div>
+  ),
+  PrivateRoute: ({ children }) => (
+    <div data-guard='private-route'>{children}</div>
+  ),
   AdminRoute: ({ children }) => <div data-guard='admin-route'>{children}</div>,
 }));
 
@@ -149,7 +170,9 @@ vi.mock('../../hooks/monitor/useMonitorTargetDetail', () => ({
       statusText: '运行中',
     },
     runs: [{ id: 1, statusText: '成功', durationText: '111 ms' }],
-    events: [{ id: 1, title: '探测成功', occurredAtText: '2026-04-24 10:00:00' }],
+    events: [
+      { id: 1, title: '探测成功', occurredAtText: '2026-04-24 10:00:00' },
+    ],
     billing: [{ id: 1, modelName: 'gpt-4.1-mini', costText: '$0.000001' }],
     refresh: vi.fn(),
   }),

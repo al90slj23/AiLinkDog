@@ -34,7 +34,8 @@ if (!globalThis.ResizeObserver) {
 }
 
 vi.mock('../../../components/ui/spline-scene', () => ({
-  SplineScene: () => React.createElement('div', { className: 'ald-home-robot-bg__motion' }),
+  SplineScene: () =>
+    React.createElement('div', { className: 'ald-home-robot-bg__motion' }),
 }));
 
 vi.mock('../../../helpers', () => ({

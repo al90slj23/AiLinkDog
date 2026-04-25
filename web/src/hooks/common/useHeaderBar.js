@@ -37,7 +37,9 @@ export const useHeaderBar = ({ onMobileMenuToggle, drawerOpen }) => {
   const [collapsed, toggleCollapsed] = useSidebarCollapsed();
   const [logoLoaded, setLogoLoaded] = useState(false);
   const navigate = useNavigate();
-  const [currentLang, setCurrentLang] = useState(normalizeLanguage(i18n.language));
+  const [currentLang, setCurrentLang] = useState(
+    normalizeLanguage(i18n.language),
+  );
   const location = useLocation();
 
   const loading = statusState?.status === undefined;
@@ -56,16 +58,16 @@ export const useHeaderBar = ({ onMobileMenuToggle, drawerOpen }) => {
   const headerNavModulesConfig = statusState?.status?.HeaderNavModules;
 
   // 使用useMemo确保headerNavModules正确响应statusState变化
-	const headerNavModules = useMemo(() => {
-		if (headerNavModulesConfig) {
-			try {
-				const modules = JSON.parse(headerNavModulesConfig);
-				if (typeof modules.status !== 'boolean') {
-					modules.status = true;
-				}
+  const headerNavModules = useMemo(() => {
+    if (headerNavModulesConfig) {
+      try {
+        const modules = JSON.parse(headerNavModulesConfig);
+        if (typeof modules.status !== 'boolean') {
+          modules.status = true;
+        }
 
-				// 处理向后兼容性：如果pricing是boolean，转换为对象格式
-				if (typeof modules.pricing === 'boolean') {
+        // 处理向后兼容性：如果pricing是boolean，转换为对象格式
+        if (typeof modules.pricing === 'boolean') {
           modules.pricing = {
             enabled: modules.pricing,
             requireAuth: false, // 默认不需要登录鉴权

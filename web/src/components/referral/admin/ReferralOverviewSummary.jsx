@@ -19,7 +19,16 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, Col, Empty, Row, Skeleton, Table, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Card,
+  Col,
+  Empty,
+  Row,
+  Skeleton,
+  Table,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { formatQuota } from '../utils';
 
 function formatPlanType(value, t) {
@@ -69,7 +78,11 @@ function pickStatisticValue(statistics, keys) {
   return 0;
 }
 
-export default function ReferralOverviewSummary({ loading = false, statistics = {}, plans = [] }) {
+export default function ReferralOverviewSummary({
+  loading = false,
+  statistics = {},
+  plans = [],
+}) {
   const { t } = useTranslation();
 
   const overviewCards = [
@@ -87,42 +100,42 @@ export default function ReferralOverviewSummary({ loading = false, statistics = 
     },
     {
       title: t('总返利支出'),
-      value: formatQuota(pickStatisticValue(statistics, ['total_referral_payout'])),
+      value: formatQuota(
+        pickStatisticValue(statistics, ['total_referral_payout']),
+      ),
     },
   ];
 
-  const dataSource = useMemo(
-    () => {
-      const overviewMap = new Map(
-        (Array.isArray(statistics?.plan_overview) ? statistics.plan_overview : []).map((item) => [
-          Number(item.plan_id),
-          item,
-        ]),
-      );
+  const dataSource = useMemo(() => {
+    const overviewMap = new Map(
+      (Array.isArray(statistics?.plan_overview)
+        ? statistics.plan_overview
+        : []
+      ).map((item) => [Number(item.plan_id), item]),
+    );
 
-      return (Array.isArray(plans) ? plans : []).map((plan, index) => {
-        const overview = overviewMap.get(Number(plan.id)) || {};
-        return {
-          key: plan.id || `overview-plan-${index}`,
-          plan_id: plan.id,
-          name: plan.name,
-          plan_type: plan.plan_type,
-          is_active: plan.is_active,
-          selected_account_count: overview.selected_account_count ?? 0,
-          level1_commission_quota: overview.level1_commission_quota ?? 0,
-          level2_commission_quota: overview.level2_commission_quota ?? 0,
-          total_commission_quota: overview.total_commission_quota ?? 0,
-        };
-      });
-    },
-    [statistics, plans],
-  );
+    return (Array.isArray(plans) ? plans : []).map((plan, index) => {
+      const overview = overviewMap.get(Number(plan.id)) || {};
+      return {
+        key: plan.id || `overview-plan-${index}`,
+        plan_id: plan.id,
+        name: plan.name,
+        plan_type: plan.plan_type,
+        is_active: plan.is_active,
+        selected_account_count: overview.selected_account_count ?? 0,
+        level1_commission_quota: overview.level1_commission_quota ?? 0,
+        level2_commission_quota: overview.level2_commission_quota ?? 0,
+        total_commission_quota: overview.total_commission_quota ?? 0,
+      };
+    });
+  }, [statistics, plans]);
 
   const columns = [
     {
       title: t('方案名称'),
       dataIndex: 'name',
-      render: (_, record) => record.name || (record.plan_id ? `#${record.plan_id}` : '--'),
+      render: (_, record) =>
+        record.name || (record.plan_id ? `#${record.plan_id}` : '--'),
     },
     {
       title: t('方案类型'),
@@ -159,19 +172,32 @@ export default function ReferralOverviewSummary({ loading = false, statistics = 
     <Card>
       <Typography.Title heading={5}>{t('方案运营概览')}</Typography.Title>
       <Typography.Text type='tertiary'>
-        {t('这里展示每个返利方案的选择情况与返利累计数据，返利方案的新增、编辑和启停仍在“返利方案”分栏处理。')}
+        {t(
+          '这里展示每个返利方案的选择情况与返利累计数据，返利方案的新增、编辑和启停仍在“返利方案”分栏处理。',
+        )}
       </Typography.Text>
 
       <Row gutter={16} style={{ marginTop: 16, marginBottom: 16 }}>
         {overviewCards.map((item) => (
-          <Col span={6} key={item.title} xxl={6} xl={6} lg={12} md={12} sm={12} xs={24}>
+          <Col
+            span={6}
+            key={item.title}
+            xxl={6}
+            xl={6}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={24}
+          >
             <Card bodyStyle={{ padding: 16 }}>
               <Typography.Text type='tertiary'>{item.title}</Typography.Text>
               <div style={{ marginTop: 8 }}>
                 <Skeleton
                   loading={loading}
                   active
-                  placeholder={<Skeleton.Title style={{ width: 96, height: 28 }} />}
+                  placeholder={
+                    <Skeleton.Title style={{ width: 96, height: 28 }} />
+                  }
                 >
                   <Typography.Title heading={3} style={{ margin: 0 }}>
                     {item.value}
@@ -183,13 +209,18 @@ export default function ReferralOverviewSummary({ loading = false, statistics = 
         ))}
       </Row>
 
-        <Table
-          columns={columns}
-          dataSource={dataSource}
-          pagination={false}
-          loading={loading}
-          empty={<Empty imageStyle={{ height: 80 }} description={t('暂无返利方案数据')} />}
-        />
-      </Card>
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        pagination={false}
+        loading={loading}
+        empty={
+          <Empty
+            imageStyle={{ height: 80 }}
+            description={t('暂无返利方案数据')}
+          />
+        }
+      />
+    </Card>
   );
 }

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Banner,
-  Button,
-  Form,
-  Space,
-  Typography,
-} from '@douyinfe/semi-ui';
+import { Banner, Button, Form, Space, Typography } from '@douyinfe/semi-ui';
 import { IconBolt } from '@douyinfe/semi-icons';
 import CodexOAuthModal from './CodexOAuthModal';
 
@@ -112,9 +106,7 @@ const EditChannelModalPrimaryKeyInputSection = ({
             onChange={handleVertexUploadChange}
             fileList={vertexFileList}
             rules={
-              isEdit
-                ? []
-                : [{ required: true, message: t('请上传密钥文件') }]
+              isEdit ? [] : [{ required: true, message: t('请上传密钥文件') }]
             }
             extraText={batchExtra}
           />
@@ -126,12 +118,12 @@ const EditChannelModalPrimaryKeyInputSection = ({
               inputs.type === 33
                 ? inputs.aws_key_type === 'api_key'
                   ? t('请输入 API Key，一行一个，格式：APIKey|Region')
-                  : t('请输入密钥，一行一个，格式：AccessKey|SecretAccessKey|Region')
+                  : t(
+                      '请输入密钥，一行一个，格式：AccessKey|SecretAccessKey|Region',
+                    )
                 : t('请输入密钥，一行一个')
             }
-            rules={
-              isEdit ? [] : [{ required: true, message: t('请输入密钥') }]
-            }
+            rules={isEdit ? [] : [{ required: true, message: t('请输入密钥') }]}
             autosize
             autoComplete='new-password'
             onChange={(value) => handleInputChange('key', value)}
@@ -165,7 +157,11 @@ const EditChannelModalPrimaryKeyInputSection = ({
             <>
               <Form.TextArea
                 field='key'
-                label={isEdit ? t('密钥（编辑模式下，保存的密钥不会显示）') : t('密钥')}
+                label={
+                  isEdit
+                    ? t('密钥（编辑模式下，保存的密钥不会显示）')
+                    : t('密钥')
+                }
                 placeholder={t(
                   '请输入 JSON 格式的 OAuth 凭据，例如：\n{\n  "access_token": "...",\n  "account_id": "..." \n}',
                 )}
@@ -178,7 +174,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
                 extraText={
                   <div className='flex flex-col gap-2'>
                     <Text type='tertiary' size='small'>
-                      {t('仅支持 JSON 对象，必须包含 access_token 与 account_id')}
+                      {t(
+                        '仅支持 JSON 对象，必须包含 access_token 与 account_id',
+                      )}
                     </Text>
 
                     <Space wrap spacing='tight'>
@@ -228,11 +226,14 @@ const EditChannelModalPrimaryKeyInputSection = ({
                 onSuccess={handleCodexOAuthGenerated}
               />
             </>
-          ) : inputs.type === 41 && (inputs.vertex_key_type || 'json') === 'json' ? (
+          ) : inputs.type === 41 &&
+            (inputs.vertex_key_type || 'json') === 'json' ? (
             <>
               {!batch && (
                 <div className='flex items-center justify-between mb-3'>
-                  <Text className='text-sm font-medium'>{t('密钥输入方式')}</Text>
+                  <Text className='text-sm font-medium'>
+                    {t('密钥输入方式')}
+                  </Text>
                   <Space>
                     <Button
                       size='small'
@@ -272,7 +273,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
               {batch && (
                 <Banner
                   type='info'
-                  description={t('批量创建模式下仅支持文件上传，不支持手动输入')}
+                  description={t(
+                    '批量创建模式下仅支持文件上传，不支持手动输入',
+                  )}
                   className='!rounded-lg mb-3'
                 />
               )}
@@ -281,7 +284,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
                 <Form.TextArea
                   field='key'
                   label={
-                    isEdit ? t('密钥（编辑模式下，保存的密钥不会显示）') : t('密钥')
+                    isEdit
+                      ? t('密钥（编辑模式下，保存的密钥不会显示）')
+                      : t('密钥')
                   }
                   placeholder={t(
                     '请输入 JSON 格式的密钥内容，例如：\n{\n  "type": "service_account",\n  "project_id": "your-project-id",\n  "private_key_id": "...",\n  "private_key": "...",\n  "client_email": "...",\n  "client_id": "...",\n  "auth_uri": "...",\n  "token_uri": "...",\n  "auth_provider_x509_cert_url": "...",\n  "client_x509_cert_url": "..."\n}',
@@ -332,7 +337,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
                   onChange={handleVertexUploadChange}
                   fileList={vertexFileList}
                   rules={
-                    isEdit ? [] : [{ required: true, message: t('请上传密钥文件') }]
+                    isEdit
+                      ? []
+                      : [{ required: true, message: t('请上传密钥文件') }]
                   }
                   extraText={batchExtra}
                 />
@@ -341,7 +348,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
           ) : (
             <Form.Input
               field='key'
-              label={isEdit ? t('密钥（编辑模式下，保存的密钥不会显示）') : t('密钥')}
+              label={
+                isEdit ? t('密钥（编辑模式下，保存的密钥不会显示）') : t('密钥')
+              }
               placeholder={
                 inputs.type === 33
                   ? inputs.aws_key_type === 'api_key'
@@ -349,7 +358,9 @@ const EditChannelModalPrimaryKeyInputSection = ({
                     : t('按照如下格式输入：AccessKey|SecretAccessKey|Region')
                   : t(type2secretPrompt(inputs.type))
               }
-              rules={isEdit ? [] : [{ required: true, message: t('请输入密钥') }]}
+              rules={
+                isEdit ? [] : [{ required: true, message: t('请输入密钥') }]
+              }
               autoComplete='new-password'
               onChange={(value) => handleInputChange('key', value)}
               extraText={

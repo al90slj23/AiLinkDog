@@ -18,7 +18,16 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Col, Input, Row, Select, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Col,
+  Input,
+  Row,
+  Select,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { IconDelete } from '@douyinfe/semi-icons';
 import { useTranslation } from 'react-i18next';
 import { OPERATION_MODE_OPTIONS } from './paramOverrideEditorModalConstants';
@@ -47,7 +56,9 @@ const ParamOverrideEditorModalOperationHeaderSection = ({
       <div className='flex items-center justify-between mb-3'>
         <Space>
           <Tag color='blue'>{`#${selectedOperationIndex + 1}`}</Tag>
-          <Text strong>{getOperationSummary(selectedOperation, selectedOperationIndex)}</Text>
+          <Text strong>
+            {getOperationSummary(selectedOperation, selectedOperationIndex)}
+          </Text>
         </Space>
         <Space>
           <Button
@@ -76,19 +87,25 @@ const ParamOverrideEditorModalOperationHeaderSection = ({
           <Select
             value={mode}
             optionList={OPERATION_MODE_OPTIONS}
-            onChange={(nextMode) => updateOperation(selectedOperation.id, { mode: nextMode })}
+            onChange={(nextMode) =>
+              updateOperation(selectedOperation.id, { mode: nextMode })
+            }
             style={{ width: '100%' }}
           />
         </Col>
         {meta.path || meta.pathOptional ? (
           <Col xs={24} md={16}>
             <Text type='tertiary' size='small'>
-              {meta.pathOptional ? t('目标路径（可选）') : t(getModePathLabel(mode))}
+              {meta.pathOptional
+                ? t('目标路径（可选）')
+                : t(getModePathLabel(mode))}
             </Text>
             <Input
               value={selectedOperation.path}
               placeholder={getModePathPlaceholder(mode)}
-              onChange={(nextValue) => updateOperation(selectedOperation.id, { path: nextValue })}
+              onChange={(nextValue) =>
+                updateOperation(selectedOperation.id, { path: nextValue })
+              }
             />
           </Col>
         ) : null}
@@ -106,7 +123,9 @@ const ParamOverrideEditorModalOperationHeaderSection = ({
           value={selectedOperation.description || ''}
           placeholder={t('例如：清理工具参数，避免上游校验错误')}
           onChange={(nextValue) =>
-            updateOperation(selectedOperation.id, { description: nextValue || '' })
+            updateOperation(selectedOperation.id, {
+              description: nextValue || '',
+            })
           }
           maxLength={180}
           showClear

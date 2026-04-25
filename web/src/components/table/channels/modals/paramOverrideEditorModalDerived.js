@@ -62,7 +62,8 @@ export const getModeToLabel = (mode) => {
 export const getModeToPlaceholder = (mode) => {
   if (mode === 'replace') return '（可留空）';
   if (mode === 'regex_replace') return 'openai/gpt-';
-  if (mode === 'copy_header' || mode === 'move_header') return 'X-Upstream-Auth';
+  if (mode === 'copy_header' || mode === 'move_header')
+    return 'X-Upstream-Auth';
   return 'original_model';
 };
 

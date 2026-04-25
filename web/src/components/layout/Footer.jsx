@@ -195,22 +195,21 @@ const FooterBar = () => {
             </Typography.Text>
           </div>
 
-            <div className='text-sm'>
-              <span className='!text-semi-color-text-1'>
-                {t('来源项目')}{' '}
-              </span>
-              <a
-                href='https://github.com/QuantumNous/new-api'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='!text-semi-color-primary font-medium'
-              >
-                new-api / QuantumNous
-              </a>
-              <span className='!text-semi-color-text-1'>
-                {' '}{t('，AiLinkDog 本地维护')}
-              </span>
-            </div>
+          <div className='text-sm'>
+            <span className='!text-semi-color-text-1'>{t('来源项目')} </span>
+            <a
+              href='https://github.com/QuantumNous/new-api'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='!text-semi-color-primary font-medium'
+            >
+              new-api / QuantumNous
+            </a>
+            <span className='!text-semi-color-text-1'>
+              {' '}
+              {t('，AiLinkDog 本地维护')}
+            </span>
+          </div>
         </div>
       </footer>
     ),
@@ -231,9 +230,7 @@ const FooterBar = () => {
               dangerouslySetInnerHTML={{ __html: footer }}
             ></div>
             <div className='text-sm flex-shrink-0'>
-              <span className='!text-semi-color-text-1'>
-                {t('来源项目')}{' '}
-              </span>
+              <span className='!text-semi-color-text-1'>{t('来源项目')} </span>
               <a
                 href='https://github.com/QuantumNous/new-api'
                 target='_blank'
@@ -243,7 +240,8 @@ const FooterBar = () => {
                 new-api / QuantumNous
               </a>
               <span className='!text-semi-color-text-1'>
-                {' '}{t('，AiLinkDog 本地维护')}
+                {' '}
+                {t('，AiLinkDog 本地维护')}
               </span>
             </div>
           </div>

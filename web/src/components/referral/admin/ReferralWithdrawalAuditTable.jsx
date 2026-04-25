@@ -19,7 +19,16 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Banner, Button, Card, Empty, Space, Table, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Banner,
+  Button,
+  Card,
+  Empty,
+  Space,
+  Table,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 
 function getStatusMeta(status, t) {
   switch (status) {
@@ -49,7 +58,10 @@ function formatAmount(record) {
     return String(amount);
   }
 
-  return `${amount} / ${actualAmount}` + (fee !== null && fee !== undefined ? ` (${fee})` : '');
+  return (
+    `${amount} / ${actualAmount}` +
+    (fee !== null && fee !== undefined ? ` (${fee})` : '')
+  );
 }
 
 function formatApplicant(record) {
@@ -109,7 +121,9 @@ export default function ReferralWithdrawalAuditTable({
       title: t('收款方式'),
       dataIndex: 'payment_method',
       render: (_, record) => {
-        const paymentName = record.payment_name ? ` / ${record.payment_name}` : '';
+        const paymentName = record.payment_name
+          ? ` / ${record.payment_name}`
+          : '';
         return `${record.payment_method || '--'} / ${record.payment_account || '--'}${paymentName}`;
       },
     },
@@ -180,7 +194,9 @@ export default function ReferralWithdrawalAuditTable({
         <Banner
           type='info'
           fullMode={false}
-          description={t('当前审核页直接展示真实提现申请，并支持最小通过/拒绝状态流转。')}
+          description={t(
+            '当前审核页直接展示真实提现申请，并支持最小通过/拒绝状态流转。',
+          )}
         />
 
         <Table
@@ -188,7 +204,12 @@ export default function ReferralWithdrawalAuditTable({
           dataSource={dataSource}
           pagination={false}
           loading={loading}
-          empty={<Empty imageStyle={{ height: 80 }} description={t('暂无提现申请数据')} />}
+          empty={
+            <Empty
+              imageStyle={{ height: 80 }}
+              description={t('暂无提现申请数据')}
+            />
+          }
         />
       </Space>
     </Card>

@@ -22,7 +22,10 @@ export const buildOperationPatchResult = ({ operations, operationId, patch }) =>
     item.id === operationId ? { ...item, ...(patch || {}) } : item,
   );
 
-export const buildAddOperationResult = ({ operations, createDefaultOperation }) => {
+export const buildAddOperationResult = ({
+  operations,
+  createDefaultOperation,
+}) => {
   const created = createDefaultOperation();
   return {
     operations: [...(operations || []), created],
@@ -62,7 +65,10 @@ export const buildAddConditionResult = ({
     ),
     expandedConditionMap: {
       ...(expandedConditionMap || {}),
-      [operationId]: [...((expandedConditionMap || {})[operationId] || []), createdCondition.id],
+      [operationId]: [
+        ...((expandedConditionMap || {})[operationId] || []),
+        createdCondition.id,
+      ],
     },
   };
 };
@@ -78,7 +84,9 @@ export const buildConditionUpdateResult = ({
     return {
       ...operation,
       conditions: (operation.conditions || []).map((condition) =>
-        condition.id === conditionId ? { ...condition, ...(patch || {}) } : condition,
+        condition.id === conditionId
+          ? { ...condition, ...(patch || {}) }
+          : condition,
       ),
     };
   });
@@ -93,13 +101,15 @@ export const buildRemoveConditionResult = ({
     if (operation.id !== operationId) return operation;
     return {
       ...operation,
-      conditions: (operation.conditions || []).filter((condition) => condition.id !== conditionId),
+      conditions: (operation.conditions || []).filter(
+        (condition) => condition.id !== conditionId,
+      ),
     };
   }),
   expandedConditionMap: {
     ...(expandedConditionMap || {}),
-    [operationId]: (((expandedConditionMap || {})[operationId] || []).filter(
+    [operationId]: ((expandedConditionMap || {})[operationId] || []).filter(
       (id) => id !== conditionId,
-    )),
+    ),
   },
 });

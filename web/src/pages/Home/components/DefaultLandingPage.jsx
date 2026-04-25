@@ -32,16 +32,25 @@ const tickerItems = [
   ['glm-4.6-plus', 'new · available'],
 ];
 
-function DefaultLandingPage({ docsLink, isChinese, serverAddress, themeMode, t }) {
+function DefaultLandingPage({
+  docsLink,
+  isChinese,
+  serverAddress,
+  themeMode,
+  t,
+}) {
   const isDark = themeMode === 'dark';
 
   useEffect(() => {
     const root = document.documentElement;
-    const revealNodes = Array.from(document.querySelectorAll('[data-ald-reveal]'));
+    const revealNodes = Array.from(
+      document.querySelectorAll('[data-ald-reveal]'),
+    );
 
     const updateScrollMetrics = () => {
       const scrollTop = window.scrollY || 0;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = maxScroll > 0 ? Math.min(1, scrollTop / maxScroll) : 0;
       root.style.setProperty('--ald-scroll-progress', `${progress}`);
       root.style.setProperty('--ald-scroll-y', `${scrollTop}`);
@@ -88,7 +97,11 @@ function DefaultLandingPage({ docsLink, isChinese, serverAddress, themeMode, t }
       <header className='ald-home-nav'>
         <div className='ald-home-nav__left'>
           <Link to='/' className='ald-home-brand' aria-label='AiLink.Dog'>
-            <img src='/logo.png' alt='AiLink.Dog' className='ald-home-brand__logo' />
+            <img
+              src='/logo.png'
+              alt='AiLink.Dog'
+              className='ald-home-brand__logo'
+            />
             <span className='ald-home-brand__text'>
               AiLink<span className='ald-home-brand__dot'>.Dog</span>
             </span>
@@ -106,8 +119,12 @@ function DefaultLandingPage({ docsLink, isChinese, serverAddress, themeMode, t }
           </nav>
         </div>
         <div className='ald-home-nav__right'>
-          <span className='ald-home-nav__meta'>{isChinese ? '中 / EN' : 'EN / 中'}</span>
-          <span className='ald-home-nav__meta'>{isDark ? 'dark' : 'light'}</span>
+          <span className='ald-home-nav__meta'>
+            {isChinese ? '中 / EN' : 'EN / 中'}
+          </span>
+          <span className='ald-home-nav__meta'>
+            {isDark ? 'dark' : 'light'}
+          </span>
           <Link to='/login' className='ald-home-nav__login'>
             {t('登录')}
           </Link>
@@ -140,7 +157,10 @@ function DefaultLandingPage({ docsLink, isChinese, serverAddress, themeMode, t }
           </div>
           <div className='ald-home-proof__grid'>
             {providerItems.map((item, index) => (
-              <div key={item} className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}>
+              <div
+                key={item}
+                className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}
+              >
                 {item}
               </div>
             ))}

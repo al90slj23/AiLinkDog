@@ -1,16 +1,34 @@
 import React from 'react';
 
 const items = [
-  ['与直接调用 provider 官方 API 有什么区别?', '同样的接口格式，多一层路由与监控。provider 波动时自动回源，并且可以跨模型统一计费。'],
-  ['会在中间存储我的 prompt 或 response 吗?', '默认不存储，仅保留计费所需的 token 计数与延迟指标。可在控制台显式开启日志。'],
-  ['稳定性与监控具体是怎么做的?', '每个模型有多条上游渠道，后台鉴别系统持续探测质量，异常节点自动降权或剔除。'],
-  ['能对接我们自部署的模型吗?', '可以。后续可以把私有模型或私有路由纳入统一网关，共用同一套密钥、监控与计费体系。'],
-  ['最低消费是多少?', '无最低消费。按实际 token 使用量计费，注册即可开始测试。'],
+  [
+    '与直接调用 provider 官方 API 有什么区别?',
+    '同样的接口格式，多一层路由与监控。provider 波动时自动回源，并且可以跨模型统一计费。',
+  ],
+  [
+    '会在中间存储我的 prompt 或 response 吗?',
+    '默认不存储，仅保留计费所需的 token 计数与延迟指标。可在控制台显式开启日志。',
+  ],
+  [
+    '稳定性与监控具体是怎么做的?',
+    '每个模型有多条上游渠道，后台鉴别系统持续探测质量，异常节点自动降权或剔除。',
+  ],
+  [
+    '能对接我们自部署的模型吗?',
+    '可以。后续可以把私有模型或私有路由纳入统一网关，共用同一套密钥、监控与计费体系。',
+  ],
+  [
+    '最低消费是多少?',
+    '无最低消费。按实际 token 使用量计费，注册即可开始测试。',
+  ],
 ];
 
 function LandingFaq() {
   return (
-    <section className='ald-home-section ald-home-section--muted' data-ald-reveal>
+    <section
+      className='ald-home-section ald-home-section--muted'
+      data-ald-reveal
+    >
       <div className='ald-home-section__heading'>
         <span>§ FAQ</span>
         <h2>常见问题</h2>

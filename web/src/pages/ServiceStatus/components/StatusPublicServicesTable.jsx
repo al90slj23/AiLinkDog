@@ -14,7 +14,10 @@ const StatusPublicServicesTable = ({ rows }) => (
             <Tag color={item.statusColor} shape='circle'>
               {item.statusText}
             </Tag>
-            <Typography.Text type='secondary'> {item.sourceKey || '--'}</Typography.Text>
+            <Typography.Text type='secondary'>
+              {' '}
+              {item.sourceKey || '--'}
+            </Typography.Text>
           </div>
         ))
       )}

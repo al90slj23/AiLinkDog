@@ -200,7 +200,9 @@ const EditChannelModalKeySection = ({
                 <Form.Input
                   field='other'
                   label={t('默认 API 版本')}
-                  placeholder={t('请输入默认 API 版本，例如：2025-04-01-preview')}
+                  placeholder={t(
+                    '请输入默认 API 版本，例如：2025-04-01-preview',
+                  )}
                   onChange={(value) => handleInputChange('other', value)}
                   showClear
                 />
@@ -249,7 +251,9 @@ const EditChannelModalKeySection = ({
           {inputs.type === 37 && (
             <Banner
               type='warning'
-              description={t('Dify渠道只适配chatflow和agent，并且agent不支持图片！')}
+              description={t(
+                'Dify渠道只适配chatflow和agent，并且agent不支持图片！',
+              )}
               className='!rounded-lg'
             />
           )}

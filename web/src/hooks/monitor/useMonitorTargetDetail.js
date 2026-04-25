@@ -111,7 +111,12 @@ function normalizeBilling(item = {}) {
 export default function useMonitorTargetDetail(id) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [detail, setDetail] = useState({ target: null, runs: [], events: [], billing: [] });
+  const [detail, setDetail] = useState({
+    target: null,
+    runs: [],
+    events: [],
+    billing: [],
+  });
 
   const loadDetail = async () => {
     if (!id) {
@@ -125,9 +130,15 @@ export default function useMonitorTargetDetail(id) {
     try {
       const [targetRes, runsRes, eventsRes, billingRes] = await Promise.all([
         API.get(`/api/monitor/user/targets/${id}`, { skipErrorHandler: true }),
-        API.get(`/api/monitor/user/targets/${id}/runs`, { skipErrorHandler: true }),
-        API.get(`/api/monitor/user/targets/${id}/events`, { skipErrorHandler: true }),
-        API.get(`/api/monitor/user/targets/${id}/billing`, { skipErrorHandler: true }),
+        API.get(`/api/monitor/user/targets/${id}/runs`, {
+          skipErrorHandler: true,
+        }),
+        API.get(`/api/monitor/user/targets/${id}/events`, {
+          skipErrorHandler: true,
+        }),
+        API.get(`/api/monitor/user/targets/${id}/billing`, {
+          skipErrorHandler: true,
+        }),
       ]);
 
       const responses = [targetRes, runsRes, eventsRes, billingRes];
@@ -140,7 +151,9 @@ export default function useMonitorTargetDetail(id) {
         target: targetRes.data?.data || null,
         runs: Array.isArray(runsRes.data?.data) ? runsRes.data.data : [],
         events: Array.isArray(eventsRes.data?.data) ? eventsRes.data.data : [],
-        billing: Array.isArray(billingRes.data?.data) ? billingRes.data.data : [],
+        billing: Array.isArray(billingRes.data?.data)
+          ? billingRes.data.data
+          : [],
       });
     } catch (error) {
       const message = error?.message || '获取监控详情失败';
@@ -159,10 +172,16 @@ export default function useMonitorTargetDetail(id) {
   return {
     loading,
     error,
-    target: useMemo(() => normalizeTarget(detail.target || {}), [detail.target]),
+    target: useMemo(
+      () => normalizeTarget(detail.target || {}),
+      [detail.target],
+    ),
     runs: useMemo(() => detail.runs.map(normalizeRun), [detail.runs]),
     events: useMemo(() => detail.events.map(normalizeEvent), [detail.events]),
-    billing: useMemo(() => detail.billing.map(normalizeBilling), [detail.billing]),
+    billing: useMemo(
+      () => detail.billing.map(normalizeBilling),
+      [detail.billing],
+    ),
     refresh: loadDetail,
   };
 }

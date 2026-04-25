@@ -18,7 +18,15 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Col, Input, Row, Select, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Col,
+  Input,
+  Row,
+  Select,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { useTranslation } from 'react-i18next';
 import { SYNC_TARGET_TYPE_OPTIONS } from './paramOverrideEditorModalConstants';
 
@@ -50,7 +58,10 @@ const ParamOverrideEditorModalSyncFieldsSection = ({
               style={{ width: 120 }}
               onChange={(nextType) =>
                 updateOperation(selectedOperationId, {
-                  from: buildSyncTargetSpec(nextType, syncFromTarget?.key || ''),
+                  from: buildSyncTargetSpec(
+                    nextType,
+                    syncFromTarget?.key || '',
+                  ),
                 })
               }
             />
@@ -59,7 +70,10 @@ const ParamOverrideEditorModalSyncFieldsSection = ({
               placeholder='session_id'
               onChange={(nextKey) =>
                 updateOperation(selectedOperationId, {
-                  from: buildSyncTargetSpec(syncFromTarget?.type || 'json', nextKey),
+                  from: buildSyncTargetSpec(
+                    syncFromTarget?.type || 'json',
+                    nextKey,
+                  ),
                 })
               }
             />
@@ -85,7 +99,10 @@ const ParamOverrideEditorModalSyncFieldsSection = ({
               placeholder='prompt_cache_key'
               onChange={(nextKey) =>
                 updateOperation(selectedOperationId, {
-                  to: buildSyncTargetSpec(syncToTarget?.type || 'json', nextKey),
+                  to: buildSyncTargetSpec(
+                    syncToTarget?.type || 'json',
+                    nextKey,
+                  ),
                 })
               }
             />

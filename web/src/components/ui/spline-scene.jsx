@@ -4,8 +4,13 @@ const Spline = lazy(() => import('@splinetool/react-spline'));
 
 function SplineFallback({ error = false }) {
   return (
-    <div className='ald-ui-spline-host' style={{ width: '100%', height: '100%' }}>
-      <div className={`ald-ui-spline-shell ${error ? 'is-error' : 'is-loading'}`}>
+    <div
+      className='ald-ui-spline-host'
+      style={{ width: '100%', height: '100%' }}
+    >
+      <div
+        className={`ald-ui-spline-shell ${error ? 'is-error' : 'is-loading'}`}
+      >
         <div className='ald-ui-spline-fallback'>
           <span className='ald-ui-loader' />
         </div>
@@ -61,8 +66,14 @@ export function SplineScene({ scene, className = '' }) {
       if (!canvas || !lastEvent) return;
 
       const rect = canvas.getBoundingClientRect();
-      const clientX = Math.min(Math.max(lastEvent.clientX, rect.left + 1), rect.right - 1);
-      const clientY = Math.min(Math.max(lastEvent.clientY, rect.top + 1), rect.bottom - 1);
+      const clientX = Math.min(
+        Math.max(lastEvent.clientX, rect.left + 1),
+        rect.right - 1,
+      );
+      const clientY = Math.min(
+        Math.max(lastEvent.clientY, rect.top + 1),
+        rect.bottom - 1,
+      );
 
       const pointerPayload = {
         bubbles: true,
@@ -93,8 +104,14 @@ export function SplineScene({ scene, className = '' }) {
       const canvas = root.querySelector('canvas');
       if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
-      const clientX = Math.min(Math.max(event.clientX, rect.left + 1), rect.right - 1);
-      const clientY = Math.min(Math.max(event.clientY, rect.top + 1), rect.bottom - 1);
+      const clientX = Math.min(
+        Math.max(event.clientX, rect.left + 1),
+        rect.right - 1,
+      );
+      const clientY = Math.min(
+        Math.max(event.clientY, rect.top + 1),
+        rect.bottom - 1,
+      );
       canvas.dispatchEvent(
         new MouseEvent('mouseenter', {
           bubbles: true,
@@ -117,7 +134,11 @@ export function SplineScene({ scene, className = '' }) {
   return (
     <SplineSceneBoundary>
       <Suspense fallback={<SplineFallback />}>
-        <div ref={containerRef} className={`ald-ui-spline-host ${className}`} style={{ width: '100%', height: '100%' }}>
+        <div
+          ref={containerRef}
+          className={`ald-ui-spline-host ${className}`}
+          style={{ width: '100%', height: '100%' }}
+        >
           <Spline scene={scene} style={{ width: '100%', height: '100%' }} />
         </div>
       </Suspense>

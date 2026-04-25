@@ -27,14 +27,16 @@ describe('editChannelModalLoadChannel', () => {
   });
 
   it('parses ionet metadata and advanced flags', () => {
-    expect(parseIonetMetadata('{"source":"ionet","deployment_id":"1"}')).toEqual(
-      {
-        source: 'ionet',
-        deployment_id: '1',
-      },
-    );
+    expect(
+      parseIonetMetadata('{"source":"ionet","deployment_id":"1"}'),
+    ).toEqual({
+      source: 'ionet',
+      deployment_id: '1',
+    });
     expect(parseIonetMetadata('{"source":"other"}')).toBeNull();
-    expect(deriveAdvancedSettingsOpen({ model_mapping: '{"a":"b"}' })).toBe(true);
+    expect(deriveAdvancedSettingsOpen({ model_mapping: '{"a":"b"}' })).toBe(
+      true,
+    );
     expect(deriveAdvancedSettingsOpen({ model_mapping: '' })).toBe(false);
   });
 });

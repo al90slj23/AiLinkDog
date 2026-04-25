@@ -10,7 +10,9 @@ export function buildRedirectModelList(mapping) {
     return Array.from(
       new Set(
         Object.values(parsed)
-          .map((value) => (typeof value === 'string' ? value.trim() : undefined))
+          .map((value) =>
+            typeof value === 'string' ? value.trim() : undefined,
+          )
           .filter(Boolean),
       ),
     );
@@ -27,7 +29,11 @@ export function buildUpstreamDetectedModels(models) {
   );
 }
 
-export function buildParamOverrideMeta(paramOverride, t, verifyJSON = defaultVerifyJSON) {
+export function buildParamOverrideMeta(
+  paramOverride,
+  t,
+  verifyJSON = defaultVerifyJSON,
+) {
   const raw = typeof paramOverride === 'string' ? paramOverride.trim() : '';
   if (!raw) {
     return {

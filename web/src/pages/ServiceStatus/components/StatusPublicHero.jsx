@@ -22,7 +22,9 @@ import { Banner, Typography } from '@douyinfe/semi-ui';
 
 const StatusPublicHero = () => (
   <div>
-    <Typography.Title style={{ marginBottom: 8 }}>ALD 服务状态</Typography.Title>
+    <Typography.Title style={{ marginBottom: 8 }}>
+      ALD 服务状态
+    </Typography.Title>
     <Typography.Paragraph type='secondary' style={{ marginBottom: 16 }}>
       这里将展示公开服务健康状态与事件公告，当前先提供最小页面骨架。
     </Typography.Paragraph>

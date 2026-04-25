@@ -141,7 +141,9 @@ const renderQuotaUsage = (text, record, t) => {
   const total = used + remain;
   const percent = total > 0 ? (remain / total) * 100 : 0;
   const renderCopyRow = (label, value, extra = '') => {
-    const content = extra ? `${label}: ${value} ${extra}` : `${label}: ${value}`;
+    const content = extra
+      ? `${label}: ${value} ${extra}`
+      : `${label}: ${value}`;
     return (
       <div
         className='cursor-pointer hover:underline'
@@ -154,7 +156,11 @@ const renderQuotaUsage = (text, record, t) => {
   const popoverContent = (
     <div className='text-xs p-2'>
       {renderCopyRow(t('已用额度'), renderQuota(used))}
-      {renderCopyRow(t('剩余额度'), renderQuota(remain), `(${percent.toFixed(0)}%)`)}
+      {renderCopyRow(
+        t('剩余额度'),
+        renderQuota(remain),
+        `(${percent.toFixed(0)}%)`,
+      )}
       {renderCopyRow(t('总额度'), renderQuota(total))}
     </div>
   );
@@ -304,9 +310,7 @@ const renderOperations = (
             label: item.name,
             onClick: item.onClick,
           }))}
-        trigger={
-          <Button type='tertiary' size='small' icon={<IconMore />} />
-        }
+        trigger={<Button type='tertiary' size='small' icon={<IconMore />} />}
       />
     </Space>
   );

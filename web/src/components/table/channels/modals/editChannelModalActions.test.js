@@ -16,7 +16,9 @@ describe('editChannelModalActions', () => {
     const result = buildCustomModelMergeResult({
       customModel: 'gpt-4o, gpt-4.1, gpt-4o',
       currentModels: ['gpt-4o-mini'],
-      currentModelOptions: [{ key: 'gpt-4o-mini', label: 'gpt-4o-mini', value: 'gpt-4o-mini' }],
+      currentModelOptions: [
+        { key: 'gpt-4o-mini', label: 'gpt-4o-mini', value: 'gpt-4o-mini' },
+      ],
     });
 
     expect(result.models).toEqual(['gpt-4o-mini', 'gpt-4o', 'gpt-4.1']);

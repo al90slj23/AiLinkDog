@@ -23,7 +23,10 @@ import {
   TO_REQUIRED_MODES,
   VALUE_REQUIRED_MODES,
 } from './paramOverrideEditorModalConstants';
-import { parseLooseValue, parsePassHeaderNames } from './paramOverrideEditorModalData';
+import {
+  parseLooseValue,
+  parsePassHeaderNames,
+} from './paramOverrideEditorModalData';
 
 export const validateOperations = (operations, t) => {
   for (let i = 0; i < operations.length; i++) {
@@ -54,7 +57,10 @@ export const validateOperations = (operations, t) => {
     if (meta.to && !toValue) {
       return t('第 {{line}} 条操作缺少目标字段', { line });
     }
-    if (VALUE_REQUIRED_MODES.has(mode) && String(op.value_text ?? '').trim() === '') {
+    if (
+      VALUE_REQUIRED_MODES.has(mode) &&
+      String(op.value_text ?? '').trim() === ''
+    ) {
       return t('第 {{line}} 条操作缺少值', { line });
     }
     if (mode === 'return_error') {
@@ -81,20 +87,29 @@ export const validateOperations = (operations, t) => {
       try {
         const parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-          const hasType = parsed.type !== undefined && String(parsed.type).trim() !== '';
+          const hasType =
+            parsed.type !== undefined && String(parsed.type).trim() !== '';
           const hasWhere =
             parsed.where &&
             typeof parsed.where === 'object' &&
             !Array.isArray(parsed.where) &&
             Object.keys(parsed.where).length > 0;
-          const hasConditionsArray = Array.isArray(parsed.conditions) && parsed.conditions.length > 0;
+          const hasConditionsArray =
+            Array.isArray(parsed.conditions) && parsed.conditions.length > 0;
           const hasConditionsObject =
             parsed.conditions &&
             typeof parsed.conditions === 'object' &&
             !Array.isArray(parsed.conditions) &&
             Object.keys(parsed.conditions).length > 0;
-          if (!hasType && !hasWhere && !hasConditionsArray && !hasConditionsObject) {
-            return t('第 {{line}} 条 prune_objects 需要至少一个匹配条件', { line });
+          if (
+            !hasType &&
+            !hasWhere &&
+            !hasConditionsArray &&
+            !hasConditionsObject
+          ) {
+            return t('第 {{line}} 条 prune_objects 需要至少一个匹配条件', {
+              line,
+            });
           }
         }
       } catch (error) {

@@ -49,9 +49,16 @@ export { TIME_WINDOW_OPTIONS };
 export default function usePublicStatus() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [payload, setPayload] = useState({ overview: {}, targets: [], events: [], announcements: [] });
+  const [payload, setPayload] = useState({
+    overview: {},
+    targets: [],
+    events: [],
+    announcements: [],
+  });
   const [windowValue, setWindowValue] = useState(() =>
-    typeof window === 'undefined' ? DEFAULT_TIME_WINDOW : getInitialTimeWindow(window.location.search),
+    typeof window === 'undefined'
+      ? DEFAULT_TIME_WINDOW
+      : getInitialTimeWindow(window.location.search),
   );
 
   useEffect(() => {
@@ -68,13 +75,25 @@ export default function usePublicStatus() {
           throw new Error(res.data?.message || '获取公开服务状态失败');
         }
         if (mounted) {
-           setPayload(res.data?.data || { overview: {}, targets: [], events: [], announcements: [] });
+          setPayload(
+            res.data?.data || {
+              overview: {},
+              targets: [],
+              events: [],
+              announcements: [],
+            },
+          );
         }
       } catch (requestError) {
         if (mounted) {
           const message = requestError?.message || '获取公开服务状态失败';
           setError(message);
-          setPayload({ overview: {}, targets: [], events: [], announcements: [] });
+          setPayload({
+            overview: {},
+            targets: [],
+            events: [],
+            announcements: [],
+          });
           showError(message);
         }
       } finally {
@@ -154,7 +173,8 @@ export default function usePublicStatus() {
     loading,
     error,
     windowValue,
-    setWindowValue: (nextValue) => setWindowValue(normalizeStatusWindow(nextValue)),
+    setWindowValue: (nextValue) =>
+      setWindowValue(normalizeStatusWindow(nextValue)),
     overview,
     serviceRows,
     events,

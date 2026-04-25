@@ -288,13 +288,16 @@ export const getSubscriptionsColumns = ({
       title: 'ID',
       dataIndex: 'plan_id',
       width: 60,
-      render: (text, record) => <Text type='tertiary'>#{record?.plan?.id ?? text}</Text>,
+      render: (text, record) => (
+        <Text type='tertiary'>#{record?.plan?.id ?? text}</Text>
+      ),
     },
     {
       title: t('套餐'),
       dataIndex: 'plan_title',
       width: 200,
-      render: (text, record) => renderPlanTitle(record?.plan?.title ?? text, record, t),
+      render: (text, record) =>
+        renderPlanTitle(record?.plan?.title ?? text, record, t),
     },
     {
       title: t('价格'),
@@ -311,7 +314,11 @@ export const getSubscriptionsColumns = ({
       title: t('优先级'),
       dataIndex: 'plan_sort_order',
       width: 80,
-      render: (text, record) => <Text type='tertiary'>{Number(record?.plan?.sort_order ?? text ?? 0)}</Text>,
+      render: (text, record) => (
+        <Text type='tertiary'>
+          {Number(record?.plan?.sort_order ?? text ?? 0)}
+        </Text>
+      ),
     },
     {
       title: t('有效期'),
@@ -327,7 +334,8 @@ export const getSubscriptionsColumns = ({
       title: t('状态'),
       dataIndex: 'plan_enabled',
       width: 80,
-      render: (text, record) => renderEnabled(record?.plan?.enabled ?? text, record, t),
+      render: (text, record) =>
+        renderEnabled(record?.plan?.enabled ?? text, record, t),
     },
     {
       title: t('支付渠道'),

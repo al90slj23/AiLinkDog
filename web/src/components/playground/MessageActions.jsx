@@ -55,7 +55,9 @@ const MessageActions = ({
   return (
     <div className='flex items-center gap-0.5'>
       {!isLoading && (
-        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('重试')}>
+        <ActionButton
+          title={shouldDisableActions ? t('操作暂时被禁用') : t('重试')}
+        >
           <Button
             theme='borderless'
             type='tertiary'
@@ -84,7 +86,9 @@ const MessageActions = ({
       )}
 
       {canEdit && (
-        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('编辑')}>
+        <ActionButton
+          title={shouldDisableActions ? t('操作暂时被禁用') : t('编辑')}
+        >
           <Button
             theme='borderless'
             type='tertiary'
@@ -128,7 +132,9 @@ const MessageActions = ({
       )}
 
       {!isLoading && (
-        <ActionButton title={shouldDisableActions ? t('操作暂时被禁用') : t('删除')}>
+        <ActionButton
+          title={shouldDisableActions ? t('操作暂时被禁用') : t('删除')}
+        >
           <Button
             theme='borderless'
             type='tertiary'

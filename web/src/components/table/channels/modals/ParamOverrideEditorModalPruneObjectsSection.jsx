@@ -18,7 +18,16 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Col, Input, Row, Select, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Col,
+  Input,
+  Row,
+  Select,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { IconDelete, IconPlus } from '@douyinfe/semi-icons';
 import { useTranslation } from 'react-i18next';
 import { CONDITION_MODE_OPTIONS } from './paramOverrideEditorModalConstants';
@@ -52,14 +61,20 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
           <Button
             size='small'
             type={pruneObjectsDraft.simpleMode ? 'primary' : 'tertiary'}
-            onClick={() => updatePruneObjectsDraft(selectedOperationId, { simpleMode: true })}
+            onClick={() =>
+              updatePruneObjectsDraft(selectedOperationId, { simpleMode: true })
+            }
           >
             {t('简洁')}
           </Button>
           <Button
             size='small'
             type={pruneObjectsDraft.simpleMode ? 'tertiary' : 'primary'}
-            onClick={() => updatePruneObjectsDraft(selectedOperationId, { simpleMode: false })}
+            onClick={() =>
+              updatePruneObjectsDraft(selectedOperationId, {
+                simpleMode: false,
+              })
+            }
           >
             {t('高级')}
           </Button>
@@ -72,7 +87,9 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
       <Input
         value={pruneObjectsDraft.typeText}
         placeholder='redacted_thinking'
-        onChange={(nextValue) => updatePruneObjectsDraft(selectedOperationId, { typeText: nextValue })}
+        onChange={(nextValue) =>
+          updatePruneObjectsDraft(selectedOperationId, { typeText: nextValue })
+        }
       />
 
       {pruneObjectsDraft.simpleMode ? (
@@ -94,7 +111,9 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                 ]}
                 style={{ width: '100%' }}
                 onChange={(nextValue) =>
-                  updatePruneObjectsDraft(selectedOperationId, { logic: nextValue || 'AND' })
+                  updatePruneObjectsDraft(selectedOperationId, {
+                    logic: nextValue || 'AND',
+                  })
                 }
               />
             </Col>
@@ -106,14 +125,22 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                 <Button
                   size='small'
                   type={pruneObjectsDraft.recursive ? 'primary' : 'tertiary'}
-                  onClick={() => updatePruneObjectsDraft(selectedOperationId, { recursive: true })}
+                  onClick={() =>
+                    updatePruneObjectsDraft(selectedOperationId, {
+                      recursive: true,
+                    })
+                  }
                 >
                   {t('递归')}
                 </Button>
                 <Button
                   size='small'
                   type={pruneObjectsDraft.recursive ? 'tertiary' : 'primary'}
-                  onClick={() => updatePruneObjectsDraft(selectedOperationId, { recursive: false })}
+                  onClick={() =>
+                    updatePruneObjectsDraft(selectedOperationId, {
+                      recursive: false,
+                    })
+                  }
                 >
                   {t('仅当前层')}
                 </Button>
@@ -121,10 +148,17 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
             </Col>
           </Row>
 
-          <div className='mt-2 rounded-lg p-2' style={{ background: 'var(--semi-color-fill-0)' }}>
+          <div
+            className='mt-2 rounded-lg p-2'
+            style={{ background: 'var(--semi-color-fill-0)' }}
+          >
             <div className='flex items-center justify-between mb-2'>
               <Text strong>{t('附加条件')}</Text>
-              <Button size='small' icon={<IconPlus />} onClick={() => addPruneRule(selectedOperationId)}>
+              <Button
+                size='small'
+                icon={<IconPlus />}
+                onClick={() => addPruneRule(selectedOperationId)}
+              >
                 {t('新增条件')}
               </Button>
             </div>
@@ -150,7 +184,9 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                         type='danger'
                         theme='borderless'
                         icon={<IconDelete />}
-                        onClick={() => removePruneRule(selectedOperationId, rule.id)}
+                        onClick={() =>
+                          removePruneRule(selectedOperationId, rule.id)
+                        }
                       >
                         {t('删除条件')}
                       </Button>
@@ -163,7 +199,11 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                         <Input
                           value={rule.path}
                           placeholder='type'
-                          onChange={(nextValue) => updatePruneRule(selectedOperationId, rule.id, { path: nextValue })}
+                          onChange={(nextValue) =>
+                            updatePruneRule(selectedOperationId, rule.id, {
+                              path: nextValue,
+                            })
+                          }
                         />
                       </Col>
                       <Col xs={24} md={7}>
@@ -174,7 +214,11 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                           value={rule.mode}
                           optionList={CONDITION_MODE_OPTIONS}
                           style={{ width: '100%' }}
-                          onChange={(nextValue) => updatePruneRule(selectedOperationId, rule.id, { mode: nextValue })}
+                          onChange={(nextValue) =>
+                            updatePruneRule(selectedOperationId, rule.id, {
+                              mode: nextValue,
+                            })
+                          }
                         />
                       </Col>
                       <Col xs={24} md={8}>
@@ -185,7 +229,9 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                           value={rule.value_text}
                           placeholder='redacted_thinking'
                           onChange={(nextValue) =>
-                            updatePruneRule(selectedOperationId, rule.id, { value_text: nextValue })
+                            updatePruneRule(selectedOperationId, rule.id, {
+                              value_text: nextValue,
+                            })
                           }
                         />
                       </Col>
@@ -194,7 +240,11 @@ const ParamOverrideEditorModalPruneObjectsSection = ({
                       <Button
                         size='small'
                         type={rule.invert ? 'primary' : 'tertiary'}
-                        onClick={() => updatePruneRule(selectedOperationId, rule.id, { invert: !rule.invert })}
+                        onClick={() =>
+                          updatePruneRule(selectedOperationId, rule.id, {
+                            invert: !rule.invert,
+                          })
+                        }
                       >
                         {t('条件取反')}
                       </Button>

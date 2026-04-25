@@ -5,7 +5,10 @@ describe('EditChannelModalPrimaryKeyInputSection file', () => {
   it('exists for primary key section extraction', () => {
     expect(
       existsSync(
-        new URL('./EditChannelModalPrimaryKeyInputSection.jsx', import.meta.url),
+        new URL(
+          './EditChannelModalPrimaryKeyInputSection.jsx',
+          import.meta.url,
+        ),
       ),
     ).toBe(true);
   });

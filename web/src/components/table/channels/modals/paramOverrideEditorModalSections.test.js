@@ -24,43 +24,68 @@ describe('paramOverrideEditorModal sections', () => {
   it('exposes extracted editor section files', () => {
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalOperationHeaderSection.jsx', import.meta.url),
+        new URL(
+          './ParamOverrideEditorModalOperationHeaderSection.jsx',
+          import.meta.url,
+        ),
       ),
     ).toBe(true);
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalValueEditorSection.jsx', import.meta.url),
+        new URL(
+          './ParamOverrideEditorModalValueEditorSection.jsx',
+          import.meta.url,
+        ),
       ),
     ).toBe(true);
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalConditionsSection.jsx', import.meta.url),
-      ),
-    ).toBe(true);
-    expect(
-      existsSync(new URL('./useParamOverrideEditorModalState.js', import.meta.url)),
-    ).toBe(true);
-    expect(
-      existsSync(new URL('./useParamOverrideEditorModalEffects.jsx', import.meta.url)),
-    ).toBe(true);
-    expect(
-      existsSync(
-        new URL('./ParamOverrideEditorModalReturnErrorSection.jsx', import.meta.url),
+        new URL(
+          './ParamOverrideEditorModalConditionsSection.jsx',
+          import.meta.url,
+        ),
       ),
     ).toBe(true);
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalPruneObjectsSection.jsx', import.meta.url),
+        new URL('./useParamOverrideEditorModalState.js', import.meta.url),
       ),
     ).toBe(true);
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalSyncFieldsSection.jsx', import.meta.url),
+        new URL('./useParamOverrideEditorModalEffects.jsx', import.meta.url),
       ),
     ).toBe(true);
     expect(
       existsSync(
-        new URL('./ParamOverrideEditorModalBasicValueSection.jsx', import.meta.url),
+        new URL(
+          './ParamOverrideEditorModalReturnErrorSection.jsx',
+          import.meta.url,
+        ),
+      ),
+    ).toBe(true);
+    expect(
+      existsSync(
+        new URL(
+          './ParamOverrideEditorModalPruneObjectsSection.jsx',
+          import.meta.url,
+        ),
+      ),
+    ).toBe(true);
+    expect(
+      existsSync(
+        new URL(
+          './ParamOverrideEditorModalSyncFieldsSection.jsx',
+          import.meta.url,
+        ),
+      ),
+    ).toBe(true);
+    expect(
+      existsSync(
+        new URL(
+          './ParamOverrideEditorModalBasicValueSection.jsx',
+          import.meta.url,
+        ),
       ),
     ).toBe(true);
   });

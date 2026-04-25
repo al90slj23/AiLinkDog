@@ -9,7 +9,9 @@ export const TIME_WINDOW_OPTIONS = [
   { label: '30 天', value: '30d' },
 ];
 
-const VALID_TIME_WINDOWS = new Set(TIME_WINDOW_OPTIONS.map((item) => item.value));
+const VALID_TIME_WINDOWS = new Set(
+  TIME_WINDOW_OPTIONS.map((item) => item.value),
+);
 
 const STATUS_META_MAP = {
   operational: { text: '正常', color: 'green', rank: 0 },
@@ -90,7 +92,9 @@ function normalizeChannels(channels = []) {
       statusColor: statusMeta.color,
       statusRank: statusMeta.rank,
       latencyText:
-        typeof channel?.latency_ms === 'number' ? `${channel.latency_ms} ms` : '--',
+        typeof channel?.latency_ms === 'number'
+          ? `${channel.latency_ms} ms`
+          : '--',
       visibility: channel?.visibility || 'private',
     };
   });
@@ -123,7 +127,10 @@ function buildOverview(overview = {}) {
   return {
     totalServices: overview?.target_count || 0,
     affectedServices: overview?.affected_count || 0,
-    averageLatency: typeof overview?.avg_latency_ms === 'number' ? `${overview.avg_latency_ms.toFixed(0)} ms` : '--',
+    averageLatency:
+      typeof overview?.avg_latency_ms === 'number'
+        ? `${overview.avg_latency_ms.toFixed(0)} ms`
+        : '--',
     windowLabel: overview?.window || DEFAULT_TIME_WINDOW,
     overallStatus,
     overallStatusText: overallMeta.text,
@@ -150,9 +157,17 @@ function syncWindowToLocation(windowValue) {
 export function useMonitorStatusData() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [payload, setPayload] = useState({ overview: {}, targets: [], channels: [], events: [], announcements: [] });
+  const [payload, setPayload] = useState({
+    overview: {},
+    targets: [],
+    channels: [],
+    events: [],
+    announcements: [],
+  });
   const [windowValue, setWindowValue] = useState(() =>
-    typeof window === 'undefined' ? DEFAULT_TIME_WINDOW : getInitialTimeWindow(window.location.search),
+    typeof window === 'undefined'
+      ? DEFAULT_TIME_WINDOW
+      : getInitialTimeWindow(window.location.search),
   );
 
   useEffect(() => {
@@ -171,13 +186,27 @@ export function useMonitorStatusData() {
           throw new Error(res.data?.message || '获取服务状态失败');
         }
         if (mounted) {
-           setPayload(res.data?.data || { overview: {}, targets: [], channels: [], events: [], announcements: [] });
+          setPayload(
+            res.data?.data || {
+              overview: {},
+              targets: [],
+              channels: [],
+              events: [],
+              announcements: [],
+            },
+          );
         }
       } catch (error) {
         if (mounted) {
           const message = error?.message || '获取服务状态失败';
           setError(message);
-          setPayload({ overview: {}, targets: [], channels: [], events: [], announcements: [] });
+          setPayload({
+            overview: {},
+            targets: [],
+            channels: [],
+            events: [],
+            announcements: [],
+          });
           showError(message);
         }
       } finally {
@@ -195,17 +224,33 @@ export function useMonitorStatusData() {
     };
   }, [windowValue]);
 
-  const serviceRows = useMemo(() => normalizeTargets(payload.targets), [payload.targets]);
-  const channelRows = useMemo(() => normalizeChannels(payload.channels), [payload.channels]);
-  const events = useMemo(() => normalizeEvents(payload.events), [payload.events]);
-  const announcements = useMemo(() => normalizeAnnouncements(payload.announcements), [payload.announcements]);
-  const overview = useMemo(() => buildOverview(payload.overview), [payload.overview]);
+  const serviceRows = useMemo(
+    () => normalizeTargets(payload.targets),
+    [payload.targets],
+  );
+  const channelRows = useMemo(
+    () => normalizeChannels(payload.channels),
+    [payload.channels],
+  );
+  const events = useMemo(
+    () => normalizeEvents(payload.events),
+    [payload.events],
+  );
+  const announcements = useMemo(
+    () => normalizeAnnouncements(payload.announcements),
+    [payload.announcements],
+  );
+  const overview = useMemo(
+    () => buildOverview(payload.overview),
+    [payload.overview],
+  );
 
   return {
     loading,
     error,
     windowValue,
-    setWindowValue: (nextValue) => setWindowValue(normalizeStatusWindow(nextValue)),
+    setWindowValue: (nextValue) =>
+      setWindowValue(normalizeStatusWindow(nextValue)),
     overview,
     serviceRows,
     channelRows,

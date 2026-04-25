@@ -24,7 +24,10 @@ import { HEADER_VALUE_JSONC_EXAMPLE } from './paramOverrideEditorModalConstants'
 
 const { Text } = Typography;
 
-const ParamOverrideEditorModalHeaderValueExampleModal = ({ visible, onCancel }) => {
+const ParamOverrideEditorModalHeaderValueExampleModal = ({
+  visible,
+  onCancel,
+}) => {
   const { t } = useTranslation();
 
   return (

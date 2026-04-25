@@ -5,7 +5,8 @@ import { MemoryRouter } from 'react-router-dom';
 
 vi.mock('@douyinfe/semi-ui', () => {
   const React = require('react');
-  const passthrough = ({ children, ...props }) => React.createElement('div', props, children);
+  const passthrough = ({ children, ...props }) =>
+    React.createElement('div', props, children);
   const Tabs = ({ children }) => React.createElement('div', null, children);
   Tabs.TabPane = ({ children }) => React.createElement('div', null, children);
   const Form = ({ children }) => React.createElement('form', null, children);
@@ -51,8 +52,12 @@ vi.mock('axios', () => ({
 }));
 
 vi.mock('../../helpers', () => ({
-  AuthRedirect: ({ children }) => <div data-guard='auth-redirect'>{children}</div>,
-  PrivateRoute: ({ children }) => <div data-guard='private-route'>{children}</div>,
+  AuthRedirect: ({ children }) => (
+    <div data-guard='auth-redirect'>{children}</div>
+  ),
+  PrivateRoute: ({ children }) => (
+    <div data-guard='private-route'>{children}</div>
+  ),
   AdminRoute: ({ children }) => <div data-guard='admin-route'>{children}</div>,
   authHeader: () => ({}),
   getUserIdFromLocalStorage: () => '1',
@@ -82,22 +87,40 @@ vi.mock('../../pages/Subscription', () => ({ default: () => <div /> }));
 vi.mock('../../pages/ServiceStatus', () => ({ default: () => <div /> }));
 vi.mock('../../pages/ServiceStatusCenter', () => ({ default: () => <div /> }));
 vi.mock('../../pages/MonitorTargets', () => ({ default: () => <div /> }));
-vi.mock('../../pages/MonitorTargets/EditMonitorTarget', () => ({ default: () => <div /> }));
-vi.mock('../../pages/MonitorTargets/MonitorTargetDetail', () => ({ default: () => <div /> }));
+vi.mock('../../pages/MonitorTargets/EditMonitorTarget', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../pages/MonitorTargets/MonitorTargetDetail', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../pages/Dashboard', () => ({ default: () => <div /> }));
 vi.mock('../../pages/About', () => ({ default: () => <div /> }));
 vi.mock('../../pages/UserAgreement', () => ({ default: () => <div /> }));
 vi.mock('../../pages/PrivacyPolicy', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Setting', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/RegisterForm', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/RegisterForm', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../components/auth/LoginForm', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetForm', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetConfirm', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/OAuth2Callback', () => ({ default: () => <div /> }));
-vi.mock('../../components/settings/PersonalSetting', () => ({ default: () => <div /> }));
-vi.mock('../../pages/NotFound', () => ({ default: () => <div>not-found</div> }));
+vi.mock('../../components/auth/PasswordResetForm', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/auth/PasswordResetConfirm', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/auth/OAuth2Callback', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/settings/PersonalSetting', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../pages/NotFound', () => ({
+  default: () => <div>not-found</div>,
+}));
 vi.mock('../../pages/Forbidden', () => ({ default: () => <div /> }));
-vi.mock('../../components/common/ui/Loading', () => ({ default: () => <div>loading</div> }));
+vi.mock('../../components/common/ui/Loading', () => ({
+  default: () => <div>loading</div>,
+}));
 vi.mock('../../context/Status', () => {
   const React = require('react');
   return { StatusContext: React.createContext([{ status: {} }]) };

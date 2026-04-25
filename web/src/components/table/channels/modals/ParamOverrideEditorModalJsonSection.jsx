@@ -48,7 +48,9 @@ const ParamOverrideEditorModalJsonSection = ({
       <Text type='tertiary' size='small' className='mt-2 block'>
         {t('直接编辑 JSON 文本，保存时会校验格式。')}
       </Text>
-      {jsonError ? <Text className='text-red-500 text-xs mt-2'>{jsonError}</Text> : null}
+      {jsonError ? (
+        <Text className='text-red-500 text-xs mt-2'>{jsonError}</Text>
+      ) : null}
     </div>
   );
 };

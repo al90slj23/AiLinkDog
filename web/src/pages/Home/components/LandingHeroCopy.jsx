@@ -13,7 +13,9 @@ function DogMark() {
 function LandingHeroCopy({ docsLink, t }) {
   return (
     <div className='ald-home-hero__primary-copy'>
-      <div className='ald-home-chip'>All 128 models operational · 实时监控中</div>
+      <div className='ald-home-chip'>
+        All 128 models operational · 实时监控中
+      </div>
       <div className='ald-home-eyebrow'>ALD · AI API Aggregation Platform</div>
       <h1>
         {t('接入所有模型')},
@@ -29,7 +31,11 @@ function LandingHeroCopy({ docsLink, t }) {
       </p>
       <div className='ald-home-hero__actions'>
         <Link to='/register'>
-          <Button theme='solid' type='primary' className='ald-home-button-primary'>
+          <Button
+            theme='solid'
+            type='primary'
+            className='ald-home-button-primary'
+          >
             {t('开始接入')}
           </Button>
         </Link>
@@ -39,8 +45,8 @@ function LandingHeroCopy({ docsLink, t }) {
               {t('查看文档')}
             </Button>
           </a>
-          )}
-        </div>
+        )}
+      </div>
     </div>
   );
 }

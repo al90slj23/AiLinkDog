@@ -5,7 +5,8 @@ import { StaticRouter } from 'react-router-dom/server';
 import { vi } from 'vitest';
 
 vi.mock('@douyinfe/semi-ui', () => ({
-  Button: ({ children, ...props }) => React.createElement('button', props, children),
+  Button: ({ children, ...props }) =>
+    React.createElement('button', props, children),
 }));
 
 vi.mock('@douyinfe/semi-icons', () => ({}));
@@ -15,7 +16,12 @@ vi.mock('../../../components/ui/spotlight', () => ({
 }));
 
 vi.mock('./HeroRobotScene', () => ({
-  default: ({ children }) => React.createElement('div', { className: 'ald-home-hero__primary-robot' }, children),
+  default: ({ children }) =>
+    React.createElement(
+      'div',
+      { className: 'ald-home-hero__primary-robot' },
+      children,
+    ),
 }));
 
 import DefaultLandingPage from './DefaultLandingPage';

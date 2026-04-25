@@ -18,7 +18,16 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Card, Input, Modal, Select, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Card,
+  Input,
+  Modal,
+  Select,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { useTranslation } from 'react-i18next';
 import { FIELD_GUIDE_TARGET_OPTIONS } from './paramOverrideEditorModalConstants';
 
@@ -141,7 +150,9 @@ const ParamOverrideEditorModalFieldGuideModal = ({
                         paddingTop: 10,
                         paddingBottom: 10,
                         borderTop:
-                          index === 0 ? 'none' : '1px solid var(--semi-color-border)',
+                          index === 0
+                            ? 'none'
+                            : '1px solid var(--semi-color-border)',
                       }}
                     >
                       <div style={{ flex: 1, minWidth: 0 }}>
@@ -170,10 +181,19 @@ const ParamOverrideEditorModalFieldGuideModal = ({
                         </Text>
                       </div>
                       <Space spacing={6} align='center'>
-                        <Button size='small' type='tertiary' onClick={() => copyBuiltinField(field.key)}>
+                        <Button
+                          size='small'
+                          type='tertiary'
+                          onClick={() => copyBuiltinField(field.key)}
+                        >
                           {t('复制')}
                         </Button>
-                        <Button size='small' onClick={() => applyBuiltinField(field.key, fieldGuideTarget)}>
+                        <Button
+                          size='small'
+                          onClick={() =>
+                            applyBuiltinField(field.key, fieldGuideTarget)
+                          }
+                        >
                           {fieldGuideActionLabel}
                         </Button>
                       </Space>

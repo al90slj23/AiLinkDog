@@ -27,7 +27,10 @@ import {
   verifyJSON,
 } from '../../../../helpers';
 import { useIsMobile } from '../../../../hooks/common/useIsMobile';
-import { CHANNEL_OPTIONS, MODEL_FETCHABLE_CHANNEL_TYPES } from '../../../../constants';
+import {
+  CHANNEL_OPTIONS,
+  MODEL_FETCHABLE_CHANNEL_TYPES,
+} from '../../../../constants';
 import {
   SideSheet,
   Space,
@@ -606,7 +609,10 @@ const EditChannelModal = (props) => {
   const formatUnixTime = (timestamp) => formatUnixTimeValue(timestamp, t);
 
   const copyParamOverrideJson = async () => {
-    const raw = typeof inputs.param_override === 'string' ? inputs.param_override.trim() : '';
+    const raw =
+      typeof inputs.param_override === 'string'
+        ? inputs.param_override.trim()
+        : '';
     if (!raw) {
       showInfo(t('暂无可复制 JSON'));
       return;
@@ -976,12 +982,15 @@ const EditChannelModal = (props) => {
       } else {
         formApiRef.current?.setValues(getInitValues());
         try {
-          navigator?.clipboard?.readText()?.then((text) => {
-            const parsed = parseChannelConnectionString(text);
-            if (parsed) {
-              setClipboardConfig(parsed);
-            }
-          }).catch(() => {});
+          navigator?.clipboard
+            ?.readText()
+            ?.then((text) => {
+              const parsed = parseChannelConnectionString(text);
+              if (parsed) {
+                setClipboardConfig(parsed);
+              }
+            })
+            .catch(() => {});
         } catch {}
       }
       fetchModelGroups();
@@ -989,7 +998,8 @@ const EditChannelModal = (props) => {
       setUseManualInput(false);
       // 编辑模式下恢复用户偏好，创建模式一律折叠
       setAdvancedSettingsOpen(
-        isEdit && localStorage.getItem(ADVANCED_SETTINGS_EXPANDED_KEY) === 'true'
+        isEdit &&
+          localStorage.getItem(ADVANCED_SETTINGS_EXPANDED_KEY) === 'true',
       );
     } else {
       // 统一的模态框关闭重置逻辑
@@ -1355,8 +1365,11 @@ const EditChannelModal = (props) => {
       return;
     }
 
-    const { beforeCount, afterCount, text: deduplicatedKeyText } =
-      buildDeduplicatedKeysResult(currentKey);
+    const {
+      beforeCount,
+      afterCount,
+      text: deduplicatedKeyText,
+    } = buildDeduplicatedKeysResult(currentKey);
 
     // 更新表单和状态
     if (formApiRef.current) {
@@ -1383,12 +1396,15 @@ const EditChannelModal = (props) => {
   const addCustomModels = () => {
     if (customModel.trim() === '') return;
 
-    const { models: localModels, modelOptions: localModelOptions, addedModels } =
-      buildCustomModelMergeResult({
-        customModel,
-        currentModels: inputs.models,
-        currentModelOptions: modelOptions,
-      });
+    const {
+      models: localModels,
+      modelOptions: localModelOptions,
+      addedModels,
+    } = buildCustomModelMergeResult({
+      customModel,
+      currentModels: inputs.models,
+      currentModelOptions: modelOptions,
+    });
 
     setModelOptions(localModelOptions);
     setCustomModel('');
@@ -1685,54 +1701,56 @@ const EditChannelModal = (props) => {
             );
 
             return (
-            <>
-            <Spin spinning={loading}>
-              <div className='p-2 space-y-3' ref={formContainerRef}>
-                {!isEdit && clipboardConfig && (
-                  <Banner
-                    type='info'
-                    className='ec-dbcd0a3c01b55203'
-                    description={
-                      <div className='flex items-center justify-between gap-2'>
-                        <span>{t('检测到剪贴板中的连接信息')}</span>
-                        <div className='flex gap-1'>
-                          <Button
-                            size='small'
-                            theme='solid'
-                            type='primary'
-                            onClick={() => applyClipboardConfig(clipboardConfig)}
-                          >
-                            {t('自动填入')}
-                          </Button>
-                          <Button
-                            size='small'
-                            type='tertiary'
-                            onClick={() => setClipboardConfig(null)}
-                          >
-                            {t('忽略')}
-                          </Button>
-                        </div>
-                      </div>
-                    }
-                  />
-                )}
-                <EditChannelModalCoreSection
-                  t={t}
-                  inputs={inputs}
-                  channelOptionList={channelOptionList}
-                  channelSearchValue={channelSearchValue}
-                  renderChannelOption={renderChannelOption}
-                  isIonetChannel={isIonetChannel}
-                  ionetMetadata={ionetMetadata}
-                  isIonetLocked={isIonetLocked}
-                  handleOpenIonetDeployment={handleOpenIonetDeployment}
-                  handleInputChange={handleInputChange}
-                  handleEnterpriseAccountChange={(value) => {
-                    setIsEnterpriseAccount(value);
-                    handleInputChange('is_enterprise_account', value);
-                  }}
-                  setChannelSearchValue={setChannelSearchValue}
-                />
+              <>
+                <Spin spinning={loading}>
+                  <div className='p-2 space-y-3' ref={formContainerRef}>
+                    {!isEdit && clipboardConfig && (
+                      <Banner
+                        type='info'
+                        className='ec-dbcd0a3c01b55203'
+                        description={
+                          <div className='flex items-center justify-between gap-2'>
+                            <span>{t('检测到剪贴板中的连接信息')}</span>
+                            <div className='flex gap-1'>
+                              <Button
+                                size='small'
+                                theme='solid'
+                                type='primary'
+                                onClick={() =>
+                                  applyClipboardConfig(clipboardConfig)
+                                }
+                              >
+                                {t('自动填入')}
+                              </Button>
+                              <Button
+                                size='small'
+                                type='tertiary'
+                                onClick={() => setClipboardConfig(null)}
+                              >
+                                {t('忽略')}
+                              </Button>
+                            </div>
+                          </div>
+                        }
+                      />
+                    )}
+                    <EditChannelModalCoreSection
+                      t={t}
+                      inputs={inputs}
+                      channelOptionList={channelOptionList}
+                      channelSearchValue={channelSearchValue}
+                      renderChannelOption={renderChannelOption}
+                      isIonetChannel={isIonetChannel}
+                      ionetMetadata={ionetMetadata}
+                      isIonetLocked={isIonetLocked}
+                      handleOpenIonetDeployment={handleOpenIonetDeployment}
+                      handleInputChange={handleInputChange}
+                      handleEnterpriseAccountChange={(value) => {
+                        setIsEnterpriseAccount(value);
+                        handleInputChange('is_enterprise_account', value);
+                      }}
+                      setChannelSearchValue={setChannelSearchValue}
+                    />
 
                     <EditChannelModalPrimaryKeyInputSection
                       batch={batch}
@@ -1794,149 +1812,173 @@ const EditChannelModal = (props) => {
                       t={t}
                     />
 
-                   <EditChannelModalModelSection
-                     MODEL_FETCHABLE_CHANNEL_TYPES={
-                       MODEL_FETCHABLE_CHANNEL_TYPES
-                     }
-                     MODEL_MAPPING_EXAMPLE={MODEL_MAPPING_EXAMPLE}
-                     addCustomModels={addCustomModels}
-                     autoBan={autoBan}
-                     basicModels={basicModels}
-                     copy={copy}
-                     customModel={customModel}
-                     fetchUpstreamModelList={fetchUpstreamModelList}
-                     formApi={formApiRef.current}
-                     fullModels={fullModels}
-                     groupOptions={groupOptions}
-                     handleInputChange={handleInputChange}
-                     inputs={inputs}
-                     isEdit={isEdit}
-                     modelGroups={modelGroups}
-                     modelOptions={modelOptions}
-                     modelSearchHintText={modelSearchHintText}
-                     openModelMappingValueModal={openModelMappingValueModal}
-                     setAutoBan={setAutoBan}
-                     setCustomModel={setCustomModel}
-                     setModelSearchValue={setModelSearchValue}
-                     setOllamaModalVisible={setOllamaModalVisible}
-                     showError={showError}
-                     showInfo={showInfo}
-                     showSuccess={showSuccess}
-                     t={t}
-                     channelId={channelId}
-                   />
-                   {/* Advanced Settings Toggle / Collapse */}
-                 {isMobile ? (
-                <Collapse
-                  activeKey={advancedSettingsOpen ? ['advanced'] : []}
-                  onChange={(keys) => toggleAdvancedSettings(keys.includes('advanced'))}
-                >
-                  <Collapse.Panel
-                    header={
-                      <div className='flex items-center gap-2'>
-                        <IconSetting size={16} />
-                        <Text className='font-medium'>{t('高级设置')}</Text>
-                      </div>
-                    }
-                    itemKey='advanced'
-                  >
-                    {advancedSettingsContent}
-                  </Collapse.Panel>
-                </Collapse>
-                ) : (
-                  /* Desktop: toggle button to open side panel */
-                  <div
-                    className='flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors hover:bg-gray-50'
-                    style={{
-                      backgroundColor: advancedSettingsOpen ? 'var(--semi-color-primary-light-default)' : 'var(--semi-color-fill-0)',
-                      border: '1px solid var(--semi-color-fill-2)',
-                    }}
-                    onClick={() => toggleAdvancedSettings(!advancedSettingsOpen)}
-                  >
-                    <div className='flex items-center gap-2'>
-                      <IconSetting size={16} />
-                      <Text className='font-medium'>{t('高级设置')}</Text>
-                    </div>
-                    <div className='flex items-center gap-1 text-sm' style={{ color: 'var(--semi-color-primary)' }}>
-                      <Text size='small' style={{ color: 'var(--semi-color-primary)' }}>
-                        {advancedSettingsOpen ? t('收起') : isEdit ? t('向左展开') : t('向右展开')}
-                      </Text>
-                      <IconChevronDown
-                        size={14}
+                    <EditChannelModalModelSection
+                      MODEL_FETCHABLE_CHANNEL_TYPES={
+                        MODEL_FETCHABLE_CHANNEL_TYPES
+                      }
+                      MODEL_MAPPING_EXAMPLE={MODEL_MAPPING_EXAMPLE}
+                      addCustomModels={addCustomModels}
+                      autoBan={autoBan}
+                      basicModels={basicModels}
+                      copy={copy}
+                      customModel={customModel}
+                      fetchUpstreamModelList={fetchUpstreamModelList}
+                      formApi={formApiRef.current}
+                      fullModels={fullModels}
+                      groupOptions={groupOptions}
+                      handleInputChange={handleInputChange}
+                      inputs={inputs}
+                      isEdit={isEdit}
+                      modelGroups={modelGroups}
+                      modelOptions={modelOptions}
+                      modelSearchHintText={modelSearchHintText}
+                      openModelMappingValueModal={openModelMappingValueModal}
+                      setAutoBan={setAutoBan}
+                      setCustomModel={setCustomModel}
+                      setModelSearchValue={setModelSearchValue}
+                      setOllamaModalVisible={setOllamaModalVisible}
+                      showError={showError}
+                      showInfo={showInfo}
+                      showSuccess={showSuccess}
+                      t={t}
+                      channelId={channelId}
+                    />
+                    {/* Advanced Settings Toggle / Collapse */}
+                    {isMobile ? (
+                      <Collapse
+                        activeKey={advancedSettingsOpen ? ['advanced'] : []}
+                        onChange={(keys) =>
+                          toggleAdvancedSettings(keys.includes('advanced'))
+                        }
+                      >
+                        <Collapse.Panel
+                          header={
+                            <div className='flex items-center gap-2'>
+                              <IconSetting size={16} />
+                              <Text className='font-medium'>
+                                {t('高级设置')}
+                              </Text>
+                            </div>
+                          }
+                          itemKey='advanced'
+                        >
+                          {advancedSettingsContent}
+                        </Collapse.Panel>
+                      </Collapse>
+                    ) : (
+                      /* Desktop: toggle button to open side panel */
+                      <div
+                        className='flex items-center justify-between p-3 rounded-xl cursor-pointer transition-colors hover:bg-gray-50'
                         style={{
-                          transform: advancedSettingsOpen
-                            ? 'rotate(180deg)'
-                            : isEdit ? 'rotate(90deg)' : 'rotate(-90deg)',
-                          transition: 'transform 0.2s',
+                          backgroundColor: advancedSettingsOpen
+                            ? 'var(--semi-color-primary-light-default)'
+                            : 'var(--semi-color-fill-0)',
+                          border: '1px solid var(--semi-color-fill-2)',
                         }}
+                        onClick={() =>
+                          toggleAdvancedSettings(!advancedSettingsOpen)
+                        }
+                      >
+                        <div className='flex items-center gap-2'>
+                          <IconSetting size={16} />
+                          <Text className='font-medium'>{t('高级设置')}</Text>
+                        </div>
+                        <div
+                          className='flex items-center gap-1 text-sm'
+                          style={{ color: 'var(--semi-color-primary)' }}
+                        >
+                          <Text
+                            size='small'
+                            style={{ color: 'var(--semi-color-primary)' }}
+                          >
+                            {advancedSettingsOpen
+                              ? t('收起')
+                              : isEdit
+                                ? t('向左展开')
+                                : t('向右展开')}
+                          </Text>
+                          <IconChevronDown
+                            size={14}
+                            style={{
+                              transform: advancedSettingsOpen
+                                ? 'rotate(180deg)'
+                                : isEdit
+                                  ? 'rotate(90deg)'
+                                  : 'rotate(-90deg)',
+                              transition: 'transform 0.2s',
+                            }}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </Spin>
+
+                {/* Desktop: Advanced Settings Side Panel - rendered inside Form tree */}
+                {!isMobile && advancedSettingsOpen && (
+                  <div
+                    className='fixed top-0 h-full overflow-y-auto z-[999] semi-sidesheet-inner'
+                    style={{
+                      width: 600,
+                      [isEdit ? 'right' : 'left']: 600,
+                      backgroundColor: 'var(--semi-color-bg-0)',
+                      borderLeft: isEdit
+                        ? 'none'
+                        : '1px solid var(--semi-color-border)',
+                      borderRight: isEdit
+                        ? '1px solid var(--semi-color-border)'
+                        : 'none',
+                      animation: `slideIn${isEdit ? 'Left' : 'Right'} 0.3s ease-out`,
+                    }}
+                  >
+                    <div className='semi-sidesheet-header'>
+                      <div className='semi-sidesheet-title'>
+                        <Space>
+                          <Tag color='cyan' shape='circle'>
+                            {t('高级')}
+                          </Tag>
+                          <Title heading={4} className='m-0'>
+                            {t('高级设置')}
+                          </Title>
+                        </Space>
+                      </div>
+                      <Button
+                        className='semi-sidesheet-close'
+                        type='tertiary'
+                        theme='borderless'
+                        icon={<IconClose />}
+                        size='small'
+                        onClick={() => setAdvancedSettingsOpen(false)}
                       />
+                    </div>
+                    <div className='semi-sidesheet-body' style={{ padding: 0 }}>
+                      <div className='p-2 space-y-3'>
+                        <Card className='!rounded-2xl shadow-sm border-0'>
+                          <div className='flex items-center mb-4'>
+                            <Avatar
+                              size='small'
+                              color='orange'
+                              className='mr-2 shadow-md'
+                            >
+                              <IconSetting size={16} />
+                            </Avatar>
+                            <div>
+                              <Text className='text-lg font-medium'>
+                                {t('高级设置')}
+                              </Text>
+                              <div className='text-xs text-gray-600'>
+                                {t('渠道的高级配置选项')}
+                              </div>
+                            </div>
+                          </div>
+                          {advancedSettingsContent}
+                        </Card>
+                      </div>
                     </div>
                   </div>
                 )}
-              </div>
-            </Spin>
-
-            {/* Desktop: Advanced Settings Side Panel - rendered inside Form tree */}
-            {!isMobile && advancedSettingsOpen && (
-              <div
-                className='fixed top-0 h-full overflow-y-auto z-[999] semi-sidesheet-inner'
-                style={{
-                  width: 600,
-                  [isEdit ? 'right' : 'left']: 600,
-                  backgroundColor: 'var(--semi-color-bg-0)',
-                  borderLeft: isEdit ? 'none' : '1px solid var(--semi-color-border)',
-                  borderRight: isEdit ? '1px solid var(--semi-color-border)' : 'none',
-                  animation: `slideIn${isEdit ? 'Left' : 'Right'} 0.3s ease-out`,
-                }}
-              >
-                <div className='semi-sidesheet-header'>
-                  <div className='semi-sidesheet-title'>
-                    <Space>
-                      <Tag color='cyan' shape='circle'>
-                        {t('高级')}
-                      </Tag>
-                      <Title heading={4} className='m-0'>
-                        {t('高级设置')}
-                      </Title>
-                    </Space>
-                  </div>
-                  <Button
-                    className='semi-sidesheet-close'
-                    type='tertiary'
-                    theme='borderless'
-                    icon={<IconClose />}
-                    size='small'
-                    onClick={() => setAdvancedSettingsOpen(false)}
-                  />
-                </div>
-                <div className='semi-sidesheet-body' style={{ padding: 0 }}>
-                  <div className='p-2 space-y-3'>
-                    <Card className='!rounded-2xl shadow-sm border-0'>
-                      <div className='flex items-center mb-4'>
-                        <Avatar
-                          size='small'
-                          color='orange'
-                          className='mr-2 shadow-md'
-                        >
-                          <IconSetting size={16} />
-                        </Avatar>
-                        <div>
-                          <Text className='text-lg font-medium'>
-                            {t('高级设置')}
-                          </Text>
-                          <div className='text-xs text-gray-600'>
-                            {t('渠道的高级配置选项')}
-                          </div>
-                        </div>
-                      </div>
-                      {advancedSettingsContent}
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            )}
-            </>
-          );
+              </>
+            );
           }}
         </Form>
 

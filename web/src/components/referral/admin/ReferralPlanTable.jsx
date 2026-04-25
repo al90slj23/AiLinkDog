@@ -106,8 +106,15 @@ function renderPlanStatus(value, t) {
 function calculateActualRebate(plan, level) {
   const minProfit = Number(plan?.min_channel_profit || 0);
   const profitShare = Number(plan?.profit_share_percent || 0);
-  const levelPercent = Number(level === 1 ? plan?.level1_percent || 0 : plan?.level2_percent || 0);
-  return (((minProfit / 100) * (profitShare / 100) * (levelPercent / 100)) * 100).toFixed(2);
+  const levelPercent = Number(
+    level === 1 ? plan?.level1_percent || 0 : plan?.level2_percent || 0,
+  );
+  return (
+    (minProfit / 100) *
+    (profitShare / 100) *
+    (levelPercent / 100) *
+    100
+  ).toFixed(2);
 }
 
 function calculateUserActualGain(plan) {
@@ -119,12 +126,17 @@ function calculateReferralBase(plan, amount = 100) {
 }
 
 function calculateReferralPool(plan, amount = 100) {
-  return calculateReferralBase(plan, amount) * (Number(plan?.profit_share_percent || 0) / 100);
+  return (
+    calculateReferralBase(plan, amount) *
+    (Number(plan?.profit_share_percent || 0) / 100)
+  );
 }
 
 function calculateReferralMoney(plan, level, amount = 100) {
   const pool = calculateReferralPool(plan, amount);
-  const levelPercent = Number(level === 1 ? plan?.level1_percent || 0 : plan?.level2_percent || 0);
+  const levelPercent = Number(
+    level === 1 ? plan?.level1_percent || 0 : plan?.level2_percent || 0,
+  );
   return (pool * levelPercent) / 100;
 }
 
@@ -176,19 +188,27 @@ function getRatioFieldHelp(t) {
   return [
     {
       title: t('最低利润率'),
-      description: t('用于定义利润基数。以充值 100 元为例，最低利润率 20% 表示先按 20 元利润作为返利计算基础。'),
+      description: t(
+        '用于定义利润基数。以充值 100 元为例，最低利润率 20% 表示先按 20 元利润作为返利计算基础。',
+      ),
     },
     {
       title: t('利润分配比例'),
-      description: t('表示从利润基数中拿出多少作为真实返利池。例如利润基数 20 元、利润分配比例 80%，则返利池为 16 元。'),
+      description: t(
+        '表示从利润基数中拿出多少作为真实返利池。例如利润基数 20 元、利润分配比例 80%，则返利池为 16 元。',
+      ),
     },
     {
       title: t('一级返利占比'),
-      description: t('用于分配返利池中的一级部分。默认与二级返利占比合计固定为 100%。'),
+      description: t(
+        '用于分配返利池中的一级部分。默认与二级返利占比合计固定为 100%。',
+      ),
     },
     {
       title: t('二级返利占比'),
-      description: t('用于分配返利池中的二级部分。一级与二级会联动，确保总和始终为 100%。'),
+      description: t(
+        '用于分配返利池中的二级部分。一级与二级会联动，确保总和始终为 100%。',
+      ),
     },
   ];
 }
@@ -207,7 +227,11 @@ export default function ReferralPlanTable({
   const ratioFieldHelp = useMemo(() => getRatioFieldHelp(t), [t]);
 
   const dataSource = useMemo(
-    () => (plans || []).map((plan, index) => ({ key: plan.id || `plan-${index}`, ...plan })),
+    () =>
+      (plans || []).map((plan, index) => ({
+        key: plan.id || `plan-${index}`,
+        ...plan,
+      })),
     [plans],
   );
 
@@ -215,7 +239,8 @@ export default function ReferralPlanTable({
     {
       title: t('方案名称'),
       dataIndex: 'name',
-      render: (_, record) => record.name || (record.id ? `#${record.id}` : '--'),
+      render: (_, record) =>
+        record.name || (record.id ? `#${record.id}` : '--'),
     },
     {
       title: t('方案类型'),
@@ -259,7 +284,10 @@ export default function ReferralPlanTable({
             dataIndex: 'action',
             render: (_, record) => (
               <Space>
-                <Button theme='light' onClick={() => setEditingPlan({ ...record })}>
+                <Button
+                  theme='light'
+                  onClick={() => setEditingPlan({ ...record })}
+                >
                   {t('编辑')}
                 </Button>
                 <Button
@@ -279,19 +307,27 @@ export default function ReferralPlanTable({
   const overviewItems = [
     {
       label: t('活跃邀请人'),
-      value: formatStatisticValue(pickStatisticValue(statistics, ['active_referrers'])),
+      value: formatStatisticValue(
+        pickStatisticValue(statistics, ['active_referrers']),
+      ),
     },
     {
       label: t('总邀请数'),
-      value: formatStatisticValue(pickStatisticValue(statistics, ['total_invites'])),
+      value: formatStatisticValue(
+        pickStatisticValue(statistics, ['total_invites']),
+      ),
     },
     {
       label: t('待处理提现'),
-      value: formatStatisticValue(pickStatisticValue(statistics, ['pending_withdrawals'])),
+      value: formatStatisticValue(
+        pickStatisticValue(statistics, ['pending_withdrawals']),
+      ),
     },
     {
       label: t('总返利支出'),
-      value: formatStatisticValue(pickStatisticValue(statistics, ['total_referral_payout'])),
+      value: formatStatisticValue(
+        pickStatisticValue(statistics, ['total_referral_payout']),
+      ),
     },
   ];
 
@@ -365,14 +401,25 @@ export default function ReferralPlanTable({
 
       <Row gutter={16} style={{ marginBottom: 16 }}>
         {overviewItems.map((item) => (
-          <Col span={6} key={item.label} xxl={6} xl={6} lg={12} md={12} sm={12} xs={24}>
+          <Col
+            span={6}
+            key={item.label}
+            xxl={6}
+            xl={6}
+            lg={12}
+            md={12}
+            sm={12}
+            xs={24}
+          >
             <Card bodyStyle={{ padding: 16 }}>
               <Typography.Text type='tertiary'>{item.label}</Typography.Text>
               <div style={{ marginTop: 8 }}>
                 <Skeleton
                   loading={loading}
                   active
-                  placeholder={<Skeleton.Title style={{ width: 72, height: 28 }} />}
+                  placeholder={
+                    <Skeleton.Title style={{ width: 72, height: 28 }} />
+                  }
                 >
                   <Typography.Title heading={3} style={{ margin: 0 }}>
                     {item.value}
@@ -389,7 +436,12 @@ export default function ReferralPlanTable({
         dataSource={dataSource}
         pagination={false}
         loading={loading}
-        empty={<Empty imageStyle={{ height: 80 }} description={t('暂无返利方案数据')} />}
+        empty={
+          <Empty
+            imageStyle={{ height: 80 }}
+            description={t('暂无返利方案数据')}
+          />
+        }
       />
 
       {!readOnly && (
@@ -408,18 +460,28 @@ export default function ReferralPlanTable({
               <Banner
                 type='warning'
                 fullMode={false}
-                description={t('修改方案参数只会影响后续新产生的返利记录，已产生的返利仍按历史快照结算。')}
+                description={t(
+                  '修改方案参数只会影响后续新产生的返利记录，已产生的返利仍按历史快照结算。',
+                )}
               />
 
               <Row gutter={16}>
                 <Col span={7}>
-                  <Card bodyStyle={{ padding: 16, background: 'var(--semi-color-fill-0)' }}>
+                  <Card
+                    bodyStyle={{
+                      padding: 16,
+                      background: 'var(--semi-color-fill-0)',
+                    }}
+                  >
                     <Space vertical spacing={12} style={{ width: '100%' }}>
                       <Typography.Text strong>{t('参数说明')}</Typography.Text>
                       {ratioFieldHelp.map((item) => (
                         <div key={item.title}>
                           <Typography.Text strong>{item.title}</Typography.Text>
-                          <Typography.Paragraph style={{ margin: '6px 0 0' }} type='secondary'>
+                          <Typography.Paragraph
+                            style={{ margin: '6px 0 0' }}
+                            type='secondary'
+                          >
                             {item.description}
                           </Typography.Paragraph>
                         </div>
@@ -432,29 +494,43 @@ export default function ReferralPlanTable({
                   <Space vertical spacing={16} style={{ width: '100%' }}>
                     <Card bodyStyle={{ padding: 16 }}>
                       <Space vertical spacing={8} style={{ width: '100%' }}>
-                        <Typography.Text strong>{t('方案基础信息')}</Typography.Text>
+                        <Typography.Text strong>
+                          {t('方案基础信息')}
+                        </Typography.Text>
                         <div>
-                          <Typography.Text type='secondary'>{t('方案名称')}</Typography.Text>
+                          <Typography.Text type='secondary'>
+                            {t('方案名称')}
+                          </Typography.Text>
                           <Input
                             value={editingPlan.name || ''}
                             placeholder={t('请输入方案名称')}
                             onChange={(value) =>
-                              setEditingPlan((state) => ({ ...state, name: value }))
+                              setEditingPlan((state) => ({
+                                ...state,
+                                name: value,
+                              }))
                             }
                           />
                         </div>
                         <div>
-                          <Typography.Text type='secondary'>{t('方案说明')}</Typography.Text>
+                          <Typography.Text type='secondary'>
+                            {t('方案说明')}
+                          </Typography.Text>
                           <Input
                             value={editingPlan.description || ''}
                             placeholder={t('请输入方案说明')}
                             onChange={(value) =>
-                              setEditingPlan((state) => ({ ...state, description: value }))
+                              setEditingPlan((state) => ({
+                                ...state,
+                                description: value,
+                              }))
                             }
                           />
                         </div>
                         <div>
-                          <Typography.Text type='secondary'>{t('方案类型')}</Typography.Text>
+                          <Typography.Text type='secondary'>
+                            {t('方案类型')}
+                          </Typography.Text>
                           <div style={{ marginTop: 8 }}>
                             <RadioGroup
                               value={editingPlan.plan_type}
@@ -471,13 +547,18 @@ export default function ReferralPlanTable({
                           </div>
                         </div>
                         <div>
-                          <Typography.Text type='secondary'>{t('方案状态')}</Typography.Text>
+                          <Typography.Text type='secondary'>
+                            {t('方案状态')}
+                          </Typography.Text>
                           <div style={{ marginTop: 8 }}>
                             <Space align='center'>
                               <Switch
                                 checked={!!editingPlan.is_active}
                                 onChange={(value) =>
-                                  setEditingPlan((state) => ({ ...state, is_active: value }))
+                                  setEditingPlan((state) => ({
+                                    ...state,
+                                    is_active: value,
+                                  }))
                                 }
                               />
                               {renderPlanStatus(editingPlan.is_active, t)}
@@ -489,18 +570,34 @@ export default function ReferralPlanTable({
 
                     <Card bodyStyle={{ padding: 16 }}>
                       <Space vertical spacing={8} style={{ width: '100%' }}>
-                        <Space align='center' style={{ justifyContent: 'space-between', width: '100%' }}>
-                          <Typography.Text strong>{t('返利比例配置')}</Typography.Text>
-                          <Button theme='light' type='tertiary' onClick={handleApplyPreset}>
+                        <Space
+                          align='center'
+                          style={{
+                            justifyContent: 'space-between',
+                            width: '100%',
+                          }}
+                        >
+                          <Typography.Text strong>
+                            {t('返利比例配置')}
+                          </Typography.Text>
+                          <Button
+                            theme='light'
+                            type='tertiary'
+                            onClick={handleApplyPreset}
+                          >
                             {t('恢复建议值')}
                           </Button>
                         </Space>
                         <Typography.Text type='tertiary'>
-                          {t('一级/二级返利占比固定合计为 100%，修改其中一个值时，另一个值会自动联动。')}
+                          {t(
+                            '一级/二级返利占比固定合计为 100%，修改其中一个值时，另一个值会自动联动。',
+                          )}
                         </Typography.Text>
                         <Row gutter={16}>
                           <Col span={12}>
-                            <Typography.Text type='secondary'>{t('利润分配比例 (%)')}</Typography.Text>
+                            <Typography.Text type='secondary'>
+                              {t('利润分配比例 (%)')}
+                            </Typography.Text>
                             <InputNumber
                               style={{ width: '100%' }}
                               value={editingPlan.profit_share_percent}
@@ -515,7 +612,9 @@ export default function ReferralPlanTable({
                             />
                           </Col>
                           <Col span={12}>
-                            <Typography.Text type='secondary'>{t('最低利润率 (%)')}</Typography.Text>
+                            <Typography.Text type='secondary'>
+                              {t('最低利润率 (%)')}
+                            </Typography.Text>
                             <InputNumber
                               style={{ width: '100%' }}
                               value={editingPlan.min_channel_profit}
@@ -532,7 +631,9 @@ export default function ReferralPlanTable({
                         </Row>
                         <Row gutter={16}>
                           <Col span={12}>
-                            <Typography.Text type='secondary'>{t('一级返利占比 (%)')}</Typography.Text>
+                            <Typography.Text type='secondary'>
+                              {t('一级返利占比 (%)')}
+                            </Typography.Text>
                             <InputNumber
                               style={{ width: '100%' }}
                               value={editingPlan.level1_percent}
@@ -542,7 +643,9 @@ export default function ReferralPlanTable({
                             />
                           </Col>
                           <Col span={12}>
-                            <Typography.Text type='secondary'>{t('二级返利占比 (%)')}</Typography.Text>
+                            <Typography.Text type='secondary'>
+                              {t('二级返利占比 (%)')}
+                            </Typography.Text>
                             <InputNumber
                               style={{ width: '100%' }}
                               value={editingPlan.level2_percent}
@@ -553,7 +656,8 @@ export default function ReferralPlanTable({
                           </Col>
                         </Row>
                         <Typography.Text type='tertiary'>
-                          {t('当前分配')}: L1 {editingPlan.level1_percent || 0}% / L2 {editingPlan.level2_percent || 0}% = 100%
+                          {t('当前分配')}: L1 {editingPlan.level1_percent || 0}%
+                          / L2 {editingPlan.level2_percent || 0}% = 100%
                         </Typography.Text>
                       </Space>
                     </Card>
@@ -563,12 +667,23 @@ export default function ReferralPlanTable({
                 <Col span={7}>
                   <Space vertical spacing={16} style={{ width: '100%' }}>
                     <Card
-                      bodyStyle={{ padding: 16, background: planThemeColor(editingPlan.plan_type).background }}
-                      style={{ borderColor: planThemeColor(editingPlan.plan_type).border }}
+                      bodyStyle={{
+                        padding: 16,
+                        background: planThemeColor(editingPlan.plan_type)
+                          .background,
+                      }}
+                      style={{
+                        borderColor: planThemeColor(editingPlan.plan_type)
+                          .border,
+                      }}
                     >
                       <Space vertical spacing={8} style={{ width: '100%' }}>
-                        <Typography.Text strong>{t('方案预览')}</Typography.Text>
-                        <Typography.Text>{editingPlan.name || t('未命名方案')}</Typography.Text>
+                        <Typography.Text strong>
+                          {t('方案预览')}
+                        </Typography.Text>
+                        <Typography.Text>
+                          {editingPlan.name || t('未命名方案')}
+                        </Typography.Text>
                         <Typography.Text type='tertiary'>
                           {formatPlanType(editingPlan.plan_type, t)}
                         </Typography.Text>
@@ -579,9 +694,16 @@ export default function ReferralPlanTable({
                       </Space>
                     </Card>
 
-                    <Card bodyStyle={{ padding: 16, background: 'var(--semi-color-fill-0)' }}>
+                    <Card
+                      bodyStyle={{
+                        padding: 16,
+                        background: 'var(--semi-color-fill-0)',
+                      }}
+                    >
                       <Space vertical spacing={8} style={{ width: '100%' }}>
-                        <Typography.Text strong>{t('返利预览')}</Typography.Text>
+                        <Typography.Text strong>
+                          {t('返利预览')}
+                        </Typography.Text>
                         <Typography.Text type='secondary'>
                           {editingPlan.description || t('未填写方案说明')}
                         </Typography.Text>
@@ -589,23 +711,46 @@ export default function ReferralPlanTable({
                           {renderPlanStateText(editingPlan.is_active, t)}
                         </Typography.Text>
                         <Divider margin='8px' />
-                        <Typography.Text strong>{t('按充值 100 元示例')}</Typography.Text>
-                        <Typography.Text>
-                          {t('利润基数')}: 100 x {Number(editingPlan.min_channel_profit || 0)}% = {calculateReferralBase(editingPlan, 100).toFixed(2)}
+                        <Typography.Text strong>
+                          {t('按充值 100 元示例')}
                         </Typography.Text>
                         <Typography.Text>
-                          {t('返利池')}: {calculateReferralBase(editingPlan, 100).toFixed(2)} x {Number(editingPlan.profit_share_percent || 0)}% = {calculateReferralPool(editingPlan, 100).toFixed(2)}
+                          {t('利润基数')}: 100 x{' '}
+                          {Number(editingPlan.min_channel_profit || 0)}% ={' '}
+                          {calculateReferralBase(editingPlan, 100).toFixed(2)}
                         </Typography.Text>
                         <Typography.Text>
-                          {t('一级返利')}: {calculateReferralPool(editingPlan, 100).toFixed(2)} x {Number(editingPlan.level1_percent || 0)}% = {calculateReferralMoney(editingPlan, 1, 100).toFixed(2)}
+                          {t('返利池')}:{' '}
+                          {calculateReferralBase(editingPlan, 100).toFixed(2)} x{' '}
+                          {Number(editingPlan.profit_share_percent || 0)}% ={' '}
+                          {calculateReferralPool(editingPlan, 100).toFixed(2)}
                         </Typography.Text>
                         <Typography.Text>
-                          {t('二级返利')}: {calculateReferralPool(editingPlan, 100).toFixed(2)} x {Number(editingPlan.level2_percent || 0)}% = {calculateReferralMoney(editingPlan, 2, 100).toFixed(2)}
+                          {t('一级返利')}:{' '}
+                          {calculateReferralPool(editingPlan, 100).toFixed(2)} x{' '}
+                          {Number(editingPlan.level1_percent || 0)}% ={' '}
+                          {calculateReferralMoney(editingPlan, 1, 100).toFixed(
+                            2,
+                          )}
+                        </Typography.Text>
+                        <Typography.Text>
+                          {t('二级返利')}:{' '}
+                          {calculateReferralPool(editingPlan, 100).toFixed(2)} x{' '}
+                          {Number(editingPlan.level2_percent || 0)}% ={' '}
+                          {calculateReferralMoney(editingPlan, 2, 100).toFixed(
+                            2,
+                          )}
                         </Typography.Text>
                         <Typography.Text type='secondary'>
-                          {t('对应百分比')}: L1 {calculateActualRebate(editingPlan, 1)}% / L2 {calculateActualRebate(editingPlan, 2)}%
+                          {t('对应百分比')}: L1{' '}
+                          {calculateActualRebate(editingPlan, 1)}% / L2{' '}
+                          {calculateActualRebate(editingPlan, 2)}%
                         </Typography.Text>
-                        <Button theme='light' type='tertiary' onClick={handleApplyPreset}>
+                        <Button
+                          theme='light'
+                          type='tertiary'
+                          onClick={handleApplyPreset}
+                        >
                           {t('恢复建议值')}
                         </Button>
                       </Space>
@@ -613,7 +758,6 @@ export default function ReferralPlanTable({
                   </Space>
                 </Col>
               </Row>
-
             </Space>
           )}
         </Modal>

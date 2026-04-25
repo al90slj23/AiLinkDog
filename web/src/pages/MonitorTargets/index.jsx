@@ -1,5 +1,14 @@
 import React from 'react';
-import { Banner, Button, Card, Empty, Space, Table, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Banner,
+  Button,
+  Card,
+  Empty,
+  Space,
+  Table,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { Link } from 'react-router-dom';
 import useMonitorTargets from '../../hooks/monitor/useMonitorTargets';
 
@@ -35,7 +44,9 @@ export default function MonitorTargets() {
                   title: '名称',
                   dataIndex: 'name',
                   render: (text, record) => (
-                    <Link to={`/console/monitor-targets/${record.id}`}>{text}</Link>
+                    <Link to={`/console/monitor-targets/${record.id}`}>
+                      {text}
+                    </Link>
                   ),
                 },
                 { title: 'Channel Type', dataIndex: 'channelType' },
@@ -43,15 +54,21 @@ export default function MonitorTargets() {
                 {
                   title: '当前状态',
                   dataIndex: 'statusText',
-                  render: (text, record) => <Tag color={record.statusColor}>{text}</Tag>,
+                  render: (text, record) => (
+                    <Tag color={record.statusColor}>{text}</Tag>
+                  ),
                 },
                 { title: 'Tag', dataIndex: 'tag' },
                 {
                   title: '操作',
                   render: (_, record) => (
                     <Space>
-                      <Link to={`/console/monitor-targets/${record.id}`}>详情</Link>
-                      <Link to={`/console/monitor-targets/${record.id}/edit`}>编辑</Link>
+                      <Link to={`/console/monitor-targets/${record.id}`}>
+                        详情
+                      </Link>
+                      <Link to={`/console/monitor-targets/${record.id}/edit`}>
+                        编辑
+                      </Link>
                     </Space>
                   ),
                 },

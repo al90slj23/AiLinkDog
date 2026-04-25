@@ -19,7 +19,17 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Card, Empty, Modal, Radio, Skeleton, Space, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Card,
+  Empty,
+  Modal,
+  Radio,
+  Skeleton,
+  Space,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { showError } from '../../helpers';
 
 const formatPlanType = (planType, t) => {
@@ -102,18 +112,38 @@ export default function ReferralPlanSelectCard({
                 {currentPlan?.name || `${t('方案')} #${currentPlanId}`}
               </Typography.Text>
               <Typography.Text type='tertiary'>
-                {currentPlan?.description || t('当前账号已锁定返利方案，后续链接都会继承该方案。')}
+                {currentPlan?.description ||
+                  t('当前账号已锁定返利方案，后续链接都会继承该方案。')}
               </Typography.Text>
             </Space>
           ) : activePlans.length > 0 ? (
-            <Space vertical spacing={10} align='start' style={{ width: '100%' }}>
+            <Space
+              vertical
+              spacing={10}
+              align='start'
+              style={{ width: '100%' }}
+            >
               <Typography.Text type='tertiary'>
-                {t('请选择当前账号使用的返利方案。方案一旦锁定，将跟随账号生效。')}
+                {t(
+                  '请选择当前账号使用的返利方案。方案一旦锁定，将跟随账号生效。',
+                )}
               </Typography.Text>
-              <Radio.Group value={selectedPlanId} onChange={(e) => setSelectedPlanId(e.target.value)}>
-                <Space vertical spacing={8} align='start' style={{ width: '100%' }}>
+              <Radio.Group
+                value={selectedPlanId}
+                onChange={(e) => setSelectedPlanId(e.target.value)}
+              >
+                <Space
+                  vertical
+                  spacing={8}
+                  align='start'
+                  style={{ width: '100%' }}
+                >
                   {activePlans.map((plan) => (
-                    <Card key={plan.id} bodyStyle={{ padding: 12 }} style={{ width: '100%' }}>
+                    <Card
+                      key={plan.id}
+                      bodyStyle={{ padding: 12 }}
+                      style={{ width: '100%' }}
+                    >
                       <Radio value={plan.id}>
                         <Space vertical spacing={4} align='start'>
                           <Typography.Text strong>{plan.name}</Typography.Text>
@@ -121,7 +151,9 @@ export default function ReferralPlanSelectCard({
                             {plan.description || t('未填写方案说明')}
                           </Typography.Text>
                           <Typography.Text type='tertiary'>
-                            {t('分润')} {plan.profit_share_percent ?? 0}% / L1 {plan.level1_percent ?? 0}% / L2 {plan.level2_percent ?? 0}%
+                            {t('分润')} {plan.profit_share_percent ?? 0}% / L1{' '}
+                            {plan.level1_percent ?? 0}% / L2{' '}
+                            {plan.level2_percent ?? 0}%
                           </Typography.Text>
                         </Space>
                       </Radio>
@@ -129,7 +161,11 @@ export default function ReferralPlanSelectCard({
                   ))}
                 </Space>
               </Radio.Group>
-              <Button type='primary' loading={submitting} onClick={handleSelect}>
+              <Button
+                type='primary'
+                loading={submitting}
+                onClick={handleSelect}
+              >
                 {t('锁定当前方案')}
               </Button>
             </Space>
@@ -137,7 +173,9 @@ export default function ReferralPlanSelectCard({
             <Empty
               image={null}
               title={t('暂无可选返利方案')}
-              description={t('当前没有启用中的返利方案，请联系管理员检查配置。')}
+              description={t(
+                '当前没有启用中的返利方案，请联系管理员检查配置。',
+              )}
             />
           )}
         </div>
@@ -156,17 +194,32 @@ export default function ReferralPlanSelectCard({
       >
         {pendingPlan && (
           <Space vertical spacing={12} align='start' style={{ width: '100%' }}>
-            <Typography.Title heading={6} style={{ margin: 0, color: 'var(--semi-color-warning)' }}>
+            <Typography.Title
+              heading={6}
+              style={{ margin: 0, color: 'var(--semi-color-warning)' }}
+            >
               {t('重要提示')}
             </Typography.Title>
             <Typography.Text strong type='danger'>
               {t('返利方案一旦选择将永久生效，无法更改！')}
             </Typography.Text>
-            <Card bodyStyle={{ padding: 12 }} style={{ width: '100%', backgroundColor: 'var(--semi-color-fill-0)' }}>
-              <Space vertical spacing={6} align='start' style={{ width: '100%' }}>
+            <Card
+              bodyStyle={{ padding: 12 }}
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--semi-color-fill-0)',
+              }}
+            >
+              <Space
+                vertical
+                spacing={6}
+                align='start'
+                style={{ width: '100%' }}
+              >
                 <Typography.Text strong>{t('您选择的方案')}</Typography.Text>
                 <Typography.Text>
-                  {t('方案名称')}: {pendingPlan.name || `${t('方案')} #${pendingPlan.id}`}
+                  {t('方案名称')}:{' '}
+                  {pendingPlan.name || `${t('方案')} #${pendingPlan.id}`}
                 </Typography.Text>
                 <Typography.Text>
                   {t('方案类型')}: {formatPlanType(pendingPlan.plan_type, t)}

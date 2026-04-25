@@ -19,7 +19,18 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Card, Empty, Input, InputNumber, Skeleton, Space, Table, Tag, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Card,
+  Empty,
+  Input,
+  InputNumber,
+  Skeleton,
+  Space,
+  Table,
+  Tag,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { showError } from '../../helpers';
 
 function getLinkStatus(link, t) {
@@ -28,7 +39,10 @@ function getLinkStatus(link, t) {
   }
   if (link?.expired_at) {
     const expiredAt = new Date(link.expired_at);
-    if (!Number.isNaN(expiredAt.getTime()) && expiredAt.getTime() <= Date.now()) {
+    if (
+      !Number.isNaN(expiredAt.getTime()) &&
+      expiredAt.getTime() <= Date.now()
+    ) {
       return { label: t('已过期'), color: 'orange' };
     }
   }
@@ -48,7 +62,11 @@ export default function ReferralLinksLockedCard({
   const [creating, setCreating] = useState(false);
 
   const dataSource = useMemo(
-    () => links.map((link, index) => ({ key: link.id || `link-${index}`, ...link })),
+    () =>
+      links.map((link, index) => ({
+        key: link.id || `link-${index}`,
+        ...link,
+      })),
     [links],
   );
 
@@ -68,13 +86,18 @@ export default function ReferralLinksLockedCard({
       dataIndex: 'is_active',
       render: (_, record) => {
         const status = getLinkStatus(record, t);
-        return <Tag color={status.color} shape='circle'>{status.label}</Tag>;
+        return (
+          <Tag color={status.color} shape='circle'>
+            {status.label}
+          </Tag>
+        );
       },
     },
     {
       title: t('返利方案'),
       dataIndex: 'plan_name',
-      render: (_, record) => currentPlan?.name || `${t('方案')} #${record.plan_id || currentPlanId}`,
+      render: (_, record) =>
+        currentPlan?.name || `${t('方案')} #${record.plan_id || currentPlanId}`,
     },
   ];
 
@@ -89,7 +112,10 @@ export default function ReferralLinksLockedCard({
 
     setCreating(true);
     try {
-      await onCreateLink({ channel_note: channelNote.trim(), validity_days: Number(validityDays || 0) });
+      await onCreateLink({
+        channel_note: channelNote.trim(),
+        validity_days: Number(validityDays || 0),
+      });
       setChannelNote('');
       setValidityDays(0);
     } finally {
@@ -122,7 +148,9 @@ export default function ReferralLinksLockedCard({
             {t('邀请链接')}
           </Typography.Title>
           <Typography.Text type='tertiary'>
-            {t('当前账号已锁定返利方案，后续创建的邀请链接都会继承该账号方案。')}
+            {t(
+              '当前账号已锁定返利方案，后续创建的邀请链接都会继承该账号方案。',
+            )}
           </Typography.Text>
         </div>
         <Tag color='green' shape='circle'>
@@ -140,7 +168,9 @@ export default function ReferralLinksLockedCard({
       ) : (
         <Empty
           title={t('暂无邀请链接')}
-          description={t('你还没有创建邀请链接，可以先为不同分发渠道创建独立链接。')}
+          description={t(
+            '你还没有创建邀请链接，可以先为不同分发渠道创建独立链接。',
+          )}
         />
       )}
 
@@ -160,7 +190,12 @@ export default function ReferralLinksLockedCard({
             suffix={t('天')}
             style={{ width: '100%' }}
           />
-          <Button loading={creating} type='primary' theme='light' onClick={handleCreate}>
+          <Button
+            loading={creating}
+            type='primary'
+            theme='light'
+            onClick={handleCreate}
+          >
             {t('创建邀请链接')}
           </Button>
         </Space>

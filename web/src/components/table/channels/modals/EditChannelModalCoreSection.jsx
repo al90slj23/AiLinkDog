@@ -46,7 +46,9 @@ const EditChannelModalCoreSection = ({
           type='info'
           closeIcon={null}
           className='mb-4 rounded-xl'
-          description={t('此渠道由 IO.NET 自动同步，类型、密钥和 API 地址已锁定。')}
+          description={t(
+            '此渠道由 IO.NET 自动同步，类型、密钥和 API 地址已锁定。',
+          )}
         >
           <Space>
             {ionetMetadata?.deployment_id && (

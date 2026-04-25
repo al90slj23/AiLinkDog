@@ -149,7 +149,8 @@ export function useEditChannelModalEffects(args) {
       fetchModelGroups();
       setUseManualInput(false);
       setAdvancedSettingsOpen(
-        isEdit && localStorage.getItem(ADVANCED_SETTINGS_EXPANDED_KEY) === 'true',
+        isEdit &&
+          localStorage.getItem(ADVANCED_SETTINGS_EXPANDED_KEY) === 'true',
       );
     } else {
       resetModalState();

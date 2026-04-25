@@ -65,7 +65,7 @@ function LandingHeroCodeBlock({ lang, onChangeLang, snippets, t }) {
       let count = 0;
 
       for (let i = 0; i < PRIORITY.length; i++) {
-        currentWidth += (buttonWidths[i] || 55);
+        currentWidth += buttonWidths[i] || 55;
         if (currentWidth > availableWidth && count >= 2) {
           break;
         }

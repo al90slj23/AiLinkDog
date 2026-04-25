@@ -143,13 +143,13 @@ export function getLucideIcon(key, selected = false) {
       return <Package {...commonProps} color={iconColor} />;
     case 'deployment':
       return <Server {...commonProps} color={iconColor} />;
-	case 'subscription':
-		return <CalendarClock {...commonProps} color={iconColor} />;
-	case 'statuscenter':
-	case 'monitortargets':
-		return <BarChart3 {...commonProps} color={iconColor} />;
-	case 'setting':
-		return <Settings {...commonProps} color={iconColor} />;
+    case 'subscription':
+      return <CalendarClock {...commonProps} color={iconColor} />;
+    case 'statuscenter':
+    case 'monitortargets':
+      return <BarChart3 {...commonProps} color={iconColor} />;
+    case 'setting':
+      return <Settings {...commonProps} color={iconColor} />;
     default:
       return <CircleUser {...commonProps} color={iconColor} />;
   }
@@ -1625,10 +1625,9 @@ function renderPriceSimpleCore({
 
 export function renderTaskBillingProcess(other, content) {
   if (other?.task_id != null) {
-    return renderBillingArticle(
-      [content].filter(Boolean),
-      { showReferenceNote: false },
-    );
+    return renderBillingArticle([content].filter(Boolean), {
+      showReferenceNote: false,
+    });
   }
   return renderBillingArticle([
     buildBillingText('任务预扣费（将在任务完成后按实际token重算）'),

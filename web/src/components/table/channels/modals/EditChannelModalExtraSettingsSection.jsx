@@ -36,7 +36,9 @@ const EditChannelModalExtraSettingsSection = ({
           label={t('强制格式化')}
           checkedText={t('开')}
           uncheckedText={t('关')}
-          onChange={(value) => handleChannelSettingsChange('force_format', value)}
+          onChange={(value) =>
+            handleChannelSettingsChange('force_format', value)
+          }
           extraText={t(
             '强制将响应格式化为 OpenAI 标准格式（只适用于OpenAI渠道类型）',
           )}
@@ -77,7 +79,9 @@ const EditChannelModalExtraSettingsSection = ({
         field='system_prompt'
         label={t('系统提示词')}
         placeholder={t('输入系统提示词，用户的系统提示词将优先于此设置')}
-        onChange={(value) => handleChannelSettingsChange('system_prompt', value)}
+        onChange={(value) =>
+          handleChannelSettingsChange('system_prompt', value)
+        }
         autosize
         showClear
         extraText={t(

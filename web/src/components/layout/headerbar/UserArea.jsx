@@ -70,7 +70,10 @@ const UserArea = ({
         key: 'token',
         render: () => (
           <div className='flex items-center gap-2'>
-            <IconKey size='small' className='text-gray-500 dark:text-gray-400' />
+            <IconKey
+              size='small'
+              className='text-gray-500 dark:text-gray-400'
+            />
             <span>{t('令牌管理')}</span>
           </div>
         ),
@@ -93,7 +96,10 @@ const UserArea = ({
         key: 'logout',
         render: () => (
           <div className='flex items-center gap-2'>
-            <IconExit size='small' className='text-gray-500 dark:text-gray-400' />
+            <IconExit
+              size='small'
+              className='text-gray-500 dark:text-gray-400'
+            />
             <span>{t('退出')}</span>
           </div>
         ),

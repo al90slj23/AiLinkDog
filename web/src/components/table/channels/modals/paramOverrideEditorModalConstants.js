@@ -233,7 +233,8 @@ export const GEMINI_IMAGE_4K_TEMPLATE = {
 export const AWS_BEDROCK_ANTHROPIC_COMPAT_TEMPLATE = {
   operations: [
     {
-      description: 'Normalize anthropic-beta header tokens for Bedrock compatibility.',
+      description:
+        'Normalize anthropic-beta header tokens for Bedrock compatibility.',
       mode: 'set_header',
       path: 'anthropic-beta',
       value: {
@@ -269,7 +270,8 @@ export const AWS_BEDROCK_ANTHROPIC_COMPAT_TEMPLATE = {
       },
     },
     {
-      description: 'Remove all tools[*].custom.input_examples before upstream relay.',
+      description:
+        'Remove all tools[*].custom.input_examples before upstream relay.',
       mode: 'delete',
       path: 'tools.*.custom.input_examples',
     },
@@ -343,7 +345,11 @@ export const BUILTIN_FIELD_SECTIONS = [
       },
       { key: 'temperature', label: '采样温度', tip: '控制输出随机性' },
       { key: 'max_tokens', label: '最大输出 Token', tip: '控制输出长度上限' },
-      { key: 'messages.-1.content', label: '最后一条消息内容', tip: '常用于重写用户输入' },
+      {
+        key: 'messages.-1.content',
+        label: '最后一条消息内容',
+        tip: '常用于重写用户输入',
+      },
     ],
   },
   {
@@ -375,7 +381,10 @@ export const BUILTIN_FIELD_SECTIONS = [
   },
 ];
 
-export const OPERATION_MODE_LABEL_MAP = OPERATION_MODE_OPTIONS.reduce((acc, item) => {
-  acc[item.value] = item.label;
-  return acc;
-}, {});
+export const OPERATION_MODE_LABEL_MAP = OPERATION_MODE_OPTIONS.reduce(
+  (acc, item) => {
+    acc[item.value] = item.label;
+    return acc;
+  },
+  {},
+);

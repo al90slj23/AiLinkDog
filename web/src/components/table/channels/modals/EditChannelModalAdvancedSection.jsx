@@ -156,7 +156,11 @@ const EditChannelModalAdvancedSection = ({
                     name: t('填充旧模板'),
                     onClick: () => applyParamOverrideTemplate('legacy', 'fill'),
                   },
-                  { node: 'item', name: t('清空'), onClick: clearParamOverride },
+                  {
+                    node: 'item',
+                    name: t('清空'),
+                    onClick: clearParamOverride,
+                  },
                 ]}
               >
                 <Button size='small' type='tertiary'>
@@ -279,9 +283,7 @@ const EditChannelModalAdvancedSection = ({
           templateLabel={t('填入模板')}
           editorType='keyValue'
           formApi={formApi}
-          extraText={t(
-            '键为原状态码，值为要复写的状态码，仅影响本地判断',
-          )}
+          extraText={t('键为原状态码，值为要复写的状态码，仅影响本地判断')}
         />
       </div>
     </div>

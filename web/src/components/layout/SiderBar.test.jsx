@@ -13,7 +13,8 @@ const useSidebarMock = vi.fn(() => ({
 }));
 
 vi.mock('react-router-dom', () => ({
-  Link: ({ children, to, ...props }) => React.createElement('a', { href: to, ...props }, children),
+  Link: ({ children, to, ...props }) =>
+    React.createElement('a', { href: to, ...props }, children),
   useLocation: () => ({ pathname: '/console/status' }),
 }));
 
@@ -93,7 +94,8 @@ vi.mock('@douyinfe/semi-ui', () => {
   return {
     Nav: NavRoot,
     Divider: () => React.createElement('hr'),
-    Button: ({ children, ...props }) => React.createElement('button', props, children),
+    Button: ({ children, ...props }) =>
+      React.createElement('button', props, children),
   };
 });
 

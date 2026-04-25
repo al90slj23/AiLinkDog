@@ -8,17 +8,17 @@ import {
 
 describe('editChannelModalDerived', () => {
   it('builds redirect model list from mapping json', () => {
-    expect(
-      buildRedirectModelList('{"a":"x","b":"x","c":"y"}'),
-    ).toEqual(['x', 'y']);
+    expect(buildRedirectModelList('{"a":"x","b":"x","c":"y"}')).toEqual([
+      'x',
+      'y',
+    ]);
     expect(buildRedirectModelList('')).toEqual([]);
   });
 
   it('deduplicates upstream detected models', () => {
-    expect(buildUpstreamDetectedModels(['a', ' a ', '', null, 'b', 'a'])).toEqual([
-      'a',
-      'b',
-    ]);
+    expect(
+      buildUpstreamDetectedModels(['a', ' a ', '', null, 'b', 'a']),
+    ).toEqual(['a', 'b']);
   });
 
   it('builds param override meta', () => {

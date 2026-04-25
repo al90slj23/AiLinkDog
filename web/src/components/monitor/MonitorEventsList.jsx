@@ -19,7 +19,9 @@ export default function MonitorEventsList({ items = [] }) {
                 {item.title}
               </Typography.Text>
               <div>{item.message}</div>
-              <Typography.Text type='tertiary'>{item.occurredAtText}</Typography.Text>
+              <Typography.Text type='tertiary'>
+                {item.occurredAtText}
+              </Typography.Text>
             </div>
           </List.Item>
         )}

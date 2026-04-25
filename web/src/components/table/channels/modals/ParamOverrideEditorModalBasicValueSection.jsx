@@ -18,7 +18,16 @@ For commercial licensing, please contact support@quantumnous.com
 */
 
 import React from 'react';
-import { Button, Col, Input, Row, Space, Switch, TextArea, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Col,
+  Input,
+  Row,
+  Space,
+  Switch,
+  TextArea,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { useTranslation } from 'react-i18next';
 import {
   getModeFromLabel,
@@ -51,10 +60,18 @@ const ParamOverrideEditorModalBasicValueSection = ({
             </Text>
             {mode === 'set_header' ? (
               <Space spacing={6}>
-                <Button size='small' type='tertiary' onClick={() => setHeaderValueExampleVisible(true)}>
+                <Button
+                  size='small'
+                  type='tertiary'
+                  onClick={() => setHeaderValueExampleVisible(true)}
+                >
                   {t('查看 JSON 示例')}
                 </Button>
-                <Button size='small' type='tertiary' onClick={formatSelectedOperationValueAsJson}>
+                <Button
+                  size='small'
+                  type='tertiary'
+                  onClick={formatSelectedOperationValueAsJson}
+                >
                   {t('格式化 JSON')}
                 </Button>
               </Space>
@@ -62,14 +79,18 @@ const ParamOverrideEditorModalBasicValueSection = ({
           </div>
           {mode === 'set_header' ? (
             <Text type='tertiary' size='small' className='mt-1 mb-2 block'>
-              {t('纯字符串会直接覆盖整条请求头，或者点击“查看 JSON 示例”按 token 规则处理。')}
+              {t(
+                '纯字符串会直接覆盖整条请求头，或者点击“查看 JSON 示例”按 token 规则处理。',
+              )}
             </Text>
           ) : null}
           <TextArea
             value={selectedOperation.value_text}
             autosize={{ minRows: 1, maxRows: 4 }}
             placeholder={getModeValuePlaceholder(mode)}
-            onChange={(nextValue) => updateOperation(selectedOperation.id, { value_text: nextValue })}
+            onChange={(nextValue) =>
+              updateOperation(selectedOperation.id, { value_text: nextValue })
+            }
           />
         </div>
       ) : null}
@@ -80,7 +101,9 @@ const ParamOverrideEditorModalBasicValueSection = ({
             checked={Boolean(selectedOperation.keep_origin)}
             checkedText={t('开')}
             uncheckedText={t('关')}
-            onChange={(nextValue) => updateOperation(selectedOperation.id, { keep_origin: nextValue })}
+            onChange={(nextValue) =>
+              updateOperation(selectedOperation.id, { keep_origin: nextValue })
+            }
           />
           <Text type='tertiary' size='small' className='leading-6'>
             {t('保留原值（目标已有值时不覆盖）')}
@@ -98,7 +121,9 @@ const ParamOverrideEditorModalBasicValueSection = ({
               <Input
                 value={selectedOperation.from}
                 placeholder={getModeFromPlaceholder(mode)}
-                onChange={(nextValue) => updateOperation(selectedOperation.id, { from: nextValue })}
+                onChange={(nextValue) =>
+                  updateOperation(selectedOperation.id, { from: nextValue })
+                }
               />
             </Col>
           ) : null}
@@ -110,7 +135,9 @@ const ParamOverrideEditorModalBasicValueSection = ({
               <Input
                 value={selectedOperation.to}
                 placeholder={getModeToPlaceholder(mode)}
-                onChange={(nextValue) => updateOperation(selectedOperation.id, { to: nextValue })}
+                onChange={(nextValue) =>
+                  updateOperation(selectedOperation.id, { to: nextValue })
+                }
               />
             </Col>
           ) : null}

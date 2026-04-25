@@ -47,7 +47,10 @@ const ServiceStatus = () => {
           error={error}
         />
         {loading ? <Typography.Text>loading</Typography.Text> : null}
-        <StatusAnnouncementsCard announcements={announcements} title='平台公告' />
+        <StatusAnnouncementsCard
+          announcements={announcements}
+          title='平台公告'
+        />
         <Row gutter={[16, 16]}>
           <Col xs={24} md={12}>
             <StatusPublicServicesTable rows={serviceRows} />

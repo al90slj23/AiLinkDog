@@ -167,21 +167,21 @@ const snippets = {
   csharp: (serverAddress) => [
     '// using OpenAI SDK',
     'var client = new OpenAIClient(',
-    "  apiKey: \"sk-ald-•••••\",",
+    '  apiKey: "sk-ald-•••••",',
     `  baseUrl: \"${serverAddress}/v1\"`,
     ');',
   ],
   swift: (serverAddress) => [
     '// Swift example',
     'let client = OpenAI(',
-    "  apiKey: \"sk-ald-•••••\",",
+    '  apiKey: "sk-ald-•••••",',
     `  baseURL: \"${serverAddress}/v1\"`,
     ')',
   ],
   kotlin: (serverAddress) => [
     '// Kotlin example',
     'val client = OpenAIClient(',
-    "  apiKey = \"sk-ald-•••••\",",
+    '  apiKey = "sk-ald-•••••",',
     `  baseUrl = \"${serverAddress}/v1\"`,
     ')',
   ],
@@ -193,7 +193,7 @@ const snippets = {
     ');',
   ],
   cpp: (serverAddress) => [
-    "// C++ HTTP client example",
+    '// C++ HTTP client example',
     `// POST ${serverAddress}/v1/chat/completions`,
     '// Authorization: Bearer sk-ald-•••••',
   ],
@@ -208,13 +208,13 @@ const snippets = {
   ],
   perl: (serverAddress) => [
     '# Perl example',
-    "# Authorization: Bearer sk-ald-•••••",
+    '# Authorization: Bearer sk-ald-•••••',
     `# POST ${serverAddress}/v1/chat/completions`,
   ],
   elixir: (serverAddress) => [
     '# Elixir Finch example',
     `# POST ${serverAddress}/v1/chat/completions`,
-    "# authorization: bearer sk-ald-•••••",
+    '# authorization: bearer sk-ald-•••••',
   ],
   bash: (serverAddress) => [
     '# Bash example',

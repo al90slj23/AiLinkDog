@@ -7,7 +7,9 @@ const { chromium } = require('playwright');
   await page.goto('http://127.0.0.1:5173/', { waitUntil: 'networkidle' });
 
   if (!page.url().includes('/login')) {
-    await page.goto('http://127.0.0.1:5173/login', { waitUntil: 'networkidle' });
+    await page.goto('http://127.0.0.1:5173/login', {
+      waitUntil: 'networkidle',
+    });
   }
 
   await page.getByPlaceholder(/用户名|username/i).fill('ALD');
@@ -16,10 +18,14 @@ const { chromium } = require('playwright');
   await page.waitForLoadState('networkidle');
   console.log('LOGIN_URL=' + page.url());
 
-  await page.goto('http://127.0.0.1:5173/console/referralcenter', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:5173/console/referralcenter', {
+    waitUntil: 'networkidle',
+  });
   console.log('USER_REFERRAL_URL=' + page.url());
 
-  await page.goto('http://127.0.0.1:5173/console/referralmanage', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:5173/console/referralmanage', {
+    waitUntil: 'networkidle',
+  });
   console.log('ADMIN_REFERRAL_URL=' + page.url());
 
   await browser.close();

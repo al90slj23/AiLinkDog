@@ -22,7 +22,10 @@ import { useTranslation } from 'react-i18next';
 import { Card, Empty, Table, Tag, Typography } from '@douyinfe/semi-ui';
 import { formatDateTime, formatQuota, getCommissionStatusMeta } from './utils';
 
-export default function ReferralCommissionTable({ loading = false, commissions = [] }) {
+export default function ReferralCommissionTable({
+  loading = false,
+  commissions = [],
+}) {
   const { t } = useTranslation();
 
   const columns = [
@@ -51,7 +54,11 @@ export default function ReferralCommissionTable({ loading = false, commissions =
       dataIndex: 'status',
       render: (value) => {
         const meta = getCommissionStatusMeta(value, t);
-        return <Tag color={meta.color} shape='circle'>{meta.label}</Tag>;
+        return (
+          <Tag color={meta.color} shape='circle'>
+            {meta.label}
+          </Tag>
+        );
       },
     },
     {
@@ -70,7 +77,9 @@ export default function ReferralCommissionTable({ loading = false, commissions =
     <Card>
       <Typography.Title heading={5}>{t('佣金记录')}</Typography.Title>
       <Typography.Text type='tertiary'>
-        {t('当前阶段直接展示 referral_commissions 中与当前用户关联的真实记录；若暂未接入完整生成链路，这里会显示为空表。')}
+        {t(
+          '当前阶段直接展示 referral_commissions 中与当前用户关联的真实记录；若暂未接入完整生成链路，这里会显示为空表。',
+        )}
       </Typography.Text>
       <Table
         style={{ marginTop: 16 }}
@@ -78,7 +87,9 @@ export default function ReferralCommissionTable({ loading = false, commissions =
         dataSource={dataSource}
         pagination={false}
         loading={loading}
-        empty={<Empty imageStyle={{ height: 80 }} description={t('暂无佣金记录')} />}
+        empty={
+          <Empty imageStyle={{ height: 80 }} description={t('暂无佣金记录')} />
+        }
       />
     </Card>
   );

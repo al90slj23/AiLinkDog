@@ -19,7 +19,14 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Banner, Card, Skeleton, Space, Tabs, Typography } from '@douyinfe/semi-ui';
+import {
+  Banner,
+  Card,
+  Skeleton,
+  Space,
+  Tabs,
+  Typography,
+} from '@douyinfe/semi-ui';
 import { API, showError, showSuccess } from '../../helpers';
 import ReferralOverviewSummary from './admin/ReferralOverviewSummary';
 import ReferralSettingPanel from './admin/ReferralSettingPanel';
@@ -38,24 +45,31 @@ export default function ReferralManagePage() {
   const loadManageData = useCallback(async () => {
     setLoading(true);
     try {
-      const [statisticsRes, plansRes, settingRes, withdrawalsRes] = await Promise.all([
-        API.get('/api/referral/admin/statistics'),
-        API.get('/api/referral/admin/plans'),
-        API.get('/api/referral/admin/setting'),
-        API.get('/api/referral/admin/withdrawals'),
-      ]);
+      const [statisticsRes, plansRes, settingRes, withdrawalsRes] =
+        await Promise.all([
+          API.get('/api/referral/admin/statistics'),
+          API.get('/api/referral/admin/plans'),
+          API.get('/api/referral/admin/setting'),
+          API.get('/api/referral/admin/withdrawals'),
+        ]);
 
       const responses = [statisticsRes, plansRes, settingRes, withdrawalsRes];
       const failedResponse = responses.find((res) => !res.data?.success);
       if (failedResponse) {
-        showError(failedResponse.data?.message || t('加载邀请返利管理数据失败'));
+        showError(
+          failedResponse.data?.message || t('加载邀请返利管理数据失败'),
+        );
         return;
       }
 
       setStatistics(statisticsRes.data?.data || {});
       setPlans(Array.isArray(plansRes.data?.data) ? plansRes.data.data : []);
       setSetting(settingRes.data?.data || {});
-      setWithdrawals(Array.isArray(withdrawalsRes.data?.data) ? withdrawalsRes.data.data : []);
+      setWithdrawals(
+        Array.isArray(withdrawalsRes.data?.data)
+          ? withdrawalsRes.data.data
+          : [],
+      );
     } catch (error) {
       showError(error?.message || t('加载邀请返利管理数据失败'));
     } finally {
@@ -76,7 +90,10 @@ export default function ReferralManagePage() {
 
     setProcessingWithdrawalId(withdrawalId);
     try {
-      const adminRemark = action === 'reject' ? t('管理员已拒绝该提现申请') : t('管理员已通过该提现申请');
+      const adminRemark =
+        action === 'reject'
+          ? t('管理员已拒绝该提现申请')
+          : t('管理员已通过该提现申请');
       const res = await API.post('/api/referral/admin/withdrawals/process', {
         withdrawal_id: withdrawalId,
         action,
@@ -133,7 +150,13 @@ export default function ReferralManagePage() {
     {
       itemKey: 'overview',
       tab: t('概览'),
-      content: <ReferralOverviewSummary loading={loading} statistics={statistics} plans={plans} />,
+      content: (
+        <ReferralOverviewSummary
+          loading={loading}
+          statistics={statistics}
+          plans={plans}
+        />
+      ),
     },
     {
       itemKey: 'plans',
@@ -151,7 +174,13 @@ export default function ReferralManagePage() {
     {
       itemKey: 'settings',
       tab: t('返利配置'),
-      content: <ReferralSettingPanel loading={loading} setting={setting} onSave={handleSaveSetting} />,
+      content: (
+        <ReferralSettingPanel
+          loading={loading}
+          setting={setting}
+          onSave={handleSaveSetting}
+        />
+      ),
     },
     {
       itemKey: 'withdrawals',
@@ -171,9 +200,15 @@ export default function ReferralManagePage() {
     <Card>
       <Space vertical spacing={16} style={{ width: '100%' }}>
         <Typography.Text type='tertiary'>
-          {t('概览页当前展示方案运营概览，返利方案、返利配置和提现审核在其他分栏继续维护。')}
+          {t(
+            '概览页当前展示方案运营概览，返利方案、返利配置和提现审核在其他分栏继续维护。',
+          )}
         </Typography.Text>
-        <ReferralOverviewSummary loading={loading} statistics={statistics} plans={plans} />
+        <ReferralOverviewSummary
+          loading={loading}
+          statistics={statistics}
+          plans={plans}
+        />
       </Space>
     </Card>
   );
@@ -188,18 +223,28 @@ export default function ReferralManagePage() {
         </Typography.Title>
 
         <Card bodyStyle={{ padding: 16 }}>
-          <Skeleton loading={loading} active placeholder={<Skeleton.Paragraph rows={1} />}>
+          <Skeleton
+            loading={loading}
+            active
+            placeholder={<Skeleton.Paragraph rows={1} />}
+          >
             <Banner
               type='info'
               fullMode={false}
-              description={t('这里统一处理返利系统配置、返利方案、平台统计与提现审核。')}
+              description={t(
+                '这里统一处理返利系统配置、返利方案、平台统计与提现审核。',
+              )}
             />
           </Skeleton>
         </Card>
 
         <Tabs type='card' defaultActiveKey='overview'>
           {tabItems.map((item) => (
-            <Tabs.TabPane tab={item.tab} itemKey={item.itemKey} key={item.itemKey}>
+            <Tabs.TabPane
+              tab={item.tab}
+              itemKey={item.itemKey}
+              key={item.itemKey}
+            >
               {item.content}
             </Tabs.TabPane>
           ))}

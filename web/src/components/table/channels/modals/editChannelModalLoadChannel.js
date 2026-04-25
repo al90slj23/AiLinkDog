@@ -46,7 +46,11 @@ export function normalizeLoadedChannelData(rawData) {
   }
 
   if (data.model_mapping !== '') {
-    data.model_mapping = JSON.stringify(JSON.parse(data.model_mapping), null, 2);
+    data.model_mapping = JSON.stringify(
+      JSON.parse(data.model_mapping),
+      null,
+      2,
+    );
   }
 
   Object.assign(data, parseChannelSettingFields(data.setting));

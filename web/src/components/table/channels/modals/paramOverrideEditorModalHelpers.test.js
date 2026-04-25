@@ -47,8 +47,12 @@ import { validateOperations } from './paramOverrideEditorModalValidation';
 
 describe('paramOverrideEditorModal constants', () => {
   it('exposes stable option sets and examples', () => {
-    expect(OPERATION_MODE_OPTIONS.some((item) => item.value === 'set_header')).toBe(true);
-    expect(CONDITION_MODE_OPTIONS.some((item) => item.value === 'prefix')).toBe(true);
+    expect(
+      OPERATION_MODE_OPTIONS.some((item) => item.value === 'set_header'),
+    ).toBe(true);
+    expect(CONDITION_MODE_OPTIONS.some((item) => item.value === 'prefix')).toBe(
+      true,
+    );
     expect(MODE_DESCRIPTIONS.pass_headers).toContain('透传');
     expect(HEADER_VALUE_JSONC_EXAMPLE).toContain('$append');
   });
@@ -61,7 +65,10 @@ describe('paramOverrideEditorModal derived helpers', () => {
     expect(getModeToPlaceholder('regex_replace')).toBe('openai/gpt-');
     expect(getOperationModeTagColor('move_header')).toBe('cyan');
     expect(
-      getOperationSummary({ mode: 'sync_fields', from: 'json:model', to: 'json:alias' }, 1),
+      getOperationSummary(
+        { mode: 'sync_fields', from: 'json:model', to: 'json:alias' },
+        1,
+      ),
     ).toContain('json:model');
   });
 });
@@ -72,7 +79,9 @@ describe('paramOverrideEditorModal data helpers', () => {
     expect(operation.mode).toBe('set');
     expect(typeof operation.id).toBe('string');
 
-    const parsed = parseInitialState('{"operations":[{"mode":"delete","path":"temperature"}]}');
+    const parsed = parseInitialState(
+      '{"operations":[{"mode":"delete","path":"temperature"}]}',
+    );
     expect(parsed.editMode).toBe('visual');
     expect(parsed.visualMode).toBe('operations');
     expect(parsed.operations).toHaveLength(1);
@@ -90,12 +99,18 @@ describe('paramOverrideEditorModal data helpers', () => {
       key: 'session_id',
     });
 
-    const returnDraft = parseReturnErrorDraft('{"message":"blocked","status_code":403}');
+    const returnDraft = parseReturnErrorDraft(
+      '{"message":"blocked","status_code":403}',
+    );
     expect(returnDraft.message).toBe('blocked');
     expect(returnDraft.statusCode).toBe(403);
-    expect(buildReturnErrorValueText({ ...returnDraft, code: 'forbidden', simpleMode: false })).toBe(
-      '{"message":"blocked","status_code":403,"code":"forbidden"}',
-    );
+    expect(
+      buildReturnErrorValueText({
+        ...returnDraft,
+        code: 'forbidden',
+        simpleMode: false,
+      }),
+    ).toBe('{"message":"blocked","status_code":403,"code":"forbidden"}');
 
     const pruneDraft = parsePruneObjectsDraft(
       '{"type":"redacted_thinking","logic":"OR","conditions":[{"path":"type","mode":"full","value":"redacted_thinking"}]}',
@@ -103,7 +118,9 @@ describe('paramOverrideEditorModal data helpers', () => {
     expect(pruneDraft.simpleMode).toBe(false);
     expect(pruneDraft.logic).toBe('OR');
     expect(pruneDraft.rules).toHaveLength(1);
-    expect(buildPruneObjectsValueText(pruneDraft)).toContain('redacted_thinking');
+    expect(buildPruneObjectsValueText(pruneDraft)).toContain(
+      'redacted_thinking',
+    );
   });
 
   it('normalizes operations and builds condition payloads', () => {
@@ -125,33 +142,40 @@ describe('paramOverrideEditorModal data helpers', () => {
 
 describe('paramOverrideEditorModal validation', () => {
   it('validates required operation fields', () => {
-    const t = (key, params) => key.replace('{{line}}', String(params?.line ?? ''));
+    const t = (key, params) =>
+      key.replace('{{line}}', String(params?.line ?? ''));
     expect(
-      validateOperations([
-        {
-          mode: 'set',
-          path: '',
-          from: '',
-          to: '',
-          value_text: '1',
-          keep_origin: false,
-          conditions: [],
-        },
-      ], t),
+      validateOperations(
+        [
+          {
+            mode: 'set',
+            path: '',
+            from: '',
+            to: '',
+            value_text: '1',
+            keep_origin: false,
+            conditions: [],
+          },
+        ],
+        t,
+      ),
     ).toBe('第 1 条操作缺少目标路径');
 
     expect(
-      validateOperations([
-        {
-          mode: 'pass_headers',
-          path: '',
-          from: '',
-          to: '',
-          value_text: 'Authorization',
-          keep_origin: true,
-          conditions: [],
-        },
-      ], t),
+      validateOperations(
+        [
+          {
+            mode: 'pass_headers',
+            path: '',
+            from: '',
+            to: '',
+            value_text: 'Authorization',
+            keep_origin: true,
+            conditions: [],
+          },
+        ],
+        t,
+      ),
     ).toBe('');
   });
 });

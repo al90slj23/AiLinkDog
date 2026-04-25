@@ -31,7 +31,11 @@ vi.mock('@douyinfe/semi-ui', () => {
         'select',
         { value },
         optionList.map((item) =>
-          React.createElement('option', { key: item.value, value: item.value }, item.label),
+          React.createElement(
+            'option',
+            { key: item.value, value: item.value },
+            item.label,
+          ),
         ),
       ),
     Space: ({ children }) => React.createElement('div', null, children),
@@ -47,13 +51,21 @@ vi.mock('../../components/common/ui/Loading', () => ({
 }));
 
 vi.mock('../../pages/User', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/RegisterForm', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/RegisterForm', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../components/auth/LoginForm', () => ({ default: () => <div /> }));
-vi.mock('../../pages/NotFound', () => ({ default: () => <div>not-found</div> }));
+vi.mock('../../pages/NotFound', () => ({
+  default: () => <div>not-found</div>,
+}));
 vi.mock('../../pages/Forbidden', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Setting', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetForm', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/PasswordResetConfirm', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/PasswordResetForm', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/auth/PasswordResetConfirm', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../pages/Channel', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Token', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Redemption', () => ({ default: () => <div /> }));
@@ -70,8 +82,12 @@ vi.mock('../../pages/Model', () => ({ default: () => <div /> }));
 vi.mock('../../pages/ModelDeployment', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Playground', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Subscription', () => ({ default: () => <div /> }));
-vi.mock('../../components/auth/OAuth2Callback', () => ({ default: () => <div /> }));
-vi.mock('../../components/settings/PersonalSetting', () => ({ default: () => <div /> }));
+vi.mock('../../components/auth/OAuth2Callback', () => ({
+  default: () => <div />,
+}));
+vi.mock('../../components/settings/PersonalSetting', () => ({
+  default: () => <div />,
+}));
 vi.mock('../../pages/Home', () => ({ default: () => <div /> }));
 vi.mock('../../pages/Dashboard', () => ({ default: () => <div /> }));
 vi.mock('../../pages/About', () => ({ default: () => <div /> }));
@@ -79,8 +95,12 @@ vi.mock('../../pages/UserAgreement', () => ({ default: () => <div /> }));
 vi.mock('../../pages/PrivacyPolicy', () => ({ default: () => <div /> }));
 
 vi.mock('../../helpers', () => ({
-  AuthRedirect: ({ children }) => <div data-guard='auth-redirect'>{children}</div>,
-  PrivateRoute: ({ children }) => <div data-guard='private-route'>{children}</div>,
+  AuthRedirect: ({ children }) => (
+    <div data-guard='auth-redirect'>{children}</div>
+  ),
+  PrivateRoute: ({ children }) => (
+    <div data-guard='private-route'>{children}</div>
+  ),
   AdminRoute: ({ children }) => <div data-guard='admin-route'>{children}</div>,
 }));
 
@@ -113,12 +133,43 @@ vi.mock('../../hooks/status/useAdminStatus', () => ({
       lastUpdatedAt: '2026-04-23 10:00:00',
     },
     serviceRows: [
-      { key: 'api', name: 'API 网关', sourceKey: 'gateway-core', statusText: '正常' },
-      { key: 'console', name: '控制台', sourceKey: 'console-core', statusText: '降级' },
+      {
+        key: 'api',
+        name: 'API 网关',
+        sourceKey: 'gateway-core',
+        statusText: '正常',
+      },
+      {
+        key: 'console',
+        name: '控制台',
+        sourceKey: 'console-core',
+        statusText: '降级',
+      },
     ],
-    channelRows: [{ key: 'gateway-core', name: 'API 网关', statusText: '正常', latencyText: '42 ms' }],
-    events: [{ key: 'evt-1', time: '2026-04-23 09:30', title: '控制台监控发现 1 项降级', levelText: 'warning' }],
-    announcements: [{ key: 'ann-1', content: '平台公告：今晚维护窗口', type: 'warning', extra: '预计 10 分钟' }],
+    channelRows: [
+      {
+        key: 'gateway-core',
+        name: 'API 网关',
+        statusText: '正常',
+        latencyText: '42 ms',
+      },
+    ],
+    events: [
+      {
+        key: 'evt-1',
+        time: '2026-04-23 09:30',
+        title: '控制台监控发现 1 项降级',
+        levelText: 'warning',
+      },
+    ],
+    announcements: [
+      {
+        key: 'ann-1',
+        content: '平台公告：今晚维护窗口',
+        type: 'warning',
+        extra: '预计 10 分钟',
+      },
+    ],
   }),
 }));
 

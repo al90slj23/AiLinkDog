@@ -19,7 +19,14 @@ For commercial licensing, please contact support@quantumnous.com
 
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Card, Form, Skeleton, Space, Typography } from '@douyinfe/semi-ui';
+import {
+  Button,
+  Card,
+  Form,
+  Skeleton,
+  Space,
+  Typography,
+} from '@douyinfe/semi-ui';
 
 export default function ReferralSettingPanel({ loading, setting, onSave }) {
   const { t } = useTranslation();
@@ -45,71 +52,123 @@ export default function ReferralSettingPanel({ loading, setting, onSave }) {
         <div>
           <Typography.Title heading={5}>{t('返利配置')}</Typography.Title>
           <Typography.Text type='tertiary'>
-            {t('这里直接维护返利系统的全局参数，保存后按当前真实配置立即生效。')}
+            {t(
+              '这里直接维护返利系统的全局参数，保存后按当前真实配置立即生效。',
+            )}
           </Typography.Text>
         </div>
 
-        <Skeleton loading={loading} active placeholder={<Skeleton.Paragraph rows={6} />}>
+        <Skeleton
+          loading={loading}
+          active
+          placeholder={<Skeleton.Paragraph rows={6} />}
+        >
           <Form layout='vertical'>
             <Form.Switch
               field='enabled'
               label={t('启用邀请返利')}
               checked={formState.enabled}
-              onChange={(value) => setFormState((state) => ({ ...state, enabled: value }))}
+              onChange={(value) =>
+                setFormState((state) => ({ ...state, enabled: value }))
+              }
             />
             <Form.InputNumber
               field='default_link_validity_days'
               label={t('默认链接有效期（天）')}
               value={formState.default_link_validity_days}
-              onChange={(value) => setFormState((state) => ({ ...state, default_link_validity_days: Number(value || 0) }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  default_link_validity_days: Number(value || 0),
+                }))
+              }
             />
             <Form.Switch
               field='allow_custom_link_validity'
               label={t('允许用户自定义链接有效期')}
               checked={formState.allow_custom_link_validity}
-              onChange={(value) => setFormState((state) => ({ ...state, allow_custom_link_validity: value }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  allow_custom_link_validity: value,
+                }))
+              }
             />
             <Form.InputNumber
               field='min_withdrawal_amount'
               label={t('最低提现金额')}
               value={formState.min_withdrawal_amount}
-              onChange={(value) => setFormState((state) => ({ ...state, min_withdrawal_amount: Number(value || 0) }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  min_withdrawal_amount: Number(value || 0),
+                }))
+              }
             />
             <Form.InputNumber
               field='withdrawal_fee_percent'
               label={t('提现手续费比例')}
               value={formState.withdrawal_fee_percent}
-              onChange={(value) => setFormState((state) => ({ ...state, withdrawal_fee_percent: Number(value || 0) }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  withdrawal_fee_percent: Number(value || 0),
+                }))
+              }
             />
             <Form.InputNumber
               field='withdrawal_fee_fixed'
               label={t('固定手续费')}
               value={formState.withdrawal_fee_fixed}
-              onChange={(value) => setFormState((state) => ({ ...state, withdrawal_fee_fixed: Number(value || 0) }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  withdrawal_fee_fixed: Number(value || 0),
+                }))
+              }
             />
             <Form.Switch
               field='auto_approve_withdrawal'
               label={t('自动审核提现')}
               checked={formState.auto_approve_withdrawal}
-              onChange={(value) => setFormState((state) => ({ ...state, auto_approve_withdrawal: value }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  auto_approve_withdrawal: value,
+                }))
+              }
             />
             <Form.Switch
               field='commission_cap_enabled'
               label={t('启用月度佣金上限')}
               checked={formState.commission_cap_enabled}
-              onChange={(value) => setFormState((state) => ({ ...state, commission_cap_enabled: value }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  commission_cap_enabled: value,
+                }))
+              }
             />
             <Form.InputNumber
               field='monthly_commission_cap'
               label={t('月度佣金上限')}
               value={formState.monthly_commission_cap}
-              onChange={(value) => setFormState((state) => ({ ...state, monthly_commission_cap: Number(value || 0) }))}
+              onChange={(value) =>
+                setFormState((state) => ({
+                  ...state,
+                  monthly_commission_cap: Number(value || 0),
+                }))
+              }
             />
           </Form>
         </Skeleton>
 
         <div>
-          <Button theme='solid' type='primary' onClick={() => onSave?.(formState)}>
+          <Button
+            theme='solid'
+            type='primary'
+            onClick={() => onSave?.(formState)}
+          >
             {t('保存配置')}
           </Button>
         </div>

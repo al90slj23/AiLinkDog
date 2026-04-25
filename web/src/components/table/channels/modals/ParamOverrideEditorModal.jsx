@@ -149,7 +149,13 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
       return JSON.stringify(parsed, null, 2);
     }
     return buildOperationsJsonWithValidation(operations, { validate: true });
-  }, [buildOperationsJsonWithValidation, legacyValue, operations, t, visualMode]);
+  }, [
+    buildOperationsJsonWithValidation,
+    legacyValue,
+    operations,
+    t,
+    visualMode,
+  ]);
 
   const switchToJsonMode = () => {
     if (editMode === 'json') return;
@@ -161,7 +167,9 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
       if (visualMode === 'legacy') {
         setJsonText(legacyValue);
       } else {
-          setJsonText(buildOperationsJsonWithValidation(operations, { validate: false }));
+        setJsonText(
+          buildOperationsJsonWithValidation(operations, { validate: false }),
+        );
       }
       setJsonError(error.message || t('参数配置有误'));
     }
@@ -242,7 +250,9 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
     setOperations(finalOperations);
     setSelectedOperationId(finalOperations[0]?.id || '');
     setExpandedConditionMap({});
-    setJsonText(JSON.stringify({ operations: operationsPayload || [] }, null, 2));
+    setJsonText(
+      JSON.stringify({ operations: operationsPayload || [] }, null, 2),
+    );
     setJsonError('');
     setEditMode('visual');
   };
@@ -345,19 +355,31 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
     }
     const mode = selectedOperation.mode || 'set';
     const meta = MODE_META[mode] || MODE_META.set;
-    if (target === 'path' && (meta.path || meta.pathOptional || meta.pathAlias)) {
+    if (
+      target === 'path' &&
+      (meta.path || meta.pathOptional || meta.pathAlias)
+    ) {
       updateOperation(selectedOperation.id, { path: fieldKey });
       return;
     }
-    if (target === 'from' && (meta.from || meta.pathAlias || mode === 'sync_fields')) {
+    if (
+      target === 'from' &&
+      (meta.from || meta.pathAlias || mode === 'sync_fields')
+    ) {
       updateOperation(selectedOperation.id, {
-        from: mode === 'sync_fields' ? buildSyncTargetSpec('json', fieldKey) : fieldKey,
+        from:
+          mode === 'sync_fields'
+            ? buildSyncTargetSpec('json', fieldKey)
+            : fieldKey,
       });
       return;
     }
     if (target === 'to' && (meta.to || mode === 'sync_fields')) {
       updateOperation(selectedOperation.id, {
-        to: mode === 'sync_fields' ? buildSyncTargetSpec('json', fieldKey) : fieldKey,
+        to:
+          mode === 'sync_fields'
+            ? buildSyncTargetSpec('json', fieldKey)
+            : fieldKey,
       });
       return;
     }
@@ -379,7 +401,9 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
   };
 
   const updateOperation = (operationId, patch) => {
-    setOperations((prev) => buildOperationPatchResult({ operations: prev, operationId, patch }));
+    setOperations((prev) =>
+      buildOperationPatchResult({ operations: prev, operationId, patch }),
+    );
   };
 
   const formatSelectedOperationValueAsJson = useCallback(() => {
@@ -448,7 +472,10 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
   };
 
   const addOperation = () => {
-    const result = buildAddOperationResult({ operations, createDefaultOperation });
+    const result = buildAddOperationResult({
+      operations,
+      createDefaultOperation,
+    });
     setOperations(result.operations);
     setSelectedOperationId(result.selectedOperationId);
   };
@@ -577,7 +604,12 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
 
   const updateCondition = (operationId, conditionId, patch) => {
     setOperations((prev) =>
-      buildConditionUpdateResult({ operations: prev, operationId, conditionId, patch }),
+      buildConditionUpdateResult({
+        operations: prev,
+        operationId,
+        conditionId,
+        patch,
+      }),
     );
   };
 
@@ -685,212 +717,226 @@ const ParamOverrideEditorModal = ({ visible, value, onSave, onCancel }) => {
   return (
     <>
       <Modal
-      title={t('参数覆盖')}
-      visible={visible}
-      width={1120}
-      bodyStyle={{ maxHeight: '76vh', overflowY: 'auto', paddingTop: 10 }}
-      onCancel={onCancel}
-      onOk={handleSave}
-      okText={t('保存')}
-      cancelText={t('取消')}
-    >
-      <Space vertical align='start' spacing={14} style={{ width: '100%' }}>
-        <Card
-          className='!rounded-xl !border-0 w-full'
-          bodyStyle={{
-            padding: 12,
-            background: 'var(--semi-color-fill-0)',
-          }}
-        >
-          <div className='flex items-start justify-between gap-3'>
-            <Space wrap spacing={8}>
-              <Tag color='grey'>{t('编辑方式')}</Tag>
-              <Button
-                type={editMode === 'visual' ? 'primary' : 'tertiary'}
-                onClick={switchToVisualMode}
-              >
-                {t('可视化')}
-              </Button>
-              <Button
-                type={editMode === 'json' ? 'primary' : 'tertiary'}
-                onClick={switchToJsonMode}
-              >
-                {t('JSON 文本')}
-              </Button>
-              <Tag color='grey'>{t('模板')}</Tag>
-              <Select
-                value={templateGroupKey}
-                optionList={TEMPLATE_GROUP_OPTIONS}
-                onChange={(nextValue) =>
-                  setTemplateGroupKey(nextValue || 'basic')
-                }
-                style={{ width: 120 }}
-              />
-              <Select
-                value={templatePresetKey}
-                optionList={templatePresetOptions}
-                onChange={(nextValue) =>
-                  setTemplatePresetKey(nextValue || 'operations_default')
-                }
-                style={{ width: 260 }}
-              />
-              <Button onClick={fillTemplateFromLibrary}>{t('填充模板')}</Button>
-              <Button type='tertiary' onClick={appendTemplateFromLibrary}>
-                {t('追加模板')}
-              </Button>
-              <Button type='tertiary' onClick={resetEditorState}>
-                {t('重置')}
-              </Button>
-            </Space>
-          </div>
-        </Card>
+        title={t('参数覆盖')}
+        visible={visible}
+        width={1120}
+        bodyStyle={{ maxHeight: '76vh', overflowY: 'auto', paddingTop: 10 }}
+        onCancel={onCancel}
+        onOk={handleSave}
+        okText={t('保存')}
+        cancelText={t('取消')}
+      >
+        <Space vertical align='start' spacing={14} style={{ width: '100%' }}>
+          <Card
+            className='!rounded-xl !border-0 w-full'
+            bodyStyle={{
+              padding: 12,
+              background: 'var(--semi-color-fill-0)',
+            }}
+          >
+            <div className='flex items-start justify-between gap-3'>
+              <Space wrap spacing={8}>
+                <Tag color='grey'>{t('编辑方式')}</Tag>
+                <Button
+                  type={editMode === 'visual' ? 'primary' : 'tertiary'}
+                  onClick={switchToVisualMode}
+                >
+                  {t('可视化')}
+                </Button>
+                <Button
+                  type={editMode === 'json' ? 'primary' : 'tertiary'}
+                  onClick={switchToJsonMode}
+                >
+                  {t('JSON 文本')}
+                </Button>
+                <Tag color='grey'>{t('模板')}</Tag>
+                <Select
+                  value={templateGroupKey}
+                  optionList={TEMPLATE_GROUP_OPTIONS}
+                  onChange={(nextValue) =>
+                    setTemplateGroupKey(nextValue || 'basic')
+                  }
+                  style={{ width: 120 }}
+                />
+                <Select
+                  value={templatePresetKey}
+                  optionList={templatePresetOptions}
+                  onChange={(nextValue) =>
+                    setTemplatePresetKey(nextValue || 'operations_default')
+                  }
+                  style={{ width: 260 }}
+                />
+                <Button onClick={fillTemplateFromLibrary}>
+                  {t('填充模板')}
+                </Button>
+                <Button type='tertiary' onClick={appendTemplateFromLibrary}>
+                  {t('追加模板')}
+                </Button>
+                <Button type='tertiary' onClick={resetEditorState}>
+                  {t('重置')}
+                </Button>
+              </Space>
+            </div>
+          </Card>
 
-        {editMode === 'visual' ? (
-          <div style={{ width: '100%' }}>
-            {visualMode === 'legacy' ? (
-              <ParamOverrideEditorModalLegacySection
-                legacyValue={legacyValue}
-                setLegacyValue={setLegacyValue}
-              />
-            ) : (
-              <div>
-                <div className='flex items-center justify-between mb-3'>
-                  <Space>
-                    <Text>{t('新格式（规则 + 条件）')}</Text>
-                    <Tag color='cyan'>{`${t('规则')}: ${operationCount}`}</Tag>
-                  </Space>
-                  <Button icon={<IconPlus />} onClick={addOperation}>
-                    {t('新增规则')}
-                  </Button>
+          {editMode === 'visual' ? (
+            <div style={{ width: '100%' }}>
+              {visualMode === 'legacy' ? (
+                <ParamOverrideEditorModalLegacySection
+                  legacyValue={legacyValue}
+                  setLegacyValue={setLegacyValue}
+                />
+              ) : (
+                <div>
+                  <div className='flex items-center justify-between mb-3'>
+                    <Space>
+                      <Text>{t('新格式（规则 + 条件）')}</Text>
+                      <Tag color='cyan'>{`${t('规则')}: ${operationCount}`}</Tag>
+                    </Space>
+                    <Button icon={<IconPlus />} onClick={addOperation}>
+                      {t('新增规则')}
+                    </Button>
+                  </div>
+
+                  <Row gutter={12}>
+                    <Col xs={24} md={8}>
+                      <ParamOverrideEditorModalOperationsSidebarSection
+                        operationCount={operationCount}
+                        operations={operations}
+                        topOperationModes={topOperationModes}
+                        operationSearch={operationSearch}
+                        setOperationSearch={setOperationSearch}
+                        filteredOperations={filteredOperations}
+                        selectedOperationId={selectedOperationId}
+                        setSelectedOperationId={setSelectedOperationId}
+                        draggedOperationId={draggedOperationId}
+                        dragOverOperationId={dragOverOperationId}
+                        dragOverPosition={dragOverPosition}
+                        handleOperationDragStart={handleOperationDragStart}
+                        handleOperationDragOver={handleOperationDragOver}
+                        handleOperationDrop={handleOperationDrop}
+                        resetOperationDragState={resetOperationDragState}
+                      />
+                    </Col>
+                    <Col xs={24} md={16}>
+                      {selectedOperation ? (
+                        (() => {
+                          const mode = selectedOperation.mode || 'set';
+                          const meta = MODE_META[mode] || MODE_META.set;
+                          const conditions = selectedOperation.conditions || [];
+                          const syncFromTarget =
+                            mode === 'sync_fields'
+                              ? parseSyncTargetSpec(selectedOperation.from)
+                              : null;
+                          const syncToTarget =
+                            mode === 'sync_fields'
+                              ? parseSyncTargetSpec(selectedOperation.to)
+                              : null;
+                          return (
+                            <Card
+                              className='!rounded-2xl !border-0'
+                              bodyStyle={{
+                                padding: 14,
+                                background: 'var(--semi-color-fill-0)',
+                              }}
+                            >
+                              <ParamOverrideEditorModalOperationHeaderSection
+                                selectedOperation={selectedOperation}
+                                selectedOperationIndex={selectedOperationIndex}
+                                meta={meta}
+                                updateOperation={updateOperation}
+                                duplicateOperation={duplicateOperation}
+                                removeOperation={removeOperation}
+                              />
+
+                              <ParamOverrideEditorModalValueEditorSection
+                                selectedOperation={selectedOperation}
+                                meta={meta}
+                                mode={mode}
+                                returnErrorDraft={returnErrorDraft}
+                                pruneObjectsDraft={pruneObjectsDraft}
+                                syncFromTarget={syncFromTarget}
+                                syncToTarget={syncToTarget}
+                                updateOperation={updateOperation}
+                                updateReturnErrorDraft={updateReturnErrorDraft}
+                                updatePruneObjectsDraft={
+                                  updatePruneObjectsDraft
+                                }
+                                addPruneRule={addPruneRule}
+                                updatePruneRule={updatePruneRule}
+                                removePruneRule={removePruneRule}
+                                setHeaderValueExampleVisible={
+                                  setHeaderValueExampleVisible
+                                }
+                                formatSelectedOperationValueAsJson={
+                                  formatSelectedOperationValueAsJson
+                                }
+                                buildSyncTargetSpec={buildSyncTargetSpec}
+                              />
+
+                              <ParamOverrideEditorModalConditionsSection
+                                selectedOperation={selectedOperation}
+                                conditions={conditions}
+                                selectedConditionKeys={selectedConditionKeys}
+                                updateOperation={updateOperation}
+                                addCondition={addCondition}
+                                updateCondition={updateCondition}
+                                removeCondition={removeCondition}
+                                expandAllSelectedConditions={
+                                  expandAllSelectedConditions
+                                }
+                                collapseAllSelectedConditions={
+                                  collapseAllSelectedConditions
+                                }
+                                handleConditionCollapseChange={
+                                  handleConditionCollapseChange
+                                }
+                              />
+                            </Card>
+                          );
+                        })()
+                      ) : (
+                        <Card
+                          className='!rounded-2xl !border-0'
+                          bodyStyle={{
+                            padding: 14,
+                            background: 'var(--semi-color-fill-0)',
+                          }}
+                        >
+                          <Text type='tertiary'>
+                            {t('请选择一条规则进行编辑。')}
+                          </Text>
+                        </Card>
+                      )}
+
+                      {visualValidationError ? (
+                        <Card
+                          className='!rounded-2xl !border-0 mt-3'
+                          bodyStyle={{
+                            padding: 12,
+                            background: 'var(--semi-color-fill-0)',
+                          }}
+                        >
+                          <Space>
+                            <Tag color='red'>{t('暂存错误')}</Tag>
+                            <Text type='danger'>{visualValidationError}</Text>
+                          </Space>
+                        </Card>
+                      ) : null}
+                    </Col>
+                  </Row>
                 </div>
-
-                <Row gutter={12}>
-                  <Col xs={24} md={8}>
-                    <ParamOverrideEditorModalOperationsSidebarSection
-                      operationCount={operationCount}
-                      operations={operations}
-                      topOperationModes={topOperationModes}
-                      operationSearch={operationSearch}
-                      setOperationSearch={setOperationSearch}
-                      filteredOperations={filteredOperations}
-                      selectedOperationId={selectedOperationId}
-                      setSelectedOperationId={setSelectedOperationId}
-                      draggedOperationId={draggedOperationId}
-                      dragOverOperationId={dragOverOperationId}
-                      dragOverPosition={dragOverPosition}
-                      handleOperationDragStart={handleOperationDragStart}
-                      handleOperationDragOver={handleOperationDragOver}
-                      handleOperationDrop={handleOperationDrop}
-                      resetOperationDragState={resetOperationDragState}
-                    />
-                  </Col>
-                  <Col xs={24} md={16}>
-                    {selectedOperation ? (
-                      (() => {
-                        const mode = selectedOperation.mode || 'set';
-                        const meta = MODE_META[mode] || MODE_META.set;
-                        const conditions = selectedOperation.conditions || [];
-                        const syncFromTarget =
-                          mode === 'sync_fields'
-                            ? parseSyncTargetSpec(selectedOperation.from)
-                            : null;
-                        const syncToTarget =
-                          mode === 'sync_fields'
-                            ? parseSyncTargetSpec(selectedOperation.to)
-                            : null;
-                        return (
-                          <Card
-                            className='!rounded-2xl !border-0'
-                            bodyStyle={{
-                              padding: 14,
-                              background: 'var(--semi-color-fill-0)',
-                            }}
-                          >
-                            <ParamOverrideEditorModalOperationHeaderSection
-                              selectedOperation={selectedOperation}
-                              selectedOperationIndex={selectedOperationIndex}
-                              meta={meta}
-                              updateOperation={updateOperation}
-                              duplicateOperation={duplicateOperation}
-                              removeOperation={removeOperation}
-                            />
-
-                            <ParamOverrideEditorModalValueEditorSection
-                              selectedOperation={selectedOperation}
-                              meta={meta}
-                              mode={mode}
-                              returnErrorDraft={returnErrorDraft}
-                              pruneObjectsDraft={pruneObjectsDraft}
-                              syncFromTarget={syncFromTarget}
-                              syncToTarget={syncToTarget}
-                              updateOperation={updateOperation}
-                              updateReturnErrorDraft={updateReturnErrorDraft}
-                              updatePruneObjectsDraft={updatePruneObjectsDraft}
-                              addPruneRule={addPruneRule}
-                              updatePruneRule={updatePruneRule}
-                              removePruneRule={removePruneRule}
-                              setHeaderValueExampleVisible={setHeaderValueExampleVisible}
-                              formatSelectedOperationValueAsJson={formatSelectedOperationValueAsJson}
-                              buildSyncTargetSpec={buildSyncTargetSpec}
-                            />
-
-                            <ParamOverrideEditorModalConditionsSection
-                              selectedOperation={selectedOperation}
-                              conditions={conditions}
-                              selectedConditionKeys={selectedConditionKeys}
-                              updateOperation={updateOperation}
-                              addCondition={addCondition}
-                              updateCondition={updateCondition}
-                              removeCondition={removeCondition}
-                              expandAllSelectedConditions={expandAllSelectedConditions}
-                              collapseAllSelectedConditions={collapseAllSelectedConditions}
-                              handleConditionCollapseChange={handleConditionCollapseChange}
-                            />
-                          </Card>
-                        );
-                      })()
-                    ) : (
-                      <Card
-                        className='!rounded-2xl !border-0'
-                        bodyStyle={{
-                          padding: 14,
-                          background: 'var(--semi-color-fill-0)',
-                        }}
-                      >
-                        <Text type='tertiary'>
-                          {t('请选择一条规则进行编辑。')}
-                        </Text>
-                      </Card>
-                    )}
-
-                    {visualValidationError ? (
-                      <Card
-                        className='!rounded-2xl !border-0 mt-3'
-                        bodyStyle={{
-                          padding: 12,
-                          background: 'var(--semi-color-fill-0)',
-                        }}
-                      >
-                        <Space>
-                          <Tag color='red'>{t('暂存错误')}</Tag>
-                          <Text type='danger'>{visualValidationError}</Text>
-                        </Space>
-                      </Card>
-                    ) : null}
-                  </Col>
-                </Row>
-              </div>
-            )}
-          </div>
-        ) : (
-          <ParamOverrideEditorModalJsonSection
-            jsonText={jsonText}
-            jsonError={jsonError}
-            formatJson={formatJson}
-            handleJsonChange={handleJsonChange}
-          />
-        )}
-      </Space>
+              )}
+            </div>
+          ) : (
+            <ParamOverrideEditorModalJsonSection
+              jsonText={jsonText}
+              jsonError={jsonError}
+              formatJson={formatJson}
+              handleJsonChange={handleJsonChange}
+            />
+          )}
+        </Space>
       </Modal>
 
       <ParamOverrideEditorModalHeaderValueExampleModal

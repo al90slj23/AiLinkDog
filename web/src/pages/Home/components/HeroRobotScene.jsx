@@ -2,9 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { SplineScene } from '../../../components/ui/spline-scene';
 import { StatusContext } from '../../../context/Status';
 import { API, showError, showSuccess } from '../../../helpers';
-import {
-  Slider,
-} from '@douyinfe/semi-ui';
+import { Slider } from '@douyinfe/semi-ui';
 
 function HeroRobotScene({
   children,
@@ -73,13 +71,8 @@ function HeroRobotScene({
       ) : null}
       <div className='ald-home-robot-bg__scene'>
         {showScene ? (
-          <div
-            className='ald-home-robot-bg__canvas'
-            style={styleOverride}
-          >
-            <SplineScene
-              scene='/ald-robot.scene.splinecode'
-            />
+          <div className='ald-home-robot-bg__canvas' style={styleOverride}>
+            <SplineScene scene='/ald-robot.scene.splinecode' />
           </div>
         ) : (
           <div
@@ -111,17 +104,34 @@ function HeroRobotScene({
             display: 'flex',
             flexDirection: 'column',
             gap: '16px',
-            backdropFilter: 'blur(20px)'
+            backdropFilter: 'blur(20px)',
           }}
         >
-          <div style={{ fontSize: '16px', fontWeight: '600', marginBottom: '8px', borderBottom: '1px solid var(--ald-border)', paddingBottom: '12px' }}>
+          <div
+            style={{
+              fontSize: '16px',
+              fontWeight: '600',
+              marginBottom: '8px',
+              borderBottom: '1px solid var(--ald-border)',
+              paddingBottom: '12px',
+            }}
+          >
             🤖 机器人位置调试器
           </div>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '13px',
+                color: 'var(--ald-muted)',
+              }}
+            >
               <span>缩放比例 (Scale)</span>
-              <span style={{ color: 'var(--ald-text)' }}>{localTransform.scale}</span>
+              <span style={{ color: 'var(--ald-text)' }}>
+                {localTransform.scale}
+              </span>
             </div>
             <Slider
               step={0.01}
@@ -133,9 +143,18 @@ function HeroRobotScene({
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '13px',
+                color: 'var(--ald-muted)',
+              }}
+            >
               <span>水平偏移 (X px)</span>
-              <span style={{ color: 'var(--ald-text)' }}>{localTransform.x}</span>
+              <span style={{ color: 'var(--ald-text)' }}>
+                {localTransform.x}
+              </span>
             </div>
             <Slider
               step={1}
@@ -147,9 +166,18 @@ function HeroRobotScene({
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '13px',
+                color: 'var(--ald-muted)',
+              }}
+            >
               <span>垂直偏移 (Y px)</span>
-              <span style={{ color: 'var(--ald-text)' }}>{localTransform.y}</span>
+              <span style={{ color: 'var(--ald-text)' }}>
+                {localTransform.y}
+              </span>
             </div>
             <Slider
               step={1}
@@ -161,9 +189,18 @@ function HeroRobotScene({
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '13px', color: 'var(--ald-muted)' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                fontSize: '13px',
+                color: 'var(--ald-muted)',
+              }}
+            >
               <span>宽度占比 (Width %)</span>
-              <span style={{ color: 'var(--ald-text)' }}>{localTransform.width}</span>
+              <span style={{ color: 'var(--ald-text)' }}>
+                {localTransform.width}
+              </span>
             </div>
             <Slider
               step={1}
@@ -187,9 +224,9 @@ function HeroRobotScene({
               fontWeight: '600',
               cursor: isSaving ? 'not-allowed' : 'pointer',
               opacity: isSaving ? 0.7 : 1,
-              transition: 'transform 0.1s, box-shadow 0.1s'
+              transition: 'transform 0.1s, box-shadow 0.1s',
             }}
-            className="ald-btn"
+            className='ald-btn'
           >
             {isSaving ? '保存中...' : '保存并关闭调试器'}
           </button>

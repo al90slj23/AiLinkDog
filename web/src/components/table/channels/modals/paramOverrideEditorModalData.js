@@ -61,7 +61,9 @@ export const parsePassHeaderNames = (rawValue) => {
   }
   if (rawValue && typeof rawValue === 'object') {
     if (Array.isArray(rawValue.headers)) {
-      return rawValue.headers.map((item) => String(item ?? '').trim()).filter(Boolean);
+      return rawValue.headers
+        .map((item) => String(item ?? '').trim())
+        .filter(Boolean);
     }
     if (rawValue.header !== undefined) {
       const single = String(rawValue.header ?? '').trim();
@@ -92,13 +94,16 @@ export const parseReturnErrorDraft = (valueText) => {
   try {
     const parsed = JSON.parse(raw);
     if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-      const statusRaw = parsed.status_code !== undefined ? parsed.status_code : parsed.status;
+      const statusRaw =
+        parsed.status_code !== undefined ? parsed.status_code : parsed.status;
       const statusValue = Number(statusRaw);
       return {
         ...defaults,
         message: String(parsed.message || parsed.msg || '').trim(),
         statusCode:
-          Number.isInteger(statusValue) && statusValue >= 100 && statusValue <= 599
+          Number.isInteger(statusValue) &&
+          statusValue >= 100 &&
+          statusValue <= 599
             ? statusValue
             : 400,
         code: String(parsed.code || '').trim(),
@@ -166,7 +171,11 @@ export const parsePruneObjectsDraft = (valueText) => {
     }
     if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
       const rules = [];
-      if (parsed.where && typeof parsed.where === 'object' && !Array.isArray(parsed.where)) {
+      if (
+        parsed.where &&
+        typeof parsed.where === 'object' &&
+        !Array.isArray(parsed.where)
+      ) {
         Object.entries(parsed.where).forEach(([path, value]) => {
           rules.push(normalizePruneRule({ path, mode: 'full', value }));
         });
@@ -186,8 +195,10 @@ export const parsePruneObjectsDraft = (valueText) => {
           rules.push(normalizePruneRule({ path, mode: 'full', value }));
         });
       }
-      const typeText = parsed.type === undefined ? '' : String(parsed.type).trim();
-      const logic = String(parsed.logic || 'AND').toUpperCase() === 'OR' ? 'OR' : 'AND';
+      const typeText =
+        parsed.type === undefined ? '' : String(parsed.type).trim();
+      const logic =
+        String(parsed.logic || 'AND').toUpperCase() === 'OR' ? 'OR' : 'AND';
       const recursive = parsed.recursive !== false;
       const hasAdvancedFields =
         parsed.logic !== undefined ||
@@ -285,7 +296,8 @@ export const createDefaultCondition = () => normalizeCondition({});
 
 export const normalizeOperation = (operation = {}) => ({
   id: nextLocalId(),
-  description: typeof operation.description === 'string' ? operation.description : '',
+  description:
+    typeof operation.description === 'string' ? operation.description : '',
   path: typeof operation.path === 'string' ? operation.path : '',
   mode: OPERATION_MODE_VALUES.has(operation.mode) ? operation.mode : 'set',
   value_text: toValueText(operation.value),
@@ -309,7 +321,9 @@ export const reorderOperations = (
   if (!sourceId || !targetId || sourceId === targetId) {
     return sourceOperations;
   }
-  const sourceIndex = sourceOperations.findIndex((item) => item.id === sourceId);
+  const sourceIndex = sourceOperations.findIndex(
+    (item) => item.id === sourceId,
+  );
   if (sourceIndex < 0) {
     return sourceOperations;
   }
@@ -422,9 +436,16 @@ export const buildConditionPayload = (condition) => {
   return payload;
 };
 
-export const buildOperationsJson = (sourceOperations, t, validateOperations, options = {}) => {
+export const buildOperationsJson = (
+  sourceOperations,
+  t,
+  validateOperations,
+  options = {},
+) => {
   const { validate = true } = options;
-  const filteredOps = sourceOperations.filter((item) => !isOperationBlank(item));
+  const filteredOps = sourceOperations.filter(
+    (item) => !isOperationBlank(item),
+  );
   if (filteredOps.length === 0) return '';
   if (validate) {
     const message = validateOperations(filteredOps, t);
@@ -452,7 +473,9 @@ export const buildOperationsJson = (sourceOperations, t, validateOperations, opt
       if (!payload.from && pathValue) payload.from = pathValue;
       if (!payload.to && pathValue) payload.to = pathValue;
     }
-    const conditions = (operation.conditions || []).map(buildConditionPayload).filter(Boolean);
+    const conditions = (operation.conditions || [])
+      .map(buildConditionPayload)
+      .filter(Boolean);
     if (conditions.length > 0) {
       payload.conditions = conditions;
       payload.logic = operation.logic === 'AND' ? 'AND' : 'OR';

@@ -29,14 +29,18 @@ function getUserStatusMeta(status, t) {
   return { label: t('已禁用'), color: 'red' };
 }
 
-export default function ReferralInviteeTable({ loading = false, invitees = [] }) {
+export default function ReferralInviteeTable({
+  loading = false,
+  invitees = [],
+}) {
   const { t } = useTranslation();
 
   const columns = [
     {
       title: t('用户'),
       dataIndex: 'username',
-      render: (_, record) => record.display_name || record.username || `#${record.id || '--'}`,
+      render: (_, record) =>
+        record.display_name || record.username || `#${record.id || '--'}`,
     },
     {
       title: t('邮箱'),
@@ -58,7 +62,11 @@ export default function ReferralInviteeTable({ loading = false, invitees = [] })
       dataIndex: 'status',
       render: (value) => {
         const meta = getUserStatusMeta(value, t);
-        return <Tag color={meta.color} shape='circle'>{meta.label}</Tag>;
+        return (
+          <Tag color={meta.color} shape='circle'>
+            {meta.label}
+          </Tag>
+        );
       },
     },
   ];
@@ -72,7 +80,9 @@ export default function ReferralInviteeTable({ loading = false, invitees = [] })
     <Card>
       <Typography.Title heading={5}>{t('邀请用户')}</Typography.Title>
       <Typography.Text type='tertiary'>
-        {t('这里展示真实通过 inviter_id 关联到当前用户的被邀请用户列表，用于核对邀请效果与后续佣金来源。')}
+        {t(
+          '这里展示真实通过 inviter_id 关联到当前用户的被邀请用户列表，用于核对邀请效果与后续佣金来源。',
+        )}
       </Typography.Text>
       <Table
         style={{ marginTop: 16 }}
@@ -80,7 +90,9 @@ export default function ReferralInviteeTable({ loading = false, invitees = [] })
         dataSource={dataSource}
         pagination={false}
         loading={loading}
-        empty={<Empty imageStyle={{ height: 80 }} description={t('暂无邀请用户')} />}
+        empty={
+          <Empty imageStyle={{ height: 80 }} description={t('暂无邀请用户')} />
+        }
       />
     </Card>
   );

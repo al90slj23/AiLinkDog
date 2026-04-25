@@ -107,7 +107,9 @@ const useParamOverrideEditorModalEffects = ({ visible, value, state }) => {
 
   useEffect(() => {
     if (templatePresetOptions.length === 0) return;
-    const exists = templatePresetOptions.some((item) => item.value === templatePresetKey);
+    const exists = templatePresetOptions.some(
+      (item) => item.value === templatePresetKey,
+    );
     if (!exists) {
       setTemplatePresetKey(templatePresetOptions[0].value);
     }

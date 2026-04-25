@@ -26,7 +26,10 @@ import {
   buildRemoveConditionResult,
   buildRemoveOperationResult,
 } from './paramOverrideEditorModalActions';
-import { createDefaultCondition, createDefaultOperation } from './paramOverrideEditorModalData';
+import {
+  createDefaultCondition,
+  createDefaultOperation,
+} from './paramOverrideEditorModalData';
 
 describe('paramOverrideEditorModalActions', () => {
   it('updates a single operation by id', () => {
@@ -73,7 +76,9 @@ describe('paramOverrideEditorModalActions', () => {
 
     const addedCondition = added.operations[0].conditions[0];
     expect(added.operations[0].conditions).toHaveLength(1);
-    expect(added.expandedConditionMap[operation.id]).toEqual([addedCondition.id]);
+    expect(added.expandedConditionMap[operation.id]).toEqual([
+      addedCondition.id,
+    ]);
 
     const updated = buildConditionUpdateResult({
       operations: added.operations,

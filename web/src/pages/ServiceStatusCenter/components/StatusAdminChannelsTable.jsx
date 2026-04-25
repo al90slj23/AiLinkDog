@@ -14,7 +14,10 @@ const StatusAdminChannelsTable = ({ rows }) => (
             <Tag color={item.statusColor} shape='circle'>
               {item.statusText}
             </Tag>
-            <Typography.Text type='secondary'> {item.sourceKey}</Typography.Text>
+            <Typography.Text type='secondary'>
+              {' '}
+              {item.sourceKey}
+            </Typography.Text>
             <Typography.Text> {item.latencyText}</Typography.Text>
           </div>
         ))
