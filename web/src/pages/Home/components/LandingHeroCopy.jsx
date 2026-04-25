@@ -16,13 +16,11 @@ function LandingHeroCopy({ docsLink, t }) {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      // 以 1920 为 100% 的基准比例
-      let newScale = width / 1920;
+      // 以 1536 为 100% 的基准比例
+      let newScale = width / 1536;
       
-      // 在极小屏幕下稍微收底，避免文字小到无法看清
-      if (newScale < 0.4) {
-        newScale = 0.4;
-      }
+      // 在极小屏幕下稍微收底，大屏幕下封顶，避免过度缩放
+      newScale = Math.min(Math.max(newScale, 0.5), 1.5);
       
       setScale(newScale);
     };
