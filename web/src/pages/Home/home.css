@@ -1654,9 +1654,15 @@
   color: var(--ald-muted);
 }
 
+.ald-home-code__tabs > span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .ald-home-code__tab-buttons {
   display: flex;
   gap: 4px;
+  overflow: hidden;
 }
 
 .ald-home-code__tab-buttons button {
