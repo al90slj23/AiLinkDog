@@ -1,0 +1,9 @@
+$ vite --port "5180"
+Forced re-optimization of dependencies
+
+  VITE v5.4.11  ready in 563 ms
+
+  ➜  Local:   http://localhost:5180/
+  ➜  Network: http://192.168.1.236:5180/
+  ➜  Network: http://192.168.50.236:5180/
+  ➜  Network: http://198.18.0.1:5180/
