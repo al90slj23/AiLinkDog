@@ -156,7 +156,7 @@ function DefaultLandingPage({
 
       <main>
         <LandingHero docsLink={docsLink} serverAddress={serverAddress} t={t} />
-                <LandingCapabilities t={t} />
+        <LandingCapabilities t={t} />
         <LandingModelExplorer t={t} />
         <LandingAudiences t={t} />
         <LandingFaq t={t} />

@@ -36,10 +36,10 @@ function LandingHeroCopy({ docsLink, t }) {
       const width = window.innerWidth;
       // 以 1536 为 100% 的基准比例
       let newScale = width / 1536;
-      
+
       // 在极小屏幕下稍微收底，大屏幕下封顶，避免过度缩放
       newScale = Math.min(Math.max(newScale, 0.5), 1.5);
-      
+
       setScale(newScale);
     };
 
@@ -51,18 +51,20 @@ function LandingHeroCopy({ docsLink, t }) {
 
   return (
     <div className='ald-home-hero__primary-copy-container'>
-      <div 
+      <div
         className='ald-home-hero__primary-copy'
         style={{
           transform: `scale(${scale})`,
           transformOrigin: 'center center',
-          width: '100%'
+          width: '100%',
         }}
       >
         <div className='ald-home-chip'>
           All 128 models operational · 实时监控中
         </div>
-        <div className='ald-home-eyebrow'>ALD · AI API Aggregation Platform</div>
+        <div className='ald-home-eyebrow'>
+          ALD · AI API Aggregation Platform
+        </div>
         <h1>
           {t('接入所有模型')},
           <br />

@@ -393,7 +393,6 @@ function LandingHero({ docsLink, serverAddress, t }) {
           t={t}
         />
       </div>
-
     </section>
   );
 }
