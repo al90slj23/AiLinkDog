@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@douyinfe/semi-ui';
 import { Link } from 'react-router-dom';
 
@@ -11,19 +11,45 @@ function DogMark() {
 }
 
 function LandingHeroCopy({ docsLink, t }) {
-  const [debugBaseWidth, setDebugBaseWidth] = useState(1440);
-  const [debugMinScale, setDebugMinScale] = useState(0.7);
-  const [debugMaxScale, setDebugMaxScale] = useState(1.3);
-  const [debugOriginX, setDebugOriginX] = useState('center');
-  const [debugOriginY, setDebugOriginY] = useState('center');
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      // 以 1920 为 100% 的基准比例
+      let newScale = width / 1920;
+      
+      // 在极小屏幕下稍微收底，避免文字小到无法看清
+      if (newScale < 0.4) {
+        newScale = 0.4;
+      }
+      
+      setScale(newScale);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // 初始计算
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <>
+    <div 
+      className='ald-home-hero__primary-copy-container'
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        width: '100%',
+      }}
+    >
       <div 
         className='ald-home-hero__primary-copy'
         style={{
-          transform: `scale(clamp(${debugMinScale}, 100vw / ${debugBaseWidth}, ${debugMaxScale}))`,
-          transformOrigin: `${debugOriginX} ${debugOriginY}`
+          transform: `scale(${scale})`,
+          transformOrigin: 'left center',
+          width: '100%',
+          margin: 0 // Reset margin since container handles alignment
         }}
       >
         <div className='ald-home-chip'>
@@ -61,47 +87,7 @@ function LandingHeroCopy({ docsLink, t }) {
           )}
         </div>
       </div>
-
-      <div style={{ position: 'fixed', bottom: 20, left: 20, zIndex: 9999, background: 'var(--ald-card)', color: 'var(--ald-text)', padding: 20, borderRadius: 16, border: '1px solid var(--ald-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-        <h4 style={{ margin: '0 0 10px', fontSize: 14 }}>📝 文案缩放调试器</h4>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5, fontSize: 12, marginBottom: 10 }}>
-          <div style={{display:'flex', justifyContent:'space-between'}}><span>基准屏幕宽度(vw)</span><span>{debugBaseWidth}px</span></div>
-          <input type="range" min="800" max="2500" step="10" value={debugBaseWidth} onChange={e=>setDebugBaseWidth(e.target.value)} />
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5, fontSize: 12, marginBottom: 10 }}>
-          <div style={{display:'flex', justifyContent:'space-between'}}><span>最小缩放</span><span>{debugMinScale}</span></div>
-          <input type="range" min="0.1" max="1" step="0.05" value={debugMinScale} onChange={e=>setDebugMinScale(e.target.value)} />
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5, fontSize: 12, marginBottom: 10 }}>
-          <div style={{display:'flex', justifyContent:'space-between'}}><span>最大缩放</span><span>{debugMaxScale}</span></div>
-          <input type="range" min="1" max="3" step="0.05" value={debugMaxScale} onChange={e=>setDebugMaxScale(e.target.value)} />
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5, fontSize: 12, marginBottom: 10 }}>
-          <span>变换原点 (X, Y)</span>
-          <select value={debugOriginX} onChange={e=>setDebugOriginX(e.target.value)}>
-            <option value="left">Left</option>
-            <option value="center">Center</option>
-            <option value="right">Right</option>
-          </select>
-          <select value={debugOriginY} onChange={e=>setDebugOriginY(e.target.value)}>
-            <option value="top">Top</option>
-            <option value="center">Center</option>
-            <option value="bottom">Bottom</option>
-          </select>
-        </div>
-
-        <textarea 
-          readOnly 
-          value={`transform: scale(clamp(${debugMinScale}, 100vw / ${debugBaseWidth}, ${debugMaxScale}));\ntransform-origin: ${debugOriginX} ${debugOriginY};`}
-          style={{ width: '100%', height: 60, fontSize: 11, background: '#222', color: '#0f0', resize: 'none', padding: 5 }} 
-          onClick={e=>e.target.select()}
-        />
-      </div>
-    </>
+    </div>
   );
 }
 
