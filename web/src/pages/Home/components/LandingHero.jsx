@@ -26,7 +26,6 @@ import React, {
 } from 'react';
 import { Spotlight } from '../../../components/ui/spotlight';
 import LandingHeroCopy from './LandingHeroCopy';
-import LandingHeroMetrics from './LandingHeroMetrics';
 import LandingQuickStart from './LandingQuickStart';
 import LandingHeroCodeBlock from './LandingHeroCodeBlock';
 
@@ -395,9 +394,6 @@ function LandingHero({ docsLink, serverAddress, t }) {
         />
       </div>
 
-      <div className='ald-home-hero__row ald-home-hero__row--metrics'>
-        <LandingHeroMetrics t={t} />
-      </div>
     </section>
   );
 }

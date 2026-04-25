@@ -27,18 +27,6 @@ import LandingFaq from './LandingFaq';
 import LandingFinalCta from './LandingFinalCta';
 import '../home.css';
 
-const providerItems = [
-  'OpenAI',
-  'Claude',
-  'Gemini',
-  'DeepSeek',
-  'Qwen',
-  'Grok',
-  'Moonshot',
-  'GLM',
-  '128+',
-];
-
 const tickerItems = [
   ['claude-sonnet-4-5', 'healthy'],
   ['gpt-5', '+0.3% faster'],
@@ -168,23 +156,7 @@ function DefaultLandingPage({
 
       <main>
         <LandingHero docsLink={docsLink} serverAddress={serverAddress} t={t} />
-        <section className='ald-home-proof' data-ald-reveal>
-          <div className='ald-home-proof__intro'>
-            <span>§ TRUST</span>
-            <p>{t('支持多家主流模型供应商，面向真实生产场景持续维护')}</p>
-          </div>
-          <div className='ald-home-proof__grid'>
-            {providerItems.map((item, index) => (
-              <div
-                key={item}
-                className={`ald-home-proof__item ald-home-proof__item--${index % 3}`}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </section>
-        <LandingCapabilities t={t} />
+                <LandingCapabilities t={t} />
         <LandingModelExplorer t={t} />
         <LandingAudiences t={t} />
         <LandingFaq t={t} />
