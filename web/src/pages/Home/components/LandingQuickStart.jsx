@@ -20,9 +20,21 @@ import React from 'react';
 
 function LandingQuickStart({ serverAddress, t }) {
   const steps = [
-    ['01', t('注册账号，获取 API Key'), 'ailink.dog/register'],
-    ['02', t('将 base_url 指向站点 API 地址'), `${serverAddress}/v1`],
-    ['03', t('调用任意模型，实时查看用量与账单'), 'console.ailink.dog'],
+    {
+      num: '01',
+      title: t('获取 API Key'),
+      desc: t('注册并创建您的统一调用密钥'),
+    },
+    {
+      num: '02',
+      title: t('修改 Base URL'),
+      desc: `${t('将 API 地址指向')} ${serverAddress}/v1`,
+    },
+    {
+      num: '03',
+      title: t('开始调用'),
+      desc: t('兼容 OpenAI SDK，一键接入上百款模型'),
+    },
   ];
 
   return (
@@ -31,14 +43,19 @@ function LandingQuickStart({ serverAddress, t }) {
         <span>§ QUICK START</span>
         <p>{t('3 步完成接入')}</p>
       </div>
-      <div className='ald-home-steps--compact'>
-        {steps.map(([index, title, value]) => (
-          <div key={index} className='ald-home-steps__item--compact'>
-            <div className='ald-home-steps__item-header'>
-              <span>{index}</span>
-              <strong>{title}</strong>
+
+      <div className='ald-home-hero__timeline'>
+        <div className='ald-home-hero__timeline-line'>
+          <div className='ald-home-hero__timeline-glow'></div>
+        </div>
+
+        {steps.map((step, i) => (
+          <div key={i} className='ald-home-hero__timeline-item'>
+            <div className='ald-home-hero__timeline-dot'>{step.num}</div>
+            <div className='ald-home-hero__timeline-content'>
+              <h3>{step.title}</h3>
+              <p>{step.desc}</p>
             </div>
-            <code>{value}</code>
           </div>
         ))}
       </div>

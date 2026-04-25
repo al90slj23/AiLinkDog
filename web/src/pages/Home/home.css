@@ -1972,50 +1972,92 @@
 /* Override className style when inline style is applied */
 
 /* QuickStart Compact Styles */
-.ald-home-steps--compact {
+
+/* QuickStart Timeline Styles */
+.ald-home-hero__timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 40px;
+  padding-left: 20px;
+  margin-top: 20px;
 }
 
-.ald-home-steps__item--compact {
-  padding: 16px 20px;
+.ald-home-hero__timeline-line {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 35px; /* 20px padding + 15px to center of dot */
+  width: 2px;
+  background: color-mix(in srgb, var(--ald-border) 40%, transparent);
+  border-radius: 2px;
+}
+
+.ald-home-hero__timeline-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--ald-primary),
+    transparent
+  );
+  animation: aldTimelineFlow 3s ease-in-out infinite;
+}
+
+@keyframes aldTimelineFlow {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(400%);
+    opacity: 0;
+  }
+}
+
+.ald-home-hero__timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.ald-home-hero__timeline-dot {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ald-card);
   border: 1px solid var(--ald-border);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--ald-card) 64%, transparent);
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
-  box-shadow: 0 18px 28px -24px rgba(15, 17, 21, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.ald-home-steps__item-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-}
-
-.ald-home-steps__item-header span {
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
   color: var(--ald-primary);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
+  box-shadow: 0 0 16px rgba(245, 179, 1, 0.15);
+}
+
+.ald-home-hero__timeline-content h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
   font-weight: 600;
-}
-
-.ald-home-steps__item-header strong {
   color: var(--ald-text);
-  font-size: 15px;
+  letter-spacing: -0.01em;
 }
 
-.ald-home-steps__item--compact code {
+.ald-home-hero__timeline-content p {
+  margin: 0;
+  font-size: 14px;
   color: var(--ald-muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12px;
-  background: color-mix(in srgb, var(--ald-surface) 50%, transparent);
-  padding: 6px 10px;
-  border-radius: 6px;
-  width: fit-content;
+  line-height: 1.6;
 }
