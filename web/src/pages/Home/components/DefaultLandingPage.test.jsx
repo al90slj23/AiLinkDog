@@ -1,7 +1,23 @@
 import React from 'react';
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, it } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
+import { vi } from 'vitest';
+
+vi.mock('@douyinfe/semi-ui', () => ({
+  Button: ({ children, ...props }) => React.createElement('button', props, children),
+}));
+
+vi.mock('@douyinfe/semi-icons', () => ({}));
+
+vi.mock('../../../components/ui/spotlight', () => ({
+  Spotlight: ({ children }) => React.createElement('div', null, children),
+}));
+
+vi.mock('./HeroRobotScene', () => ({
+  default: ({ children }) => React.createElement('div', { className: 'ald-home-hero__primary-robot' }, children),
+}));
+
 import DefaultLandingPage from './DefaultLandingPage';
 
 function renderLandingPage() {
@@ -19,7 +35,7 @@ function renderLandingPage() {
 }
 
 describe('DefaultLandingPage', () => {
-  test('renders hero headline and primary CTAs', () => {
+  it('renders hero headline and primary CTAs', () => {
     const html = renderLandingPage();
 
     expect(html).toContain('接入所有模型');

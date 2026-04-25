@@ -157,6 +157,70 @@ const snippets = {
     "    'model' => 'gemini-1.5-pro',",
     ']);',
   ],
+  ruby: (serverAddress) => [
+    '# gem install ruby-openai',
+    'client = OpenAI::Client.new(',
+    "  access_token: 'sk-ald-•••••',",
+    `  uri_base: '${serverAddress}/v1'`,
+    ')',
+  ],
+  csharp: (serverAddress) => [
+    '// using OpenAI SDK',
+    'var client = new OpenAIClient(',
+    "  apiKey: \"sk-ald-•••••\",",
+    `  baseUrl: \"${serverAddress}/v1\"`,
+    ');',
+  ],
+  swift: (serverAddress) => [
+    '// Swift example',
+    'let client = OpenAI(',
+    "  apiKey: \"sk-ald-•••••\",",
+    `  baseURL: \"${serverAddress}/v1\"`,
+    ')',
+  ],
+  kotlin: (serverAddress) => [
+    '// Kotlin example',
+    'val client = OpenAIClient(',
+    "  apiKey = \"sk-ald-•••••\",",
+    `  baseUrl = \"${serverAddress}/v1\"`,
+    ')',
+  ],
+  dart: (serverAddress) => [
+    '// Dart example',
+    'final client = OpenAIClient(',
+    "  apiKey: 'sk-ald-•••••',",
+    `  baseUrl: '${serverAddress}/v1',`,
+    ');',
+  ],
+  cpp: (serverAddress) => [
+    "// C++ HTTP client example",
+    `// POST ${serverAddress}/v1/chat/completions`,
+    '// Authorization: Bearer sk-ald-•••••',
+  ],
+  r: (serverAddress) => [
+    '# R httr2 example',
+    `req <- request('${serverAddress}/v1/chat/completions')`,
+    "req <- req_headers(req, Authorization = 'Bearer sk-ald-•••••')",
+  ],
+  scala: (serverAddress) => [
+    '// Scala example',
+    `// baseURL = ${serverAddress}/v1`,
+  ],
+  perl: (serverAddress) => [
+    '# Perl example',
+    "# Authorization: Bearer sk-ald-•••••",
+    `# POST ${serverAddress}/v1/chat/completions`,
+  ],
+  elixir: (serverAddress) => [
+    '# Elixir Finch example',
+    `# POST ${serverAddress}/v1/chat/completions`,
+    "# authorization: bearer sk-ald-•••••",
+  ],
+  bash: (serverAddress) => [
+    '# Bash example',
+    `curl ${serverAddress}/v1/models \\`,
+    "  -H 'Authorization: Bearer sk-ald-•••••'",
+  ],
 };
 
 function RobotVendorLayer() {
