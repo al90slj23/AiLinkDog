@@ -27,7 +27,7 @@ import React, {
 import { Spotlight } from '../../../components/ui/spotlight';
 import LandingHeroCopy from './LandingHeroCopy';
 import LandingHeroMetrics from './LandingHeroMetrics';
-import LandingHeroInfoCards from './LandingHeroInfoCards';
+import LandingQuickStart from './LandingQuickStart';
 import LandingHeroCodeBlock from './LandingHeroCodeBlock';
 
 const HeroRobotScene = lazy(() => import('./HeroRobotScene'));
@@ -384,7 +384,7 @@ function LandingHero({ docsLink, serverAddress, t }) {
 
       <div className='ald-home-hero__row ald-home-hero__row--secondary'>
         <div className='ald-home-hero__secondary-left'>
-          <LandingHeroInfoCards serverAddress={serverAddress} t={t} />
+          <LandingQuickStart serverAddress={serverAddress} t={t} />
         </div>
 
         <LandingHeroCodeBlock

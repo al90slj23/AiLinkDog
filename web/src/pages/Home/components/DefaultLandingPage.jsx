@@ -1,10 +1,28 @@
+/*
+Copyright (C) 2025 QuantumNous
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+For commercial licensing, please contact support@quantumnous.com
+*/
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@douyinfe/semi-ui';
 import LandingHero from './LandingHero';
 import LandingCapabilities from './LandingCapabilities';
 import LandingModelExplorer from './LandingModelExplorer';
-import LandingQuickStart from './LandingQuickStart';
+import LandingAudiences from './LandingAudiences';
 import LandingFaq from './LandingFaq';
 import LandingFinalCta from './LandingFinalCta';
 import '../home.css';
@@ -168,7 +186,7 @@ function DefaultLandingPage({
         </section>
         <LandingCapabilities t={t} />
         <LandingModelExplorer t={t} />
-        <LandingQuickStart serverAddress={serverAddress} t={t} />
+        <LandingAudiences t={t} />
         <LandingFaq t={t} />
         <LandingFinalCta docsLink={docsLink} t={t} />
       </main>
