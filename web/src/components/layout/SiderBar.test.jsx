@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 const useSidebarMock = vi.fn(() => ({
   isModuleVisible: (sectionKey, moduleKey) =>
     (sectionKey === 'admin' && moduleKey === 'statuscenter') ||
+    (sectionKey === 'admin' && moduleKey === 'upstreamtracking') ||
     (sectionKey === 'personal' && moduleKey === 'monitortargets'),
   hasSectionVisibleModules: (sectionKey) =>
     sectionKey === 'admin' || sectionKey === 'personal',
@@ -134,5 +135,12 @@ describe('SiderBar', () => {
     expect(html).toContain('个人中心');
     expect(html).toContain('我的监控');
     expect(html).toContain('href="/console/monitor-targets"');
+  });
+
+  it('管理员且模块可见时显示上游跟踪入口', () => {
+    const html = renderToStaticMarkup(<SiderBar />);
+
+    expect(html).toContain('上游跟踪');
+    expect(html).toContain('href="/console/upstreamtracking"');
   });
 });
