@@ -1,134 +1,48 @@
-# AiLinkDog 项目概览
+# AiLinkDog Agent Notes
 
-## 项目定位
+本仓库协作默认使用中文。只记录未来 agent 容易猜错的事实；更完整背景看 `README.md`、`CLAUDE.md` 和 `.ai/`。
 
-`AiLinkDog` 当前承载的是 `new-api` 项目的真实代码与规范体系。它本质上是一个用 Go 编写的 AI API 网关 / 代理系统，聚合 40+ 上游 AI 提供商，在统一接口下提供模型转发、用户管理、计费、限流、后台管理和多种格式转换能力。
+## 项目身份
 
-从 2026-04-19 开始，`AiLinkDog` 被明确记录为一个基于 `new-api` 的本地长期独立维护计划与演进代号。它代表的是当前仓库的长期优化、深度重构与持续建设方向，而不是对上游来源的否认或替代。
+- 当前代码仍是 `new-api` 体系，Go module 是 `github.com/QuantumNous/new-api`；`AiLinkDog` 是本地长期维护路线名，不是替代上游身份。
+- `new-api`、`QuantumNous` 相关名称、版权、module/import path、镜像名、README 署名等受保护；不要擅自删除、改名或替换。
+- `.cursor/rules/project.mdc` 是历史 Cursor 规则，里面“三库兼容”等内容已过时；冲突时以 `AGENTS.md`、`CLAUDE.md`、`.ai/L3#Standards/` 和可执行配置为准。
 
-这意味着：
+## 运行环境与入口
 
-- 当前仓库会长期维护自己的优化路线
-- 未来可能不再能简单一键升级上游版本
-- 但仍需持续跟踪上游 `new-api` 的版本、修复与功能变化，并评估是否合并、同步或局部移植
-
-## 当前技术栈
-
-### 后端
-
-- Go 1.22+
-- Gin Web 框架
-- GORM v2
-- PostgreSQL
-- Redis + 内存缓存
-
-### 前端
-
-- React 18
-- Vite
-- Semi Design UI（`@douyinfe/semi-ui`）
-- Bun 作为首选前端包管理器与脚本执行器
-
-### 其他能力
-
-- JWT、WebAuthn / Passkeys、OAuth
-- 后端 `go-i18n`
-- 前端 `i18next`
-
-### 国际化
-
-- 后端语言：`en`、`zh`
-- 前端语言：`zh`、`en`、`fr`、`ru`、`ja`、`vi`
-- 前端翻译 key 采用中文源字符串
-
-## 核心架构
-
-当前项目主要采用以下后端分层：
-
-`Router -> Controller -> Service -> Model`
-
-同时还有一个很重要的 `relay/` 体系，用于承接不同 AI 提供商的协议适配与格式转换。
-
-## 关键目录
-
-- `router/`：HTTP 路由
-- `controller/`：请求处理器
-- `service/`：业务逻辑
-- `model/`：数据库模型与数据访问
-- `relay/`：AI relay / adapter / convert 主体
-- `setting/`：系统配置与策略配置
-- `common/`：通用工具
-- `dto/`：请求响应 DTO
-- `types/`：共享类型定义
-- `web/`：React 前端
-- `i18n/`：后端国际化
-- `oauth/`：OAuth 提供商实现
-
-## 当前最重要规则
-
-### 沟通与文档
-
-1. 全程使用中文沟通交流
-2. 项目 specs 默认使用中文编写
-
-### 后端
-
-3. JSON 编解码必须使用 `common/json.go` 包装函数
-4. 数据库方向从 AiLinkDog 开始统一收敛为 PostgreSQL-only
-5. relay 请求中的可选标量字段必须使用指针以保留显式零值
-6. 新增 channel 时必须确认 `StreamOptions` 支持情况
-
-### 前端
-
-7. 前端包管理器优先使用 Bun
-8. 当前前端真实使用的是 Semi Design，不应继承旧项目与之冲突的 UI 规则
-9. 前后端都存在 i18n，且实现方式不同，修改时必须区分上下文
-10. 初始化向导不再作为当前项目主路径保留
-11. Docker 不再作为当前项目主入口或推荐方案
-
-### 项目保护规则
-
-12. `new-api` 与 `QuantumNous` 相关标识是受保护信息，不得擅自移除、替换或改名
-
-## 上游关系
-
-- 当前本地长期维护代号：`AiLinkDog`
-- 上游来源项目：`new-api`
-- 当前记录基线日期：`2026-04-19`
-- 当前上游基线版本标签：`v0.12.14`
-- 当前仓库基线修订：`v0.12.14-5-gf995a868`
-
-后续长期维护中，需要持续跟踪上游发布与修复情况，但必须在遵守上游版权与受保护标识规则的前提下进行。
+- 后端入口是根目录 `main.go`，当前 `go.mod` 要求 `go 1.25.1`；CI/release 使用 `go-version: >=1.25.1`。
+- 正式数据库方向是 PostgreSQL-only。`SQL_DSN` 是主流程必需项；`model/main.go` 的 `chooseDB` 缺少 DSN 会直接报错。
+- 前端在 `web/`，React 18 + Vite + Semi Design，优先用 Bun，不要改成 npm/yarn/pnpm 工作流。
+- `main.go` 使用 `//go:embed web/dist` 嵌入前端产物；生产构建或 Go 二进制发布前必须先完成 `web` 构建。
 
 ## 常用命令
 
-### 后端测试
+- 本地开发推荐：`./gogogo.sh 1`，会用 `tmux` 启动后端 `air -c .air.toml`、前端 `bun install && bun run dev`、监控窗格；依赖 `tmux`、`go`、`bun`、`air`。
+- 进入/停止当前开发会话：`./gogogo.sh attach`、`./gogogo.sh stop`。
+- 完整构建：`./gogogo.sh build`，实际执行 `cd web && bun install && bun run build`，然后根目录 `go build ./...`。
+- 后端测试：`./gogogo.sh test` 或 `go test ./...`；单测示例：`go test -run TestName ./router/...`。
+- 前端检查：`./gogogo.sh lint`，会先清理 `web/dist` 中除 `index.html` 外的产物，再跑 `bun run lint` 和 `bun run eslint`。
+- 前端单独命令都在 `web/` 下：`bun install`、`bun run dev`、`bun run build`、`bun run lint`、`bun run eslint`、`bun run i18n:extract|sync|lint|status`。
+- `make` 只构建前端并后台 `go run main.go`，不等同于推荐开发流；日常优先 `gogogo.sh`。
 
-```bash
-go test ./...
-```
+## 架构边界
 
-### 前端
+- 主分层是 `router -> controller -> service -> model`；AI provider 协议适配和格式转换主要在 `relay/` 和 `relay/channel/`。
+- 配置与策略在 `setting/`，请求/响应结构在 `dto/`，共享工具在 `common/`，后端 i18n 在 `i18n/`，前端 i18n 在 `web/src/i18n/`。
+- `.ai/L3#Standards/standards/` 是细规则来源；先看 `.ai/L2#Index/toc.md` 找具体规范，历史决策看 `.ai/L4#Changelog/`。
 
-```bash
-cd web
-bun install
-bun run dev
-bun run build
-```
+## 代码规则
 
-### 统一脚本
+- 业务 JSON marshal/unmarshal 应走 `common/json.go` 的 `common.Marshal`、`common.Unmarshal`、`common.UnmarshalJsonStr`、`common.DecodeJson`；引用 `json.RawMessage` 等类型可以保留 `encoding/json` 类型导入。
+- 新数据库设计和文档按 PostgreSQL-only 写；原生 SQL 中遇到保留字列或布尔字面量，优先复用 `model/main.go` 的 `commonGroupCol`、`commonKeyCol`、`commonTrueVal`、`commonFalseVal` 模式。
+- relay 请求 DTO 中从客户端 JSON 解析后再发往上游的可选标量字段必须用指针加 `omitempty`，避免显式 `0`、`false` 被丢掉。
+- 新增 channel 时必须确认提供商是否支持 `StreamOptions`；支持时更新 `relay/common/relay_info.go` 的 `streamSupportedChannels` 或相关能力标记。
+- 前后端都有 i18n：后端是 `go-i18n` YAML，前端是 `i18next` 扁平 JSON；前端翻译 key 使用中文源字符串并通过 `t('中文key')` 调用。
+- 旧初始化向导和 Docker 不是当前本地维护主路径；不要把它们写成推荐入口。
 
-```bash
-./gogogo.sh test
-./gogogo.sh build
-./gogogo.sh lint
-./gogogo.sh clean
-```
+## 质量与工作流
 
-## 阅读建议
-
-- 想快速建立认知：继续读 `L2#Index/`
-- 想找规则：进入 `L3#Standards/standards/`
-- 想看为什么这样设计：查看 `L4#Changelog/`
-- 想理解系统关系：查看 `L5#Knowledge/system-map.md`
+- 修改前优先读可执行配置和实际入口；文档与脚本冲突时相信脚本、`go.mod`、CI 和代码。
+- 调试本地错误时先看当前文件，再对比上游 `new-api` 对应文件，判断是本地改动、上游已修复还是本地落后。
+- PR 检查会拒绝明显纯 AI 内容；不要在提交说明或 PR 正文加入 `Generated with Claude Code` 之类标记。
+- 任务完成总结或 work-log wrap-up 时，本仓库有项目 skill `standards-sync-on-complete`：需要同步对应 L4 changelog 时先加载该 skill。

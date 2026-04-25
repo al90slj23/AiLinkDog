@@ -362,9 +362,7 @@ function LandingHero({ docsLink, serverAddress, t }) {
       <div className='ald-home-hero__primary-background'></div>
 
       <div className='ald-home-hero__row ald-home-hero__row--primary'>
-        <div className='ald-home-hero__primary-copy'>
-          <LandingHeroCopy docsLink={docsLink} t={t} />
-        </div>
+        <LandingHeroCopy docsLink={docsLink} t={t} />
 
         <div className='ald-home-hero__primary-robot' ref={robotRef}>
           <div className='ald-home-hero__robot-layer'>
