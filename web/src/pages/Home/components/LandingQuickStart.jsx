@@ -28,7 +28,7 @@ function LandingQuickStart({ serverAddress, t }) {
     {
       num: '02',
       title: t('修改 Base URL'),
-      desc: `${t('将 API 地址指向')} ${serverAddress}/v1`,
+      desc: \`${t('将 API 地址指向')} ${serverAddress}/v1\`,
     },
     {
       num: '03',
@@ -45,17 +45,23 @@ function LandingQuickStart({ serverAddress, t }) {
 
   const features = [
     {
-      icon: '🛡️',
+      iconSvg: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      ),
       title: t('零日志保留'),
       desc: t('默认不留存对话数据，保障隐私'),
     },
     {
-      icon: '⚡️',
+      iconSvg: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      ),
       title: t('高并发支持'),
       desc: t('企业级吞吐量，毫秒级响应'),
     },
     {
-      icon: '🔄',
+      iconSvg: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+      ),
       title: t('无缝兼容生态'),
       desc: t('支持 LangChain/Dify 等主流框架'),
     },
@@ -71,11 +77,17 @@ function LandingQuickStart({ serverAddress, t }) {
             <span>§ CORE METRICS</span>
             <p>{t('平台核心指标')}</p>
           </div>
-          <div className='ald-home-hero__quickstart-metrics'>
+          <div className='ald-home-hero__timeline'>
+            <div className='ald-home-hero__timeline-line'>
+              <div className='ald-home-hero__timeline-glow'></div>
+            </div>
             {metrics.map((m, i) => (
-              <div key={i} className='ald-home-hero__quickstart-metric-item'>
-                <strong>{m.value}</strong>
-                <span>{m.label}</span>
+              <div key={i} className='ald-home-hero__timeline-item'>
+                <div className='ald-home-hero__timeline-dot ald-home-hero__timeline-dot--pulse'></div>
+                <div className='ald-home-hero__timeline-content'>
+                  <h3 className="ald-home-hero__metric-value">{m.value}</h3>
+                  <p>{m.label}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -110,11 +122,14 @@ function LandingQuickStart({ serverAddress, t }) {
             <span>§ ENTERPRISE</span>
             <p>{t('安全与生态')}</p>
           </div>
-          <div className='ald-home-hero__features'>
+          <div className='ald-home-hero__timeline'>
+            <div className='ald-home-hero__timeline-line'>
+              <div className='ald-home-hero__timeline-glow'></div>
+            </div>
             {features.map((feature, i) => (
-              <div key={i} className='ald-home-hero__feature-item'>
-                <div className='ald-home-hero__feature-icon'>{feature.icon}</div>
-                <div className='ald-home-hero__feature-content'>
+              <div key={i} className='ald-home-hero__timeline-item'>
+                <div className='ald-home-hero__timeline-dot'>{feature.iconSvg}</div>
+                <div className='ald-home-hero__timeline-content'>
                   <h3>{feature.title}</h3>
                   <p>{feature.desc}</p>
                 </div>
