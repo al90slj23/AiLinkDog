@@ -967,7 +967,7 @@
 }
 
 .ald-home-hero__secondary-left {
-  max-width: 640px;
+  max-width: none;
   margin: 0 auto;
   width: 100%;
 }
@@ -1988,6 +1988,10 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 40px;
+}
+
+.ald-home-hero__quickstart-layout > div {
+  flex: 1;
 }
 
 /* Horizontal Metrics Group */
