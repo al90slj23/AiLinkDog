@@ -1985,18 +1985,16 @@
 /* QuickStart Layout with Stacked Metrics & Timeline */
 .ald-home-hero__quickstart-layout {
   display: flex;
-  flex-direction: column;
-  gap: 52px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
 }
 
 /* Horizontal Metrics Group */
 .ald-home-hero__quickstart-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--ald-border) 40%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 .ald-home-hero__quickstart-metric-item {
@@ -2007,7 +2005,7 @@
 
 .ald-home-hero__quickstart-metric-item strong {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 32px;
+  font-size: 38px;
   font-weight: 700;
   letter-spacing: -0.03em;
   background: linear-gradient(
@@ -2134,9 +2132,17 @@
   line-height: 1.5;
 }
 
+
+
+.ald-home-hero__quickstart-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 860px) {
-  .ald-home-hero__quickstart-metrics {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .ald-home-hero__quickstart-layout {
+    flex-direction: column;
+    gap: 64px;
   }
 }

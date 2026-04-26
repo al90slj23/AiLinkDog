@@ -45,36 +45,47 @@ function LandingQuickStart({ serverAddress, t }) {
 
   return (
     <div className='ald-home-hero__secondary-info'>
-      <div className='ald-home-hero__secondary-header'>
-        <span>§ QUICK START</span>
-        <p>{t('3 步完成接入')}</p>
-      </div>
-
       <div className='ald-home-hero__quickstart-layout'>
-        <div className='ald-home-hero__quickstart-metrics'>
-          {metrics.map((m, i) => (
-            <div key={i} className='ald-home-hero__quickstart-metric-item'>
-              <strong>{m.value}</strong>
-              <span>{m.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className='ald-home-hero__timeline'>
-          <div className='ald-home-hero__timeline-line'>
-            <div className='ald-home-hero__timeline-glow'></div>
+        
+        {/* Left Column: Platform Metrics */}
+        <div className='ald-home-hero__quickstart-column'>
+          <div className='ald-home-hero__secondary-header'>
+            <span>§ CORE METRICS</span>
+            <p>{t('平台核心指标')}</p>
           </div>
-
-          {steps.map((step, i) => (
-            <div key={i} className='ald-home-hero__timeline-item'>
-              <div className='ald-home-hero__timeline-dot'>{step.num}</div>
-              <div className='ald-home-hero__timeline-content'>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
+          <div className='ald-home-hero__quickstart-metrics'>
+            {metrics.map((m, i) => (
+              <div key={i} className='ald-home-hero__quickstart-metric-item'>
+                <strong>{m.value}</strong>
+                <span>{m.label}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* Right Column: Quick Start */}
+        <div className='ald-home-hero__quickstart-column'>
+          <div className='ald-home-hero__secondary-header'>
+            <span>§ QUICK START</span>
+            <p>{t('三步完成接入')}</p>
+          </div>
+          <div className='ald-home-hero__timeline'>
+            <div className='ald-home-hero__timeline-line'>
+              <div className='ald-home-hero__timeline-glow'></div>
+            </div>
+
+            {steps.map((step, i) => (
+              <div key={i} className='ald-home-hero__timeline-item'>
+                <div className='ald-home-hero__timeline-dot'>{step.num}</div>
+                <div className='ald-home-hero__timeline-content'>
+                  <h3>{step.title}</h3>
+                  <p>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
