@@ -2139,9 +2139,20 @@
 
 
 .ald-home-hero__quickstart-column {
-  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 861px) {
+  .ald-home-hero__quickstart-column:nth-child(1) {
+    flex: 2;
+  }
+  .ald-home-hero__quickstart-column:nth-child(2) {
+    flex: 4;
+  }
+  .ald-home-hero__quickstart-column:nth-child(3) {
+    flex: 4;
+  }
 }
 
 @media (max-width: 860px) {

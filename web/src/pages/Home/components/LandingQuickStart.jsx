@@ -139,18 +139,6 @@ function LandingQuickStart({ serverAddress, t }) {
         </div>
 
       </div>
-
-      {/* Bottom Row: Framework Logos / Tags */}
-      <div className='ald-home-hero__frameworks'>
-        <span className='ald-home-hero__frameworks-label'>{t('已完美支持以下框架')}</span>
-        <div className='ald-home-hero__frameworks-list'>
-          {['LangChain', 'LlamaIndex', 'Dify', 'FastGPT', 'Next.js', 'Vercel AI SDK', 'AnythingLLM'].map((fw, i) => (
-            <div key={i} className='ald-home-hero__framework-tag'>
-              {fw}
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
