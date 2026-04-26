@@ -967,7 +967,7 @@
 }
 
 .ald-home-hero__secondary-left {
-  max-width: 520px;
+  max-width: 640px;
   margin: 0 auto;
   width: 100%;
 }
@@ -2145,4 +2145,99 @@
     flex-direction: column;
     gap: 64px;
   }
+}
+
+/* Features (Column 3) */
+.ald-home-hero__features {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 12px;
+}
+
+.ald-home-hero__feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.ald-home-hero__feature-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ald-surface) 60%, transparent);
+  border: 1px solid var(--ald-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(15, 17, 21, 0.05);
+}
+
+.ald-home-hero__feature-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ald-home-hero__feature-content h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ald-text);
+  letter-spacing: -0.01em;
+}
+
+.ald-home-hero__feature-content p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ald-muted);
+  line-height: 1.5;
+}
+
+/* Frameworks Logo Wall */
+.ald-home-hero__frameworks {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--ald-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.ald-home-hero__frameworks-label {
+  font-size: 13px;
+  color: var(--ald-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ald-home-hero__frameworks-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.ald-home-hero__framework-tag {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--ald-surface) 60%, transparent);
+  border: 1px solid var(--ald-border);
+  color: var(--ald-text);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.ald-home-hero__framework-tag:hover {
+  border-color: var(--ald-primary);
+  color: var(--ald-primary);
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--ald-primary) 5%, transparent);
 }

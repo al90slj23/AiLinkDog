@@ -43,11 +43,29 @@ function LandingQuickStart({ serverAddress, t }) {
     { value: '< 80ms', label: t('路由转发开销') },
   ];
 
+  const features = [
+    {
+      icon: '🛡️',
+      title: t('零日志保留'),
+      desc: t('默认不留存对话数据，保障隐私'),
+    },
+    {
+      icon: '⚡️',
+      title: t('高并发支持'),
+      desc: t('企业级吞吐量，毫秒级响应'),
+    },
+    {
+      icon: '🔄',
+      title: t('无缝兼容生态'),
+      desc: t('支持 LangChain/Dify 等主流框架'),
+    },
+  ];
+
   return (
     <div className='ald-home-hero__secondary-info'>
       <div className='ald-home-hero__quickstart-layout'>
         
-        {/* Left Column: Platform Metrics */}
+        {/* Column 1: Platform Metrics */}
         <div className='ald-home-hero__quickstart-column'>
           <div className='ald-home-hero__secondary-header'>
             <span>§ CORE METRICS</span>
@@ -63,7 +81,7 @@ function LandingQuickStart({ serverAddress, t }) {
           </div>
         </div>
 
-        {/* Right Column: Quick Start */}
+        {/* Column 2: Quick Start */}
         <div className='ald-home-hero__quickstart-column'>
           <div className='ald-home-hero__secondary-header'>
             <span>§ QUICK START</span>
@@ -86,6 +104,37 @@ function LandingQuickStart({ serverAddress, t }) {
           </div>
         </div>
 
+        {/* Column 3: Enterprise Ready */}
+        <div className='ald-home-hero__quickstart-column'>
+          <div className='ald-home-hero__secondary-header'>
+            <span>§ ENTERPRISE</span>
+            <p>{t('安全与生态')}</p>
+          </div>
+          <div className='ald-home-hero__features'>
+            {features.map((feature, i) => (
+              <div key={i} className='ald-home-hero__feature-item'>
+                <div className='ald-home-hero__feature-icon'>{feature.icon}</div>
+                <div className='ald-home-hero__feature-content'>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Row: Framework Logos / Tags */}
+      <div className='ald-home-hero__frameworks'>
+        <span className='ald-home-hero__frameworks-label'>{t('已完美支持以下框架')}</span>
+        <div className='ald-home-hero__frameworks-list'>
+          {['LangChain', 'LlamaIndex', 'Dify', 'FastGPT', 'Next.js', 'Vercel AI SDK', 'AnythingLLM'].map((fw, i) => (
+            <div key={i} className='ald-home-hero__framework-tag'>
+              {fw}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
