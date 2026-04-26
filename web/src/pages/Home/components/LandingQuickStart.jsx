@@ -28,7 +28,7 @@ function LandingQuickStart({ serverAddress, t }) {
     {
       num: '02',
       title: t('修改 Base URL'),
-      desc: \`${t('将 API 地址指向')} ${serverAddress}/v1\`,
+      desc: `${t('将 API 地址指向')} ${serverAddress}/v1`,
     },
     {
       num: '03',
